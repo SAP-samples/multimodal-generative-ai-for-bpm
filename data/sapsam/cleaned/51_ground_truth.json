@@ -1,0 +1,111 @@
+{
+    "tasks": [
+        {
+            "id": "sid-F92D9256-0922-49B2-9DE7-45DBDB632E7E",
+            "name": "T\u00e4tigkeitsdarstellung abrufen",
+            "type": "User"
+        },
+        {
+            "id": "sid-B801A668-AC39-4F72-9D9C-DB94A3395338",
+            "name": "Anforderungsprofil erstellen",
+            "type": "Business Rule"
+        },
+        {
+            "id": "sid-E4A2E2E7-4FD2-48F6-A7E7-87E9CD519D24",
+            "name": "Stellenausschreibung erstellen",
+            "type": "Business Rule"
+        },
+        {
+            "id": "sid-1A5EC435-ECF3-4004-BD26-C68C112782A2",
+            "name": "Unterlagen ablegen",
+            "type": "User"
+        }
+    ],
+    "events": [
+        {
+            "id": "sid-AFE73F04-C482-44BE-9625-C0690B379407",
+            "name": "Start",
+            "type": "StartNoneEvent"
+        },
+        {
+            "id": "sid-BCACAD49-EAD7-4D24-B297-D68603CA4D19",
+            "name": "Ende",
+            "type": "EndNoneEvent"
+        }
+    ],
+    "gateways": [
+        {
+            "id": "sid-5CC5465F-EE14-4EDB-BF1B-1FB87B8EEFC2",
+            "type": "Parallel"
+        },
+        {
+            "id": "sid-619679D3-EFE1-4C2F-9138-D668FC6767F0",
+            "type": "Parallel"
+        }
+    ],
+    "pools": [
+        {
+            "id": "sid-afad849c-e220-4acd-8b67-34c7e2e22393",
+            "name": "ZV-Personal",
+            "lanes": [
+                {
+                    "id": "sid-9400913D-D619-4A3F-A1C1-4A2F8C82001E",
+                    "name": "Sachbearbeiter",
+                    "elemRefs": [
+                        "sid-F92D9256-0922-49B2-9DE7-45DBDB632E7E",
+                        "sid-B801A668-AC39-4F72-9D9C-DB94A3395338",
+                        "sid-E4A2E2E7-4FD2-48F6-A7E7-87E9CD519D24",
+                        "sid-1A5EC435-ECF3-4004-BD26-C68C112782A2",
+                        "sid-AFE73F04-C482-44BE-9625-C0690B379407",
+                        "sid-BCACAD49-EAD7-4D24-B297-D68603CA4D19",
+                        "sid-5CC5465F-EE14-4EDB-BF1B-1FB87B8EEFC2",
+                        "sid-619679D3-EFE1-4C2F-9138-D668FC6767F0"
+                    ]
+                }
+            ]
+        }
+    ],
+    "messageFlows": [],
+    "sequenceFlows": [
+        {
+            "id": "sid-C7D2DCAD-3F6E-4C7D-9800-F8A56DC655A6",
+            "targetRef": "sid-E4A2E2E7-4FD2-48F6-A7E7-87E9CD519D24",
+            "sourceRef": "sid-5CC5465F-EE14-4EDB-BF1B-1FB87B8EEFC2"
+        },
+        {
+            "id": "sid-352D9FF3-2380-4A96-927D-95F45886A950",
+            "targetRef": "sid-B801A668-AC39-4F72-9D9C-DB94A3395338",
+            "sourceRef": "sid-5CC5465F-EE14-4EDB-BF1B-1FB87B8EEFC2"
+        },
+        {
+            "id": "sid-C5192298-AAB2-46CD-9E01-58FC54C76C0C",
+            "targetRef": "sid-5CC5465F-EE14-4EDB-BF1B-1FB87B8EEFC2",
+            "sourceRef": "sid-F92D9256-0922-49B2-9DE7-45DBDB632E7E"
+        },
+        {
+            "id": "sid-8F83F526-055A-4377-B6ED-B39A52BFA28D",
+            "targetRef": "sid-F92D9256-0922-49B2-9DE7-45DBDB632E7E",
+            "sourceRef": "sid-AFE73F04-C482-44BE-9625-C0690B379407"
+        },
+        {
+            "id": "sid-D54B0FF3-864A-4F0A-9709-66DFF5354186",
+            "targetRef": "sid-619679D3-EFE1-4C2F-9138-D668FC6767F0",
+            "sourceRef": "sid-E4A2E2E7-4FD2-48F6-A7E7-87E9CD519D24"
+        },
+        {
+            "id": "sid-7F462F62-0970-44D5-AFDA-FF25BBCC13F4",
+            "targetRef": "sid-619679D3-EFE1-4C2F-9138-D668FC6767F0",
+            "sourceRef": "sid-B801A668-AC39-4F72-9D9C-DB94A3395338"
+        },
+        {
+            "id": "sid-2868BAE7-CA15-4375-BE16-403F27F0DE39",
+            "targetRef": "sid-1A5EC435-ECF3-4004-BD26-C68C112782A2",
+            "sourceRef": "sid-619679D3-EFE1-4C2F-9138-D668FC6767F0"
+        },
+        {
+            "id": "sid-AB8565EC-B6B0-463A-96E7-F0CB98A91BDC",
+            "targetRef": "sid-BCACAD49-EAD7-4D24-B297-D68603CA4D19",
+            "sourceRef": "sid-1A5EC435-ECF3-4004-BD26-C68C112782A2"
+        }
+    ]
+}

@@ -1,0 +1,106 @@
+{
+    "tasks": [
+        {
+            "id": "0",
+            "name": "T\u00e4tigkeitsdarstellung abrufen",
+            "type": "Task"
+        },
+        {
+            "id": "1",
+            "name": "Anforderungsprofil erstellen",
+            "type": "Business Rule"
+        },
+        {
+            "id": "2",
+            "name": "Stellenausschreibung erstellen",
+            "type": "Business Rule"
+        },
+        {
+            "id": "3",
+            "name": "Unterlagen ablegen",
+            "type": "Task"
+        }
+    ],
+    "events": [
+        {
+            "id": "4",
+            "name": "Start",
+            "type": "StartNoneEvent"
+        },
+        {
+            "id": "5",
+            "name": "Ende",
+            "type": "EndNoneEvent"
+        }
+    ],
+    "gateways": [
+        {
+            "id": "6",
+            "type": "Parallel"
+        }
+    ],
+    "pools": [
+        {
+            "id": "7",
+            "name": "ZV-Personal",
+            "lanes": [
+                {
+                    "id": "8",
+                    "name": "Sachbearbeiter",
+                    "elemRefs": [
+                        "0",
+                        "1",
+                        "2",
+                        "3",
+                        "4",
+                        "5",
+                        "6"
+                    ]
+                }
+            ]
+        }
+    ],
+    "sequenceFlows": [
+        {
+            "id": "9",
+            "sourceRef": "4",
+            "targetRef": "0"
+        },
+        {
+            "id": "10",
+            "sourceRef": "0",
+            "targetRef": "6"
+        },
+        {
+            "id": "11",
+            "sourceRef": "6",
+            "targetRef": "1"
+        },
+        {
+            "id": "12",
+            "sourceRef": "6",
+            "targetRef": "2"
+        },
+        {
+            "id": "13",
+            "sourceRef": "1",
+            "targetRef": "6"
+        },
+        {
+            "id": "14",
+            "sourceRef": "2",
+            "targetRef": "6"
+        },
+        {
+            "id": "15",
+            "sourceRef": "6",
+            "targetRef": "3"
+        },
+        {
+            "id": "16",
+            "sourceRef": "3",
+            "targetRef": "5"
+        }
+    ],
+    "messageFlows": []
+}

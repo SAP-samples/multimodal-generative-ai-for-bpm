@@ -1,0 +1,147 @@
+{
+    "tasks": [
+        {
+            "id": "0",
+            "name": "Eigenfinanzierung gew\u00e4hrleisten",
+            "type": "Task"
+        },
+        {
+            "id": "1",
+            "name": "F\u00f6rdersummen erhalten",
+            "type": "Task"
+        },
+        {
+            "id": "2",
+            "name": "Hohen Marktanteil bei Open-Source-L\u00f6sungen bekommen",
+            "type": "Task"
+        },
+        {
+            "id": "3",
+            "name": "Einnahmen durch zus\u00e4tzliche Services erzielen",
+            "type": "Task"
+        },
+        {
+            "id": "4",
+            "name": "Trainingseinheiten organisieren",
+            "type": "Task"
+        },
+        {
+            "id": "5",
+            "name": "Beratungsleistungen durchf\u00fchren",
+            "type": "Task"
+        },
+        {
+            "id": "6",
+            "name": "Nachfolge Projekte generieren",
+            "type": "Task"
+        }
+    ],
+    "events": [
+        {
+            "id": "7",
+            "name": "Einnahmen einfordern",
+            "type": "StartNoneEvent"
+        },
+        {
+            "id": "8",
+            "name": "Einnahmen eingefordert",
+            "type": "EndNoneEvent"
+        }
+    ],
+    "gateways": [
+        {
+            "id": "9",
+            "name": "Eigenfinanzierung gew\u00e4hrleisten oder F\u00f6rdersumme erhalten ?",
+            "type": "Inclusive"
+        },
+        {
+            "id": "10",
+            "type": "Parallel"
+        }
+    ],
+    "pools": [
+        {
+            "id": "11",
+            "name": "SoKnow",
+            "lanes": [
+                {
+                    "id": "12",
+                    "name": "Strategieprozess",
+                    "elemRefs": [
+                        "0",
+                        "1",
+                        "2",
+                        "3",
+                        "4",
+                        "5",
+                        "6",
+                        "7",
+                        "8",
+                        "9",
+                        "10"
+                    ]
+                }
+            ]
+        }
+    ],
+    "sequenceFlows": [
+        {
+            "id": "13",
+            "sourceRef": "7",
+            "targetRef": "9"
+        },
+        {
+            "id": "14",
+            "sourceRef": "9",
+            "targetRef": "0",
+            "condition": "Eigenfinanzierung gew\u00e4hrleisten"
+        },
+        {
+            "id": "15",
+            "sourceRef": "9",
+            "targetRef": "1",
+            "condition": "F\u00f6rdersummen erhalten"
+        },
+        {
+            "id": "16",
+            "sourceRef": "0",
+            "targetRef": "10"
+        },
+        {
+            "id": "17",
+            "sourceRef": "1",
+            "targetRef": "10"
+        },
+        {
+            "id": "18",
+            "sourceRef": "10",
+            "targetRef": "2"
+        },
+        {
+            "id": "19",
+            "sourceRef": "2",
+            "targetRef": "3"
+        },
+        {
+            "id": "20",
+            "sourceRef": "3",
+            "targetRef": "4"
+        },
+        {
+            "id": "21",
+            "sourceRef": "4",
+            "targetRef": "5"
+        },
+        {
+            "id": "22",
+            "sourceRef": "5",
+            "targetRef": "6"
+        },
+        {
+            "id": "23",
+            "sourceRef": "6",
+            "targetRef": "8"
+        }
+    ],
+    "messageFlows": []
+}

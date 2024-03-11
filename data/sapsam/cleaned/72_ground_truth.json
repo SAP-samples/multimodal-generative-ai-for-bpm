@@ -1,0 +1,189 @@
+{
+    "tasks": [
+        {
+            "id": "sid-BFDA7D9F-C1EB-48CC-935D-93C3F931EC2E",
+            "name": "Require appointment",
+            "type": "User"
+        },
+        {
+            "id": "sid-D474EC70-3A8A-4C95-BFD0-F8184A035758",
+            "name": "Check the appointment data",
+            "type": "User"
+        },
+        {
+            "id": "sid-7F7E3618-FB18-4A75-8A4F-8F04466EC48D",
+            "name": "Send personal data",
+            "type": "Service"
+        },
+        {
+            "id": "sid-F699ADF4-8B04-4E4A-9217-3FCDAADD7DBE",
+            "name": "Verify  dates",
+            "type": "Service"
+        },
+        {
+            "id": "sid-2BDC6C95-9BE5-4B82-BCCA-94FEFB80468A",
+            "name": "Make appointment",
+            "type": "Service"
+        },
+        {
+            "id": "sid-E8B166FB-B108-41B2-ABED-FAB1038BC08C",
+            "name": "Register Appointment",
+            "type": "Service"
+        }
+    ],
+    "events": [
+        {
+            "id": "sid-6742DCA0-9038-46B6-8003-312EBE8EDD20",
+            "name": "Start Booking Appointment",
+            "type": "StartNoneEvent"
+        },
+        {
+            "id": "sid-B4DEC657-BD57-46A3-B6AD-B8A662750B7C",
+            "name": "Reject Appointment Message",
+            "type": "EndMessageEvent"
+        },
+        {
+            "id": "sid-0CE18F09-B1AA-4858-99AB-970F116129EA",
+            "name": "Send the appointment time and date",
+            "type": "IntermediateMessageEventCatching"
+        },
+        {
+            "id": "sid-B2E59430-03F2-4063-B2DB-A43B9AD1FBE5",
+            "name": "Appointment Done",
+            "type": "EndNoneEvent"
+        },
+        {
+            "id": "sid-3FDC273E-DA1E-4B38-9345-294F0C56C146",
+            "name": "Request appointment  describing the problem",
+            "type": "IntermediateMessageEventCatching"
+        },
+        {
+            "id": "sid-3CA1B038-8A45-47FF-8ABA-61E235F5FFCB",
+            "name": "Email with data for patient",
+            "type": "IntermediateMessageEventCatching"
+        }
+    ],
+    "gateways": [
+        {
+            "id": "sid-F36BE433-A334-44C9-B180-7FB59E8DE21E",
+            "name": "Confirm  it?",
+            "type": "Exclusive"
+        },
+        {
+            "id": "sid-EBA4A2EC-9EFD-4D20-BAD9-41B7B87F5013",
+            "name": "Are there  any available  dates in 90 days?",
+            "type": "Exclusive"
+        }
+    ],
+    "pools": [
+        {
+            "id": "sid-2F094FBC-7F37-448E-BE9D-239B73042B9D",
+            "name": "Oculist Check Appointment",
+            "lanes": [
+                {
+                    "id": "sid-CFAF08B9-C49B-446A-83D6-E719A52ADE8E",
+                    "name": "Patient",
+                    "elemRefs": [
+                        "sid-BFDA7D9F-C1EB-48CC-935D-93C3F931EC2E",
+                        "sid-D474EC70-3A8A-4C95-BFD0-F8184A035758",
+                        "sid-7F7E3618-FB18-4A75-8A4F-8F04466EC48D",
+                        "sid-6742DCA0-9038-46B6-8003-312EBE8EDD20",
+                        "sid-B4DEC657-BD57-46A3-B6AD-B8A662750B7C",
+                        "sid-0CE18F09-B1AA-4858-99AB-970F116129EA",
+                        "sid-F36BE433-A334-44C9-B180-7FB59E8DE21E"
+                    ]
+                },
+                {
+                    "id": "sid-402029E7-2597-4A21-87D7-3CA8388DE28A",
+                    "name": "Receptionist",
+                    "elemRefs": [
+                        "sid-F699ADF4-8B04-4E4A-9217-3FCDAADD7DBE",
+                        "sid-2BDC6C95-9BE5-4B82-BCCA-94FEFB80468A",
+                        "sid-E8B166FB-B108-41B2-ABED-FAB1038BC08C",
+                        "sid-B2E59430-03F2-4063-B2DB-A43B9AD1FBE5",
+                        "sid-3FDC273E-DA1E-4B38-9345-294F0C56C146",
+                        "sid-3CA1B038-8A45-47FF-8ABA-61E235F5FFCB",
+                        "sid-EBA4A2EC-9EFD-4D20-BAD9-41B7B87F5013"
+                    ]
+                }
+            ]
+        }
+    ],
+    "messageFlows": [],
+    "sequenceFlows": [
+        {
+            "id": "sid-050385B4-933D-4112-B1E1-12E5E200BA67",
+            "targetRef": "sid-BFDA7D9F-C1EB-48CC-935D-93C3F931EC2E",
+            "sourceRef": "sid-6742DCA0-9038-46B6-8003-312EBE8EDD20"
+        },
+        {
+            "id": "sid-6EFC335F-3C0C-4B29-818D-97E3130FC5D7",
+            "targetRef": "sid-EBA4A2EC-9EFD-4D20-BAD9-41B7B87F5013",
+            "sourceRef": "sid-F699ADF4-8B04-4E4A-9217-3FCDAADD7DBE"
+        },
+        {
+            "id": "sid-5569D333-BC76-4B29-A6AF-62A4A83D4919",
+            "targetRef": "sid-2BDC6C95-9BE5-4B82-BCCA-94FEFB80468A",
+            "condition": "Yes",
+            "sourceRef": "sid-EBA4A2EC-9EFD-4D20-BAD9-41B7B87F5013"
+        },
+        {
+            "id": "sid-74EEC5A4-09EF-4981-8737-2A4C8D18AD63",
+            "targetRef": "sid-F36BE433-A334-44C9-B180-7FB59E8DE21E",
+            "sourceRef": "sid-D474EC70-3A8A-4C95-BFD0-F8184A035758"
+        },
+        {
+            "id": "sid-D2D5F12C-F089-46B4-94EB-EFE456CFF301",
+            "targetRef": "sid-7F7E3618-FB18-4A75-8A4F-8F04466EC48D",
+            "condition": "Yes",
+            "sourceRef": "sid-F36BE433-A334-44C9-B180-7FB59E8DE21E"
+        },
+        {
+            "id": "sid-24DC7288-C896-47EF-A037-62F536DE36B5",
+            "targetRef": "sid-B2E59430-03F2-4063-B2DB-A43B9AD1FBE5",
+            "sourceRef": "sid-E8B166FB-B108-41B2-ABED-FAB1038BC08C"
+        },
+        {
+            "id": "sid-B49EBBC7-867B-4608-BE8F-0C90CA9C4ACF",
+            "targetRef": "sid-BFDA7D9F-C1EB-48CC-935D-93C3F931EC2E",
+            "condition": "No",
+            "sourceRef": "sid-F36BE433-A334-44C9-B180-7FB59E8DE21E"
+        },
+        {
+            "id": "sid-40973E1E-EF37-4A08-A713-720F04EBB022",
+            "targetRef": "sid-B4DEC657-BD57-46A3-B6AD-B8A662750B7C",
+            "condition": "No",
+            "sourceRef": "sid-EBA4A2EC-9EFD-4D20-BAD9-41B7B87F5013"
+        },
+        {
+            "id": "sid-F294D3D1-7E68-4260-A8DC-3B4266B50522",
+            "targetRef": "sid-3FDC273E-DA1E-4B38-9345-294F0C56C146",
+            "sourceRef": "sid-BFDA7D9F-C1EB-48CC-935D-93C3F931EC2E"
+        },
+        {
+            "id": "sid-B9C62E11-D046-47C0-A4DF-3360964911C6",
+            "targetRef": "sid-F699ADF4-8B04-4E4A-9217-3FCDAADD7DBE",
+            "sourceRef": "sid-3FDC273E-DA1E-4B38-9345-294F0C56C146"
+        },
+        {
+            "id": "sid-DF6E6F4F-B0FA-48D9-A165-19B591B954B9",
+            "targetRef": "sid-0CE18F09-B1AA-4858-99AB-970F116129EA",
+            "sourceRef": "sid-2BDC6C95-9BE5-4B82-BCCA-94FEFB80468A"
+        },
+        {
+            "id": "sid-EADE1C9F-3C1E-4413-850F-8945FB9D25D7",
+            "targetRef": "sid-D474EC70-3A8A-4C95-BFD0-F8184A035758",
+            "sourceRef": "sid-0CE18F09-B1AA-4858-99AB-970F116129EA"
+        },
+        {
+            "id": "sid-CE97B77B-AFA5-4C76-BF70-71D2D87397D2",
+            "targetRef": "sid-3CA1B038-8A45-47FF-8ABA-61E235F5FFCB",
+            "sourceRef": "sid-7F7E3618-FB18-4A75-8A4F-8F04466EC48D"
+        },
+        {
+            "id": "sid-DB242BAE-AE7C-48C3-B2DC-111B4D911FD1",
+            "targetRef": "sid-E8B166FB-B108-41B2-ABED-FAB1038BC08C",
+            "sourceRef": "sid-3CA1B038-8A45-47FF-8ABA-61E235F5FFCB"
+        }
+    ]
+}

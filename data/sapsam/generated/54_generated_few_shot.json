@@ -1,0 +1,135 @@
+{
+    "tasks": [
+        {
+            "id": "0",
+            "name": "send subscription form",
+            "type": "Service"
+        },
+        {
+            "id": "1",
+            "name": "select the payment method",
+            "type": "User"
+        },
+        {
+            "id": "2",
+            "name": "enter your credit card information",
+            "type": "User"
+        },
+        {
+            "id": "3",
+            "name": "enter your IBAN and BIC numbers",
+            "type": "User"
+        },
+        {
+            "id": "4",
+            "name": "submit informations",
+            "type": "User"
+        },
+        {
+            "id": "5",
+            "name": "activate WoW subscription",
+            "type": "Service"
+        }
+    ],
+    "events": [
+        {
+            "id": "6",
+            "name": "start WoW subscription",
+            "type": "StartNoneEvent"
+        },
+        {
+            "id": "7",
+            "name": "end WoW subscription",
+            "type": "EndNoneEvent"
+        }
+    ],
+    "gateways": [
+        {
+            "id": "8",
+            "type": "Exclusive"
+        },
+        {
+            "id": "9",
+            "type": "Exclusive"
+        }
+    ],
+    "pools": [
+        {
+            "id": "10",
+            "name": "wow community",
+            "lanes": [
+                {
+                    "id": "11",
+                    "name": "applicant",
+                    "elemRefs": [
+                        "0",
+                        "1",
+                        "2",
+                        "3",
+                        "4",
+                        "5",
+                        "6",
+                        "7",
+                        "8",
+                        "9"
+                    ]
+                }
+            ]
+        }
+    ],
+    "sequenceFlows": [
+        {
+            "id": "12",
+            "sourceRef": "6",
+            "targetRef": "0"
+        },
+        {
+            "id": "13",
+            "sourceRef": "0",
+            "targetRef": "8"
+        },
+        {
+            "id": "14",
+            "sourceRef": "8",
+            "targetRef": "1",
+            "condition": "credit card selected"
+        },
+        {
+            "id": "15",
+            "sourceRef": "8",
+            "targetRef": "3",
+            "condition": "IBAN/BIC selected"
+        },
+        {
+            "id": "16",
+            "sourceRef": "1",
+            "targetRef": "2"
+        },
+        {
+            "id": "17",
+            "sourceRef": "2",
+            "targetRef": "9"
+        },
+        {
+            "id": "18",
+            "sourceRef": "3",
+            "targetRef": "9"
+        },
+        {
+            "id": "19",
+            "sourceRef": "9",
+            "targetRef": "4"
+        },
+        {
+            "id": "20",
+            "sourceRef": "4",
+            "targetRef": "5"
+        },
+        {
+            "id": "21",
+            "sourceRef": "5",
+            "targetRef": "7"
+        }
+    ],
+    "messageFlows": []
+}

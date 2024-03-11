@@ -1,0 +1,129 @@
+{
+    "tasks": [
+        {
+            "id": "_e7cac522-ff9e-4162-8104-fcb3bca0f529",
+            "name": "Informationen zu Schlagstandort erhalten",
+            "type": "Task"
+        },
+        {
+            "id": "_2dc23895-0539-4c86-8109-0bc9c35d7802",
+            "name": "Traubenlese von Hand durchf\u00fchren",
+            "type": "Task"
+        },
+        {
+            "id": "_e45f1ce2-31dc-4dc9-b411-f40d5bb8c324",
+            "name": "Hilfsmittel aufladen",
+            "type": "Task"
+        },
+        {
+            "id": "_ac746456-ff69-44fa-93fa-7e6a29652f84",
+            "name": "Hilfsmittel aufladen",
+            "type": "Task"
+        },
+        {
+            "id": "_cfde31f2-6686-4184-a520-92ebfbb26e51",
+            "name": "Zum Weingut fahren",
+            "type": "Task"
+        },
+        {
+            "id": "_abaae3c1-78ca-4414-9fb8-b6d44031556f",
+            "name": "Zum Schlag fahren",
+            "type": "Task"
+        },
+        {
+            "id": "_67c15b26-c81e-464e-9224-ab237d3a6dbe",
+            "name": "Hilfsmittel abladen",
+            "type": "Task"
+        },
+        {
+            "id": "_a907ea16-3b3b-411d-9986-d06105be72dd",
+            "name": "Hilfsmittel abladen",
+            "type": "Task"
+        }
+    ],
+    "events": [
+        {
+            "id": "_a69d0162-d728-403c-a697-ce25e19bb49c",
+            "name": "Aufgabe ist abgeschlossen",
+            "type": "EndNoneEvent"
+        },
+        {
+            "id": "_cba75b41-c7e4-498f-ae2f-947d7effeb6b",
+            "name": "Aufgabe \"Traubenlese\" erhalten",
+            "type": "StartNoneEvent"
+        }
+    ],
+    "gateways": [],
+    "pools": [
+        {
+            "id": "_cd604ef6-c2ae-4672-9d92-dda71de40a38",
+            "name": "Weinbau im Au\u00dfenbetrieb",
+            "lanes": [
+                {
+                    "id": "_0b37e290-7369-4c41-af0a-002c74030e50",
+                    "name": "Au\u00dfenbetriebsmitarbeiter",
+                    "elemRefs": [
+                        "_e7cac522-ff9e-4162-8104-fcb3bca0f529",
+                        "_2dc23895-0539-4c86-8109-0bc9c35d7802",
+                        "_e45f1ce2-31dc-4dc9-b411-f40d5bb8c324",
+                        "_ac746456-ff69-44fa-93fa-7e6a29652f84",
+                        "_cfde31f2-6686-4184-a520-92ebfbb26e51",
+                        "_abaae3c1-78ca-4414-9fb8-b6d44031556f",
+                        "_67c15b26-c81e-464e-9224-ab237d3a6dbe",
+                        "_a907ea16-3b3b-411d-9986-d06105be72dd",
+                        "_a69d0162-d728-403c-a697-ce25e19bb49c",
+                        "_cba75b41-c7e4-498f-ae2f-947d7effeb6b"
+                    ]
+                }
+            ]
+        }
+    ],
+    "messageFlows": [],
+    "sequenceFlows": [
+        {
+            "id": "_0c90af8f-285f-48d2-8e59-016ff98d10f0",
+            "targetRef": "_cfde31f2-6686-4184-a520-92ebfbb26e51",
+            "sourceRef": "_ac746456-ff69-44fa-93fa-7e6a29652f84"
+        },
+        {
+            "id": "_106ffcf5-d22a-4bbf-91e6-92dbbf601373",
+            "targetRef": "_a69d0162-d728-403c-a697-ce25e19bb49c",
+            "sourceRef": "_67c15b26-c81e-464e-9224-ab237d3a6dbe"
+        },
+        {
+            "id": "_37a487c7-4d90-4ee1-90c2-39ebd6026df3",
+            "targetRef": "_a907ea16-3b3b-411d-9986-d06105be72dd",
+            "sourceRef": "_abaae3c1-78ca-4414-9fb8-b6d44031556f"
+        },
+        {
+            "id": "_40e277f0-9448-4cf2-8b13-ffac1de17354",
+            "targetRef": "_e7cac522-ff9e-4162-8104-fcb3bca0f529",
+            "sourceRef": "_cba75b41-c7e4-498f-ae2f-947d7effeb6b"
+        },
+        {
+            "id": "_5d9eaa04-a7c9-476d-9a4f-10692f726509",
+            "targetRef": "_abaae3c1-78ca-4414-9fb8-b6d44031556f",
+            "sourceRef": "_e45f1ce2-31dc-4dc9-b411-f40d5bb8c324"
+        },
+        {
+            "id": "_66dfe749-1605-41b8-afa7-317e1669e1ae",
+            "targetRef": "_67c15b26-c81e-464e-9224-ab237d3a6dbe",
+            "sourceRef": "_cfde31f2-6686-4184-a520-92ebfbb26e51"
+        },
+        {
+            "id": "_b6908123-1eff-4bc7-a24c-1ba18ace9c71",
+            "targetRef": "_2dc23895-0539-4c86-8109-0bc9c35d7802",
+            "sourceRef": "_a907ea16-3b3b-411d-9986-d06105be72dd"
+        },
+        {
+            "id": "_d8343ac7-0582-497c-aefe-f30f3ea97510",
+            "targetRef": "_e45f1ce2-31dc-4dc9-b411-f40d5bb8c324",
+            "sourceRef": "_e7cac522-ff9e-4162-8104-fcb3bca0f529"
+        },
+        {
+            "id": "_f527260e-9f9c-4a70-b1b6-70aa43621ad5",
+            "targetRef": "_ac746456-ff69-44fa-93fa-7e6a29652f84",
+            "sourceRef": "_2dc23895-0539-4c86-8109-0bc9c35d7802"
+        }
+    ]
+}

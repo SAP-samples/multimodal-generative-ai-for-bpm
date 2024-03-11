@@ -1,0 +1,162 @@
+{
+    "tasks": [
+        {
+            "id": "0",
+            "name": "Order food",
+            "type": "Task"
+        },
+        {
+            "id": "1",
+            "name": "Enjoy food",
+            "type": "Task"
+        },
+        {
+            "id": "2",
+            "name": "Send order to Sous Chef",
+            "type": "Task"
+        },
+        {
+            "id": "3",
+            "name": "Manage the Order of Cooking",
+            "type": "Task"
+        },
+        {
+            "id": "4",
+            "name": "Cooking",
+            "type": "Task"
+        },
+        {
+            "id": "5",
+            "name": "Send to sous chef",
+            "type": "Task"
+        },
+        {
+            "id": "6",
+            "name": "Check the food",
+            "type": "Task"
+        },
+        {
+            "id": "7",
+            "name": "Call waiter to grab food",
+            "type": "Task"
+        },
+        {
+            "id": "8",
+            "name": "Send food to customer",
+            "type": "Task"
+        }
+    ],
+    "events": [
+        {
+            "id": "9",
+            "name": "Start",
+            "type": "StartNoneEvent"
+        },
+        {
+            "id": "10",
+            "name": "End",
+            "type": "EndNoneEvent"
+        }
+    ],
+    "gateways": [],
+    "pools": [
+        {
+            "id": "11",
+            "name": "Customer",
+            "lanes": [
+                {
+                    "id": "12",
+                    "name": "Customer",
+                    "elemRefs": [
+                        "0",
+                        "1",
+                        "10"
+                    ]
+                }
+            ]
+        },
+        {
+            "id": "13",
+            "name": "Kitchen",
+            "lanes": [
+                {
+                    "id": "14",
+                    "name": "Chef",
+                    "elemRefs": [
+                        "4",
+                        "5"
+                    ]
+                },
+                {
+                    "id": "15",
+                    "name": "Sous Chef",
+                    "elemRefs": [
+                        "2",
+                        "3",
+                        "6",
+                        "7"
+                    ]
+                },
+                {
+                    "id": "16",
+                    "name": "Waiter",
+                    "elemRefs": [
+                        "8",
+                        "9"
+                    ]
+                }
+            ]
+        }
+    ],
+    "sequenceFlows": [
+        {
+            "id": "17",
+            "sourceRef": "9",
+            "targetRef": "2"
+        },
+        {
+            "id": "18",
+            "sourceRef": "2",
+            "targetRef": "4"
+        },
+        {
+            "id": "19",
+            "sourceRef": "4",
+            "targetRef": "3"
+        },
+        {
+            "id": "20",
+            "sourceRef": "3",
+            "targetRef": "6"
+        },
+        {
+            "id": "21",
+            "sourceRef": "6",
+            "targetRef": "7"
+        },
+        {
+            "id": "22",
+            "sourceRef": "7",
+            "targetRef": "8"
+        },
+        {
+            "id": "23",
+            "sourceRef": "8",
+            "targetRef": "10"
+        }
+    ],
+    "messageFlows": [
+        {
+            "id": "24",
+            "sourceRef": "0",
+            "targetRef": "9",
+            "label": "Place Order"
+        },
+        {
+            "id": "25",
+            "sourceRef": "8",
+            "targetRef": "1",
+            "label": "Serve Order"
+        }
+    ]
+}

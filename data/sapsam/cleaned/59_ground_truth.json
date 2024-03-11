@@ -1,0 +1,312 @@
+{
+    "tasks": [
+        {
+            "id": "sid-A5A25AC8-F13E-4C00-B2D3-123478C6CC3A",
+            "name": "Kreditantrag ausf\u00fcllen",
+            "type": "Task"
+        },
+        {
+            "id": "sid-1F79424C-85F5-4AB7-8C8E-1E13A6107F8B",
+            "name": "Zinssatzermittlung",
+            "type": "CollapsedSubprocess"
+        },
+        {
+            "id": "sid-ED9D6D5B-466D-46E1-901C-40DE94FBFCB9",
+            "name": "Kreditbetrag pr\u00fcfen",
+            "type": "Task"
+        },
+        {
+            "id": "sid-0034110D-5674-4D1B-AD93-BFD1ACEC8936",
+            "name": "Kreditbetrag pr\u00fcfen",
+            "type": "Task"
+        },
+        {
+            "id": "sid-3FEB8391-7645-4BBB-9E88-1AE9596D12A8",
+            "name": "20% Zinsen pro Jahr veranschlagen",
+            "type": "Task"
+        }
+    ],
+    "events": [
+        {
+            "id": "sid-DDFEF856-E684-4AE7-904F-95BB4F7FBA1A",
+            "name": "Kunde  m\u00f6chte ein  Kredit",
+            "type": "StartNoneEvent"
+        },
+        {
+            "id": "sid-B7FAAA8B-5B43-4E8B-9182-3122A07B3C7A",
+            "name": "Kreditvorschlag  erhalten",
+            "type": "IntermediateMessageEventCatching"
+        },
+        {
+            "id": "sid-BED1223F-9785-4B7F-A8FB-B239D76A5C88",
+            "name": "Kreditantrag versenden",
+            "type": "IntermediateMessageEventThrowing"
+        },
+        {
+            "id": "sid-41B76518-30E0-4D22-9F86-FF85CA4EEE0B",
+            "name": "Kreditvorgang  abgeschlossen",
+            "type": "EndNoneEvent"
+        },
+        {
+            "id": "sid-EC5BAF79-1CE3-46AC-85AB-C144018A3C53",
+            "name": "Ablehnung erhalten",
+            "type": "IntermediateMessageEventCatching"
+        },
+        {
+            "id": "sid-9E814708-AF31-4A9F-BD34-A1329EEACC4E",
+            "name": "Kreditanfrage eingegangen",
+            "type": "StartMessageEvent"
+        },
+        {
+            "id": "sid-7D9773EA-FBE5-40DA-9788-4D7EC4C65161",
+            "name": "Kreditauskunft versendet",
+            "type": "EndMessageEvent"
+        },
+        {
+            "id": "sid-714FB172-998B-4EC4-A1D2-E9A72A198048",
+            "name": "Ablehnung versendet",
+            "type": "EndMessageEvent"
+        },
+        {
+            "id": "sid-A5F360D7-3DD2-44AC-8B02-E87C52850F76",
+            "name": "Kreditanfrage  eingegangen",
+            "type": "StartMessageEvent"
+        },
+        {
+            "id": "sid-656E46AD-A200-487E-AE3F-A64D2CABBAB2",
+            "name": "Kreditauskunft versendet",
+            "type": "EndMessageEvent"
+        },
+        {
+            "id": "sid-E0031D72-AB45-4D3A-A468-CAADACB59A41",
+            "name": "Ablehnung versendet",
+            "type": "EndMessageEvent"
+        }
+    ],
+    "gateways": [
+        {
+            "id": "sid-5D4E20C0-AE41-4A40-AD2D-232E0363080C",
+            "type": "Eventbased"
+        },
+        {
+            "id": "sid-7B713717-2078-4E0A-A64F-18D36130419D",
+            "type": "Exclusive"
+        },
+        {
+            "id": "sid-948DF163-0CCD-41B0-81E5-22509A6491FF",
+            "name": "Einkommen  zwischen  2.000\u20ac und  100.000\u20ac?",
+            "type": "Exclusive"
+        },
+        {
+            "id": "sid-A98CEDC2-FF73-45F5-AF5A-70DF278D532E",
+            "name": "Kreditbetrag gr\u00f6\u00dfer als das  20 fache des  Monatseinkommens?",
+            "type": "Exclusive"
+        }
+    ],
+    "pools": [
+        {
+            "id": "sid-1229932D-74CF-4D7E-9C97-37664282DCE8",
+            "name": "Kunde",
+            "lanes": [
+                {
+                    "id": "sid-9DEC5A17-2E60-448E-9EC7-547FD68B1ADE",
+                    "name": "",
+                    "elemRefs": [
+                        "sid-A5A25AC8-F13E-4C00-B2D3-123478C6CC3A",
+                        "sid-DDFEF856-E684-4AE7-904F-95BB4F7FBA1A",
+                        "sid-B7FAAA8B-5B43-4E8B-9182-3122A07B3C7A",
+                        "sid-BED1223F-9785-4B7F-A8FB-B239D76A5C88",
+                        "sid-41B76518-30E0-4D22-9F86-FF85CA4EEE0B",
+                        "sid-EC5BAF79-1CE3-46AC-85AB-C144018A3C53",
+                        "sid-5D4E20C0-AE41-4A40-AD2D-232E0363080C",
+                        "sid-7B713717-2078-4E0A-A64F-18D36130419D"
+                    ]
+                }
+            ]
+        },
+        {
+            "id": "sid-A5E5A774-6708-492D-92DD-7785875596B2",
+            "name": "Vermittlungs-Agentur",
+            "lanes": []
+        },
+        {
+            "id": "sid-15856A0A-B63A-4FE2-8861-58F471B6F511",
+            "name": "Bank B",
+            "lanes": [
+                {
+                    "id": "sid-BA472E81-2E3F-466B-8756-42A28CCF1CC9",
+                    "name": "",
+                    "elemRefs": [
+                        "sid-1F79424C-85F5-4AB7-8C8E-1E13A6107F8B",
+                        "sid-ED9D6D5B-466D-46E1-901C-40DE94FBFCB9",
+                        "sid-9E814708-AF31-4A9F-BD34-A1329EEACC4E",
+                        "sid-7D9773EA-FBE5-40DA-9788-4D7EC4C65161",
+                        "sid-714FB172-998B-4EC4-A1D2-E9A72A198048",
+                        "sid-948DF163-0CCD-41B0-81E5-22509A6491FF"
+                    ]
+                }
+            ]
+        },
+        {
+            "id": "sid-E48C419D-BB4A-4B82-AE70-2579254C0440",
+            "name": "Bank A",
+            "lanes": [
+                {
+                    "id": "sid-FEAC0B0A-D34B-45E3-ABF0-00F1155059CF",
+                    "name": "",
+                    "elemRefs": [
+                        "sid-0034110D-5674-4D1B-AD93-BFD1ACEC8936",
+                        "sid-3FEB8391-7645-4BBB-9E88-1AE9596D12A8",
+                        "sid-A5F360D7-3DD2-44AC-8B02-E87C52850F76",
+                        "sid-656E46AD-A200-487E-AE3F-A64D2CABBAB2",
+                        "sid-E0031D72-AB45-4D3A-A468-CAADACB59A41",
+                        "sid-A98CEDC2-FF73-45F5-AF5A-70DF278D532E"
+                    ]
+                }
+            ]
+        }
+    ],
+    "messageFlows": [
+        {
+            "id": "sid-CA03A74A-925F-458A-8D0D-8AB58A8CA51D",
+            "targetRef": "sid-B7FAAA8B-5B43-4E8B-9182-3122A07B3C7A",
+            "sourceRef": "sid-A5E5A774-6708-492D-92DD-7785875596B2"
+        },
+        {
+            "id": "sid-3FECA0F1-7D56-4F05-9BB9-726F3EB91064",
+            "targetRef": "sid-A5E5A774-6708-492D-92DD-7785875596B2",
+            "sourceRef": "sid-BED1223F-9785-4B7F-A8FB-B239D76A5C88"
+        },
+        {
+            "id": "sid-1AEAD941-9B02-4434-A3E8-DF59F621A006",
+            "targetRef": "sid-9E814708-AF31-4A9F-BD34-A1329EEACC4E",
+            "sourceRef": "sid-A5E5A774-6708-492D-92DD-7785875596B2"
+        },
+        {
+            "id": "sid-4077004B-D683-4FBF-9570-2611A11534CD",
+            "targetRef": "sid-A5F360D7-3DD2-44AC-8B02-E87C52850F76",
+            "sourceRef": "sid-A5E5A774-6708-492D-92DD-7785875596B2"
+        },
+        {
+            "id": "sid-458B8298-C58A-42C4-8B3D-16B5AA330FFE",
+            "targetRef": "sid-A5E5A774-6708-492D-92DD-7785875596B2",
+            "sourceRef": "sid-656E46AD-A200-487E-AE3F-A64D2CABBAB2"
+        },
+        {
+            "id": "sid-C40284D4-F932-4B58-A029-12F547CB0FC0",
+            "targetRef": "sid-A5E5A774-6708-492D-92DD-7785875596B2",
+            "sourceRef": "sid-7D9773EA-FBE5-40DA-9788-4D7EC4C65161"
+        },
+        {
+            "id": "sid-301F7CF8-5274-4633-9780-132BA6A360BE",
+            "targetRef": "sid-A5E5A774-6708-492D-92DD-7785875596B2",
+            "sourceRef": "sid-714FB172-998B-4EC4-A1D2-E9A72A198048"
+        },
+        {
+            "id": "sid-F0F13778-B121-4061-ABE5-D16B869971BC",
+            "targetRef": "sid-A5E5A774-6708-492D-92DD-7785875596B2",
+            "sourceRef": "sid-E0031D72-AB45-4D3A-A468-CAADACB59A41"
+        },
+        {
+            "id": "sid-441E4E27-88D6-4E72-A08C-A0E231A4D665",
+            "targetRef": "sid-EC5BAF79-1CE3-46AC-85AB-C144018A3C53",
+            "sourceRef": "sid-A5E5A774-6708-492D-92DD-7785875596B2"
+        }
+    ],
+    "sequenceFlows": [
+        {
+            "id": "sid-39F2AE2F-CBA1-40A2-9726-58A4BAAC8039",
+            "targetRef": "sid-A5A25AC8-F13E-4C00-B2D3-123478C6CC3A",
+            "sourceRef": "sid-DDFEF856-E684-4AE7-904F-95BB4F7FBA1A"
+        },
+        {
+            "id": "sid-5525FDFE-E0ED-4D9C-B2B3-7B35FE9CF407",
+            "targetRef": "sid-BED1223F-9785-4B7F-A8FB-B239D76A5C88",
+            "sourceRef": "sid-A5A25AC8-F13E-4C00-B2D3-123478C6CC3A"
+        },
+        {
+            "id": "sid-FCAF9B98-DF9C-47A7-B898-6EA4795496D5",
+            "targetRef": "sid-0034110D-5674-4D1B-AD93-BFD1ACEC8936",
+            "sourceRef": "sid-A5F360D7-3DD2-44AC-8B02-E87C52850F76"
+        },
+        {
+            "id": "sid-DC8BEC46-6F10-4CE0-A72F-683DDDB9C169",
+            "targetRef": "sid-A98CEDC2-FF73-45F5-AF5A-70DF278D532E",
+            "sourceRef": "sid-0034110D-5674-4D1B-AD93-BFD1ACEC8936"
+        },
+        {
+            "id": "sid-195C45FC-762A-4739-9ADB-553144CEFEAB",
+            "targetRef": "sid-7D9773EA-FBE5-40DA-9788-4D7EC4C65161",
+            "sourceRef": "sid-1F79424C-85F5-4AB7-8C8E-1E13A6107F8B"
+        },
+        {
+            "id": "sid-00914EC1-66C8-4128-8C0C-66852C65A5CB",
+            "targetRef": "sid-656E46AD-A200-487E-AE3F-A64D2CABBAB2",
+            "sourceRef": "sid-3FEB8391-7645-4BBB-9E88-1AE9596D12A8"
+        },
+        {
+            "id": "sid-A1B2CD6D-7A14-4186-92A5-ABCF96A8AB84",
+            "targetRef": "sid-ED9D6D5B-466D-46E1-901C-40DE94FBFCB9",
+            "sourceRef": "sid-9E814708-AF31-4A9F-BD34-A1329EEACC4E"
+        },
+        {
+            "id": "sid-285DEB74-0819-412B-AA57-6890651EFDD5",
+            "targetRef": "sid-948DF163-0CCD-41B0-81E5-22509A6491FF",
+            "sourceRef": "sid-ED9D6D5B-466D-46E1-901C-40DE94FBFCB9"
+        },
+        {
+            "id": "sid-EC559924-6E82-48EF-A23F-B130B3244F97",
+            "targetRef": "sid-3FEB8391-7645-4BBB-9E88-1AE9596D12A8",
+            "condition": "Nein",
+            "sourceRef": "sid-A98CEDC2-FF73-45F5-AF5A-70DF278D532E"
+        },
+        {
+            "id": "sid-AE022577-B72D-4269-8F56-75FAE1FAFE10",
+            "targetRef": "sid-E0031D72-AB45-4D3A-A468-CAADACB59A41",
+            "condition": "Ja",
+            "sourceRef": "sid-A98CEDC2-FF73-45F5-AF5A-70DF278D532E"
+        },
+        {
+            "id": "sid-9D7747EF-5F82-40B7-A403-1D6C151F63AB",
+            "targetRef": "sid-714FB172-998B-4EC4-A1D2-E9A72A198048",
+            "condition": "Nein",
+            "sourceRef": "sid-948DF163-0CCD-41B0-81E5-22509A6491FF"
+        },
+        {
+            "id": "sid-5BFB0278-89F6-4178-B3D4-022383F73ABB",
+            "targetRef": "sid-5D4E20C0-AE41-4A40-AD2D-232E0363080C",
+            "sourceRef": "sid-BED1223F-9785-4B7F-A8FB-B239D76A5C88"
+        },
+        {
+            "id": "sid-34DCCB47-8D26-4E36-8501-9937301C4816",
+            "targetRef": "sid-EC5BAF79-1CE3-46AC-85AB-C144018A3C53",
+            "sourceRef": "sid-5D4E20C0-AE41-4A40-AD2D-232E0363080C"
+        },
+        {
+            "id": "sid-BC36D92B-CD3F-4C9C-8305-94001242DCC1",
+            "targetRef": "sid-B7FAAA8B-5B43-4E8B-9182-3122A07B3C7A",
+            "sourceRef": "sid-5D4E20C0-AE41-4A40-AD2D-232E0363080C"
+        },
+        {
+            "id": "sid-0464C1D9-9F10-4048-A666-0C1842A9C9CD",
+            "targetRef": "sid-7B713717-2078-4E0A-A64F-18D36130419D",
+            "sourceRef": "sid-EC5BAF79-1CE3-46AC-85AB-C144018A3C53"
+        },
+        {
+            "id": "sid-EF3F4505-37BF-4910-B167-7D8618770102",
+            "targetRef": "sid-7B713717-2078-4E0A-A64F-18D36130419D",
+            "sourceRef": "sid-B7FAAA8B-5B43-4E8B-9182-3122A07B3C7A"
+        },
+        {
+            "id": "sid-5FB4607E-ED9A-49D0-8EBC-56D73E7AB04C",
+            "targetRef": "sid-41B76518-30E0-4D22-9F86-FF85CA4EEE0B",
+            "sourceRef": "sid-7B713717-2078-4E0A-A64F-18D36130419D"
+        },
+        {
+            "id": "sid-01DE78EE-7E4E-4EED-86F9-31E7728ED599",
+            "targetRef": "sid-1F79424C-85F5-4AB7-8C8E-1E13A6107F8B",
+            "condition": "Ja",
+            "sourceRef": "sid-948DF163-0CCD-41B0-81E5-22509A6491FF"
+        }
+    ]
+}

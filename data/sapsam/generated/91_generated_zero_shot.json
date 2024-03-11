@@ -1,0 +1,253 @@
+{
+    "tasks": [
+        {
+            "id": "0",
+            "name": "Process Trip Order",
+            "type": "Task"
+        },
+        {
+            "id": "1",
+            "name": "Cancel Trip Order",
+            "type": "Task"
+        },
+        {
+            "id": "2",
+            "name": "Send Cancellation Confirmation",
+            "type": "Send"
+        },
+        {
+            "id": "3",
+            "name": "Send Invoice",
+            "type": "Send"
+        },
+        {
+            "id": "4",
+            "name": "Customer Requests Trip Order",
+            "type": "User"
+        },
+        {
+            "id": "5",
+            "name": "Receive Trip Order",
+            "type": "Receive"
+        },
+        {
+            "id": "6",
+            "name": "Receive Invoice",
+            "type": "Receive"
+        },
+        {
+            "id": "7",
+            "name": "Receives Invoice",
+            "type": "Task"
+        },
+        {
+            "id": "8",
+            "name": "Send Cancellation of Trip Order",
+            "type": "Send"
+        },
+        {
+            "id": "9",
+            "name": "Receive Cancellation Confirmation",
+            "type": "Receive"
+        },
+        {
+            "id": "10",
+            "name": "Receive Trip Order Confirmation",
+            "type": "Task"
+        },
+        {
+            "id": "11",
+            "name": "Send Trip Order",
+            "type": "Task"
+        }
+    ],
+    "events": [
+        {
+            "id": "12",
+            "name": "Trip Order Start",
+            "type": "StartNoneEvent"
+        },
+        {
+            "id": "13",
+            "name": "Trip Order has been Processed.",
+            "type": "EndNoneEvent"
+        },
+        {
+            "id": "14",
+            "name": "Customer Order Start",
+            "type": "StartNoneEvent"
+        },
+        {
+            "id": "15",
+            "name": "Trip Order Processed.",
+            "type": "EndNoneEvent"
+        }
+    ],
+    "gateways": [
+        {
+            "id": "16",
+            "type": "Exclusive"
+        },
+        {
+            "id": "17",
+            "type": "Exclusive"
+        },
+        {
+            "id": "18",
+            "type": "Exclusive"
+        }
+    ],
+    "pools": [
+        {
+            "id": "19",
+            "name": "Customer Relations Division",
+            "lanes": [
+                {
+                    "id": "20",
+                    "name": "Customer Relations Division",
+                    "elemRefs": [
+                        "0",
+                        "1",
+                        "2",
+                        "3",
+                        "12",
+                        "13",
+                        "16",
+                        "17"
+                    ]
+                }
+            ]
+        },
+        {
+            "id": "21",
+            "name": "Customer",
+            "lanes": [
+                {
+                    "id": "22",
+                    "name": "Customer",
+                    "elemRefs": [
+                        "4",
+                        "5",
+                        "6",
+                        "7",
+                        "8",
+                        "9",
+                        "10",
+                        "11",
+                        "14",
+                        "15",
+                        "18"
+                    ]
+                }
+            ]
+        }
+    ],
+    "sequenceFlows": [
+        {
+            "id": "23",
+            "sourceRef": "12",
+            "targetRef": "0"
+        },
+        {
+            "id": "24",
+            "sourceRef": "0",
+            "targetRef": "16"
+        },
+        {
+            "id": "25",
+            "sourceRef": "16",
+            "targetRef": "1",
+            "condition": "Trip Order Cancelled?"
+        },
+        {
+            "id": "26",
+            "sourceRef": "16",
+            "targetRef": "3",
+            "condition": "Trip Order Not Cancelled?"
+        },
+        {
+            "id": "27",
+            "sourceRef": "1",
+            "targetRef": "2"
+        },
+        {
+            "id": "28",
+            "sourceRef": "14",
+            "targetRef": "4"
+        },
+        {
+            "id": "29",
+            "sourceRef": "4",
+            "targetRef": "18"
+        },
+        {
+            "id": "30",
+            "sourceRef": "18",
+            "targetRef": "5"
+        },
+        {
+            "id": "31",
+            "sourceRef": "18",
+            "targetRef": "7",
+            "condition": "Trip Order Cancelled?"
+        },
+        {
+            "id": "32",
+            "sourceRef": "7",
+            "targetRef": "8"
+        },
+        {
+            "id": "33",
+            "sourceRef": "8",
+            "targetRef": "9"
+        },
+        {
+            "id": "34",
+            "sourceRef": "5",
+            "targetRef": "11"
+        },
+        {
+            "id": "35",
+            "sourceRef": "11",
+            "targetRef": "17"
+        },
+        {
+            "id": "36",
+            "sourceRef": "17",
+            "targetRef": "6",
+            "condition": "Invoice Received?"
+        },
+        {
+            "id": "37",
+            "sourceRef": "17",
+            "targetRef": "10",
+            "condition": "Cancellation Confirmed?"
+        }
+    ],
+    "messageFlows": [
+        {
+            "id": "38",
+            "sourceRef": "4",
+            "targetRef": "0",
+            "label": "Customer Requests Trip Order"
+        },
+        {
+            "id": "39",
+            "sourceRef": "6",
+            "targetRef": "3",
+            "label": "Receives Invoice"
+        },
+        {
+            "id": "40",
+            "sourceRef": "10",
+            "targetRef": "2",
+            "label": "Receive Trip Order Confirmation"
+        },
+        {
+            "id": "41",
+            "sourceRef": "1",
+            "targetRef": "7",
+            "label": "Cancel Trip Order"
+        }
+    ]
+}

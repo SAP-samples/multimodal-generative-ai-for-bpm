@@ -1,0 +1,123 @@
+{
+    "tasks": [
+        {
+            "id": 0,
+            "name": "Send receipt confirmation",
+            "type": "Task"
+        },
+        {
+            "id": 1,
+            "name": "Applicant verified",
+            "type": "Task"
+        },
+        {
+            "id": 2,
+            "name": "Invite to job interview",
+            "type": "Task"
+        },
+        {
+            "id": 3,
+            "name": "Prepare employment agreement",
+            "type": "Task"
+        },
+        {
+            "id": 4,
+            "name": "Carry out job interview",
+            "type": "Task"
+        },
+        {
+            "id": 5,
+            "name": "Send employment contract",
+            "type": "Task"
+        },
+        {
+            "id": 6,
+            "name": "Send rejection",
+            "type": "Task"
+        }
+    ],
+    "events": [
+        {
+            "id": 7,
+            "name": "Receipt of application",
+            "type": "StartMessageEvent"
+        },
+        {
+            "id": 8,
+            "name": "Receipt of signed employment contract",
+            "type": "IntermediateMessageEventCatching"
+        },
+        {
+            "id": 9,
+            "name": "Signed employment contract is present",
+            "type": "EndEvent"
+        },
+        {
+            "id": 10,
+            "name": "Rejection sent",
+            "type": "IntermediateMessageEventThrowing"
+        },
+        {
+            "id": 11,
+            "name": "Applicant rejected",
+            "type": "EndEvent"
+        }
+    ],
+    "gateways": [
+        {
+            "id": 12,
+            "name": "Application status?",
+            "type": "Exclusive_Databased_Gateway"
+        },
+        {
+            "id": 13,
+            "name": "Applicant suitable?",
+            "type": "Exclusive_Databased_Gateway"
+        },
+        {
+            "id": 14,
+            "name": "",
+            "type": "Exclusive_Databased_Gateway"
+        }
+    ],
+    "pools": [
+        {
+            "id": "0",
+            "name": "ACME AG",
+            "lanes": [
+                {
+                    "id": "1",
+                    "name": "Head of Human Resources",
+                    "elemRefs": [
+                        "1",
+                        "10",
+                        "11",
+                        "13",
+                        "14"
+                    ]
+                },
+                {
+                    "id": "2",
+                    "name": "Human Resources Department",
+                    "elemRefs": [
+                        "0",
+                        "2",
+                        "3",
+                        "4",
+                        "5",
+                        "6",
+                        "7",
+                        "8",
+                        "9",
+                        "12"
+                    ]
+                }
+            ]
+        },
+        {
+            "id": "3",
+            "name": "Applicant",
+            "lanes": []
+        }
+    ]
+}

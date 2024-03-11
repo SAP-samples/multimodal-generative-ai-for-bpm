@@ -1,0 +1,156 @@
+{
+    "tasks": [
+        {
+            "id": "0",
+            "name": "Aufgabe um Bearbeiter benachrichtigen",
+            "type": "User"
+        },
+        {
+            "id": "1",
+            "name": "Informationsaustausch",
+            "type": "Manual"
+        },
+        {
+            "id": "2",
+            "name": "Informationen nicht weitergeben",
+            "type": "Business Rule"
+        },
+        {
+            "id": "3",
+            "name": "Informationen weitergeben",
+            "type": "Send"
+        },
+        {
+            "id": "4",
+            "name": "Informationen dokumentieren",
+            "type": "Receive"
+        },
+        {
+            "id": "5",
+            "name": "Techn. Jane Doe zur Aufgaben Fertigmeldung.",
+            "type": "User"
+        },
+        {
+            "id": "6",
+            "name": "Fertigmeldung kann nicht an techn. Jane Doe werden.",
+            "type": "Send"
+        },
+        {
+            "id": "7",
+            "name": "Fertigmeldung an techn. Jane Doe \u00fcbermitteln.",
+            "type": "Receive"
+        }
+    ],
+    "events": [
+        {
+            "id": "8",
+            "name": "Aufgabe ist abgeschlossen",
+            "type": "StartNoneEvent"
+        },
+        {
+            "id": "9",
+            "name": "Fertigmeldung ist abgegeben",
+            "type": "EndNoneEvent"
+        }
+    ],
+    "gateways": [
+        {
+            "id": "10",
+            "name": "M\u00fcssen Informationen weitergegeben werden?",
+            "type": "Exclusive"
+        },
+        {
+            "id": "11",
+            "name": "Ist techn. Jane Doe erreichbar?",
+            "type": "Exclusive"
+        }
+    ],
+    "pools": [
+        {
+            "id": "12",
+            "name": "Weinbaum im Au\u00dfenbetrieb",
+            "lanes": [
+                {
+                    "id": "13",
+                    "name": "Au\u00dfenbetriebsmitarbeiter",
+                    "elemRefs": [
+                        "0",
+                        "1",
+                        "2",
+                        "3",
+                        "4",
+                        "5",
+                        "6",
+                        "7",
+                        "8",
+                        "9",
+                        "10",
+                        "11"
+                    ]
+                }
+            ]
+        }
+    ],
+    "sequenceFlows": [
+        {
+            "id": "14",
+            "sourceRef": "8",
+            "targetRef": "0"
+        },
+        {
+            "id": "15",
+            "sourceRef": "0",
+            "targetRef": "10"
+        },
+        {
+            "id": "16",
+            "sourceRef": "10",
+            "targetRef": "2",
+            "condition": "Nein"
+        },
+        {
+            "id": "17",
+            "sourceRef": "10",
+            "targetRef": "1",
+            "condition": "Ja"
+        },
+        {
+            "id": "18",
+            "sourceRef": "1",
+            "targetRef": "3"
+        },
+        {
+            "id": "19",
+            "sourceRef": "3",
+            "targetRef": "4"
+        },
+        {
+            "id": "20",
+            "sourceRef": "4",
+            "targetRef": "11"
+        },
+        {
+            "id": "21",
+            "sourceRef": "11",
+            "targetRef": "6",
+            "condition": "Nein"
+        },
+        {
+            "id": "22",
+            "sourceRef": "11",
+            "targetRef": "5",
+            "condition": "Ja"
+        },
+        {
+            "id": "23",
+            "sourceRef": "5",
+            "targetRef": "7"
+        },
+        {
+            "id": "24",
+            "sourceRef": "7",
+            "targetRef": "9"
+        }
+    ],
+    "messageFlows": []
+}

@@ -1,0 +1,222 @@
+{
+    "tasks": [
+        {
+            "id": "0",
+            "name": "perform BKR check",
+            "type": "Task"
+        },
+        {
+            "id": "1",
+            "name": "perform Jane Doe check",
+            "type": "Task"
+        },
+        {
+            "id": "2",
+            "name": "perform credibility check",
+            "type": "Task"
+        },
+        {
+            "id": "3",
+            "name": "perform credit check",
+            "type": "Task"
+        },
+        {
+            "id": "4",
+            "name": "confirm credibility check",
+            "type": "Task"
+        },
+        {
+            "id": "5",
+            "name": "send rejection letter",
+            "type": "Task"
+        },
+        {
+            "id": "6",
+            "name": "call client to complement information",
+            "type": "Task"
+        },
+        {
+            "id": "7",
+            "name": "create loan offer",
+            "type": "Task"
+        },
+        {
+            "id": "8",
+            "name": "send loan offer",
+            "type": "Task"
+        },
+        {
+            "id": "9",
+            "name": "send welcome letter",
+            "type": "Task"
+        },
+        {
+            "id": "10",
+            "name": "activate loan application",
+            "type": "Task"
+        },
+        {
+            "id": "11",
+            "name": "validate loan activation",
+            "type": "Task"
+        },
+        {
+            "id": "12",
+            "name": "execute initial payment",
+            "type": "Task"
+        },
+        {
+            "id": "13",
+            "name": "return documents to client",
+            "type": "Task"
+        },
+        {
+            "id": "14",
+            "name": "remind client",
+            "type": "Task"
+        }
+    ],
+    "events": [
+        {
+            "id": "15",
+            "name": "start",
+            "type": "StartNoneEvent"
+        },
+        {
+            "id": "16",
+            "name": "end",
+            "type": "EndNoneEvent"
+        },
+        {
+            "id": "17",
+            "name": "after one hour 2",
+            "type": "IntermediateTimerEvent"
+        },
+        {
+            "id": "18",
+            "name": "receive accepted offer",
+            "type": "IntermediateMessageEventCatching"
+        },
+        {
+            "id": "19",
+            "name": "after one hour 1",
+            "type": "IntermediateTimerEvent"
+        }
+    ],
+    "gateways": [
+        {
+            "id": "20",
+            "name": "",
+            "type": "Exclusive"
+        },
+        {
+            "id": "21",
+            "type": "Exclusive"
+        },
+        {
+            "id": "22",
+            "type": "Parallel"
+        },
+        {
+            "id": "23",
+            "type": "Exclusive"
+        },
+        {
+            "id": "24",
+            "type": "Exclusive"
+        },
+        {
+            "id": "25",
+            "type": "Exclusive"
+        },
+        {
+            "id": "26",
+            "name": "",
+            "type": "Exclusive"
+        },
+        {
+            "id": "27",
+            "type": "Eventbased"
+        },
+        {
+            "id": "28",
+            "type": "Parallel"
+        },
+        {
+            "id": "29",
+            "type": "Parallel"
+        },
+        {
+            "id": "30",
+            "type": "Exclusive"
+        }
+    ],
+    "pools": [
+        {
+            "id": "31",
+            "name": "DLL",
+            "lanes": [
+                {
+                    "id": "31a",
+                    "name": "administration",
+                    "elemRefs": [
+                        "6",
+                        "15",
+                        "16",
+                        "9",
+                        "10",
+                        "13",
+                        "19"
+                    ]
+                },
+                {
+                    "id": "31b",
+                    "name": "customer contact",
+                    "elemRefs": [
+                        "7",
+                        "8",
+                        "14",
+                        "17",
+                        "18",
+                        "27"
+                    ]
+                },
+                {
+                    "id": "31c",
+                    "name": "finance",
+                    "elemRefs": [
+                        "11",
+                        "12"
+                    ]
+                },
+                {
+                    "id": "31d",
+                    "name": "risk management",
+                    "elemRefs": [
+                        "0",
+                        "1",
+                        "2",
+                        "3",
+                        "4",
+                        "5",
+                        "20",
+                        "21",
+                        "22",
+                        "23",
+                        "24",
+                        "25"
+                    ]
+                },
+                {
+                    "id": "31e",
+                    "name": "senior risk management",
+                    "elemRefs": [
+                        "26"
+                    ]
+                }
+            ]
+        }
+    ],
+    "sequenceFlows": [],
+    "messageFlows": []
+}

@@ -1,0 +1,215 @@
+{
+    "tasks": [
+        {
+            "id": "0",
+            "name": "St\u00fcckliste erstellen",
+            "type": "Task"
+        },
+        {
+            "id": "1",
+            "name": "Waren bestellen",
+            "type": "Task"
+        },
+        {
+            "id": "2",
+            "name": "Menge und Qualit\u00e4t \u00fcberpr\u00fcfen",
+            "type": "Business Rule"
+        },
+        {
+            "id": "3",
+            "name": "Ersatzlieferung anfordern",
+            "type": "Task"
+        },
+        {
+            "id": "4",
+            "name": "Waren einlagern",
+            "type": "Task"
+        },
+        {
+            "id": "5",
+            "name": "Waren-Vorbereitung und Verpackung",
+            "type": "Task"
+        },
+        {
+            "id": "6",
+            "name": "Versand / Warenausgabe",
+            "type": "Task"
+        },
+        {
+            "id": "7",
+            "name": "Lieferant kontaktieren",
+            "type": "Task"
+        },
+        {
+            "id": "8",
+            "name": "Frage mit der Fachabteilung kl\u00e4ren",
+            "type": "Task"
+        }
+    ],
+    "events": [
+        {
+            "id": "9",
+            "name": "Lieferung der Teile",
+            "type": "IntermediateMessageEventCatching"
+        },
+        {
+            "id": "10",
+            "name": "Bestellung",
+            "type": "IntermediateMessageEvent"
+        },
+        {
+            "id": "11",
+            "name": "Keine Lieferung innerhalb von 5 Werktagen",
+            "type": "IntermediateTimerEvent"
+        },
+        {
+            "id": "12",
+            "name": "Lieferprobleme",
+            "type": "IntermediateEscalationEvent"
+        },
+        {
+            "id": "13",
+            "name": "R\u00fcckfrage des Lieferanten",
+            "type": "IntermediateMessageEvent"
+        }
+    ],
+    "gateways": [
+        {
+            "id": "14",
+            "name": "Exclusive (XOR) Gateway",
+            "type": "Exclusive"
+        },
+        {
+            "id": "15",
+            "name": "Event-based Gateway",
+            "type": "Eventbased"
+        },
+        {
+            "id": "16",
+            "name": "unmittelbarer Versand m\u00f6glich?",
+            "type": "Exclusive"
+        }
+    ],
+    "pools": [
+        {
+            "id": "17",
+            "name": "Startup Tzd-03",
+            "lanes": [
+                {
+                    "id": "18",
+                    "name": "Lagerhaltung",
+                    "elemRefs": [
+                        "0",
+                        "1",
+                        "2",
+                        "3",
+                        "4",
+                        "5",
+                        "6",
+                        "7",
+                        "8",
+                        "9",
+                        "10",
+                        "11",
+                        "12",
+                        "13",
+                        "14",
+                        "15",
+                        "16"
+                    ]
+                }
+            ]
+        },
+        {
+            "id": "19",
+            "name": "Lieferant",
+            "lanes": []
+        },
+        {
+            "id": "20",
+            "name": "Verkauf",
+            "lanes": []
+        }
+    ],
+    "sequenceFlows": [
+        {
+            "id": "21",
+            "sourceRef": "0",
+            "targetRef": "1"
+        },
+        {
+            "id": "22",
+            "sourceRef": "1",
+            "targetRef": "15"
+        },
+        {
+            "id": "23",
+            "sourceRef": "15",
+            "targetRef": "9"
+        },
+        {
+            "id": "24",
+            "sourceRef": "9",
+            "targetRef": "2"
+        },
+        {
+            "id": "25",
+            "sourceRef": "2",
+            "targetRef": "14"
+        },
+        {
+            "id": "26",
+            "sourceRef": "14",
+            "targetRef": "3"
+        },
+        {
+            "id": "27",
+            "sourceRef": "3",
+            "targetRef": "4"
+        },
+        {
+            "id": "28",
+            "sourceRef": "14",
+            "targetRef": "5"
+        },
+        {
+            "id": "29",
+            "sourceRef": "5",
+            "targetRef": "6"
+        },
+        {
+            "id": "30",
+            "sourceRef": "11",
+            "targetRef": "7"
+        },
+        {
+            "id": "31",
+            "sourceRef": "7",
+            "targetRef": "16"
+        },
+        {
+            "id": "32",
+            "sourceRef": "16",
+            "targetRef": "12"
+        },
+        {
+            "id": "33",
+            "sourceRef": "13",
+            "targetRef": "8"
+        }
+    ],
+    "messageFlows": [
+        {
+            "id": "34",
+            "sourceRef": "10",
+            "targetRef": "15",
+            "label": "Bestellung"
+        },
+        {
+            "id": "35",
+            "sourceRef": "9",
+            "targetRef": "15",
+            "label": "Lieferung der Teile"
+        }
+    ]
+}

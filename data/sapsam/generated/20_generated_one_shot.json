@@ -1,0 +1,174 @@
+{
+    "tasks": [
+        {
+            "id": "0",
+            "name": "Problem erkennen",
+            "type": "Task"
+        },
+        {
+            "id": "1",
+            "name": "Kundenservice kontaktieren",
+            "type": "Task"
+        },
+        {
+            "id": "2",
+            "name": "Problem beschreiben",
+            "type": "Task"
+        },
+        {
+            "id": "3",
+            "name": "Problem identifizieren",
+            "type": "Task"
+        },
+        {
+            "id": "4",
+            "name": "passende L\u00f6sung finden",
+            "type": "Task"
+        },
+        {
+            "id": "5",
+            "name": "L\u00f6sung beschreiben",
+            "type": "Task"
+        },
+        {
+            "id": "6",
+            "name": "L\u00f6sung umsetzen",
+            "type": "Task"
+        },
+        {
+            "id": "7",
+            "name": "neue L\u00f6sung anfragen",
+            "type": "Task"
+        },
+        {
+            "id": "8",
+            "name": "weitere L\u00f6sungen vorschlagen",
+            "type": "Task"
+        }
+    ],
+    "events": [
+        {
+            "id": "9",
+            "name": "problem durch Kundenservice beheben",
+            "type": "StartNoneEvent"
+        },
+        {
+            "id": "10",
+            "name": "Problem behoben",
+            "type": "EndNoneEvent"
+        }
+    ],
+    "gateways": [
+        {
+            "id": "11",
+            "type": "Exclusive"
+        },
+        {
+            "id": "12",
+            "type": "Exclusive"
+        }
+    ],
+    "pools": [
+        {
+            "id": "13",
+            "name": "Kundenservice",
+            "lanes": [
+                {
+                    "id": "14",
+                    "name": "Beratung",
+                    "elemRefs": [
+                        "3",
+                        "4",
+                        "5",
+                        "8"
+                    ]
+                },
+                {
+                    "id": "15",
+                    "name": "Kunde",
+                    "elemRefs": [
+                        "0",
+                        "1",
+                        "2",
+                        "6",
+                        "7",
+                        "9",
+                        "10",
+                        "11",
+                        "12"
+                    ]
+                }
+            ]
+        }
+    ],
+    "sequenceFlows": [
+        {
+            "id": "16",
+            "sourceRef": "9",
+            "targetRef": "0"
+        },
+        {
+            "id": "17",
+            "sourceRef": "0",
+            "targetRef": "1"
+        },
+        {
+            "id": "18",
+            "sourceRef": "1",
+            "targetRef": "2"
+        },
+        {
+            "id": "19",
+            "sourceRef": "2",
+            "targetRef": "3"
+        },
+        {
+            "id": "20",
+            "sourceRef": "3",
+            "targetRef": "4"
+        },
+        {
+            "id": "21",
+            "sourceRef": "4",
+            "targetRef": "5"
+        },
+        {
+            "id": "22",
+            "sourceRef": "5",
+            "targetRef": "6"
+        },
+        {
+            "id": "23",
+            "sourceRef": "6",
+            "targetRef": "11"
+        },
+        {
+            "id": "24",
+            "sourceRef": "11",
+            "targetRef": "12"
+        },
+        {
+            "id": "25",
+            "condition": "Hilfreich",
+            "sourceRef": "12",
+            "targetRef": "10"
+        },
+        {
+            "id": "26",
+            "condition": "Nicht Hilfreich",
+            "sourceRef": "12",
+            "targetRef": "7"
+        },
+        {
+            "id": "27",
+            "sourceRef": "7",
+            "targetRef": "8"
+        },
+        {
+            "id": "28",
+            "sourceRef": "8",
+            "targetRef": "4"
+        }
+    ],
+    "messageFlows": []
+}

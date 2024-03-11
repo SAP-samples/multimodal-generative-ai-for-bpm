@@ -1,0 +1,220 @@
+{
+    "tasks": [
+        {
+            "id": "sid-CE99C6AC-8C63-479C-9E67-71EFEE7AEB04",
+            "name": "Create enquiry",
+            "type": "Task"
+        },
+        {
+            "id": "sid-5DAC93E2-01DA-4FCE-BEB0-BACB7B3D936F",
+            "name": "Create contact",
+            "type": "Task"
+        },
+        {
+            "id": "sid-5E8C4F13-079E-40BF-A4A2-FF0EEF55B34D",
+            "name": "Qualified Price OK and Interest",
+            "type": "Task"
+        },
+        {
+            "id": "sid-A045269F-DC26-4F3C-8930-F39DEB9711FD",
+            "name": "Update enquiry status",
+            "type": "Task"
+        },
+        {
+            "id": "sid-B1C5B2BE-F679-406F-8B36-B7290BC15291",
+            "name": "Qualified Requirements analysis",
+            "type": "Task"
+        },
+        {
+            "id": "sid-F592BC94-437C-48C1-A866-97B9719ED0AE",
+            "name": "Create Quote",
+            "type": "Task"
+        },
+        {
+            "id": "sid-6639D92E-A91A-4FA4-93DE-0AA8068A954C",
+            "name": "Update Enquiry Status",
+            "type": "Task"
+        },
+        {
+            "id": "sid-97C925FD-9D14-4992-BAD4-90E022484D3E",
+            "name": "Create Job",
+            "type": "Task"
+        }
+    ],
+    "events": [
+        {
+            "id": "sid-174F86BD-A7CF-478E-BB85-8A319416E67F",
+            "name": "Client does not approve",
+            "type": "EndNoneEvent"
+        },
+        {
+            "id": "sid-3EC10E69-9201-48D6-ADAB-2261FC87F23D",
+            "name": "Job created",
+            "type": "EndNoneEvent"
+        },
+        {
+            "id": "sid-27E29A71-CBFD-4ECF-AB3A-7F8F83BC9DD3",
+            "name": "Sales enquiry created",
+            "type": "StartMessageEvent"
+        },
+        {
+            "id": "sid-0FD94293-EAD7-4E0B-B662-C15A47597FE1",
+            "name": "Customer approval  received",
+            "type": "IntermediateMessageEventCatching"
+        }
+    ],
+    "gateways": [
+        {
+            "id": "sid-32B1591C-87FA-4575-A8F6-35870B356EB4",
+            "type": "Exclusive"
+        },
+        {
+            "id": "sid-6AFC0CFE-725F-4D91-9809-16DB7191A531",
+            "type": "Exclusive"
+        },
+        {
+            "id": "sid-F9492ACA-4829-4494-90EA-2C50DEEBE676",
+            "type": "Exclusive"
+        }
+    ],
+    "pools": [
+        {
+            "id": "sid-5646C7F0-F854-4B55-9533-6EB11B01DB02",
+            "name": "Accentis",
+            "lanes": [
+                {
+                    "id": "sid-373A6D08-E35E-4CAD-A23B-45FF23C82E09",
+                    "name": "",
+                    "elemRefs": [
+                        "sid-CE99C6AC-8C63-479C-9E67-71EFEE7AEB04",
+                        "sid-5DAC93E2-01DA-4FCE-BEB0-BACB7B3D936F",
+                        "sid-5E8C4F13-079E-40BF-A4A2-FF0EEF55B34D",
+                        "sid-A045269F-DC26-4F3C-8930-F39DEB9711FD",
+                        "sid-B1C5B2BE-F679-406F-8B36-B7290BC15291",
+                        "sid-F592BC94-437C-48C1-A866-97B9719ED0AE",
+                        "sid-6639D92E-A91A-4FA4-93DE-0AA8068A954C",
+                        "sid-97C925FD-9D14-4992-BAD4-90E022484D3E",
+                        "sid-174F86BD-A7CF-478E-BB85-8A319416E67F",
+                        "sid-3EC10E69-9201-48D6-ADAB-2261FC87F23D",
+                        "sid-27E29A71-CBFD-4ECF-AB3A-7F8F83BC9DD3",
+                        "sid-0FD94293-EAD7-4E0B-B662-C15A47597FE1",
+                        "sid-32B1591C-87FA-4575-A8F6-35870B356EB4",
+                        "sid-6AFC0CFE-725F-4D91-9809-16DB7191A531",
+                        "sid-F9492ACA-4829-4494-90EA-2C50DEEBE676"
+                    ]
+                }
+            ]
+        },
+        {
+            "id": "sid-52506DAF-7BA5-4C42-B9B3-ED8853358CBB",
+            "name": "Customer",
+            "lanes": [
+                {
+                    "id": "sid-EE9134C2-9077-44DA-9266-0F0192580613",
+                    "name": "",
+                    "elemRefs": []
+                }
+            ]
+        }
+    ],
+    "messageFlows": [
+        {
+            "id": "sid-1B23A7F6-B39A-4D9C-830A-F9457FC059AD",
+            "targetRef": "sid-27E29A71-CBFD-4ECF-AB3A-7F8F83BC9DD3",
+            "label": "Sales enquiry request",
+            "sourceRef": "sid-52506DAF-7BA5-4C42-B9B3-ED8853358CBB"
+        },
+        {
+            "id": "sid-87302BD7-1E27-458C-850C-ABED93B0301D",
+            "targetRef": "sid-52506DAF-7BA5-4C42-B9B3-ED8853358CBB",
+            "label": "Customer approval sent",
+            "sourceRef": "sid-5E8C4F13-079E-40BF-A4A2-FF0EEF55B34D"
+        },
+        {
+            "id": "sid-F07099CF-CABF-4073-AFD5-ED17E10E5D32",
+            "targetRef": "sid-0FD94293-EAD7-4E0B-B662-C15A47597FE1",
+            "sourceRef": "sid-52506DAF-7BA5-4C42-B9B3-ED8853358CBB"
+        }
+    ],
+    "sequenceFlows": [
+        {
+            "id": "sid-BA0F1B1A-5C2A-48F5-B669-6A26F7059AEF",
+            "targetRef": "sid-32B1591C-87FA-4575-A8F6-35870B356EB4",
+            "sourceRef": "sid-5DAC93E2-01DA-4FCE-BEB0-BACB7B3D936F"
+        },
+        {
+            "id": "sid-25EF4270-FACF-44FE-9521-107A01767CB3",
+            "targetRef": "sid-32B1591C-87FA-4575-A8F6-35870B356EB4",
+            "sourceRef": "sid-CE99C6AC-8C63-479C-9E67-71EFEE7AEB04"
+        },
+        {
+            "id": "sid-577DB801-D6BC-4623-B570-DDB889C49C99",
+            "targetRef": "sid-5E8C4F13-079E-40BF-A4A2-FF0EEF55B34D",
+            "sourceRef": "sid-32B1591C-87FA-4575-A8F6-35870B356EB4"
+        },
+        {
+            "id": "sid-2BBA3509-B328-4DD6-BB9C-7998519E915D",
+            "targetRef": "sid-0FD94293-EAD7-4E0B-B662-C15A47597FE1",
+            "sourceRef": "sid-5E8C4F13-079E-40BF-A4A2-FF0EEF55B34D"
+        },
+        {
+            "id": "sid-0A5D288B-312F-4172-A61E-095FF33209BA",
+            "targetRef": "sid-174F86BD-A7CF-478E-BB85-8A319416E67F",
+            "sourceRef": "sid-A045269F-DC26-4F3C-8930-F39DEB9711FD"
+        },
+        {
+            "id": "sid-C0EF7504-F513-4440-9AC6-85F5EF19FED0",
+            "targetRef": "sid-6639D92E-A91A-4FA4-93DE-0AA8068A954C",
+            "sourceRef": "sid-B1C5B2BE-F679-406F-8B36-B7290BC15291"
+        },
+        {
+            "id": "sid-CD40603F-E81D-4090-9BCF-783DAA840CCA",
+            "targetRef": "sid-97C925FD-9D14-4992-BAD4-90E022484D3E",
+            "sourceRef": "sid-6639D92E-A91A-4FA4-93DE-0AA8068A954C"
+        },
+        {
+            "id": "sid-B51A9F6D-0F9A-46CD-9B0B-470AC971C53C",
+            "targetRef": "sid-3EC10E69-9201-48D6-ADAB-2261FC87F23D",
+            "sourceRef": "sid-97C925FD-9D14-4992-BAD4-90E022484D3E"
+        },
+        {
+            "id": "sid-D6839127-7F86-4D59-B797-29DE92866DE2",
+            "targetRef": "sid-B1C5B2BE-F679-406F-8B36-B7290BC15291",
+            "sourceRef": "sid-F592BC94-437C-48C1-A866-97B9719ED0AE"
+        },
+        {
+            "id": "sid-1B61E7EB-D97E-4A00-BBE7-BF5C20878BFC",
+            "targetRef": "sid-F9492ACA-4829-4494-90EA-2C50DEEBE676",
+            "sourceRef": "sid-27E29A71-CBFD-4ECF-AB3A-7F8F83BC9DD3"
+        },
+        {
+            "id": "sid-5E4ACFBA-A1C6-4BF2-87B2-DF62ACD6E3C6",
+            "targetRef": "sid-CE99C6AC-8C63-479C-9E67-71EFEE7AEB04",
+            "condition": "Outbound customer",
+            "sourceRef": "sid-F9492ACA-4829-4494-90EA-2C50DEEBE676"
+        },
+        {
+            "id": "sid-469AEF64-FA92-40A3-9CED-91D2E8B59619",
+            "targetRef": "sid-5DAC93E2-01DA-4FCE-BEB0-BACB7B3D936F",
+            "condition": "Inbound customer",
+            "sourceRef": "sid-F9492ACA-4829-4494-90EA-2C50DEEBE676"
+        },
+        {
+            "id": "sid-82CC0A5C-DC37-4CBE-AFD0-4EE31B20F9BB",
+            "targetRef": "sid-6AFC0CFE-725F-4D91-9809-16DB7191A531",
+            "sourceRef": "sid-0FD94293-EAD7-4E0B-B662-C15A47597FE1"
+        },
+        {
+            "id": "sid-F2126A49-69D0-432E-9717-18BB10769239",
+            "targetRef": "sid-A045269F-DC26-4F3C-8930-F39DEB9711FD",
+            "condition": "If price is  not approved",
+            "sourceRef": "sid-6AFC0CFE-725F-4D91-9809-16DB7191A531"
+        },
+        {
+            "id": "sid-16610880-9C01-45C0-946F-B2EC3B64E5E3",
+            "targetRef": "sid-F592BC94-437C-48C1-A866-97B9719ED0AE",
+            "condition": "If price  is approved",
+            "sourceRef": "sid-6AFC0CFE-725F-4D91-9809-16DB7191A531"
+        }
+    ]
+}

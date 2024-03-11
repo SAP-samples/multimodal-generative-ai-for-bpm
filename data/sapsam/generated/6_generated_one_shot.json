@@ -1,0 +1,345 @@
+{
+    "tasks": [
+        {
+            "id": "0",
+            "name": "perform BKR check",
+            "type": "Task"
+        },
+        {
+            "id": "1",
+            "name": "perform Jane Doe check",
+            "type": "Task"
+        },
+        {
+            "id": "2",
+            "name": "perform credibility check",
+            "type": "Task"
+        },
+        {
+            "id": "3",
+            "name": "perform credit check",
+            "type": "Task"
+        },
+        {
+            "id": "4",
+            "name": "confirm credibility check",
+            "type": "Task"
+        },
+        {
+            "id": "5",
+            "name": "send rejection letter",
+            "type": "Task"
+        },
+        {
+            "id": "6",
+            "name": "call client to complement information",
+            "type": "Task"
+        },
+        {
+            "id": "7",
+            "name": "create loan offer",
+            "type": "Task"
+        },
+        {
+            "id": "8",
+            "name": "send loan offer",
+            "type": "Task"
+        },
+        {
+            "id": "9",
+            "name": "send welcome letter",
+            "type": "Task"
+        },
+        {
+            "id": "10",
+            "name": "activate loan application",
+            "type": "Task"
+        },
+        {
+            "id": "11",
+            "name": "validate loan activation",
+            "type": "Task"
+        },
+        {
+            "id": "12",
+            "name": "execute initial payment",
+            "type": "Task"
+        },
+        {
+            "id": "13",
+            "name": "return documents to client",
+            "type": "Task"
+        },
+        {
+            "id": "14",
+            "name": "remind client",
+            "type": "Task"
+        }
+    ],
+    "events": [
+        {
+            "id": "15",
+            "name": "start",
+            "type": "StartNoneEvent"
+        },
+        {
+            "id": "16",
+            "name": "after one hour 2",
+            "type": "IntermediateTimerEvent"
+        },
+        {
+            "id": "17",
+            "name": "receive accepted offer",
+            "type": "IntermediateMessageEventCatching"
+        },
+        {
+            "id": "18",
+            "name": "end",
+            "type": "EndNoneEvent"
+        },
+        {
+            "id": "19",
+            "name": "after one hour 1",
+            "type": "IntermediateTimerEvent"
+        }
+    ],
+    "gateways": [
+        {
+            "id": "20",
+            "type": "Exclusive"
+        },
+        {
+            "id": "21",
+            "type": "Exclusive"
+        },
+        {
+            "id": "22",
+            "type": "Parallel"
+        },
+        {
+            "id": "23",
+            "type": "Exclusive"
+        },
+        {
+            "id": "24",
+            "type": "Exclusive"
+        },
+        {
+            "id": "25",
+            "type": "Exclusive"
+        },
+        {
+            "id": "26",
+            "type": "Eventbased"
+        },
+        {
+            "id": "27",
+            "type": "Parallel"
+        },
+        {
+            "id": "28",
+            "type": "Parallel"
+        },
+        {
+            "id": "29",
+            "type": "Exclusive"
+        }
+    ],
+    "pools": [
+        {
+            "id": "30",
+            "name": "DLL",
+            "lanes": [
+                {
+                    "id": "31",
+                    "name": "administration",
+                    "elemRefs": [
+                        "6",
+                        "9",
+                        "10",
+                        "13",
+                        "18"
+                    ]
+                },
+                {
+                    "id": "32",
+                    "name": "customer contact",
+                    "elemRefs": [
+                        "7",
+                        "8",
+                        "14",
+                        "16",
+                        "19"
+                    ]
+                },
+                {
+                    "id": "33",
+                    "name": "finance",
+                    "elemRefs": [
+                        "11",
+                        "12"
+                    ]
+                },
+                {
+                    "id": "34",
+                    "name": "risk management",
+                    "elemRefs": [
+                        "0",
+                        "1",
+                        "2",
+                        "3",
+                        "20",
+                        "21",
+                        "22",
+                        "23"
+                    ]
+                },
+                {
+                    "id": "35",
+                    "name": "senior risk management",
+                    "elemRefs": [
+                        "4",
+                        "5",
+                        "24",
+                        "25"
+                    ]
+                }
+            ]
+        }
+    ],
+    "sequenceFlows": [
+        {
+            "id": "36",
+            "sourceRef": "15",
+            "targetRef": "0"
+        },
+        {
+            "id": "37",
+            "sourceRef": "0",
+            "targetRef": "20"
+        },
+        {
+            "id": "38",
+            "sourceRef": "20",
+            "targetRef": "1",
+            "condition": "yes"
+        },
+        {
+            "id": "39",
+            "sourceRef": "20",
+            "targetRef": "2",
+            "condition": "no"
+        },
+        {
+            "id": "40",
+            "sourceRef": "1",
+            "targetRef": "21"
+        },
+        {
+            "id": "41",
+            "sourceRef": "2",
+            "targetRef": "22"
+        },
+        {
+            "id": "42",
+            "sourceRef": "22",
+            "targetRef": "3"
+        },
+        {
+            "id": "43",
+            "sourceRef": "3",
+            "targetRef": "23"
+        },
+        {
+            "id": "44",
+            "sourceRef": "23",
+            "targetRef": "4"
+        },
+        {
+            "id": "45",
+            "sourceRef": "23",
+            "targetRef": "5"
+        },
+        {
+            "id": "46",
+            "sourceRef": "4",
+            "targetRef": "25"
+        },
+        {
+            "id": "47",
+            "sourceRef": "25",
+            "targetRef": "6"
+        },
+        {
+            "id": "48",
+            "sourceRef": "6",
+            "targetRef": "26"
+        },
+        {
+            "id": "49",
+            "sourceRef": "26",
+            "targetRef": "7"
+        },
+        {
+            "id": "50",
+            "sourceRef": "7",
+            "targetRef": "8"
+        },
+        {
+            "id": "51",
+            "sourceRef": "8",
+            "targetRef": "17"
+        },
+        {
+            "id": "52",
+            "sourceRef": "17",
+            "targetRef": "27"
+        },
+        {
+            "id": "53",
+            "sourceRef": "27",
+            "targetRef": "9"
+        },
+        {
+            "id": "54",
+            "sourceRef": "27",
+            "targetRef": "10"
+        },
+        {
+            "id": "55",
+            "sourceRef": "10",
+            "targetRef": "28"
+        },
+        {
+            "id": "56",
+            "sourceRef": "28",
+            "targetRef": "11"
+        },
+        {
+            "id": "57",
+            "sourceRef": "28",
+            "targetRef": "12"
+        },
+        {
+            "id": "58",
+            "sourceRef": "12",
+            "targetRef": "13"
+        },
+        {
+            "id": "59",
+            "sourceRef": "11",
+            "targetRef": "29"
+        },
+        {
+            "id": "60",
+            "sourceRef": "29",
+            "targetRef": "14"
+        },
+        {
+            "id": "61",
+            "sourceRef": "14",
+            "targetRef": "16"
+        }
+    ],
+    "messageFlows": []
+}

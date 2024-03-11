@@ -1,0 +1,133 @@
+{
+    "tasks": [
+        {
+            "id": "0",
+            "name": "Aufgabe annehmen",
+            "type": "Task"
+        },
+        {
+            "id": "1",
+            "name": "Aufgabe erhalten",
+            "type": "Task"
+        },
+        {
+            "id": "2",
+            "name": "Aufgabe sofort beginnen?",
+            "type": "Exclusive"
+        },
+        {
+            "id": "3",
+            "name": "Aufgabe beginnen",
+            "type": "Task"
+        },
+        {
+            "id": "4",
+            "name": "Andere Aufgabe abschlie\u00dfen",
+            "type": "Task"
+        }
+    ],
+    "events": [
+        {
+            "id": "5",
+            "name": "Start Event",
+            "type": "StartNoneEvent"
+        },
+        {
+            "id": "6",
+            "name": "End Event",
+            "type": "EndNoneEvent"
+        }
+    ],
+    "gateways": [
+        {
+            "id": "7",
+            "name": "Exclusive Gateway",
+            "type": "Exclusive"
+        },
+        {
+            "id": "8",
+            "name": "Exclusive Gateway",
+            "type": "Exclusive"
+        }
+    ],
+    "pools": [
+        {
+            "id": "9",
+            "name": "Weinbau im Au\u00dfenbetrieb",
+            "lanes": [
+                {
+                    "id": "10",
+                    "name": "Au\u00dfenbetriebsmitarbeiter",
+                    "elemRefs": [
+                        "5",
+                        "0",
+                        "7",
+                        "1",
+                        "8",
+                        "2",
+                        "3",
+                        "6",
+                        "4"
+                    ]
+                }
+            ]
+        }
+    ],
+    "sequenceFlows": [
+        {
+            "id": "11",
+            "sourceRef": "5",
+            "targetRef": "0",
+            "condition": ""
+        },
+        {
+            "id": "12",
+            "sourceRef": "0",
+            "targetRef": "7",
+            "condition": ""
+        },
+        {
+            "id": "13",
+            "sourceRef": "7",
+            "targetRef": "1",
+            "condition": ""
+        },
+        {
+            "id": "14",
+            "sourceRef": "1",
+            "targetRef": "8",
+            "condition": ""
+        },
+        {
+            "id": "15",
+            "sourceRef": "8",
+            "targetRef": "2",
+            "condition": "yes"
+        },
+        {
+            "id": "16",
+            "sourceRef": "2",
+            "targetRef": "3",
+            "condition": ""
+        },
+        {
+            "id": "17",
+            "sourceRef": "3",
+            "targetRef": "6",
+            "condition": ""
+        },
+        {
+            "id": "18",
+            "sourceRef": "8",
+            "targetRef": "4",
+            "condition": "no"
+        },
+        {
+            "id": "19",
+            "sourceRef": "4",
+            "targetRef": "7",
+            "condition": ""
+        }
+    ],
+    "messageFlows": []
+}

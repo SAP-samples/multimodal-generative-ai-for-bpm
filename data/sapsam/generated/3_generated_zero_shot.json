@@ -1,0 +1,238 @@
+{
+    "tasks": [
+        {
+            "id": "0",
+            "name": "Bedarf auftreten",
+            "type": "Task"
+        },
+        {
+            "id": "1",
+            "name": "Bestand pru\u0308fen",
+            "type": "Task"
+        },
+        {
+            "id": "2",
+            "name": "Bedarf spezifizieren und quantifizieren",
+            "type": "Task"
+        },
+        {
+            "id": "3",
+            "name": "Bestellung aufgeben",
+            "type": "Task"
+        },
+        {
+            "id": "4",
+            "name": "Bestellung per Mail nachfragen",
+            "type": "Task"
+        },
+        {
+            "id": "5",
+            "name": "Arbeitsmittel aus Bu\u0308rolager entnehmen",
+            "type": "Task"
+        },
+        {
+            "id": "6",
+            "name": "Arbeitsmittel aus Lager entnommen",
+            "type": "Task"
+        }
+    ],
+    "events": [
+        {
+            "id": "7",
+            "name": "Start Event",
+            "type": "StartNoneEvent"
+        },
+        {
+            "id": "8",
+            "name": "5 Tage",
+            "type": "IntermediateTimerEvent"
+        },
+        {
+            "id": "9",
+            "name": "Arbeitsmittel eingegangen",
+            "type": "IntermediateMessageEventCatching"
+        },
+        {
+            "id": "10",
+            "name": "Arbeitsmittel eingegangen",
+            "type": "IntermediateMessageEventCatching"
+        },
+        {
+            "id": "11",
+            "name": "Arbeitsmittel beschafft",
+            "type": "EndNoneEvent"
+        },
+        {
+            "id": "12",
+            "name": "Arbeitsmittel beschafft",
+            "type": "EndNoneEvent"
+        },
+        {
+            "id": "13",
+            "name": "Arbeitsmittel eingegangen",
+            "type": "IntermediateMessageEventCatching"
+        }
+    ],
+    "gateways": [
+        {
+            "id": "14",
+            "type": "Exclusive"
+        },
+        {
+            "id": "15",
+            "type": "Exclusive"
+        },
+        {
+            "id": "16",
+            "type": "Exclusive"
+        },
+        {
+            "id": "17",
+            "type": "Eventbased"
+        }
+    ],
+    "pools": [
+        {
+            "id": "18",
+            "name": "ACME AG",
+            "lanes": [
+                {
+                    "id": "19",
+                    "name": "Beschaffung",
+                    "elemRefs": [
+                        "0",
+                        "1",
+                        "2",
+                        "3",
+                        "4",
+                        "5",
+                        "6",
+                        "7",
+                        "8",
+                        "9",
+                        "10",
+                        "11",
+                        "12",
+                        "13",
+                        "14",
+                        "15",
+                        "16",
+                        "17"
+                    ]
+                }
+            ]
+        },
+        {
+            "id": "20",
+            "name": "Lieferant",
+            "lanes": []
+        }
+    ],
+    "sequenceFlows": [
+        {
+            "id": "21",
+            "sourceRef": "7",
+            "targetRef": "0"
+        },
+        {
+            "id": "22",
+            "sourceRef": "0",
+            "targetRef": "14"
+        },
+        {
+            "id": "23",
+            "sourceRef": "14",
+            "targetRef": "1"
+        },
+        {
+            "id": "24",
+            "sourceRef": "1",
+            "targetRef": "15"
+        },
+        {
+            "id": "25",
+            "sourceRef": "15",
+            "targetRef": "2"
+        },
+        {
+            "id": "26",
+            "sourceRef": "2",
+            "targetRef": "3"
+        },
+        {
+            "id": "27",
+            "sourceRef": "3",
+            "targetRef": "17"
+        },
+        {
+            "id": "28",
+            "sourceRef": "17",
+            "targetRef": "8"
+        },
+        {
+            "id": "29",
+            "sourceRef": "8",
+            "targetRef": "4"
+        },
+        {
+            "id": "30",
+            "sourceRef": "17",
+            "targetRef": "9"
+        },
+        {
+            "id": "31",
+            "sourceRef": "9",
+            "targetRef": "10"
+        },
+        {
+            "id": "32",
+            "sourceRef": "10",
+            "targetRef": "15"
+        },
+        {
+            "id": "33",
+            "sourceRef": "15",
+            "targetRef": "6"
+        },
+        {
+            "id": "34",
+            "sourceRef": "6",
+            "targetRef": "16"
+        },
+        {
+            "id": "35",
+            "sourceRef": "16",
+            "targetRef": "11"
+        },
+        {
+            "id": "36",
+            "sourceRef": "14",
+            "targetRef": "5"
+        },
+        {
+            "id": "37",
+            "sourceRef": "5",
+            "targetRef": "16"
+        }
+    ],
+    "messageFlows": [
+        {
+            "id": "38",
+            "sourceRef": "20",
+            "targetRef": "4",
+            "label": "Bestellen"
+        },
+        {
+            "id": "39",
+            "sourceRef": "20",
+            "targetRef": "13",
+            "label": "Senden"
+        },
+        {
+            "id": "40",
+            "sourceRef": "20",
+            "targetRef": "9",
+            "label": "Senden"
+        }
+    ]
+}

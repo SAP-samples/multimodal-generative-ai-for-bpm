@@ -1,0 +1,224 @@
+{
+    "tasks": [
+        {
+            "id": "0",
+            "name": "Auftragsticket erstellen und weiterleiten",
+            "type": "Task"
+        },
+        {
+            "id": "1",
+            "name": "Wein aus dem keller holen",
+            "type": "Task"
+        },
+        {
+            "id": "2",
+            "name": "Alkoholische Getr\u00e4nke vorbereiten",
+            "type": "Task"
+        },
+        {
+            "id": "3",
+            "name": "Wagen vorbereiten",
+            "type": "Task"
+        },
+        {
+            "id": "4",
+            "name": "Alkoholfreie Getr\u00e4nke vorbereiten",
+            "type": "Task"
+        },
+        {
+            "id": "5",
+            "name": "Speisen zubereiten",
+            "type": "Task"
+        },
+        {
+            "id": "6",
+            "name": "Gew\u00fcnschte Bestellung liefern",
+            "type": "Task"
+        },
+        {
+            "id": "7",
+            "name": "Konto des Kunden belasten",
+            "type": "Task"
+        }
+    ],
+    "events": [
+        {
+            "id": "8",
+            "name": "Auftrag eingegangen",
+            "type": "StartMessageEvent"
+        },
+        {
+            "id": "9",
+            "name": "Keine anderen Auftr\u00e4ge zu bearbeiten",
+            "type": "IntermediateConditionalEvent"
+        },
+        {
+            "id": "10",
+            "name": "Kundenauftrag abgeschlossen",
+            "type": "EndEvent"
+        }
+    ],
+    "gateways": [
+        {
+            "id": "11",
+            "type": "Parallel"
+        },
+        {
+            "id": "12",
+            "name": "Ist Wein gew\u00fcnscht?",
+            "type": "Exclusive"
+        },
+        {
+            "id": "13",
+            "type": "Exclusive"
+        },
+        {
+            "id": "14",
+            "name": "Sind andere alkoholische Getr\u00e4nke gew\u00fcnscht?",
+            "type": "Exclusive"
+        },
+        {
+            "id": "15",
+            "type": "Exclusive"
+        },
+        {
+            "id": "16",
+            "type": "Parallel"
+        }
+    ],
+    "pools": [
+        {
+            "id": "17",
+            "name": "Hotel Evanstonian",
+            "lanes": [
+                {
+                    "id": "18",
+                    "name": "Zimmer-Service-Manager",
+                    "elemRefs": [
+                        "0",
+                        "8",
+                        "11"
+                    ]
+                },
+                {
+                    "id": "19",
+                    "name": "K\u00fcche",
+                    "elemRefs": [
+                        "11",
+                        "5",
+                        "16"
+                    ]
+                },
+                {
+                    "id": "20",
+                    "name": "Kellner",
+                    "elemRefs": [
+                        "3",
+                        "4",
+                        "6",
+                        "7",
+                        "9",
+                        "10",
+                        "11",
+                        "16"
+                    ]
+                },
+                {
+                    "id": "21",
+                    "name": "Sommelier",
+                    "elemRefs": [
+                        "1",
+                        "2",
+                        "12",
+                        "13",
+                        "14",
+                        "15"
+                    ]
+                }
+            ]
+        }
+    ],
+    "sequenceFlows": [
+        {
+            "id": "22",
+            "sourceRef": "8",
+            "targetRef": "0"
+        },
+        {
+            "id": "23",
+            "sourceRef": "0",
+            "targetRef": "11"
+        },
+        {
+            "id": "24",
+            "sourceRef": "11",
+            "targetRef": "5"
+        },
+        {
+            "id": "25",
+            "sourceRef": "11",
+            "targetRef": "3"
+        },
+        {
+            "id": "26",
+            "sourceRef": "3",
+            "targetRef": "4"
+        },
+        {
+            "id": "27",
+            "sourceRef": "5",
+            "targetRef": "16"
+        },
+        {
+            "id": "28",
+            "sourceRef": "6",
+            "targetRef": "9"
+        },
+        {
+            "id": "29",
+            "sourceRef": "9",
+            "targetRef": "7"
+        },
+        {
+            "id": "30",
+            "sourceRef": "7",
+            "targetRef": "10"
+        },
+        {
+            "id": "31",
+            "sourceRef": "11",
+            "targetRef": "12"
+        },
+        {
+            "id": "32",
+            "sourceRef": "12",
+            "targetRef": "1"
+        },
+        {
+            "id": "33",
+            "sourceRef": "1",
+            "targetRef": "13"
+        },
+        {
+            "id": "34",
+            "sourceRef": "13",
+            "targetRef": "2"
+        },
+        {
+            "id": "35",
+            "sourceRef": "2",
+            "targetRef": "15"
+        },
+        {
+            "id": "36",
+            "sourceRef": "15",
+            "targetRef": "16"
+        },
+        {
+            "id": "37",
+            "sourceRef": "16",
+            "targetRef": "6"
+        }
+    ],
+    "messageFlows": []
+}

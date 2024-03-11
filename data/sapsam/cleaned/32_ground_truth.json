@@ -1,0 +1,236 @@
+{
+    "tasks": [
+        {
+            "id": "BP01_BP02_BP29",
+            "name": "Entlassungsdokumentation erstellen",
+            "type": "CollapsedSubprocess"
+        },
+        {
+            "id": "BP01_BP02_BP38",
+            "name": "weiterf\u00fchrende Aufgaben Entlassung",
+            "type": "CollapsedSubprocess"
+        },
+        {
+            "id": "sid-8E8F78A7-1D47-4CEF-A9FB-92972A5F2C37",
+            "name": "Versorgungseinrichtung festlegen",
+            "type": "CollapsedSubprocess"
+        },
+        {
+            "id": "BP01_BP02_BP10",
+            "name": "pflegerischen Versorgungsbedarf  bestimmen",
+            "type": "Task"
+        },
+        {
+            "id": "BP01_BP01_BP21",
+            "name": "\u00e4rztlichen Versorgungsbedarf  bestimmen",
+            "type": "CollapsedSubprocess"
+        },
+        {
+            "id": "BP01_BP01_BP27",
+            "name": "Arztbrief erstellen",
+            "type": "Task"
+        },
+        {
+            "id": "BP01_BP01_BP02",
+            "name": "Entlassungstermin festlegen",
+            "type": "Task"
+        },
+        {
+            "id": "BP01_BP01_BP04",
+            "name": "mit Patient und Angehoerigen den weiteren Verlauf besprechen",
+            "type": "Task"
+        },
+        {
+            "id": "BP01_BP03_BP02",
+            "name": "veranlassen weiterer Pflegedienstleistungen",
+            "type": "CollapsedSubprocess"
+        }
+    ],
+    "events": [
+        {
+            "id": "BP01_BP02_BP40",
+            "name": "Entlassung",
+            "type": "EndNoneEvent"
+        },
+        {
+            "id": "BP01_BP01_BP01",
+            "name": "geplante Entlassung",
+            "type": "StartNoneEvent"
+        }
+    ],
+    "gateways": [
+        {
+            "id": "BP01_BP02_BP35",
+            "type": "Parallel"
+        },
+        {
+            "id": "sid-6DB7E5B4-2CFD-4071-9FF7-BD37EC5951DE",
+            "type": "Parallel"
+        },
+        {
+            "id": "sid-D5B5AAFE-A5E7-408E-8C0A-0E7E3C7C94F0",
+            "type": "Exclusive"
+        },
+        {
+            "id": "BP01_BP02_BP06",
+            "name": "Sozialdienst erforderlich?",
+            "type": "Exclusive"
+        },
+        {
+            "id": "sid-0CB8BB64-6FB4-4AD6-8078-246FC00F1B39",
+            "type": "Parallel"
+        },
+        {
+            "id": "sid-496DFBD7-16C1-4943-AD2D-EFC8E933A27D",
+            "type": "Parallel"
+        }
+    ],
+    "pools": [
+        {
+            "id": "BP01",
+            "name": "Abteilung",
+            "lanes": [
+                {
+                    "id": "BP01_BP02",
+                    "name": "Pflege",
+                    "elemRefs": [
+                        "BP01_BP02_BP29",
+                        "BP01_BP02_BP38",
+                        "sid-8E8F78A7-1D47-4CEF-A9FB-92972A5F2C37",
+                        "BP01_BP02_BP10",
+                        "BP01_BP02_BP40",
+                        "BP01_BP02_BP35",
+                        "sid-6DB7E5B4-2CFD-4071-9FF7-BD37EC5951DE",
+                        "sid-D5B5AAFE-A5E7-408E-8C0A-0E7E3C7C94F0",
+                        "BP01_BP02_BP06",
+                        "sid-0CB8BB64-6FB4-4AD6-8078-246FC00F1B39"
+                    ]
+                },
+                {
+                    "id": "BP01_BP01",
+                    "name": "Arzt",
+                    "elemRefs": [
+                        "BP01_BP01_BP21",
+                        "BP01_BP01_BP27",
+                        "BP01_BP01_BP02",
+                        "BP01_BP01_BP04",
+                        "BP01_BP01_BP01",
+                        "sid-496DFBD7-16C1-4943-AD2D-EFC8E933A27D"
+                    ]
+                },
+                {
+                    "id": "BP01_BP03",
+                    "name": "Sozialdienst",
+                    "elemRefs": [
+                        "BP01_BP03_BP02"
+                    ]
+                }
+            ]
+        }
+    ],
+    "messageFlows": [],
+    "sequenceFlows": [
+        {
+            "id": "BP01_BP01_BP30",
+            "targetRef": "BP01_BP02_BP35",
+            "sourceRef": "BP01_BP01_BP27"
+        },
+        {
+            "id": "BP01_BP01_BP47",
+            "targetRef": "sid-496DFBD7-16C1-4943-AD2D-EFC8E933A27D",
+            "sourceRef": "BP01_BP01_BP02"
+        },
+        {
+            "id": "BP01_BP01_BP51",
+            "targetRef": "BP01_BP01_BP21",
+            "sourceRef": "sid-496DFBD7-16C1-4943-AD2D-EFC8E933A27D"
+        },
+        {
+            "id": "sid-094E31F7-CCA4-4A5D-8AA6-183ECBBFD50A",
+            "targetRef": "BP01_BP02_BP35",
+            "sourceRef": "BP01_BP02_BP29"
+        },
+        {
+            "id": "sid-5E7FCE87-E2E6-449F-AE0D-F25EDBADFB94",
+            "targetRef": "BP01_BP01_BP04",
+            "sourceRef": "sid-496DFBD7-16C1-4943-AD2D-EFC8E933A27D"
+        },
+        {
+            "id": "sid-BCA26C40-94A4-4E00-AC69-E39C3AC8451A",
+            "targetRef": "BP01_BP02_BP29",
+            "sourceRef": "sid-D5B5AAFE-A5E7-408E-8C0A-0E7E3C7C94F0"
+        },
+        {
+            "id": "BP01_BP03_BP09",
+            "targetRef": "sid-D5B5AAFE-A5E7-408E-8C0A-0E7E3C7C94F0",
+            "sourceRef": "BP01_BP03_BP02"
+        },
+        {
+            "id": "sid-E62FBD41-05AF-4246-991C-BDA731E1C5E3",
+            "targetRef": "sid-6DB7E5B4-2CFD-4071-9FF7-BD37EC5951DE",
+            "sourceRef": "BP01_BP01_BP04"
+        },
+        {
+            "id": "sid-D9B3F457-0C43-4532-9C13-E82F4CE0311A",
+            "targetRef": "sid-8E8F78A7-1D47-4CEF-A9FB-92972A5F2C37",
+            "sourceRef": "sid-6DB7E5B4-2CFD-4071-9FF7-BD37EC5951DE"
+        },
+        {
+            "id": "sid-CA058123-AAB8-499D-8431-36CFFC23CC58",
+            "targetRef": "BP01_BP02_BP38",
+            "sourceRef": "BP01_BP02_BP35"
+        },
+        {
+            "id": "sid-7F89E81A-8A00-4F73-92EB-9049B442A0D7",
+            "targetRef": "BP01_BP02_BP10",
+            "sourceRef": "sid-496DFBD7-16C1-4943-AD2D-EFC8E933A27D"
+        },
+        {
+            "id": "sid-A03CE4B1-EC17-4F64-BCE6-8B49C0A26945",
+            "targetRef": "sid-0CB8BB64-6FB4-4AD6-8078-246FC00F1B39",
+            "sourceRef": "sid-8E8F78A7-1D47-4CEF-A9FB-92972A5F2C37"
+        },
+        {
+            "id": "sid-890BE6AD-1E90-43E5-9E00-F66D1D731027",
+            "targetRef": "BP01_BP01_BP02",
+            "sourceRef": "BP01_BP01_BP01"
+        },
+        {
+            "id": "sid-85C41648-9A9E-41D0-9FA9-9B1D17C8799C",
+            "targetRef": "BP01_BP01_BP27",
+            "sourceRef": "sid-0CB8BB64-6FB4-4AD6-8078-246FC00F1B39"
+        },
+        {
+            "id": "sid-9149CE51-3614-4839-929A-4CD285AA9431",
+            "targetRef": "BP01_BP02_BP40",
+            "sourceRef": "BP01_BP02_BP38"
+        },
+        {
+            "id": "sid-BC7D8655-52D0-4301-B9ED-99084C9C612E",
+            "targetRef": "BP01_BP02_BP06",
+            "sourceRef": "sid-0CB8BB64-6FB4-4AD6-8078-246FC00F1B39"
+        },
+        {
+            "id": "sid-8C45FF40-9E52-4E81-B12D-1552D3579088",
+            "targetRef": "sid-6DB7E5B4-2CFD-4071-9FF7-BD37EC5951DE",
+            "sourceRef": "BP01_BP01_BP21"
+        },
+        {
+            "id": "sid-D33CB1FA-DC8A-49C5-AA6D-08403E78A16B",
+            "targetRef": "sid-6DB7E5B4-2CFD-4071-9FF7-BD37EC5951DE",
+            "sourceRef": "BP01_BP02_BP10"
+        },
+        {
+            "id": "sid-07EEAB94-3BB7-4ADA-8DC1-D03A22EB8A4B",
+            "targetRef": "sid-D5B5AAFE-A5E7-408E-8C0A-0E7E3C7C94F0",
+            "condition": "nein",
+            "sourceRef": "BP01_BP02_BP06"
+        },
+        {
+            "id": "sid-7D41407E-1116-405D-A990-203CAFD6AF7E",
+            "targetRef": "BP01_BP03_BP02",
+            "condition": "ja",
+            "sourceRef": "BP01_BP02_BP06"
+        }
+    ]
+}

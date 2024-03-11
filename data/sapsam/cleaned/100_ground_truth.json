@@ -1,0 +1,131 @@
+{
+    "tasks": [
+        {
+            "id": "sid-0ABB0E60-F49F-414E-BD2A-B27CE5FE6851",
+            "name": "Startliste erstellen",
+            "type": "Task"
+        },
+        {
+            "id": "sid-32D75E95-DD0B-4E13-9413-A6BD690B0006",
+            "name": "Inhalt der Internetseite analysieren",
+            "type": "Task"
+        },
+        {
+            "id": "sid-F20F2478-643A-4171-A48F-D9DBCC7D91CC",
+            "name": "Ergebnis speichern",
+            "type": "Task"
+        },
+        {
+            "id": "sid-7E96AF82-5005-4C65-B615-3AFE8499F8B5",
+            "name": "Neue gefundene URLs speichern",
+            "type": "Task"
+        },
+        {
+            "id": "sid-70290FF7-51C9-48A0-9349-9F89B6D93D0F",
+            "name": "Auswahlkriterien werden festgelegt",
+            "type": "CollapsedSubprocess"
+        }
+    ],
+    "events": [
+        {
+            "id": "sid-4ACF2C10-856E-4569-A61E-45CE6CA288FB",
+            "name": "Suche beginnt",
+            "type": "StartNoneEvent"
+        },
+        {
+            "id": "sid-B0BDDCA3-9063-4555-83C6-9DC87807E490",
+            "name": "Suche beenden",
+            "type": "EndNoneEvent"
+        }
+    ],
+    "gateways": [
+        {
+            "id": "sid-37287195-F0AB-4DB9-A509-45FCF9758C65",
+            "name": "Sind noch nicht besuchte  URLs vorhanden?",
+            "type": "Parallel"
+        }
+    ],
+    "pools": [
+        {
+            "id": "sid-BAFCD9E6-1B1C-4027-AC84-311031ABCA63",
+            "name": "Software Anbieter",
+            "lanes": [
+                {
+                    "id": "sid-CBD003B5-311A-404E-A9EA-3A5920AC11B1",
+                    "name": "",
+                    "elemRefs": [
+                        "sid-0ABB0E60-F49F-414E-BD2A-B27CE5FE6851",
+                        "sid-32D75E95-DD0B-4E13-9413-A6BD690B0006",
+                        "sid-F20F2478-643A-4171-A48F-D9DBCC7D91CC",
+                        "sid-7E96AF82-5005-4C65-B615-3AFE8499F8B5",
+                        "sid-70290FF7-51C9-48A0-9349-9F89B6D93D0F",
+                        "sid-4ACF2C10-856E-4569-A61E-45CE6CA288FB",
+                        "sid-B0BDDCA3-9063-4555-83C6-9DC87807E490",
+                        "sid-37287195-F0AB-4DB9-A509-45FCF9758C65"
+                    ]
+                }
+            ]
+        },
+        {
+            "id": "sid-78B24008-6C00-49B9-9CAE-CDAE904AF555",
+            "name": "Kunde TUI AG",
+            "lanes": []
+        }
+    ],
+    "messageFlows": [
+        {
+            "id": "sid-8EAAFB9C-DD40-4D92-AF5E-9D6B3995C5DA",
+            "targetRef": "sid-78B24008-6C00-49B9-9CAE-CDAE904AF555",
+            "sourceRef": "sid-F20F2478-643A-4171-A48F-D9DBCC7D91CC"
+        },
+        {
+            "id": "sid-768F0B29-1D2E-4C30-95F5-67EA58318EF3",
+            "targetRef": "sid-70290FF7-51C9-48A0-9349-9F89B6D93D0F",
+            "sourceRef": "sid-78B24008-6C00-49B9-9CAE-CDAE904AF555"
+        }
+    ],
+    "sequenceFlows": [
+        {
+            "id": "sid-D4C81840-871E-425A-ABD0-FEF526484248",
+            "targetRef": "sid-37287195-F0AB-4DB9-A509-45FCF9758C65",
+            "sourceRef": "sid-0ABB0E60-F49F-414E-BD2A-B27CE5FE6851"
+        },
+        {
+            "id": "sid-C993ED31-3170-4672-938B-28C551A474BA",
+            "targetRef": "sid-7E96AF82-5005-4C65-B615-3AFE8499F8B5",
+            "sourceRef": "sid-32D75E95-DD0B-4E13-9413-A6BD690B0006"
+        },
+        {
+            "id": "sid-A830B264-6AC6-48C7-AA25-7AC381185B54",
+            "targetRef": "sid-32D75E95-DD0B-4E13-9413-A6BD690B0006",
+            "condition": "Ja",
+            "sourceRef": "sid-37287195-F0AB-4DB9-A509-45FCF9758C65"
+        },
+        {
+            "id": "sid-8C62763E-BAC2-4CB5-9B02-A8C058069BCC",
+            "targetRef": "sid-F20F2478-643A-4171-A48F-D9DBCC7D91CC",
+            "condition": "Nein",
+            "sourceRef": "sid-37287195-F0AB-4DB9-A509-45FCF9758C65"
+        },
+        {
+            "id": "sid-7036EAE1-5CEC-4C80-981A-E809E9246C37",
+            "targetRef": "sid-B0BDDCA3-9063-4555-83C6-9DC87807E490",
+            "sourceRef": "sid-F20F2478-643A-4171-A48F-D9DBCC7D91CC"
+        },
+        {
+            "id": "sid-9157B0BF-09CF-439B-9148-BDFFADBC66E3",
+            "targetRef": "sid-0ABB0E60-F49F-414E-BD2A-B27CE5FE6851",
+            "sourceRef": "sid-7E96AF82-5005-4C65-B615-3AFE8499F8B5"
+        },
+        {
+            "id": "sid-6577086E-E660-4C6A-895F-F8D3681BCF8D",
+            "targetRef": "sid-70290FF7-51C9-48A0-9349-9F89B6D93D0F",
+            "sourceRef": "sid-4ACF2C10-856E-4569-A61E-45CE6CA288FB"
+        },
+        {
+            "id": "sid-BFCFD81F-C3B5-4CC4-8A9E-205519150B94",
+            "targetRef": "sid-0ABB0E60-F49F-414E-BD2A-B27CE5FE6851",
+            "sourceRef": "sid-70290FF7-51C9-48A0-9349-9F89B6D93D0F"
+        }
+    ]
+}

@@ -1,0 +1,192 @@
+{
+    "tasks": [
+        {
+            "id": "sid-71C1C09B-7EFE-4F29-8FF5-C5B99B659B94",
+            "name": "Genehmigung erteilen & Bestellung ausl\u00f6sen",
+            "type": "Task"
+        },
+        {
+            "id": "sid-F0DF4692-A2B1-40A6-B4C8-FC511D38BD39",
+            "name": "Bestellanforderung (BANF) pr\u00fcfen",
+            "type": "Task"
+        },
+        {
+            "id": "sid-454ECE20-A66B-44A0-8828-53EF8686B983",
+            "name": "Bestellvorlage aus Bestellanforderung (BANF) erzeugen",
+            "type": "Task"
+        },
+        {
+            "id": "sid-989C22F0-D47D-4EBF-89D5-0A8190657036",
+            "name": "Kreditor  im ERP  erstellen",
+            "type": "Task"
+        },
+        {
+            "id": "sid-CD1BD5CD-3687-49BB-BB8D-763AD1C8C79C",
+            "name": "",
+            "type": "Task"
+        },
+        {
+            "id": "sid-84405B36-F69F-40A9-A163-FDBAB9E34ECC",
+            "name": "Bestellanforderung (BANF)",
+            "type": "Business Rule"
+        },
+        {
+            "id": "sid-7AED04C5-5D7F-40B8-AF3F-90EAE5B0676E",
+            "name": "Bedarf quantifizieren",
+            "type": "CollapsedSubprocess"
+        },
+        {
+            "id": "sid-2536705C-5DF8-4F5B-A20B-D91C868EFA5A",
+            "name": "Artikel aus B\u00fcrolager entnehmen",
+            "type": "Task"
+        }
+    ],
+    "events": [
+        {
+            "id": "sid-38896319-E100-468C-93FA-50DF9E1DCB38",
+            "name": "Bestellung-zu-Lieferung",
+            "type": "IntermediateLinkEventThrowing"
+        },
+        {
+            "id": "sid-4E32AA88-A60B-4BF5-8749-1F63C73F0ABD",
+            "name": "Bedarf aufgetreten",
+            "type": "StartNoneEvent"
+        },
+        {
+            "id": "sid-25B6DA95-7F57-48C8-B96B-F0C6D688A6A3",
+            "name": "Bedarf erf\u00fcllt",
+            "type": "EndNoneEvent"
+        }
+    ],
+    "gateways": [
+        {
+            "id": "sid-7DEE1382-122E-4580-868F-5022F1F1B3E6",
+            "type": "Exclusive"
+        },
+        {
+            "id": "sid-01E0017F-3A47-4BE1-AC7B-A1C19723B37C",
+            "type": "Exclusive"
+        },
+        {
+            "id": "sid-9C7875B2-0EB0-4DE1-A4DD-F6E9DD3F1157",
+            "type": "Exclusive"
+        }
+    ],
+    "pools": [
+        {
+            "id": "sid-7F39A0E9-62FA-446C-9D40-0529C4159EE3",
+            "name": "ACME AG",
+            "lanes": [
+                {
+                    "id": "sid-68576E11-1779-4817-ACF2-F91B692F2473",
+                    "name": "Freigebender",
+                    "elemRefs": [
+                        "sid-71C1C09B-7EFE-4F29-8FF5-C5B99B659B94",
+                        "sid-38896319-E100-468C-93FA-50DF9E1DCB38"
+                    ]
+                },
+                {
+                    "id": "sid-48FDD620-7EC1-47F5-A96C-48B1D62E6943",
+                    "name": "Zentraleinkauf",
+                    "elemRefs": [
+                        "sid-F0DF4692-A2B1-40A6-B4C8-FC511D38BD39",
+                        "sid-454ECE20-A66B-44A0-8828-53EF8686B983",
+                        "sid-989C22F0-D47D-4EBF-89D5-0A8190657036",
+                        "sid-CD1BD5CD-3687-49BB-BB8D-763AD1C8C79C",
+                        "sid-7DEE1382-122E-4580-868F-5022F1F1B3E6",
+                        "sid-01E0017F-3A47-4BE1-AC7B-A1C19723B37C"
+                    ]
+                },
+                {
+                    "id": "sid-22E32A80-6C40-4E02-A8C8-AE773825A37C",
+                    "name": "Fachabteilung",
+                    "elemRefs": [
+                        "sid-84405B36-F69F-40A9-A163-FDBAB9E34ECC",
+                        "sid-7AED04C5-5D7F-40B8-AF3F-90EAE5B0676E",
+                        "sid-2536705C-5DF8-4F5B-A20B-D91C868EFA5A",
+                        "sid-4E32AA88-A60B-4BF5-8749-1F63C73F0ABD",
+                        "sid-25B6DA95-7F57-48C8-B96B-F0C6D688A6A3",
+                        "sid-9C7875B2-0EB0-4DE1-A4DD-F6E9DD3F1157"
+                    ]
+                }
+            ]
+        }
+    ],
+    "messageFlows": [],
+    "sequenceFlows": [
+        {
+            "id": "sid-49040AC5-7746-4F5F-9E2F-4B6D888CED43",
+            "targetRef": "sid-9C7875B2-0EB0-4DE1-A4DD-F6E9DD3F1157",
+            "sourceRef": "sid-4E32AA88-A60B-4BF5-8749-1F63C73F0ABD"
+        },
+        {
+            "id": "sid-EDF88E2A-7257-4686-8464-7869D7FF7A88",
+            "targetRef": "sid-84405B36-F69F-40A9-A163-FDBAB9E34ECC",
+            "sourceRef": "sid-7AED04C5-5D7F-40B8-AF3F-90EAE5B0676E"
+        },
+        {
+            "id": "sid-27A8076D-3813-4AA6-AD65-8371F20DA4F3",
+            "targetRef": "sid-F0DF4692-A2B1-40A6-B4C8-FC511D38BD39",
+            "sourceRef": "sid-84405B36-F69F-40A9-A163-FDBAB9E34ECC"
+        },
+        {
+            "id": "sid-3116F0A9-5099-40B7-A6FD-7B421970BF8B",
+            "targetRef": "sid-01E0017F-3A47-4BE1-AC7B-A1C19723B37C",
+            "sourceRef": "sid-989C22F0-D47D-4EBF-89D5-0A8190657036"
+        },
+        {
+            "id": "sid-199E8835-3F70-4CA5-9736-AFBBE0BA582A",
+            "targetRef": "sid-71C1C09B-7EFE-4F29-8FF5-C5B99B659B94",
+            "sourceRef": "sid-454ECE20-A66B-44A0-8828-53EF8686B983"
+        },
+        {
+            "id": "sid-BA57B946-7D5F-4D00-866F-B700A77FD41A",
+            "targetRef": "sid-38896319-E100-468C-93FA-50DF9E1DCB38",
+            "sourceRef": "sid-71C1C09B-7EFE-4F29-8FF5-C5B99B659B94"
+        },
+        {
+            "id": "sid-5A67BFBC-0D18-4ECA-814F-E4EB4A2DA27A",
+            "targetRef": "sid-01E0017F-3A47-4BE1-AC7B-A1C19723B37C",
+            "condition": "Kreditor bekannt",
+            "sourceRef": "sid-7DEE1382-122E-4580-868F-5022F1F1B3E6"
+        },
+        {
+            "id": "sid-43C8AAEF-2FA9-4D26-BBF1-11A0EE79BD37",
+            "targetRef": "sid-989C22F0-D47D-4EBF-89D5-0A8190657036",
+            "condition": "Kreditor  unbekannt",
+            "sourceRef": "sid-7DEE1382-122E-4580-868F-5022F1F1B3E6"
+        },
+        {
+            "id": "sid-DDA775AB-C481-46C9-B4E2-FD5D798CEEFC",
+            "targetRef": "sid-7AED04C5-5D7F-40B8-AF3F-90EAE5B0676E",
+            "condition": "Artikel  nicht vorr\u00e4tig",
+            "sourceRef": "sid-9C7875B2-0EB0-4DE1-A4DD-F6E9DD3F1157"
+        },
+        {
+            "id": "sid-C193A067-68F5-4F7E-AC28-258CA3664C5A",
+            "targetRef": "sid-2536705C-5DF8-4F5B-A20B-D91C868EFA5A",
+            "condition": "Artikel vorr\u00e4tig",
+            "sourceRef": "sid-9C7875B2-0EB0-4DE1-A4DD-F6E9DD3F1157"
+        },
+        {
+            "id": "sid-FE75CBC8-AB45-4254-AD27-CB286DFF0E7D",
+            "targetRef": "sid-25B6DA95-7F57-48C8-B96B-F0C6D688A6A3",
+            "sourceRef": "sid-2536705C-5DF8-4F5B-A20B-D91C868EFA5A"
+        },
+        {
+            "id": "sid-D8AA1B70-3CD8-4044-878A-8E3938D47FFA",
+            "targetRef": "sid-454ECE20-A66B-44A0-8828-53EF8686B983",
+            "sourceRef": "sid-01E0017F-3A47-4BE1-AC7B-A1C19723B37C"
+        },
+        {
+            "id": "sid-057465EB-22FB-4003-A12B-38303F9E467E",
+            "targetRef": "sid-7DEE1382-122E-4580-868F-5022F1F1B3E6",
+            "sourceRef": "sid-F0DF4692-A2B1-40A6-B4C8-FC511D38BD39"
+        },
+        {
+            "id": "sid-E1C2C12E-3B97-44FA-BC7C-1DF1237B768F",
+            "targetRef": "sid-CD1BD5CD-3687-49BB-BB8D-763AD1C8C79C",
+            "sourceRef": "sid-454ECE20-A66B-44A0-8828-53EF8686B983"
+        }
+    ]
+}

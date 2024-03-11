@@ -1,0 +1,150 @@
+{
+    "tasks": [
+        {
+            "id": "0",
+            "name": "Konfliktschlichter aufsuchen",
+            "type": "Task"
+        },
+        {
+            "id": "1",
+            "name": "Mitarbeiter anh\u00f6ren",
+            "type": "Task"
+        },
+        {
+            "id": "2",
+            "name": "Termin vereinbaren",
+            "type": "Task"
+        },
+        {
+            "id": "3",
+            "name": "Termin wahrnehmen",
+            "type": "Task"
+        },
+        {
+            "id": "4",
+            "name": "Konflikt schildern",
+            "type": "Task"
+        },
+        {
+            "id": "5",
+            "name": "Konfliktl\u00f6sung finden",
+            "type": "Task"
+        },
+        {
+            "id": "6",
+            "name": "Termin vereinbaren",
+            "type": "Task"
+        }
+    ],
+    "events": [
+        {
+            "id": "7",
+            "name": "Konflikt aufgetreten",
+            "type": "StartNoneEvent"
+        },
+        {
+            "id": "8",
+            "name": "Konflikt gel\u00f6st",
+            "type": "EndNoneEvent"
+        }
+    ],
+    "gateways": [
+        {
+            "id": "9",
+            "type": "Exclusive"
+        },
+        {
+            "id": "10",
+            "type": "Exclusive"
+        }
+    ],
+    "pools": [
+        {
+            "id": "11",
+            "name": "SoKnow",
+            "lanes": [
+                {
+                    "id": "12",
+                    "name": "Mitarbeiter",
+                    "elemRefs": [
+                        "7",
+                        "0",
+                        "4",
+                        "3",
+                        "8"
+                    ]
+                },
+                {
+                    "id": "13",
+                    "name": "Personalabteilung",
+                    "elemRefs": [
+                        "1",
+                        "2",
+                        "5",
+                        "6"
+                    ]
+                }
+            ]
+        }
+    ],
+    "sequenceFlows": [
+        {
+            "id": "14",
+            "sourceRef": "7",
+            "targetRef": "0"
+        },
+        {
+            "id": "15",
+            "sourceRef": "0",
+            "targetRef": "1"
+        },
+        {
+            "id": "16",
+            "sourceRef": "1",
+            "targetRef": "2"
+        },
+        {
+            "id": "17",
+            "sourceRef": "2",
+            "targetRef": "3"
+        },
+        {
+            "id": "18",
+            "sourceRef": "3",
+            "targetRef": "4"
+        },
+        {
+            "id": "19",
+            "sourceRef": "4",
+            "targetRef": "9"
+        },
+        {
+            "id": "20",
+            "sourceRef": "9",
+            "targetRef": "5",
+            "condition": "Yes"
+        },
+        {
+            "id": "21",
+            "sourceRef": "9",
+            "targetRef": "10",
+            "condition": "No"
+        },
+        {
+            "id": "22",
+            "sourceRef": "5",
+            "targetRef": "8"
+        },
+        {
+            "id": "23",
+            "sourceRef": "10",
+            "targetRef": "6"
+        },
+        {
+            "id": "24",
+            "sourceRef": "6",
+            "targetRef": "1"
+        }
+    ],
+    "messageFlows": []
+}

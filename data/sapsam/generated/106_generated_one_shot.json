@@ -1,0 +1,118 @@
+{
+    "tasks": [
+        {
+            "id": "0",
+            "name": "Auf '\u00dcberpr\u00fcfen' klicken",
+            "type": "Task"
+        },
+        {
+            "id": "1",
+            "name": "Klick auf 'Arbeitsmappe sch\u00fctzen'",
+            "type": "Task"
+        },
+        {
+            "id": "2",
+            "name": "Passwort 'AnderesPw' eingeben",
+            "type": "Task"
+        },
+        {
+            "id": "3",
+            "name": "Enter klicken",
+            "type": "Task"
+        },
+        {
+            "id": "4",
+            "name": "Blattschutz aufheben klicken",
+            "type": "Task"
+        },
+        {
+            "id": "5",
+            "name": "Passwort 'GeheimesPw' eingeben",
+            "type": "Task"
+        },
+        {
+            "id": "6",
+            "name": "Enter klicken",
+            "type": "Task"
+        }
+    ],
+    "events": [
+        {
+            "id": "7",
+            "name": "Start Unteprozess",
+            "type": "StartNoneEvent"
+        },
+        {
+            "id": "8",
+            "name": "Schutzma\u00dfnahmen entfernt",
+            "type": "EndNoneEvent"
+        }
+    ],
+    "gateways": [],
+    "pools": [
+        {
+            "id": "9",
+            "name": "TAS AG",
+            "lanes": [
+                {
+                    "id": "10",
+                    "name": "Roboter",
+                    "elemRefs": [
+                        "0",
+                        "1",
+                        "2",
+                        "3",
+                        "4",
+                        "5",
+                        "6",
+                        "7",
+                        "8"
+                    ]
+                }
+            ]
+        }
+    ],
+    "sequenceFlows": [
+        {
+            "id": "11",
+            "sourceRef": "7",
+            "targetRef": "0"
+        },
+        {
+            "id": "12",
+            "sourceRef": "0",
+            "targetRef": "1"
+        },
+        {
+            "id": "13",
+            "sourceRef": "1",
+            "targetRef": "2"
+        },
+        {
+            "id": "14",
+            "sourceRef": "2",
+            "targetRef": "3"
+        },
+        {
+            "id": "15",
+            "sourceRef": "3",
+            "targetRef": "4"
+        },
+        {
+            "id": "16",
+            "sourceRef": "4",
+            "targetRef": "5"
+        },
+        {
+            "id": "17",
+            "sourceRef": "5",
+            "targetRef": "6"
+        },
+        {
+            "id": "18",
+            "sourceRef": "6",
+            "targetRef": "8"
+        }
+    ],
+    "messageFlows": []
+}

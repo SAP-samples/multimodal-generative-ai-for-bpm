@@ -1,0 +1,85 @@
+{
+    "tasks": [
+        {
+            "id": "sid-57527028-67C8-49F8-9D2F-E923EB620CD5",
+            "name": "Navigate to the Staff window in S+ Classic",
+            "type": "Task"
+        },
+        {
+            "id": "sid-B3DA5500-BDAB-426B-8709-AE922AAE3C2A",
+            "name": "Create a \"new\" staff object",
+            "type": "Task"
+        },
+        {
+            "id": "sid-1AEC54D9-EB89-4D34-B795-F5016A36E2E4",
+            "name": "Edit the ID tab",
+            "type": "Task"
+        },
+        {
+            "id": "sid-DAF33503-8BB6-4BA8-AB01-A2E179826FE1",
+            "name": "Navigate to the Activity Template window",
+            "type": "Task"
+        }
+    ],
+    "events": [
+        {
+            "id": "sid-8d87b232a2c449de9e56ad89face2e41",
+            "name": "Create New  Dummy Staff",
+            "type": "StartNoneEvent"
+        },
+        {
+            "id": "sid-341246e6cec7452f9f0746d20304e046",
+            "name": "Dummy Staff attached  to resource on the  activity template",
+            "type": "EndNoneEvent"
+        }
+    ],
+    "gateways": [],
+    "pools": [
+        {
+            "id": "sid-cd7f9b2d-c5e6-4ba5-9f71-5b9726acdd60",
+            "name": "ANU",
+            "lanes": [
+                {
+                    "id": "sid-504a7b1a5a634e9fa043429545a830dd",
+                    "name": "TT Officer",
+                    "elemRefs": [
+                        "sid-57527028-67C8-49F8-9D2F-E923EB620CD5",
+                        "sid-B3DA5500-BDAB-426B-8709-AE922AAE3C2A",
+                        "sid-1AEC54D9-EB89-4D34-B795-F5016A36E2E4",
+                        "sid-DAF33503-8BB6-4BA8-AB01-A2E179826FE1",
+                        "sid-8d87b232a2c449de9e56ad89face2e41",
+                        "sid-341246e6cec7452f9f0746d20304e046"
+                    ]
+                }
+            ]
+        }
+    ],
+    "messageFlows": [],
+    "sequenceFlows": [
+        {
+            "id": "spr-b26fecc695de433b9efc8ac36f840b96",
+            "targetRef": "sid-57527028-67C8-49F8-9D2F-E923EB620CD5",
+            "sourceRef": "sid-8d87b232a2c449de9e56ad89face2e41"
+        },
+        {
+            "id": "spr-1499587b84ba4f4da06f2ec33c4eaac9",
+            "targetRef": "sid-B3DA5500-BDAB-426B-8709-AE922AAE3C2A",
+            "sourceRef": "sid-57527028-67C8-49F8-9D2F-E923EB620CD5"
+        },
+        {
+            "id": "spr-2fbb8e74fa10475fa6accc027d59477b",
+            "targetRef": "sid-1AEC54D9-EB89-4D34-B795-F5016A36E2E4",
+            "sourceRef": "sid-B3DA5500-BDAB-426B-8709-AE922AAE3C2A"
+        },
+        {
+            "id": "spr-16a2e27a79c742a0bc3e349fd8cbe4d8",
+            "targetRef": "sid-DAF33503-8BB6-4BA8-AB01-A2E179826FE1",
+            "sourceRef": "sid-1AEC54D9-EB89-4D34-B795-F5016A36E2E4"
+        },
+        {
+            "id": "sid-B104C3F4-2E8B-4A89-BF8A-1AA7BACD48AF",
+            "targetRef": "sid-341246e6cec7452f9f0746d20304e046",
+            "sourceRef": "sid-DAF33503-8BB6-4BA8-AB01-A2E179826FE1"
+        }
+    ]
+}

@@ -1,0 +1,151 @@
+{
+    "tasks": [
+        {
+            "id": "0",
+            "name": "Marktanalyse durchf\u00fchren",
+            "type": "Task"
+        },
+        {
+            "id": "1",
+            "name": "Ideen finden",
+            "type": "Task"
+        },
+        {
+            "id": "2",
+            "name": "\u00dcberpr\u00fcfung",
+            "type": "Task"
+        },
+        {
+            "id": "3",
+            "name": "Idee an Projektleitung weitergeben",
+            "type": "Task"
+        },
+        {
+            "id": "4",
+            "name": "Idee genehmigen",
+            "type": "Task"
+        },
+        {
+            "id": "5",
+            "name": "Idee nicht genehmigen",
+            "type": "Task"
+        }
+    ],
+    "events": [
+        {
+            "id": "6",
+            "name": "Technologiebedarf analysieren",
+            "type": "StartNoneEvent"
+        },
+        {
+            "id": "7",
+            "name": "Neue Technologien herausgefunden",
+            "type": "EndNoneEvent"
+        }
+    ],
+    "gateways": [
+        {
+            "id": "8",
+            "name": "Parallel Gateway",
+            "type": "Parallel"
+        },
+        {
+            "id": "9",
+            "name": "Idee genehmigen ?",
+            "type": "Exclusive"
+        },
+        {
+            "id": "10",
+            "type": "Exclusive"
+        }
+    ],
+    "pools": [
+        {
+            "id": "11",
+            "name": "SoKnow",
+            "lanes": [
+                {
+                    "id": "12",
+                    "name": "Mitarbeiter",
+                    "elemRefs": [
+                        "0",
+                        "1",
+                        "2",
+                        "3",
+                        "6",
+                        "8",
+                        "9"
+                    ]
+                },
+                {
+                    "id": "13",
+                    "name": "Entwickler",
+                    "elemRefs": [
+                        "1"
+                    ]
+                }
+            ]
+        }
+    ],
+    "sequenceFlows": [
+        {
+            "id": "14",
+            "sourceRef": "6",
+            "targetRef": "8"
+        },
+        {
+            "id": "15",
+            "sourceRef": "8",
+            "targetRef": "0"
+        },
+        {
+            "id": "16",
+            "sourceRef": "0",
+            "targetRef": "2"
+        },
+        {
+            "id": "17",
+            "sourceRef": "2",
+            "targetRef": "3"
+        },
+        {
+            "id": "18",
+            "sourceRef": "3",
+            "targetRef": "9"
+        },
+        {
+            "id": "19",
+            "sourceRef": "9",
+            "targetRef": "4",
+            "condition": "Idee genehmigen"
+        },
+        {
+            "id": "20",
+            "sourceRef": "9",
+            "targetRef": "5",
+            "condition": "Idee nicht genehmigen"
+        },
+        {
+            "id": "21",
+            "sourceRef": "4",
+            "targetRef": "7"
+        },
+        {
+            "id": "22",
+            "sourceRef": "8",
+            "targetRef": "1"
+        },
+        {
+            "id": "23",
+            "sourceRef": "5",
+            "targetRef": "10"
+        },
+        {
+            "id": "24",
+            "sourceRef": "10",
+            "targetRef": "7",
+            "condition": "Neue Technologien herausgefunden"
+        }
+    ],
+    "messageFlows": []
+}

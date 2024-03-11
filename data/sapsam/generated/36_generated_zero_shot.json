@@ -1,0 +1,169 @@
+{
+    "tasks": [
+        {
+            "id": "0",
+            "name": "Ergebnisse Workshops analysieren",
+            "type": "Task"
+        },
+        {
+            "id": "1",
+            "name": "Neuer Startegiem\u00f6glichkeiten entwickeln",
+            "type": "Task"
+        },
+        {
+            "id": "2",
+            "name": "Bericht mit Ergebnis und Zielsetzungen formulieren",
+            "type": "Task"
+        },
+        {
+            "id": "3",
+            "name": "Bericht weiterleiten",
+            "type": "Task"
+        },
+        {
+            "id": "4",
+            "name": "Bericht lesen",
+            "type": "Task"
+        },
+        {
+            "id": "5",
+            "name": "sofort zur\u00fcckleiten",
+            "type": "Task"
+        },
+        {
+            "id": "6",
+            "name": "Bericht ausbessern, dann zur\u00fcckleiten",
+            "type": "Task"
+        },
+        {
+            "id": "7",
+            "name": "Beratungsleistung formulieren",
+            "type": "Task"
+        }
+    ],
+    "events": [
+        {
+            "id": "8",
+            "name": "Beratungs- leistung formulieren",
+            "type": "StartNoneEvent"
+        },
+        {
+            "id": "9",
+            "name": "Beratungsleistung formuliert",
+            "type": "EndNoneEvent"
+        }
+    ],
+    "gateways": [
+        {
+            "id": "10",
+            "type": "Exclusive"
+        },
+        {
+            "id": "11",
+            "type": "Exclusive"
+        }
+    ],
+    "pools": [
+        {
+            "id": "12",
+            "name": "Soknow - Consulting",
+            "lanes": [
+                {
+                    "id": "13",
+                    "name": "Consulting",
+                    "elemRefs": [
+                        "0",
+                        "1",
+                        "2",
+                        "3",
+                        "7",
+                        "8",
+                        "9"
+                    ]
+                }
+            ]
+        },
+        {
+            "id": "14",
+            "name": "Soknow - Gesch\u00e4ftsleitung",
+            "lanes": [
+                {
+                    "id": "15",
+                    "name": "Gesch\u00e4ftsleitung",
+                    "elemRefs": [
+                        "4",
+                        "5",
+                        "6",
+                        "10",
+                        "11"
+                    ]
+                }
+            ]
+        }
+    ],
+    "sequenceFlows": [
+        {
+            "id": "16",
+            "sourceRef": "8",
+            "targetRef": "0"
+        },
+        {
+            "id": "17",
+            "sourceRef": "0",
+            "targetRef": "1"
+        },
+        {
+            "id": "18",
+            "sourceRef": "1",
+            "targetRef": "2"
+        },
+        {
+            "id": "19",
+            "sourceRef": "2",
+            "targetRef": "3"
+        },
+        {
+            "id": "20",
+            "sourceRef": "3",
+            "targetRef": "10"
+        },
+        {
+            "id": "21",
+            "sourceRef": "10",
+            "targetRef": "4",
+            "condition": "Bericht in ordnung ?"
+        },
+        {
+            "id": "22",
+            "sourceRef": "4",
+            "targetRef": "5"
+        },
+        {
+            "id": "23",
+            "sourceRef": "5",
+            "targetRef": "3"
+        },
+        {
+            "id": "24",
+            "sourceRef": "10",
+            "targetRef": "6",
+            "condition": "Bericht nicht in ordnung ?"
+        },
+        {
+            "id": "25",
+            "sourceRef": "6",
+            "targetRef": "11"
+        },
+        {
+            "id": "26",
+            "sourceRef": "11",
+            "targetRef": "7"
+        },
+        {
+            "id": "27",
+            "sourceRef": "7",
+            "targetRef": "9"
+        }
+    ],
+    "messageFlows": []
+}

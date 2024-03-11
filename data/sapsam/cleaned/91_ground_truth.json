@@ -1,0 +1,310 @@
+{
+    "tasks": [
+        {
+            "id": "sid-EECA44F4-6E00-4A1A-A80B-89BBC549A108",
+            "name": "Order Trip",
+            "type": "Task"
+        },
+        {
+            "id": "sid-2D81C41B-5E9C-41A0-B06D-8C00F1FA3109",
+            "name": "Send Cancellation of Trip Order",
+            "type": "Task"
+        },
+        {
+            "id": "sid-832E9398-BD96-4DA1-8A4A-9DD3405EF046",
+            "name": "Receives Invoice",
+            "type": "Task"
+        },
+        {
+            "id": "sid-2B8B6CD8-5381-41EE-95A3-FE92D842CC32",
+            "name": "Receive Trip Order Confirmation",
+            "type": "Task"
+        },
+        {
+            "id": "sid-602691C4-2567-4253-9225-3E8EAF0D759A",
+            "name": "Process Trip Order",
+            "type": "Task"
+        },
+        {
+            "id": "sid-7677E74F-80DB-45E2-91EE-2A7A695D6F9A",
+            "name": "Send Invoice",
+            "type": "Task"
+        },
+        {
+            "id": "sid-4DB77E97-42BC-4CCD-84C7-49265D039D72",
+            "name": "Cancel Trip Order",
+            "type": "Task"
+        },
+        {
+            "id": "sid-316976BB-F866-4598-AB08-4AF9D05F236F",
+            "name": "Process Trip Order",
+            "type": "CollapsedEventSubprocess"
+        }
+    ],
+    "events": [
+        {
+            "id": "sid-B3019ADD-9349-4747-83EB-3A484B03BFA6",
+            "name": "Customer Order  Start",
+            "type": "StartNoneEvent"
+        },
+        {
+            "id": "sid-B7BE71EE-19EB-48AE-9A71-21C59370AF7B",
+            "name": "Send Cancellation",
+            "type": "IntermediateMessageEventThrowing"
+        },
+        {
+            "id": "sid-368E5D7A-24BD-42D9-AB62-9BE473088909",
+            "name": "Send Trip Order",
+            "type": "IntermediateMessageEventThrowing"
+        },
+        {
+            "id": "sid-D9414A51-BB37-4847-AC98-B489AF06F657",
+            "name": "Receive Invoice",
+            "type": "IntermediateMessageEventCatching"
+        },
+        {
+            "id": "sid-8CC7BA80-B8EB-42E5-8F30-0A50A2669263",
+            "name": "Trip Order Processed.",
+            "type": "EndNoneEvent"
+        },
+        {
+            "id": "sid-FE0F817A-A986-4D9F-BDDB-F100AF675393",
+            "name": "Receive Cancellation Confirmation",
+            "type": "IntermediateMessageEventCatching"
+        },
+        {
+            "id": "sid-D2BABFAE-24C4-4C26-B805-1B6DB6066ACA",
+            "name": "Trip Order Start",
+            "type": "StartNoneEvent"
+        },
+        {
+            "id": "sid-31CF8B22-1704-4694-B2E4-9440C3C2ADA7",
+            "name": "Receive Trip Order",
+            "type": "IntermediateMessageEventCatching"
+        },
+        {
+            "id": "sid-E77DA7F7-A96E-46B7-92CA-9409CCCFD62F",
+            "name": "Send Invoice",
+            "type": "IntermediateMessageEventThrowing"
+        },
+        {
+            "id": "sid-C075F89A-674E-4681-A9D8-A46BE0403940",
+            "name": "Trip Order has been  Processed.",
+            "type": "EndNoneEvent"
+        },
+        {
+            "id": "sid-CFF1F2F8-D5D9-4DEA-B5D4-5E78877A2AEA",
+            "name": "Send Cancellation Confirmation",
+            "type": "IntermediateMessageEventThrowing"
+        }
+    ],
+    "gateways": [
+        {
+            "id": "sid-A9124AB5-C24F-49A0-B409-E8BD59B1D304",
+            "name": "Cancel Trip  Order?",
+            "type": "Exclusive"
+        },
+        {
+            "id": "sid-BAEEE8CA-64B8-4B36-843B-DA47ECECEA2B",
+            "type": "Exclusive"
+        },
+        {
+            "id": "sid-7D4C0BCF-B825-4EC3-9EE1-2388CD61DF0C",
+            "name": "Trip Order Cancelled?",
+            "type": "Exclusive"
+        },
+        {
+            "id": "sid-DC96D051-1152-4064-91CA-89B5A50D23F2",
+            "type": "Exclusive"
+        }
+    ],
+    "pools": [
+        {
+            "id": "sid-FFD19E45-4C2B-45AA-AD62-40B65EF869EE",
+            "name": "Customer",
+            "lanes": [
+                {
+                    "id": "sid-F9CAABE2-63FE-4CDB-A5D5-BF3AFC0C801F",
+                    "name": "Customer",
+                    "elemRefs": [
+                        "sid-EECA44F4-6E00-4A1A-A80B-89BBC549A108",
+                        "sid-2D81C41B-5E9C-41A0-B06D-8C00F1FA3109",
+                        "sid-832E9398-BD96-4DA1-8A4A-9DD3405EF046",
+                        "sid-2B8B6CD8-5381-41EE-95A3-FE92D842CC32",
+                        "sid-B3019ADD-9349-4747-83EB-3A484B03BFA6",
+                        "sid-B7BE71EE-19EB-48AE-9A71-21C59370AF7B",
+                        "sid-368E5D7A-24BD-42D9-AB62-9BE473088909",
+                        "sid-D9414A51-BB37-4847-AC98-B489AF06F657",
+                        "sid-8CC7BA80-B8EB-42E5-8F30-0A50A2669263",
+                        "sid-FE0F817A-A986-4D9F-BDDB-F100AF675393",
+                        "sid-A9124AB5-C24F-49A0-B409-E8BD59B1D304",
+                        "sid-BAEEE8CA-64B8-4B36-843B-DA47ECECEA2B"
+                    ]
+                }
+            ]
+        },
+        {
+            "id": "sid-1A541FF3-E837-4304-875C-D94763B95F64",
+            "name": "Customer Relations Division",
+            "lanes": [
+                {
+                    "id": "sid-AF43C004-CF58-4CF9-B937-BACC8503AEFD",
+                    "name": "Customer Relations Division",
+                    "elemRefs": [
+                        "sid-602691C4-2567-4253-9225-3E8EAF0D759A",
+                        "sid-7677E74F-80DB-45E2-91EE-2A7A695D6F9A",
+                        "sid-4DB77E97-42BC-4CCD-84C7-49265D039D72",
+                        "sid-D2BABFAE-24C4-4C26-B805-1B6DB6066ACA",
+                        "sid-31CF8B22-1704-4694-B2E4-9440C3C2ADA7",
+                        "sid-E77DA7F7-A96E-46B7-92CA-9409CCCFD62F",
+                        "sid-C075F89A-674E-4681-A9D8-A46BE0403940",
+                        "sid-CFF1F2F8-D5D9-4DEA-B5D4-5E78877A2AEA",
+                        "sid-7D4C0BCF-B825-4EC3-9EE1-2388CD61DF0C",
+                        "sid-DC96D051-1152-4064-91CA-89B5A50D23F2"
+                    ]
+                }
+            ]
+        }
+    ],
+    "messageFlows": [
+        {
+            "id": "sid-AE45C678-D4E1-4C6A-BF32-6E1B4E1FFF2A",
+            "targetRef": "sid-D9414A51-BB37-4847-AC98-B489AF06F657",
+            "sourceRef": "sid-E77DA7F7-A96E-46B7-92CA-9409CCCFD62F"
+        },
+        {
+            "id": "sid-0457C140-47E6-44D6-99BC-F07388AD1422",
+            "targetRef": "sid-316976BB-F866-4598-AB08-4AF9D05F236F",
+            "sourceRef": "sid-602691C4-2567-4253-9225-3E8EAF0D759A"
+        },
+        {
+            "id": "sid-FD5ECEC2-34E2-406F-A6DD-B8C55BF886CD",
+            "targetRef": "sid-602691C4-2567-4253-9225-3E8EAF0D759A",
+            "sourceRef": "sid-B7BE71EE-19EB-48AE-9A71-21C59370AF7B"
+        },
+        {
+            "id": "sid-C137BD6E-1105-44E6-AFF8-456DDA629FE6",
+            "targetRef": "sid-31CF8B22-1704-4694-B2E4-9440C3C2ADA7",
+            "sourceRef": "sid-368E5D7A-24BD-42D9-AB62-9BE473088909"
+        },
+        {
+            "id": "sid-4B1768B3-D917-49B0-A325-530B45206793",
+            "targetRef": "sid-FE0F817A-A986-4D9F-BDDB-F100AF675393",
+            "sourceRef": "sid-CFF1F2F8-D5D9-4DEA-B5D4-5E78877A2AEA"
+        }
+    ],
+    "sequenceFlows": [
+        {
+            "id": "sid-3D7BA62E-5C36-41C5-8ACE-C5525614D1F9",
+            "targetRef": "sid-EECA44F4-6E00-4A1A-A80B-89BBC549A108",
+            "sourceRef": "sid-B3019ADD-9349-4747-83EB-3A484B03BFA6"
+        },
+        {
+            "id": "sid-A9B0D6CC-6944-4E7F-866F-783B51A2B8D7",
+            "targetRef": "sid-E77DA7F7-A96E-46B7-92CA-9409CCCFD62F",
+            "sourceRef": "sid-7677E74F-80DB-45E2-91EE-2A7A695D6F9A"
+        },
+        {
+            "id": "sid-F33C268E-29BF-4C15-A300-6AB3425E7426",
+            "targetRef": "sid-7677E74F-80DB-45E2-91EE-2A7A695D6F9A",
+            "sourceRef": "sid-7D4C0BCF-B825-4EC3-9EE1-2388CD61DF0C"
+        },
+        {
+            "id": "sid-98AE55AD-C1F9-4B03-B0CA-057732DC0F1E",
+            "targetRef": "sid-4DB77E97-42BC-4CCD-84C7-49265D039D72",
+            "condition": "Request Cancelled",
+            "sourceRef": "sid-7D4C0BCF-B825-4EC3-9EE1-2388CD61DF0C"
+        },
+        {
+            "id": "sid-361362FF-7180-4DCE-8379-45ED3077808B",
+            "targetRef": "sid-CFF1F2F8-D5D9-4DEA-B5D4-5E78877A2AEA",
+            "sourceRef": "sid-4DB77E97-42BC-4CCD-84C7-49265D039D72"
+        },
+        {
+            "id": "sid-0A287233-1535-4917-B5CA-43148253CF87",
+            "targetRef": "sid-DC96D051-1152-4064-91CA-89B5A50D23F2",
+            "sourceRef": "sid-E77DA7F7-A96E-46B7-92CA-9409CCCFD62F"
+        },
+        {
+            "id": "sid-5C7C816C-FB86-41D0-8E14-696F06930DCE",
+            "targetRef": "sid-C075F89A-674E-4681-A9D8-A46BE0403940",
+            "sourceRef": "sid-DC96D051-1152-4064-91CA-89B5A50D23F2"
+        },
+        {
+            "id": "sid-4BC7440F-DB99-40E7-BD76-DA84C9FE5954",
+            "targetRef": "sid-FE0F817A-A986-4D9F-BDDB-F100AF675393",
+            "sourceRef": "sid-B7BE71EE-19EB-48AE-9A71-21C59370AF7B"
+        },
+        {
+            "id": "sid-7FCF35FF-3FF8-4051-A77B-8E465573E110",
+            "targetRef": "sid-8CC7BA80-B8EB-42E5-8F30-0A50A2669263",
+            "sourceRef": "sid-BAEEE8CA-64B8-4B36-843B-DA47ECECEA2B"
+        },
+        {
+            "id": "sid-8BED164C-5751-4058-9676-EC9D75270554",
+            "targetRef": "sid-31CF8B22-1704-4694-B2E4-9440C3C2ADA7",
+            "sourceRef": "sid-D2BABFAE-24C4-4C26-B805-1B6DB6066ACA"
+        },
+        {
+            "id": "sid-A08BF97E-3E0C-470C-ADAB-1FE89CD29A3A",
+            "targetRef": "sid-602691C4-2567-4253-9225-3E8EAF0D759A",
+            "sourceRef": "sid-31CF8B22-1704-4694-B2E4-9440C3C2ADA7"
+        },
+        {
+            "id": "sid-23793AAD-2CC0-4553-A600-8995B2445DF8",
+            "targetRef": "sid-368E5D7A-24BD-42D9-AB62-9BE473088909",
+            "sourceRef": "sid-EECA44F4-6E00-4A1A-A80B-89BBC549A108"
+        },
+        {
+            "id": "sid-845BC2BD-4FD5-452D-A139-6560BA8C2A12",
+            "targetRef": "sid-A9124AB5-C24F-49A0-B409-E8BD59B1D304",
+            "sourceRef": "sid-368E5D7A-24BD-42D9-AB62-9BE473088909"
+        },
+        {
+            "id": "sid-835FF080-5984-46B7-B317-0A02F55C7972",
+            "targetRef": "sid-7D4C0BCF-B825-4EC3-9EE1-2388CD61DF0C",
+            "sourceRef": "sid-602691C4-2567-4253-9225-3E8EAF0D759A"
+        },
+        {
+            "id": "sid-C120FDAF-3376-419A-BA09-F2B272A0B203",
+            "targetRef": "sid-B7BE71EE-19EB-48AE-9A71-21C59370AF7B",
+            "sourceRef": "sid-2D81C41B-5E9C-41A0-B06D-8C00F1FA3109"
+        },
+        {
+            "id": "sid-6D3E9242-DFA4-4A4D-9050-28DA3E244BDD",
+            "targetRef": "sid-D9414A51-BB37-4847-AC98-B489AF06F657",
+            "sourceRef": "sid-A9124AB5-C24F-49A0-B409-E8BD59B1D304"
+        },
+        {
+            "id": "sid-5C23D6FA-D980-474F-8041-22992495DD75",
+            "targetRef": "sid-2D81C41B-5E9C-41A0-B06D-8C00F1FA3109",
+            "condition": "Cancel Trip Order",
+            "sourceRef": "sid-A9124AB5-C24F-49A0-B409-E8BD59B1D304"
+        },
+        {
+            "id": "sid-40EFDB8D-92BF-4742-A24F-79D5086A71F1",
+            "targetRef": "sid-DC96D051-1152-4064-91CA-89B5A50D23F2",
+            "sourceRef": "sid-CFF1F2F8-D5D9-4DEA-B5D4-5E78877A2AEA"
+        },
+        {
+            "id": "sid-C9738E4D-573E-40DB-91A6-E0991616EF24",
+            "targetRef": "sid-2B8B6CD8-5381-41EE-95A3-FE92D842CC32",
+            "sourceRef": "sid-FE0F817A-A986-4D9F-BDDB-F100AF675393"
+        },
+        {
+            "id": "sid-D8A96C0B-4138-4430-8377-1217C97B8FA2",
+            "targetRef": "sid-BAEEE8CA-64B8-4B36-843B-DA47ECECEA2B",
+            "sourceRef": "sid-2B8B6CD8-5381-41EE-95A3-FE92D842CC32"
+        },
+        {
+            "id": "sid-A08C42E7-A442-41A4-B4CE-1AAD61D92FE7",
+            "targetRef": "sid-832E9398-BD96-4DA1-8A4A-9DD3405EF046",
+            "sourceRef": "sid-D9414A51-BB37-4847-AC98-B489AF06F657"
+        },
+        {
+            "id": "sid-2B12C265-9A3A-4B63-9397-E57AD351F333",
+            "targetRef": "sid-BAEEE8CA-64B8-4B36-843B-DA47ECECEA2B",
+            "sourceRef": "sid-832E9398-BD96-4DA1-8A4A-9DD3405EF046"
+        }
+    ]
+}

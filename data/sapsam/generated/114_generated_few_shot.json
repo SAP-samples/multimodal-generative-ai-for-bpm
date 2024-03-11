@@ -1,0 +1,110 @@
+{
+    "tasks": [
+        {
+            "id": "0",
+            "name": "Protokoll f\u00fchren",
+            "type": "Task"
+        },
+        {
+            "id": "1",
+            "name": "Protokoll auf Wiedervorlage ablegen",
+            "type": "Task"
+        },
+        {
+            "id": "2",
+            "name": "Protokoll im Schnellzugriff speichern",
+            "type": "Task"
+        },
+        {
+            "id": "3",
+            "name": "Protokoll archivieren",
+            "type": "Task"
+        }
+    ],
+    "events": [
+        {
+            "id": "4",
+            "name": "Protokoll muss gef\u00fchrt werden",
+            "type": "StartNoneEvent"
+        },
+        {
+            "id": "5",
+            "name": "Protokollf\u00fchrung beendet",
+            "type": "EndNoneEvent"
+        }
+    ],
+    "gateways": [
+        {
+            "id": "6",
+            "type": "Exclusive"
+        },
+        {
+            "id": "7",
+            "type": "Exclusive"
+        }
+    ],
+    "pools": [
+        {
+            "id": "8",
+            "name": "SoKnow",
+            "lanes": [
+                {
+                    "id": "9",
+                    "name": "Sekretariat",
+                    "elemRefs": [
+                        "0",
+                        "1",
+                        "2",
+                        "3",
+                        "4",
+                        "5",
+                        "6",
+                        "7"
+                    ]
+                }
+            ]
+        }
+    ],
+    "sequenceFlows": [
+        {
+            "id": "10",
+            "sourceRef": "4",
+            "targetRef": "0"
+        },
+        {
+            "id": "11",
+            "sourceRef": "0",
+            "targetRef": "6"
+        },
+        {
+            "id": "12",
+            "sourceRef": "6",
+            "targetRef": "1",
+            "condition": "Ja"
+        },
+        {
+            "id": "13",
+            "sourceRef": "6",
+            "targetRef": "7",
+            "condition": "Nein"
+        },
+        {
+            "id": "14",
+            "sourceRef": "7",
+            "targetRef": "2",
+            "condition": "Ja"
+        },
+        {
+            "id": "15",
+            "sourceRef": "7",
+            "targetRef": "3",
+            "condition": "Nein"
+        },
+        {
+            "id": "16",
+            "sourceRef": "2",
+            "targetRef": "5"
+        }
+    ],
+    "messageFlows": []
+}

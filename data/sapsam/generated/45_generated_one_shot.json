@@ -1,0 +1,169 @@
+{
+    "tasks": [
+        {
+            "id": "0",
+            "name": "Eigenfinanzierung gew\u00e4hrleisten",
+            "type": "Task"
+        },
+        {
+            "id": "1",
+            "name": "F\u00f6rderungssummen erhalten",
+            "type": "Task"
+        },
+        {
+            "id": "2",
+            "name": "Hohen Marktanteil bei Open-Source-L\u00f6sungen bekommen",
+            "type": "Task"
+        },
+        {
+            "id": "3",
+            "name": "Einnahmen durch zus\u00e4tzliche Services erzielen",
+            "type": "Task"
+        },
+        {
+            "id": "4",
+            "name": "Trainingseinheiten organisieren",
+            "type": "Task"
+        },
+        {
+            "id": "5",
+            "name": "Beratungsdienstleistungen durchf\u00fchren",
+            "type": "Task"
+        },
+        {
+            "id": "6",
+            "name": "Nachfolge Projekte generieren",
+            "type": "Task"
+        }
+    ],
+    "events": [
+        {
+            "id": "7",
+            "name": "Einnahmen einfordern",
+            "type": "StartNoneEvent"
+        },
+        {
+            "id": "8",
+            "name": "Einnahmen eingefordert",
+            "type": "EndNoneEvent"
+        }
+    ],
+    "gateways": [
+        {
+            "id": "9",
+            "type": "Inclusive"
+        },
+        {
+            "id": "10",
+            "type": "Exclusive"
+        },
+        {
+            "id": "11",
+            "type": "Parallel"
+        }
+    ],
+    "pools": [
+        {
+            "id": "12",
+            "name": "SoKnow",
+            "lanes": [
+                {
+                    "id": "13",
+                    "name": "Lane",
+                    "elemRefs": [
+                        "0",
+                        "1",
+                        "2",
+                        "3",
+                        "4",
+                        "5",
+                        "6",
+                        "7",
+                        "8",
+                        "9",
+                        "10",
+                        "11"
+                    ]
+                }
+            ]
+        }
+    ],
+    "sequenceFlows": [
+        {
+            "id": "14",
+            "sourceRef": "7",
+            "targetRef": "9"
+        },
+        {
+            "id": "15",
+            "sourceRef": "9",
+            "targetRef": "0",
+            "condition": "Eigenfinanzierung"
+        },
+        {
+            "id": "16",
+            "sourceRef": "9",
+            "targetRef": "1",
+            "condition": "F\u00f6rderungssumme"
+        },
+        {
+            "id": "17",
+            "sourceRef": "0",
+            "targetRef": "10"
+        },
+        {
+            "id": "18",
+            "sourceRef": "1",
+            "targetRef": "10"
+        },
+        {
+            "id": "19",
+            "sourceRef": "10",
+            "targetRef": "2",
+            "condition": "Hohen Marktanteil"
+        },
+        {
+            "id": "20",
+            "sourceRef": "10",
+            "targetRef": "3",
+            "condition": "Einnahmen durch Services"
+        },
+        {
+            "id": "21",
+            "sourceRef": "10",
+            "targetRef": "4",
+            "condition": "Trainingseinheiten"
+        },
+        {
+            "id": "22",
+            "sourceRef": "2",
+            "targetRef": "11"
+        },
+        {
+            "id": "23",
+            "sourceRef": "3",
+            "targetRef": "11"
+        },
+        {
+            "id": "24",
+            "sourceRef": "4",
+            "targetRef": "11"
+        },
+        {
+            "id": "25",
+            "sourceRef": "11",
+            "targetRef": "5"
+        },
+        {
+            "id": "26",
+            "sourceRef": "5",
+            "targetRef": "6"
+        },
+        {
+            "id": "27",
+            "sourceRef": "6",
+            "targetRef": "8"
+        }
+    ],
+    "messageFlows": []
+}

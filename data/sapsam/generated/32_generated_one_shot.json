@@ -1,0 +1,153 @@
+{
+    "tasks": [
+        {
+            "id": "0",
+            "name": "Entlassungstermin festlegen",
+            "type": "Task"
+        },
+        {
+            "id": "1",
+            "name": "mit Patient und Angehoerigen den weiteren Verlauf besprechen",
+            "type": "Task"
+        },
+        {
+            "id": "2",
+            "name": "pflegerischen Versorgungsbedarf bestimmen",
+            "type": "Task"
+        },
+        {
+            "id": "3",
+            "name": "Arztbrief erstellen",
+            "type": "Task"
+        }
+    ],
+    "events": [
+        {
+            "id": "4",
+            "name": "geplante Entlassung",
+            "type": "StartNoneEvent"
+        },
+        {
+            "id": "5",
+            "name": "Entlassung",
+            "type": "EndNoneEvent"
+        }
+    ],
+    "gateways": [
+        {
+            "id": "6",
+            "type": "Parallel"
+        },
+        {
+            "id": "7",
+            "name": "Sozialdienst erforderlich?",
+            "type": "Exclusive"
+        },
+        {
+            "id": "8",
+            "type": "Parallel"
+        },
+        {
+            "id": "9",
+            "type": "Exclusive"
+        },
+        {
+            "id": "10",
+            "type": "Parallel"
+        }
+    ],
+    "pools": [
+        {
+            "id": "11",
+            "name": "NONE",
+            "lanes": [
+                {
+                    "id": "12",
+                    "name": "Arzt",
+                    "elemRefs": [
+                        "0",
+                        "1",
+                        "4",
+                        "6"
+                    ]
+                },
+                {
+                    "id": "13",
+                    "name": "Pflege",
+                    "elemRefs": [
+                        "2",
+                        "3",
+                        "5",
+                        "7",
+                        "8",
+                        "9",
+                        "10"
+                    ]
+                },
+                {
+                    "id": "14",
+                    "name": "Sozialdienst",
+                    "elemRefs": []
+                }
+            ]
+        }
+    ],
+    "sequenceFlows": [
+        {
+            "id": "15",
+            "sourceRef": "4",
+            "targetRef": "0"
+        },
+        {
+            "id": "16",
+            "sourceRef": "0",
+            "targetRef": "6"
+        },
+        {
+            "id": "17",
+            "sourceRef": "6",
+            "targetRef": "1"
+        },
+        {
+            "id": "18",
+            "sourceRef": "6",
+            "targetRef": "2"
+        },
+        {
+            "id": "19",
+            "sourceRef": "1",
+            "targetRef": "8"
+        },
+        {
+            "id": "20",
+            "sourceRef": "2",
+            "targetRef": "8"
+        },
+        {
+            "id": "21",
+            "sourceRef": "8",
+            "targetRef": "3"
+        },
+        {
+            "id": "22",
+            "sourceRef": "3",
+            "targetRef": "9"
+        },
+        {
+            "id": "23",
+            "sourceRef": "9",
+            "targetRef": "7"
+        },
+        {
+            "id": "24",
+            "sourceRef": "9",
+            "targetRef": "10"
+        },
+        {
+            "id": "25",
+            "sourceRef": "10",
+            "targetRef": "5"
+        }
+    ],
+    "messageFlows": []
+}

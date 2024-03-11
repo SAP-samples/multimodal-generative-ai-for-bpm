@@ -1,0 +1,175 @@
+{
+    "tasks": [
+        {
+            "id": "0",
+            "name": "registering deployment request",
+            "type": "Manual"
+        },
+        {
+            "id": "1",
+            "name": "registering a ticket for service feasibility study",
+            "type": "Manual"
+        },
+        {
+            "id": "2",
+            "name": "send the feasibility study ticket to the CFS department",
+            "type": "Manual"
+        },
+        {
+            "id": "3",
+            "name": "predict feasibility results",
+            "type": "Service"
+        },
+        {
+            "id": "4",
+            "name": "validate the feasibility results",
+            "type": "Manual"
+        },
+        {
+            "id": "5",
+            "name": "update the database of feasibility studies",
+            "type": "Service"
+        },
+        {
+            "id": "6",
+            "name": "perform a new case-based feasibility study",
+            "type": "Service"
+        },
+        {
+            "id": "7",
+            "name": "report the results",
+            "type": "Manual"
+        },
+        {
+            "id": "8",
+            "name": "register/modify the service deployment request",
+            "type": "Manual"
+        },
+        {
+            "id": "9",
+            "name": "deploy service equipment",
+            "type": "Manual"
+        },
+        {
+            "id": "10",
+            "name": "reporting the deployment results",
+            "type": "Manual"
+        },
+        {
+            "id": "11",
+            "name": "co-negotiation about deployment failure",
+            "type": "Manual"
+        },
+        {
+            "id": "12",
+            "name": "response to co-negotiation with Jane Doe",
+            "type": "Manual"
+        },
+        {
+            "id": "13",
+            "name": "co-negotiation about deployment infeasibility",
+            "type": "Manual"
+        },
+        {
+            "id": "14",
+            "name": "cancelling deployment request",
+            "type": "Manual"
+        },
+        {
+            "id": "15",
+            "name": "register a new deployment request",
+            "type": "Manual"
+        },
+        {
+            "id": "16",
+            "name": "update the sale profile",
+            "type": "Manual"
+        }
+    ],
+    "events": [
+        {
+            "id": "17",
+            "name": "Start to decide a service deployment",
+            "type": "StartNoneEvent"
+        },
+        {
+            "id": "18",
+            "name": "service deployment finishes",
+            "type": "EndNoneEvent"
+        }
+    ],
+    "gateways": [
+        {
+            "id": "19",
+            "type": "Exclusive"
+        },
+        {
+            "id": "20",
+            "type": "Exclusive"
+        },
+        {
+            "id": "21",
+            "type": "Exclusive"
+        },
+        {
+            "id": "22",
+            "type": "Exclusive"
+        },
+        {
+            "id": "23",
+            "type": "Exclusive"
+        },
+        {
+            "id": "24",
+            "type": "Exclusive"
+        },
+        {
+            "id": "25",
+            "type": "Exclusive"
+        },
+        {
+            "id": "26",
+            "type": "Exclusive"
+        }
+    ],
+    "pools": [
+        {
+            "id": "27",
+            "name": "The service re-installation process",
+            "lanes": [
+                {
+                    "id": "28",
+                    "name": "CFS Department",
+                    "elemRefs": [
+                        "2",
+                        "6",
+                        "8",
+                        "11",
+                        "13",
+                        "15"
+                    ]
+                },
+                {
+                    "id": "29",
+                    "name": "corporate customer",
+                    "elemRefs": [
+                        "12",
+                        "14"
+                    ]
+                },
+                {
+                    "id": "30",
+                    "name": "corporate customer affairs",
+                    "elemRefs": []
+                },
+                {
+                    "id": "31",
+                    "name": "Intelligent voice assistant",
+                    "elemRefs": []
+                }
+            ]
+        }
+    ],
+    "sequenceFlows": [],
+    "messageFlows": []
+}

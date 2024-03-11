@@ -1,0 +1,238 @@
+{
+    "tasks": [
+        {
+            "id": "sid-C56B8A72-C95E-451D-BA54-31E82BD9D6B5_3",
+            "name": "Montageplatz am Montageterminal reservieren.",
+            "type": "Manual"
+        },
+        {
+            "id": "sid-31EC5C9A-B9E2-40C9-86EF-449EF9F38982",
+            "name": "Waren der Bestellung einsammeln und scannen.",
+            "type": "Manual"
+        },
+        {
+            "id": "sid-5ACB38CF-92AA-40E4-AD70-C1F37507F895",
+            "name": "Betriebssystem installieren",
+            "type": "Manual"
+        },
+        {
+            "id": "sid-05FB70D7-18B0-484F-BDE3-C4964065467A",
+            "name": "Fehleranalyse",
+            "type": "Manual"
+        },
+        {
+            "id": "sid-7EF68B5E-0F70-4A3E-B901-76BBB2CB049C",
+            "name": "entsprechende Kabel   und Netzteil pr\u00fcfen",
+            "type": "Manual"
+        },
+        {
+            "id": "sid-9D99C9B3-0C04-42F7-ACA6-AF0B9879AC05",
+            "name": "entsprechende Kabel und Grafikkarte  pr\u00fcfen",
+            "type": "Manual"
+        },
+        {
+            "id": "sid-CC59E719-9171-483F-9EEB-4D0DD795CB91",
+            "name": "entsprechende Kabel und Festplatte pr\u00fcfen",
+            "type": "Manual"
+        },
+        {
+            "id": "sid-86AC5661-36F6-4AC6-8968-586FEBA3CD35",
+            "name": "Ram austauschen, Steckpl\u00e4tze pr\u00fcfen, Motherboard  tauschen",
+            "type": "Manual"
+        },
+        {
+            "id": "sid-E8855FD3-8B88-4F76-B45B-7F5A5EAC06E4",
+            "name": "Betriebssystem  erneut  installieren",
+            "type": "Manual"
+        },
+        {
+            "id": "sid-533415FD-0255-4767-B148-C61A413F27D4",
+            "name": "Funktionstest",
+            "type": "Manual"
+        },
+        {
+            "id": "sid-CB988EB9-3E5D-4A72-A228-C472AAA22B10",
+            "name": "PC zusammenbauen",
+            "type": "CollapsedSubprocess"
+        }
+    ],
+    "events": [
+        {
+            "id": "sid-AECD223F-3B8B-444E-B3DE-52DEDF9CABB5_2",
+            "name": "Ende",
+            "type": "EndNoneEvent"
+        },
+        {
+            "id": "sid-F98CED7D-F760-4757-800B-B017400FCE32_2",
+            "name": "Start",
+            "type": "StartNoneEvent"
+        }
+    ],
+    "gateways": [
+        {
+            "id": "sid-91FDF9E1-7297-44D8-9F67-A961ECF49A32",
+            "name": "Installation m\u00f6glich?",
+            "type": "Exclusive"
+        },
+        {
+            "id": "sid-41AA9231-354A-4248-BF76-942EF6FECF1F",
+            "type": "Inclusive"
+        },
+        {
+            "id": "sid-54FB0FF2-C7E3-4A95-AA1A-1F7EF9CD505A",
+            "type": "Inclusive"
+        },
+        {
+            "id": "sid-6BCB6721-DAA2-4093-9F73-E99AEA26DF6E",
+            "name": "Installation m\u00f6glich?",
+            "type": "Exclusive"
+        }
+    ],
+    "pools": [
+        {
+            "id": "sid-243e07fd-cec7-4af1-8de6-967ab1db62cf",
+            "name": "PC Montage",
+            "lanes": [
+                {
+                    "id": "sid-9BA65CE4-31E0-4361-9AD7-DE519C528DDC",
+                    "name": "",
+                    "elemRefs": [
+                        "sid-C56B8A72-C95E-451D-BA54-31E82BD9D6B5_3",
+                        "sid-31EC5C9A-B9E2-40C9-86EF-449EF9F38982",
+                        "sid-5ACB38CF-92AA-40E4-AD70-C1F37507F895",
+                        "sid-05FB70D7-18B0-484F-BDE3-C4964065467A",
+                        "sid-7EF68B5E-0F70-4A3E-B901-76BBB2CB049C",
+                        "sid-9D99C9B3-0C04-42F7-ACA6-AF0B9879AC05",
+                        "sid-CC59E719-9171-483F-9EEB-4D0DD795CB91",
+                        "sid-86AC5661-36F6-4AC6-8968-586FEBA3CD35",
+                        "sid-E8855FD3-8B88-4F76-B45B-7F5A5EAC06E4",
+                        "sid-533415FD-0255-4767-B148-C61A413F27D4",
+                        "sid-CB988EB9-3E5D-4A72-A228-C472AAA22B10",
+                        "sid-AECD223F-3B8B-444E-B3DE-52DEDF9CABB5_2",
+                        "sid-F98CED7D-F760-4757-800B-B017400FCE32_2",
+                        "sid-91FDF9E1-7297-44D8-9F67-A961ECF49A32",
+                        "sid-41AA9231-354A-4248-BF76-942EF6FECF1F",
+                        "sid-54FB0FF2-C7E3-4A95-AA1A-1F7EF9CD505A",
+                        "sid-6BCB6721-DAA2-4093-9F73-E99AEA26DF6E"
+                    ]
+                }
+            ]
+        }
+    ],
+    "messageFlows": [],
+    "sequenceFlows": [
+        {
+            "id": "sid-6109C8FA-5604-4A42-BD7B-9DBD33F37E76_2",
+            "targetRef": "sid-C56B8A72-C95E-451D-BA54-31E82BD9D6B5_3",
+            "sourceRef": "sid-F98CED7D-F760-4757-800B-B017400FCE32_2"
+        },
+        {
+            "id": "sid-F3FB4382-0146-4076-A5CA-EDE5F0EECF0E",
+            "targetRef": "sid-31EC5C9A-B9E2-40C9-86EF-449EF9F38982",
+            "sourceRef": "sid-C56B8A72-C95E-451D-BA54-31E82BD9D6B5_3"
+        },
+        {
+            "id": "sid-972EB5D5-F7D0-4109-8A77-E21D55829D17",
+            "targetRef": "sid-CB988EB9-3E5D-4A72-A228-C472AAA22B10",
+            "sourceRef": "sid-31EC5C9A-B9E2-40C9-86EF-449EF9F38982"
+        },
+        {
+            "id": "sid-7EFA939E-9343-4B2C-AD5E-C5BE9A0810F4",
+            "targetRef": "sid-5ACB38CF-92AA-40E4-AD70-C1F37507F895",
+            "sourceRef": "sid-CB988EB9-3E5D-4A72-A228-C472AAA22B10"
+        },
+        {
+            "id": "sid-FE0D22CD-5ADF-4E3B-BC73-0FE9EB6861F2",
+            "targetRef": "sid-54FB0FF2-C7E3-4A95-AA1A-1F7EF9CD505A",
+            "sourceRef": "sid-86AC5661-36F6-4AC6-8968-586FEBA3CD35"
+        },
+        {
+            "id": "sid-DF1E661C-7C56-4E67-9B94-3E485C8E73E8",
+            "targetRef": "sid-E8855FD3-8B88-4F76-B45B-7F5A5EAC06E4",
+            "sourceRef": "sid-54FB0FF2-C7E3-4A95-AA1A-1F7EF9CD505A"
+        },
+        {
+            "id": "sid-41CC3C09-9331-46DE-957C-1E409611BF8A",
+            "targetRef": "sid-91FDF9E1-7297-44D8-9F67-A961ECF49A32",
+            "sourceRef": "sid-5ACB38CF-92AA-40E4-AD70-C1F37507F895"
+        },
+        {
+            "id": "sid-C3A56434-54C0-40E7-BE6D-474FDC789EB6",
+            "targetRef": "sid-AECD223F-3B8B-444E-B3DE-52DEDF9CABB5_2",
+            "sourceRef": "sid-533415FD-0255-4767-B148-C61A413F27D4"
+        },
+        {
+            "id": "sid-E483D5E2-3EC2-4429-B4E6-507A14D613F3",
+            "targetRef": "sid-41AA9231-354A-4248-BF76-942EF6FECF1F",
+            "sourceRef": "sid-05FB70D7-18B0-484F-BDE3-C4964065467A"
+        },
+        {
+            "id": "sid-93B8C9F4-DB96-4745-BC91-0E7FDE634E1B",
+            "targetRef": "sid-6BCB6721-DAA2-4093-9F73-E99AEA26DF6E",
+            "sourceRef": "sid-E8855FD3-8B88-4F76-B45B-7F5A5EAC06E4"
+        },
+        {
+            "id": "sid-00488A73-FFD3-4214-BECE-CFA27DB03E4A",
+            "targetRef": "sid-54FB0FF2-C7E3-4A95-AA1A-1F7EF9CD505A",
+            "sourceRef": "sid-7EF68B5E-0F70-4A3E-B901-76BBB2CB049C"
+        },
+        {
+            "id": "sid-7CB491C8-085D-4F6A-A155-AC4C90D683E7",
+            "targetRef": "sid-54FB0FF2-C7E3-4A95-AA1A-1F7EF9CD505A",
+            "sourceRef": "sid-9D99C9B3-0C04-42F7-ACA6-AF0B9879AC05"
+        },
+        {
+            "id": "sid-745702EE-55C2-497C-B739-4A6A84AAB003",
+            "targetRef": "sid-54FB0FF2-C7E3-4A95-AA1A-1F7EF9CD505A",
+            "sourceRef": "sid-CC59E719-9171-483F-9EEB-4D0DD795CB91"
+        },
+        {
+            "id": "sid-B00375AE-9E4C-4ABB-A625-200CF7CC3AE4",
+            "targetRef": "sid-7EF68B5E-0F70-4A3E-B901-76BBB2CB049C",
+            "condition": "kein Strom",
+            "sourceRef": "sid-41AA9231-354A-4248-BF76-942EF6FECF1F"
+        },
+        {
+            "id": "sid-A57461A8-29D4-4DCD-B81A-08C619BBAF22",
+            "targetRef": "sid-9D99C9B3-0C04-42F7-ACA6-AF0B9879AC05",
+            "condition": "Kein Bild",
+            "sourceRef": "sid-41AA9231-354A-4248-BF76-942EF6FECF1F"
+        },
+        {
+            "id": "sid-DCCC8E65-4E23-4B3C-A8B7-B64DCA011439",
+            "targetRef": "sid-CC59E719-9171-483F-9EEB-4D0DD795CB91",
+            "condition": "Festplatte nicht erkannt",
+            "sourceRef": "sid-41AA9231-354A-4248-BF76-942EF6FECF1F"
+        },
+        {
+            "id": "sid-1C2291E9-5A6B-4632-8D6A-9CB8D943A81D",
+            "targetRef": "sid-533415FD-0255-4767-B148-C61A413F27D4",
+            "condition": "Ja",
+            "sourceRef": "sid-6BCB6721-DAA2-4093-9F73-E99AEA26DF6E"
+        },
+        {
+            "id": "sid-B236E587-95F4-47DE-ACD7-C7EFD22A1DFF",
+            "targetRef": "sid-533415FD-0255-4767-B148-C61A413F27D4",
+            "condition": "Ja",
+            "sourceRef": "sid-91FDF9E1-7297-44D8-9F67-A961ECF49A32"
+        },
+        {
+            "id": "sid-684BB2E6-3030-4ABB-B174-49E13FF4481E",
+            "targetRef": "sid-05FB70D7-18B0-484F-BDE3-C4964065467A",
+            "condition": "nein",
+            "sourceRef": "sid-91FDF9E1-7297-44D8-9F67-A961ECF49A32"
+        },
+        {
+            "id": "sid-7B42E24A-F198-4080-8602-B9ECEA8F5BD9",
+            "targetRef": "sid-05FB70D7-18B0-484F-BDE3-C4964065467A",
+            "condition": "Nein",
+            "sourceRef": "sid-6BCB6721-DAA2-4093-9F73-E99AEA26DF6E"
+        },
+        {
+            "id": "sid-8ACC3765-968A-4C67-88CE-B3388F967647",
+            "targetRef": "sid-86AC5661-36F6-4AC6-8968-586FEBA3CD35",
+            "condition": "Boot loop",
+            "sourceRef": "sid-41AA9231-354A-4248-BF76-942EF6FECF1F"
+        }
+    ]
+}

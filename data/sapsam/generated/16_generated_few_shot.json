@@ -1,0 +1,191 @@
+{
+    "tasks": [
+        {
+            "id": "0",
+            "name": "Collapsed Subprocess",
+            "type": "CollapsedSubprocess"
+        },
+        {
+            "id": "1",
+            "name": "Lernfortschritt anklicken",
+            "type": "Task"
+        },
+        {
+            "id": "2",
+            "name": "Manuell durch Benutzer festlegen",
+            "type": "Manual"
+        },
+        {
+            "id": "3",
+            "name": "Automatisch durch Lehrenden festgelegt",
+            "type": "Task"
+        },
+        {
+            "id": "4",
+            "name": "Status im Lernfortschritt ist farblich markiert",
+            "type": "Task"
+        },
+        {
+            "id": "5",
+            "name": "noch nicht begonnen",
+            "type": "Task"
+        },
+        {
+            "id": "6",
+            "name": "in Bearbeitung",
+            "type": "Task"
+        },
+        {
+            "id": "7",
+            "name": "vollst\u00e4ndig bearbeitet",
+            "type": "Task"
+        },
+        {
+            "id": "8",
+            "name": "nicht bestanden",
+            "type": "Task"
+        }
+    ],
+    "events": [
+        {
+            "id": "9",
+            "name": "Start Event",
+            "type": "StartNoneEvent"
+        },
+        {
+            "id": "10",
+            "name": "End Event",
+            "type": "EndNoneEvent"
+        }
+    ],
+    "gateways": [
+        {
+            "id": "11",
+            "type": "Exclusive"
+        },
+        {
+            "id": "12",
+            "type": "Exclusive"
+        },
+        {
+            "id": "13",
+            "type": "Exclusive"
+        },
+        {
+            "id": "14",
+            "type": "Exclusive"
+        }
+    ],
+    "pools": [
+        {
+            "id": "15",
+            "name": "Lernfortschritt",
+            "lanes": [
+                {
+                    "id": "16",
+                    "name": "Lehrende",
+                    "elemRefs": [
+                        "2",
+                        "3"
+                    ]
+                },
+                {
+                    "id": "17",
+                    "name": "Studierende",
+                    "elemRefs": [
+                        "0",
+                        "1",
+                        "4",
+                        "5",
+                        "6",
+                        "7",
+                        "8"
+                    ]
+                }
+            ]
+        }
+    ],
+    "sequenceFlows": [
+        {
+            "id": "18",
+            "sourceRef": "9",
+            "targetRef": "1"
+        },
+        {
+            "id": "19",
+            "sourceRef": "1",
+            "targetRef": "11"
+        },
+        {
+            "id": "20",
+            "sourceRef": "11",
+            "targetRef": "5"
+        },
+        {
+            "id": "21",
+            "sourceRef": "11",
+            "targetRef": "2"
+        },
+        {
+            "id": "22",
+            "sourceRef": "2",
+            "targetRef": "12"
+        },
+        {
+            "id": "23",
+            "sourceRef": "3",
+            "targetRef": "12"
+        },
+        {
+            "id": "24",
+            "sourceRef": "12",
+            "targetRef": "4"
+        },
+        {
+            "id": "25",
+            "sourceRef": "4",
+            "targetRef": "13"
+        },
+        {
+            "id": "26",
+            "sourceRef": "13",
+            "targetRef": "6"
+        },
+        {
+            "id": "27",
+            "sourceRef": "13",
+            "targetRef": "7"
+        },
+        {
+            "id": "28",
+            "sourceRef": "13",
+            "targetRef": "8"
+        },
+        {
+            "id": "29",
+            "sourceRef": "5",
+            "targetRef": "14"
+        },
+        {
+            "id": "30",
+            "sourceRef": "6",
+            "targetRef": "14"
+        },
+        {
+            "id": "31",
+            "sourceRef": "7",
+            "targetRef": "14"
+        },
+        {
+            "id": "32",
+            "sourceRef": "8",
+            "targetRef": "14"
+        },
+        {
+            "id": "33",
+            "sourceRef": "14",
+            "targetRef": "10"
+        }
+    ],
+    "messageFlows": []
+}

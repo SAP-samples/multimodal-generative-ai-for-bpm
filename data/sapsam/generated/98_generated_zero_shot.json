@@ -1,0 +1,170 @@
+{
+    "tasks": [
+        {
+            "id": "0",
+            "name": "Einnahmen einfordern",
+            "type": "Task"
+        },
+        {
+            "id": "1",
+            "name": "Eigenfinanzierung gew\u00e4hrleisten",
+            "type": "Task"
+        },
+        {
+            "id": "2",
+            "name": "F\u00f6rdersummen erhalten",
+            "type": "Task"
+        },
+        {
+            "id": "3",
+            "name": "Hohen Marktanteil bei Open-Source-L\u00f6sungen bekommen",
+            "type": "Task"
+        },
+        {
+            "id": "4",
+            "name": "Einnahmen durch zus\u00e4tzliche Services erzielen",
+            "type": "Task"
+        },
+        {
+            "id": "5",
+            "name": "Trainingseinheiten organisieren",
+            "type": "Task"
+        },
+        {
+            "id": "6",
+            "name": "Beratungsleistungen durchf\u00fchren",
+            "type": "Task"
+        },
+        {
+            "id": "7",
+            "name": "Nachfolge Projekte generieren",
+            "type": "Task"
+        }
+    ],
+    "events": [
+        {
+            "id": "8",
+            "name": "Einnahmen eingefordert",
+            "type": "StartNoneEvent"
+        },
+        {
+            "id": "9",
+            "name": "Einnahmen eingefordert",
+            "type": "EndNoneEvent"
+        }
+    ],
+    "gateways": [
+        {
+            "id": "10",
+            "name": "Eigenfinanzierung gew\u00e4hrleisten oder F\u00f6rdersumme erhalten ?",
+            "type": "Inclusive"
+        },
+        {
+            "id": "11",
+            "name": "",
+            "type": "Parallel"
+        },
+        {
+            "id": "12",
+            "name": "",
+            "type": "Parallel"
+        }
+    ],
+    "pools": [
+        {
+            "id": "13",
+            "name": "SoKnow",
+            "lanes": [
+                {
+                    "id": "14",
+                    "name": "Strategieprozess",
+                    "elemRefs": [
+                        "0",
+                        "1",
+                        "2",
+                        "3",
+                        "4",
+                        "5",
+                        "6",
+                        "7",
+                        "8",
+                        "9",
+                        "10",
+                        "11",
+                        "12"
+                    ]
+                }
+            ]
+        }
+    ],
+    "sequenceFlows": [
+        {
+            "id": "15",
+            "sourceRef": "8",
+            "targetRef": "0"
+        },
+        {
+            "id": "16",
+            "sourceRef": "0",
+            "targetRef": "10"
+        },
+        {
+            "id": "17",
+            "sourceRef": "10",
+            "targetRef": "1",
+            "condition": "Eigenfinanzierung gew\u00e4hrleisten"
+        },
+        {
+            "id": "18",
+            "sourceRef": "10",
+            "targetRef": "2",
+            "condition": "F\u00f6rdersummen erhalten"
+        },
+        {
+            "id": "19",
+            "sourceRef": "1",
+            "targetRef": "11"
+        },
+        {
+            "id": "20",
+            "sourceRef": "2",
+            "targetRef": "11"
+        },
+        {
+            "id": "21",
+            "sourceRef": "11",
+            "targetRef": "3"
+        },
+        {
+            "id": "22",
+            "sourceRef": "3",
+            "targetRef": "12"
+        },
+        {
+            "id": "23",
+            "sourceRef": "12",
+            "targetRef": "4"
+        },
+        {
+            "id": "24",
+            "sourceRef": "4",
+            "targetRef": "5"
+        },
+        {
+            "id": "25",
+            "sourceRef": "5",
+            "targetRef": "6"
+        },
+        {
+            "id": "26",
+            "sourceRef": "6",
+            "targetRef": "7"
+        },
+        {
+            "id": "27",
+            "sourceRef": "7",
+            "targetRef": "9"
+        }
+    ],
+    "messageFlows": []
+}

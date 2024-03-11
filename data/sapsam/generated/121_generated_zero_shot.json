@@ -1,0 +1,207 @@
+{
+    "tasks": [
+        {
+            "id": "0",
+            "name": "ins System einloggen",
+            "type": "Task"
+        },
+        {
+            "id": "1",
+            "name": "Kundendaten anzeigen",
+            "type": "Task"
+        },
+        {
+            "id": "2",
+            "name": "Anfrage senden",
+            "type": "Task"
+        },
+        {
+            "id": "3",
+            "name": "Kunde anrufen",
+            "type": "Task"
+        },
+        {
+            "id": "4",
+            "name": "Kunde befragen",
+            "type": "Task"
+        },
+        {
+            "id": "5",
+            "name": "Zum Gespr\u00e4ch einladen",
+            "type": "Task"
+        },
+        {
+            "id": "6",
+            "name": "Termin vereinbaren",
+            "type": "Task"
+        },
+        {
+            "id": "7",
+            "name": "Status speichern",
+            "type": "Task"
+        },
+        {
+            "id": "8",
+            "name": "Kundengespr\u00e4ch durchf\u00fchren",
+            "type": "Task"
+        }
+    ],
+    "events": [
+        {
+            "id": "9",
+            "name": "Kundenkontakt aufnehmen",
+            "type": "IntermediateLinkEventCatching"
+        },
+        {
+            "id": "10",
+            "name": "Antwort des Kunden",
+            "type": "IntermediateMessageEventCatching"
+        },
+        {
+            "id": "11",
+            "name": "Interesse an Projekt",
+            "type": "IntermediateConditionalEvent"
+        }
+    ],
+    "gateways": [
+        {
+            "id": "12",
+            "type": "Exclusive"
+        },
+        {
+            "id": "13",
+            "type": "Parallel"
+        },
+        {
+            "id": "14",
+            "type": "Exclusive"
+        },
+        {
+            "id": "15",
+            "type": "Parallel"
+        }
+    ],
+    "pools": [
+        {
+            "id": "16",
+            "name": "SoKnow",
+            "lanes": [
+                {
+                    "id": "17",
+                    "name": "Vertrieb",
+                    "elemRefs": [
+                        "0",
+                        "1",
+                        "2",
+                        "3",
+                        "4",
+                        "5",
+                        "6",
+                        "7",
+                        "8"
+                    ]
+                }
+            ]
+        },
+        {
+            "id": "18",
+            "name": "Kunde",
+            "lanes": []
+        }
+    ],
+    "sequenceFlows": [
+        {
+            "id": "19",
+            "sourceRef": "9",
+            "targetRef": "0"
+        },
+        {
+            "id": "20",
+            "sourceRef": "0",
+            "targetRef": "1"
+        },
+        {
+            "id": "21",
+            "sourceRef": "1",
+            "targetRef": "12"
+        },
+        {
+            "id": "22",
+            "sourceRef": "12",
+            "targetRef": "2"
+        },
+        {
+            "id": "23",
+            "sourceRef": "12",
+            "targetRef": "3"
+        },
+        {
+            "id": "24",
+            "sourceRef": "2",
+            "targetRef": "14"
+        },
+        {
+            "id": "25",
+            "sourceRef": "3",
+            "targetRef": "14"
+        },
+        {
+            "id": "26",
+            "sourceRef": "14",
+            "targetRef": "4"
+        },
+        {
+            "id": "27",
+            "sourceRef": "4",
+            "targetRef": "10"
+        },
+        {
+            "id": "28",
+            "sourceRef": "10",
+            "targetRef": "11"
+        },
+        {
+            "id": "29",
+            "sourceRef": "11",
+            "targetRef": "13"
+        },
+        {
+            "id": "30",
+            "sourceRef": "13",
+            "targetRef": "5"
+        },
+        {
+            "id": "31",
+            "sourceRef": "13",
+            "targetRef": "6"
+        },
+        {
+            "id": "32",
+            "sourceRef": "6",
+            "targetRef": "15"
+        },
+        {
+            "id": "33",
+            "sourceRef": "5",
+            "targetRef": "15"
+        },
+        {
+            "id": "34",
+            "sourceRef": "15",
+            "targetRef": "7"
+        },
+        {
+            "id": "35",
+            "sourceRef": "7",
+            "targetRef": "8"
+        }
+    ],
+    "messageFlows": [
+        {
+            "id": "36",
+            "sourceRef": "8",
+            "targetRef": "18",
+            "label": "Kundengespr\u00e4ch durchf\u00fchren"
+        }
+    ]
+}

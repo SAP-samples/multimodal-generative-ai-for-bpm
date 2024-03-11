@@ -1,0 +1,226 @@
+{
+    "tasks": [
+        {
+            "id": "0",
+            "name": "Kundenstammdaten anlegen",
+            "type": "Task"
+        },
+        {
+            "id": "1",
+            "name": "Kundendaten \u00e4ndern",
+            "type": "Task"
+        },
+        {
+            "id": "2",
+            "name": "Anfrage annehmen und bearbeiten",
+            "type": "Task"
+        },
+        {
+            "id": "3",
+            "name": "Angebot bearbeiten",
+            "type": "Task"
+        },
+        {
+            "id": "4",
+            "name": "Angebot in Auftrag kopieren und an Kunde senden",
+            "type": "Task"
+        },
+        {
+            "id": "5",
+            "name": "Bestellung annehmen und bearbeiten",
+            "type": "Task"
+        },
+        {
+            "id": "6",
+            "name": "Lagerbestand \u00fcberpr\u00fcfen",
+            "type": "Task"
+        },
+        {
+            "id": "7",
+            "name": "Produkt im Lager anfordern",
+            "type": "Task"
+        },
+        {
+            "id": "8",
+            "name": "Ware besorgen/bestellen",
+            "type": "Task"
+        },
+        {
+            "id": "9",
+            "name": "Kundenauftrag bearbeiten",
+            "type": "Task"
+        },
+        {
+            "id": "10",
+            "name": "Auslieferungsbeleg erstellen",
+            "type": "Task"
+        },
+        {
+            "id": "11",
+            "name": "Bestand Kontrolle",
+            "type": "Task"
+        },
+        {
+            "id": "12",
+            "name": "Material kommissionieren",
+            "type": "Task"
+        },
+        {
+            "id": "13",
+            "name": "Material verpacken/verladen und an Kunde senden",
+            "type": "Task"
+        },
+        {
+            "id": "14",
+            "name": "Bestand \u00fcberpr\u00fcfen",
+            "type": "Task"
+        },
+        {
+            "id": "15",
+            "name": "Rechnung erstellen",
+            "type": "Task"
+        },
+        {
+            "id": "16",
+            "name": "Rechnung an Kunde senden",
+            "type": "Task"
+        },
+        {
+            "id": "17",
+            "name": "Zahlungseingang bearbeiten",
+            "type": "Task"
+        },
+        {
+            "id": "18",
+            "name": "Belegfluss bearbeiten und anzeigen",
+            "type": "Task"
+        },
+        {
+            "id": "19",
+            "name": "Anfrage senden",
+            "type": "Task"
+        },
+        {
+            "id": "20",
+            "name": "Kundenauftrag annehmen und bearbeiten",
+            "type": "Task"
+        },
+        {
+            "id": "21",
+            "name": "Fahrr\u00e4der bestellen",
+            "type": "Task"
+        },
+        {
+            "id": "22",
+            "name": "Wareneingang",
+            "type": "Task"
+        },
+        {
+            "id": "23",
+            "name": "Rechnung empfangen",
+            "type": "Task"
+        },
+        {
+            "id": "24",
+            "name": "Rechnung begleichen",
+            "type": "Task"
+        }
+    ],
+    "events": [
+        {
+            "id": "25",
+            "name": "Der Prozess 'Kunden-Auftrag' beginnen",
+            "type": "StartNoneEvent"
+        },
+        {
+            "id": "26",
+            "name": "Der Prozess beendet",
+            "type": "EndNoneEvent"
+        },
+        {
+            "id": "27",
+            "name": "Anfrage beginnen",
+            "type": "StartNoneEvent"
+        },
+        {
+            "id": "28",
+            "name": "Auftrag beendet",
+            "type": "EndNoneEvent"
+        }
+    ],
+    "gateways": [
+        {
+            "id": "29",
+            "type": "Exclusive"
+        }
+    ],
+    "pools": [
+        {
+            "id": "30",
+            "name": "GBI",
+            "lanes": [
+                {
+                    "id": "31",
+                    "name": "Vertrieb ( SD )",
+                    "elemRefs": [
+                        "0",
+                        "1",
+                        "2",
+                        "3",
+                        "4",
+                        "5",
+                        "9",
+                        "10",
+                        "25",
+                        "26",
+                        "18"
+                    ]
+                },
+                {
+                    "id": "32",
+                    "name": "Materialwirtschaft ( MM )",
+                    "elemRefs": [
+                        "6",
+                        "7",
+                        "8",
+                        "11",
+                        "12",
+                        "14",
+                        "29"
+                    ]
+                },
+                {
+                    "id": "33",
+                    "name": "Finanzwesen ( FI )",
+                    "elemRefs": [
+                        "15",
+                        "16",
+                        "17"
+                    ]
+                }
+            ]
+        },
+        {
+            "id": "34",
+            "name": "Kunde The Bike Zone",
+            "lanes": [
+                {
+                    "id": "35",
+                    "name": "Lane",
+                    "elemRefs": [
+                        "27",
+                        "19",
+                        "20",
+                        "21",
+                        "22",
+                        "23",
+                        "24",
+                        "28"
+                    ]
+                }
+            ]
+        }
+    ],
+    "sequenceFlows": [],
+    "messageFlows": []
+}

@@ -1,0 +1,398 @@
+{
+    "tasks": [
+        {
+            "id": "0",
+            "name": "Classify ticket by automatic AI algorithm",
+            "type": "Task"
+        },
+        {
+            "id": "1",
+            "name": "Confirm type of request of the ticket by support staff",
+            "type": "Task"
+        },
+        {
+            "id": "2",
+            "name": "Forward to IT Operations Staff",
+            "type": "Task"
+        },
+        {
+            "id": "3",
+            "name": "Assign developer of IT Operations",
+            "type": "Task"
+        },
+        {
+            "id": "4",
+            "name": "Correct bug",
+            "type": "CollapsedSubprocess"
+        },
+        {
+            "id": "5",
+            "name": "Import version with the solution in Production Environment",
+            "type": "Task"
+        },
+        {
+            "id": "6",
+            "name": "Communicate date of the correction to the ticket owner",
+            "type": "Task"
+        },
+        {
+            "id": "7",
+            "name": "Ask for feedback with the ticket owner",
+            "type": "Task"
+        },
+        {
+            "id": "8",
+            "name": "Check solution for ticket and look for the KMS for FAQs",
+            "type": "Task"
+        },
+        {
+            "id": "9",
+            "name": "Support remotely",
+            "type": "Task"
+        },
+        {
+            "id": "10",
+            "name": "Train face to face",
+            "type": "Task"
+        },
+        {
+            "id": "11",
+            "name": "Send FAQ to the user with problem",
+            "type": "Task"
+        },
+        {
+            "id": "12",
+            "name": "Forward to IS Development",
+            "type": "Task"
+        },
+        {
+            "id": "13",
+            "name": "Check the ticket request for a new functionality",
+            "type": "Task"
+        },
+        {
+            "id": "14",
+            "name": "Ask for more information to the ticket owner",
+            "type": "Task"
+        },
+        {
+            "id": "15",
+            "name": "Design a proposal of development",
+            "type": "CollapsedSubprocess"
+        },
+        {
+            "id": "16",
+            "name": "Present the proposal to the ticket owner and responsible staff",
+            "type": "Task"
+        },
+        {
+            "id": "17",
+            "name": "Assign Development Team",
+            "type": "Task"
+        },
+        {
+            "id": "18",
+            "name": "Develop and liberate new functionality",
+            "type": "CollapsedSubprocess"
+        },
+        {
+            "id": "19",
+            "name": "Cancel the request and close ticket",
+            "type": "Task"
+        }
+    ],
+    "events": [
+        {
+            "id": "20",
+            "name": "A new ticket is received",
+            "type": "StartNoneEvent"
+        },
+        {
+            "id": "21",
+            "name": "Ticket of corrected bug successfully closed",
+            "type": "EndNoneEvent"
+        },
+        {
+            "id": "22",
+            "name": "Ticket of user support successfully closed",
+            "type": "EndNoneEvent"
+        },
+        {
+            "id": "23",
+            "name": "Ticket closed by new functionality delivered and KMS updated",
+            "type": "EndNoneEvent"
+        },
+        {
+            "id": "24",
+            "name": "Ticket closed (lack of preconditions)",
+            "type": "EndNoneEvent"
+        }
+    ],
+    "gateways": [
+        {
+            "id": "25",
+            "type": "Exclusive"
+        },
+        {
+            "id": "26",
+            "type": "Parallel"
+        },
+        {
+            "id": "27",
+            "type": "Exclusive"
+        },
+        {
+            "id": "28",
+            "type": "Inclusive"
+        },
+        {
+            "id": "29",
+            "type": "Exclusive"
+        },
+        {
+            "id": "30",
+            "type": "Exclusive"
+        },
+        {
+            "id": "31",
+            "type": "Exclusive"
+        },
+        {
+            "id": "32",
+            "type": "Inclusive"
+        },
+        {
+            "id": "33",
+            "type": "Exclusive"
+        }
+    ],
+    "pools": [
+        {
+            "id": "34",
+            "name": "IT-Department",
+            "lanes": [
+                {
+                    "id": "35",
+                    "name": "IS Development Staff",
+                    "elemRefs": [
+                        "12",
+                        "13",
+                        "14",
+                        "15",
+                        "16",
+                        "17",
+                        "18",
+                        "19"
+                    ]
+                },
+                {
+                    "id": "36",
+                    "name": "IT Operations Staff",
+                    "elemRefs": [
+                        "2",
+                        "3",
+                        "4",
+                        "5",
+                        "6",
+                        "7"
+                    ]
+                },
+                {
+                    "id": "37",
+                    "name": "IT Support Staff",
+                    "elemRefs": [
+                        "0",
+                        "1",
+                        "8",
+                        "9",
+                        "10",
+                        "11"
+                    ]
+                }
+            ]
+        }
+    ],
+    "sequenceFlows": [
+        {
+            "id": "38",
+            "sourceRef": "20",
+            "targetRef": "0"
+        },
+        {
+            "id": "39",
+            "sourceRef": "0",
+            "targetRef": "1"
+        },
+        {
+            "id": "40",
+            "sourceRef": "1",
+            "targetRef": "25"
+        },
+        {
+            "id": "41",
+            "sourceRef": "25",
+            "targetRef": "2"
+        },
+        {
+            "id": "42",
+            "sourceRef": "2",
+            "targetRef": "3"
+        },
+        {
+            "id": "43",
+            "sourceRef": "3",
+            "targetRef": "27"
+        },
+        {
+            "id": "44",
+            "sourceRef": "27",
+            "targetRef": "4"
+        },
+        {
+            "id": "45",
+            "sourceRef": "4",
+            "targetRef": "26"
+        },
+        {
+            "id": "46",
+            "sourceRef": "26",
+            "targetRef": "5"
+        },
+        {
+            "id": "47",
+            "sourceRef": "5",
+            "targetRef": "6"
+        },
+        {
+            "id": "48",
+            "sourceRef": "6",
+            "targetRef": "26"
+        },
+        {
+            "id": "49",
+            "sourceRef": "26",
+            "targetRef": "7"
+        },
+        {
+            "id": "50",
+            "sourceRef": "7",
+            "targetRef": "25"
+        },
+        {
+            "id": "51",
+            "sourceRef": "25",
+            "targetRef": "8"
+        },
+        {
+            "id": "52",
+            "sourceRef": "8",
+            "targetRef": "28"
+        },
+        {
+            "id": "53",
+            "sourceRef": "28",
+            "targetRef": "9"
+        },
+        {
+            "id": "54",
+            "sourceRef": "28",
+            "targetRef": "10"
+        },
+        {
+            "id": "55",
+            "sourceRef": "28",
+            "targetRef": "11"
+        },
+        {
+            "id": "56",
+            "sourceRef": "9",
+            "targetRef": "32"
+        },
+        {
+            "id": "57",
+            "sourceRef": "10",
+            "targetRef": "32"
+        },
+        {
+            "id": "58",
+            "sourceRef": "11",
+            "targetRef": "32"
+        },
+        {
+            "id": "59",
+            "sourceRef": "32",
+            "targetRef": "21"
+        },
+        {
+            "id": "60",
+            "sourceRef": "1",
+            "targetRef": "12"
+        },
+        {
+            "id": "61",
+            "sourceRef": "12",
+            "targetRef": "13"
+        },
+        {
+            "id": "62",
+            "sourceRef": "13",
+            "targetRef": "29"
+        },
+        {
+            "id": "63",
+            "sourceRef": "29",
+            "targetRef": "14"
+        },
+        {
+            "id": "64",
+            "sourceRef": "14",
+            "targetRef": "30"
+        },
+        {
+            "id": "65",
+            "sourceRef": "30",
+            "targetRef": "15"
+        },
+        {
+            "id": "66",
+            "sourceRef": "15",
+            "targetRef": "16"
+        },
+        {
+            "id": "67",
+            "sourceRef": "16",
+            "targetRef": "29"
+        },
+        {
+            "id": "68",
+            "sourceRef": "29",
+            "targetRef": "17"
+        },
+        {
+            "id": "69",
+            "sourceRef": "17",
+            "targetRef": "18"
+        },
+        {
+            "id": "70",
+            "sourceRef": "18",
+            "targetRef": "31"
+        },
+        {
+            "id": "71",
+            "sourceRef": "31",
+            "targetRef": "23"
+        },
+        {
+            "id": "72",
+            "sourceRef": "14",
+            "targetRef": "19"
+        },
+        {
+            "id": "73",
+            "sourceRef": "19",
+            "targetRef": "24"
+        }
+    ],
+    "messageFlows": []
+}

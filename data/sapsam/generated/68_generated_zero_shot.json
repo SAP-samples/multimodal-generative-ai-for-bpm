@@ -1,0 +1,238 @@
+{
+    "tasks": [
+        {
+            "id": "0",
+            "name": "Sample products requested",
+            "type": "Task"
+        },
+        {
+            "id": "1",
+            "name": "Provides sample products",
+            "type": "Task"
+        },
+        {
+            "id": "2",
+            "name": "Select product",
+            "type": "Task"
+        },
+        {
+            "id": "3",
+            "name": "Send purchase order",
+            "type": "Task"
+        },
+        {
+            "id": "4",
+            "name": "Check stock availability",
+            "type": "Task"
+        },
+        {
+            "id": "5",
+            "name": "Restock inventory",
+            "type": "CollapsedSubprocess"
+        },
+        {
+            "id": "6",
+            "name": "Send product",
+            "type": "Task"
+        },
+        {
+            "id": "7",
+            "name": "Receive product",
+            "type": "Task"
+        },
+        {
+            "id": "8",
+            "name": "Check products",
+            "type": "Task"
+        },
+        {
+            "id": "9",
+            "name": "Send payment authorization",
+            "type": "Task"
+        },
+        {
+            "id": "10",
+            "name": "Process payment",
+            "type": "Task"
+        },
+        {
+            "id": "11",
+            "name": "Request missing products",
+            "type": "Task"
+        },
+        {
+            "id": "12",
+            "name": "Adjust product specifications",
+            "type": "Task"
+        }
+    ],
+    "events": [
+        {
+            "id": "13",
+            "name": "Start Event",
+            "type": "StartNoneEvent"
+        },
+        {
+            "id": "14",
+            "name": "End Event",
+            "type": "EndNoneEvent"
+        }
+    ],
+    "gateways": [
+        {
+            "id": "15",
+            "type": "Exclusive"
+        },
+        {
+            "id": "16",
+            "type": "Exclusive"
+        },
+        {
+            "id": "17",
+            "type": "Exclusive"
+        },
+        {
+            "id": "18",
+            "type": "Exclusive"
+        }
+    ],
+    "pools": [
+        {
+            "id": "19",
+            "name": "FMCG Company",
+            "lanes": [
+                {
+                    "id": "20",
+                    "name": "Warehouse Supervisor",
+                    "elemRefs": [
+                        "0",
+                        "2",
+                        "3",
+                        "4",
+                        "7",
+                        "8",
+                        "9",
+                        "10",
+                        "11"
+                    ]
+                },
+                {
+                    "id": "21",
+                    "name": "Supplier",
+                    "elemRefs": [
+                        "1",
+                        "5",
+                        "6",
+                        "12"
+                    ]
+                },
+                {
+                    "id": "22",
+                    "name": "Department",
+                    "elemRefs": []
+                }
+            ]
+        }
+    ],
+    "sequenceFlows": [
+        {
+            "id": "23",
+            "sourceRef": "13",
+            "targetRef": "0"
+        },
+        {
+            "id": "24",
+            "sourceRef": "0",
+            "targetRef": "15"
+        },
+        {
+            "id": "25",
+            "sourceRef": "15",
+            "targetRef": "1"
+        },
+        {
+            "id": "26",
+            "sourceRef": "1",
+            "targetRef": "16"
+        },
+        {
+            "id": "27",
+            "sourceRef": "16",
+            "targetRef": "2"
+        },
+        {
+            "id": "28",
+            "sourceRef": "2",
+            "targetRef": "17"
+        },
+        {
+            "id": "29",
+            "sourceRef": "17",
+            "targetRef": "3"
+        },
+        {
+            "id": "30",
+            "sourceRef": "3",
+            "targetRef": "4"
+        },
+        {
+            "id": "31",
+            "sourceRef": "4",
+            "targetRef": "18"
+        },
+        {
+            "id": "32",
+            "sourceRef": "18",
+            "targetRef": "6"
+        },
+        {
+            "id": "33",
+            "sourceRef": "6",
+            "targetRef": "7"
+        },
+        {
+            "id": "34",
+            "sourceRef": "7",
+            "targetRef": "8"
+        },
+        {
+            "id": "35",
+            "sourceRef": "8",
+            "targetRef": "17"
+        },
+        {
+            "id": "36",
+            "sourceRef": "17",
+            "targetRef": "9"
+        },
+        {
+            "id": "37",
+            "sourceRef": "9",
+            "targetRef": "10"
+        },
+        {
+            "id": "38",
+            "sourceRef": "10",
+            "targetRef": "14"
+        },
+        {
+            "id": "39",
+            "sourceRef": "15",
+            "targetRef": "11",
+            "condition": "do not meet requirement"
+        },
+        {
+            "id": "40",
+            "sourceRef": "16",
+            "targetRef": "12",
+            "condition": "do not meet requirement"
+        },
+        {
+            "id": "41",
+            "sourceRef": "18",
+            "targetRef": "5",
+            "condition": "is not available"
+        }
+    ],
+    "messageFlows": []
+}

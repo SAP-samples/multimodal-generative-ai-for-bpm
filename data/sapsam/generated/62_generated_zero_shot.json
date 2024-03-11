@@ -1,0 +1,328 @@
+{
+    "tasks": [
+        {
+            "id": "0",
+            "name": "receive proforma invoice confirmation",
+            "type": "Receive"
+        },
+        {
+            "id": "1",
+            "name": "upload the confirmation letter",
+            "type": "Manual"
+        },
+        {
+            "id": "2",
+            "name": "specify network nodes based on generic service description",
+            "type": "Manual"
+        },
+        {
+            "id": "3",
+            "name": "register a feasibility study ticket",
+            "type": "Manual"
+        },
+        {
+            "id": "4",
+            "name": "predict feasibility results",
+            "type": "Service"
+        },
+        {
+            "id": "5",
+            "name": "validate the feasibility results",
+            "type": "Manual"
+        },
+        {
+            "id": "6",
+            "name": "update the database of feasibility studies",
+            "type": "Service"
+        },
+        {
+            "id": "7",
+            "name": "announce feasibility study results",
+            "type": "Send"
+        },
+        {
+            "id": "8",
+            "name": "announce purchase methods",
+            "type": "Send"
+        },
+        {
+            "id": "9",
+            "name": "get the signed service contract",
+            "type": "Receive"
+        },
+        {
+            "id": "10",
+            "name": "modify sale profile documents",
+            "type": "Manual"
+        },
+        {
+            "id": "11",
+            "name": "update sale profile and send a report to corporate customer affairs",
+            "type": "Send"
+        },
+        {
+            "id": "12",
+            "name": "allocate corporate customer unique ID",
+            "type": "Manual"
+        },
+        {
+            "id": "13",
+            "name": "verify corporate customer's unique ID",
+            "type": "Manual"
+        },
+        {
+            "id": "14",
+            "name": "update the information and sending a report",
+            "type": "Send"
+        },
+        {
+            "id": "15",
+            "name": "assigning an official supervisor",
+            "type": "Manual"
+        },
+        {
+            "id": "16",
+            "name": "sending the current sale profile to the CFS department",
+            "type": "Send"
+        },
+        {
+            "id": "17",
+            "name": "updating the sale profile status",
+            "type": "Manual"
+        },
+        {
+            "id": "18",
+            "name": "register service cancellation reasons",
+            "type": "Manual"
+        },
+        {
+            "id": "19",
+            "name": "perform a new feasibility study",
+            "type": "Manual"
+        }
+    ],
+    "events": [
+        {
+            "id": "20",
+            "name": "Start Event",
+            "type": "StartNoneEvent"
+        },
+        {
+            "id": "21",
+            "name": "End Event",
+            "type": "EndNoneEvent"
+        }
+    ],
+    "gateways": [
+        {
+            "id": "22",
+            "type": "Exclusive"
+        },
+        {
+            "id": "23",
+            "type": "Exclusive"
+        },
+        {
+            "id": "24",
+            "type": "Exclusive"
+        }
+    ],
+    "pools": [
+        {
+            "id": "25",
+            "name": "cooperate Sale department",
+            "lanes": [
+                {
+                    "id": "26",
+                    "name": "B2B sale and marketing (2nd Phase)",
+                    "elemRefs": [
+                        "0",
+                        "1",
+                        "2",
+                        "3",
+                        "4",
+                        "5",
+                        "6",
+                        "7",
+                        "8",
+                        "9",
+                        "10",
+                        "11",
+                        "12",
+                        "13",
+                        "14",
+                        "15",
+                        "16",
+                        "17",
+                        "18",
+                        "19",
+                        "20",
+                        "21"
+                    ]
+                }
+            ]
+        },
+        {
+            "id": "27",
+            "name": "CFS department",
+            "lanes": [
+                {
+                    "id": "28",
+                    "name": "Lane 2",
+                    "elemRefs": []
+                }
+            ]
+        },
+        {
+            "id": "29",
+            "name": "Corporate Customer",
+            "lanes": [
+                {
+                    "id": "30",
+                    "name": "Lane 3",
+                    "elemRefs": []
+                }
+            ]
+        },
+        {
+            "id": "31",
+            "name": "corporate customer affairs",
+            "lanes": [
+                {
+                    "id": "32",
+                    "name": "Lane 4",
+                    "elemRefs": []
+                }
+            ]
+        },
+        {
+            "id": "33",
+            "name": "Financial affairs",
+            "lanes": [
+                {
+                    "id": "34",
+                    "name": "Lane 5",
+                    "elemRefs": []
+                }
+            ]
+        }
+    ],
+    "sequenceFlows": [
+        {
+            "id": "35",
+            "sourceRef": "20",
+            "targetRef": "0"
+        },
+        {
+            "id": "36",
+            "sourceRef": "0",
+            "targetRef": "1"
+        },
+        {
+            "id": "37",
+            "sourceRef": "1",
+            "targetRef": "22"
+        },
+        {
+            "id": "38",
+            "sourceRef": "22",
+            "targetRef": "2"
+        },
+        {
+            "id": "39",
+            "sourceRef": "22",
+            "targetRef": "3"
+        },
+        {
+            "id": "40",
+            "sourceRef": "3",
+            "targetRef": "4"
+        },
+        {
+            "id": "41",
+            "sourceRef": "4",
+            "targetRef": "23"
+        },
+        {
+            "id": "42",
+            "sourceRef": "23",
+            "targetRef": "5"
+        },
+        {
+            "id": "43",
+            "sourceRef": "23",
+            "targetRef": "6"
+        },
+        {
+            "id": "44",
+            "sourceRef": "5",
+            "targetRef": "7"
+        },
+        {
+            "id": "45",
+            "sourceRef": "7",
+            "targetRef": "24"
+        },
+        {
+            "id": "46",
+            "sourceRef": "24",
+            "targetRef": "8"
+        },
+        {
+            "id": "47",
+            "sourceRef": "8",
+            "targetRef": "9"
+        },
+        {
+            "id": "48",
+            "sourceRef": "9",
+            "targetRef": "10"
+        },
+        {
+            "id": "49",
+            "sourceRef": "10",
+            "targetRef": "11"
+        },
+        {
+            "id": "50",
+            "sourceRef": "11",
+            "targetRef": "12"
+        },
+        {
+            "id": "51",
+            "sourceRef": "12",
+            "targetRef": "13"
+        },
+        {
+            "id": "52",
+            "sourceRef": "13",
+            "targetRef": "14"
+        },
+        {
+            "id": "53",
+            "sourceRef": "14",
+            "targetRef": "15"
+        },
+        {
+            "id": "54",
+            "sourceRef": "15",
+            "targetRef": "16"
+        },
+        {
+            "id": "55",
+            "sourceRef": "16",
+            "targetRef": "17"
+        },
+        {
+            "id": "56",
+            "sourceRef": "17",
+            "targetRef": "18"
+        },
+        {
+            "id": "57",
+            "sourceRef": "18",
+            "targetRef": "21"
+        }
+    ],
+    "messageFlows": []
+}

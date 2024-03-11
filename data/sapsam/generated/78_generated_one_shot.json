@@ -1,0 +1,247 @@
+{
+    "tasks": [
+        {
+            "id": "0",
+            "name": "Angebote einholen",
+            "type": "Task"
+        },
+        {
+            "id": "1",
+            "name": "Angebot pr\u00fcfen",
+            "type": "Task"
+        },
+        {
+            "id": "2",
+            "name": "Angebot genehmigen",
+            "type": "Task"
+        },
+        {
+            "id": "3",
+            "name": "Angebot nicht genehmigen",
+            "type": "Task"
+        },
+        {
+            "id": "4",
+            "name": "Ware bestellen",
+            "type": "Task"
+        },
+        {
+            "id": "5",
+            "name": "Endabnahme der Ware",
+            "type": "Task"
+        },
+        {
+            "id": "6",
+            "name": "Pr\u00fcfung der Lieferung",
+            "type": "Task"
+        },
+        {
+            "id": "7",
+            "name": "Lieferung stimmt",
+            "type": "Task"
+        },
+        {
+            "id": "8",
+            "name": "Zahlung einleiten",
+            "type": "Task"
+        },
+        {
+            "id": "9",
+            "name": "Lieferung stimmt nicht",
+            "type": "Task"
+        },
+        {
+            "id": "10",
+            "name": "Lieferanten kontaktieren",
+            "type": "Task"
+        },
+        {
+            "id": "11",
+            "name": "Lieferanten um neue Lieferung bitten",
+            "type": "Task"
+        },
+        {
+            "id": "12",
+            "name": "Lieferungsfrist setzen",
+            "type": "Task"
+        }
+    ],
+    "events": [
+        {
+            "id": "13",
+            "name": "Bedarf aufnahme",
+            "type": "StartNoneEvent"
+        },
+        {
+            "id": "14",
+            "name": "B\u00fcromaterial gekauft",
+            "type": "EndNoneEvent"
+        }
+    ],
+    "gateways": [
+        {
+            "id": "15",
+            "name": "",
+            "type": "Exclusive"
+        },
+        {
+            "id": "16",
+            "name": "",
+            "type": "Exclusive"
+        },
+        {
+            "id": "17",
+            "name": "",
+            "type": "Exclusive"
+        }
+    ],
+    "pools": [
+        {
+            "id": "18",
+            "name": "Einkauf von B\u00fcromaterial",
+            "lanes": [
+                {
+                    "id": "19",
+                    "name": "Lane",
+                    "elemRefs": [
+                        "0",
+                        "1",
+                        "2",
+                        "3",
+                        "4",
+                        "5",
+                        "6",
+                        "7",
+                        "8",
+                        "9",
+                        "10",
+                        "11",
+                        "12",
+                        "13",
+                        "14",
+                        "15",
+                        "16",
+                        "17"
+                    ]
+                }
+            ]
+        },
+        {
+            "id": "20",
+            "name": "Accounting / Controlling",
+            "lanes": []
+        },
+        {
+            "id": "21",
+            "name": "Gesch\u00e4ftsleitung",
+            "lanes": []
+        },
+        {
+            "id": "22",
+            "name": "Waren Eingang",
+            "lanes": []
+        }
+    ],
+    "sequenceFlows": [
+        {
+            "id": "23",
+            "sourceRef": "13",
+            "targetRef": "0"
+        },
+        {
+            "id": "24",
+            "sourceRef": "0",
+            "targetRef": "1"
+        },
+        {
+            "id": "25",
+            "sourceRef": "1",
+            "targetRef": "15"
+        },
+        {
+            "id": "26",
+            "sourceRef": "15",
+            "targetRef": "2",
+            "condition": ">2000"
+        },
+        {
+            "id": "27",
+            "sourceRef": "15",
+            "targetRef": "3",
+            "condition": "=2000"
+        },
+        {
+            "id": "28",
+            "sourceRef": "2",
+            "targetRef": "4"
+        },
+        {
+            "id": "29",
+            "sourceRef": "3",
+            "targetRef": "16"
+        },
+        {
+            "id": "30",
+            "sourceRef": "4",
+            "targetRef": "5"
+        },
+        {
+            "id": "31",
+            "sourceRef": "5",
+            "targetRef": "6"
+        },
+        {
+            "id": "32",
+            "sourceRef": "6",
+            "targetRef": "17"
+        },
+        {
+            "id": "33",
+            "sourceRef": "17",
+            "targetRef": "7",
+            "condition": "Lieferung stimmt"
+        },
+        {
+            "id": "34",
+            "sourceRef": "7",
+            "targetRef": "8"
+        },
+        {
+            "id": "35",
+            "sourceRef": "8",
+            "targetRef": "14"
+        },
+        {
+            "id": "36",
+            "sourceRef": "17",
+            "targetRef": "9",
+            "condition": "Lieferung stimmt nicht"
+        },
+        {
+            "id": "37",
+            "sourceRef": "9",
+            "targetRef": "10"
+        },
+        {
+            "id": "38",
+            "sourceRef": "10",
+            "targetRef": "11"
+        },
+        {
+            "id": "39",
+            "sourceRef": "11",
+            "targetRef": "12"
+        },
+        {
+            "id": "40",
+            "sourceRef": "12",
+            "targetRef": "4"
+        },
+        {
+            "id": "41",
+            "sourceRef": "16",
+            "targetRef": "4"
+        }
+    ],
+    "messageFlows": []
+}

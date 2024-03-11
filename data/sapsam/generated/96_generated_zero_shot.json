@@ -1,0 +1,74 @@
+{
+    "tasks": [
+        {
+            "id": "0",
+            "name": "Create \"new\" staff object",
+            "type": "User"
+        },
+        {
+            "id": "1",
+            "name": "Edit the ID tab",
+            "type": "User"
+        },
+        {
+            "id": "2",
+            "name": "Navigate to the Activity Template window",
+            "type": "User"
+        }
+    ],
+    "events": [
+        {
+            "id": "3",
+            "name": "Create New Dummy Staff",
+            "type": "StartNoneEvent"
+        },
+        {
+            "id": "4",
+            "name": "Dummy Staff attached to resource on the activity template",
+            "type": "EndNoneEvent"
+        }
+    ],
+    "gateways": [],
+    "pools": [
+        {
+            "id": "5",
+            "name": "ANU",
+            "lanes": [
+                {
+                    "id": "6",
+                    "name": "TT Officer",
+                    "elemRefs": [
+                        "3",
+                        "0",
+                        "1",
+                        "2",
+                        "4"
+                    ]
+                }
+            ]
+        }
+    ],
+    "sequenceFlows": [
+        {
+            "id": "7",
+            "sourceRef": "3",
+            "targetRef": "0"
+        },
+        {
+            "id": "8",
+            "sourceRef": "0",
+            "targetRef": "1"
+        },
+        {
+            "id": "9",
+            "sourceRef": "1",
+            "targetRef": "2"
+        },
+        {
+            "id": "10",
+            "sourceRef": "2",
+            "targetRef": "4"
+        }
+    ],
+    "messageFlows": []
+}

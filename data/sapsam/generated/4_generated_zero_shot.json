@@ -1,0 +1,213 @@
+{
+    "tasks": [
+        {
+            "id": "0",
+            "name": "Empfangsbest\u00e4tigung versenden",
+            "type": "Send"
+        },
+        {
+            "id": "1",
+            "name": "Bewerber pr\u00fcfen",
+            "type": "Business Rule"
+        },
+        {
+            "id": "2",
+            "name": "Zum Bewerbungsgespr\u00e4ch einladen",
+            "type": "Send"
+        },
+        {
+            "id": "3",
+            "name": "Arbeitsvertrag vorbereiten",
+            "type": "Task"
+        },
+        {
+            "id": "4",
+            "name": "Bewerbungsgespr\u00e4ch durchf\u00fchren",
+            "type": "Task"
+        },
+        {
+            "id": "5",
+            "name": "Arbeitsvertrag versenden",
+            "type": "Send"
+        },
+        {
+            "id": "6",
+            "name": "Ablehnung versenden",
+            "type": "Send"
+        }
+    ],
+    "events": [
+        {
+            "id": "7",
+            "name": "Bewerbung eingegangen",
+            "type": "StartMessageEvent"
+        },
+        {
+            "id": "8",
+            "name": "unterschriebener Arbeitsvertrag eingegangen",
+            "type": "IntermediateMessageEventCatching"
+        },
+        {
+            "id": "9",
+            "name": "unterschriebener Arbeitsvertrag liegt vor",
+            "type": "EndNoneEvent"
+        },
+        {
+            "id": "10",
+            "name": "Bewerber abgelehnt",
+            "type": "EndNoneEvent"
+        }
+    ],
+    "gateways": [
+        {
+            "id": "11",
+            "type": "Exclusive"
+        },
+        {
+            "id": "12",
+            "type": "Exclusive"
+        }
+    ],
+    "pools": [
+        {
+            "id": "13",
+            "name": "ACME AG",
+            "lanes": [
+                {
+                    "id": "14",
+                    "name": "Personalabteilung",
+                    "elemRefs": [
+                        "0",
+                        "1",
+                        "2",
+                        "3",
+                        "4",
+                        "5",
+                        "6",
+                        "7",
+                        "8",
+                        "9",
+                        "11",
+                        "12"
+                    ]
+                }
+            ]
+        },
+        {
+            "id": "15",
+            "name": "Bewerber",
+            "lanes": [
+                {
+                    "id": "16",
+                    "name": "Collapsed Pool",
+                    "elemRefs": []
+                }
+            ]
+        }
+    ],
+    "sequenceFlows": [
+        {
+            "id": "17",
+            "sourceRef": "7",
+            "targetRef": "0"
+        },
+        {
+            "id": "18",
+            "sourceRef": "0",
+            "targetRef": "1"
+        },
+        {
+            "id": "19",
+            "sourceRef": "1",
+            "targetRef": "11"
+        },
+        {
+            "id": "20",
+            "sourceRef": "11",
+            "targetRef": "2"
+        },
+        {
+            "id": "21",
+            "sourceRef": "11",
+            "targetRef": "6"
+        },
+        {
+            "id": "22",
+            "sourceRef": "2",
+            "targetRef": "3"
+        },
+        {
+            "id": "23",
+            "sourceRef": "3",
+            "targetRef": "4"
+        },
+        {
+            "id": "24",
+            "sourceRef": "4",
+            "targetRef": "12"
+        },
+        {
+            "id": "25",
+            "sourceRef": "12",
+            "targetRef": "8"
+        },
+        {
+            "id": "26",
+            "sourceRef": "8",
+            "targetRef": "5"
+        },
+        {
+            "id": "27",
+            "sourceRef": "5",
+            "targetRef": "9"
+        },
+        {
+            "id": "28",
+            "sourceRef": "12",
+            "targetRef": "6"
+        },
+        {
+            "id": "29",
+            "sourceRef": "6",
+            "targetRef": "10"
+        }
+    ],
+    "messageFlows": [
+        {
+            "id": "30",
+            "sourceRef": "7",
+            "targetRef": "16",
+            "label": "Bewerbung eingegangen"
+        },
+        {
+            "id": "31",
+            "sourceRef": "0",
+            "targetRef": "16",
+            "label": "Sendet Empfangsbest\u00e4tigung"
+        },
+        {
+            "id": "32",
+            "sourceRef": "2",
+            "targetRef": "16",
+            "label": "Einladung zum Bewerbungsgespr\u00e4ch"
+        },
+        {
+            "id": "33",
+            "sourceRef": "5",
+            "targetRef": "16",
+            "label": "Sendet Arbeitsvertrag"
+        },
+        {
+            "id": "34",
+            "sourceRef": "16",
+            "targetRef": "8",
+            "label": "Unterschriebener Arbeitsvertrag"
+        },
+        {
+            "id": "35",
+            "sourceRef": "6",
+            "targetRef": "16",
+            "label": "Ablehnung"
+        }
+    ]
+}

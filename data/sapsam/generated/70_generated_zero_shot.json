@@ -1,0 +1,173 @@
+{
+    "tasks": [
+        {
+            "id": "0",
+            "name": "Auftrag erfassen",
+            "type": "Task"
+        },
+        {
+            "id": "1",
+            "name": "Kundendaten pr\u00fcfen",
+            "type": "Task"
+        },
+        {
+            "id": "2",
+            "name": "Auftrag zur\u00fcckweisen",
+            "type": "Task"
+        },
+        {
+            "id": "3",
+            "name": "Auftrag freigeben",
+            "type": "Task"
+        },
+        {
+            "id": "4",
+            "name": "Kunde informieren",
+            "type": "Task"
+        },
+        {
+            "id": "5",
+            "name": "Auftrag weiterbearbeiten",
+            "type": "Task"
+        },
+        {
+            "id": "6",
+            "name": "Auftrag ausdrucken",
+            "type": "Task"
+        },
+        {
+            "id": "7",
+            "name": "Auftrag weiterleiten",
+            "type": "Task"
+        }
+    ],
+    "events": [
+        {
+            "id": "8",
+            "name": "Kundenantrag erfasst",
+            "type": "StartNoneEvent"
+        },
+        {
+            "id": "9",
+            "name": "Kunde informiert",
+            "type": "EndNoneEvent"
+        },
+        {
+            "id": "10",
+            "name": "Kundenauftrag weitergeleitet",
+            "type": "EndNoneEvent"
+        }
+    ],
+    "gateways": [
+        {
+            "id": "11",
+            "name": "Exclusive (XOR) Gateway",
+            "type": "Exclusive"
+        }
+    ],
+    "pools": [
+        {
+            "id": "12",
+            "name": "Finanzen",
+            "lanes": [
+                {
+                    "id": "13",
+                    "name": "Lane",
+                    "elemRefs": [
+                        "1",
+                        "2",
+                        "3",
+                        "11"
+                    ]
+                }
+            ]
+        },
+        {
+            "id": "14",
+            "name": "Service",
+            "lanes": [
+                {
+                    "id": "15",
+                    "name": "Lane",
+                    "elemRefs": [
+                        "0",
+                        "4",
+                        "5",
+                        "6",
+                        "7",
+                        "8",
+                        "9",
+                        "10"
+                    ]
+                }
+            ]
+        }
+    ],
+    "sequenceFlows": [
+        {
+            "id": "16",
+            "sourceRef": "8",
+            "targetRef": "0"
+        },
+        {
+            "id": "17",
+            "sourceRef": "0",
+            "targetRef": "11"
+        },
+        {
+            "id": "18",
+            "sourceRef": "11",
+            "targetRef": "1",
+            "condition": "Yes"
+        },
+        {
+            "id": "19",
+            "sourceRef": "1",
+            "targetRef": "3"
+        },
+        {
+            "id": "20",
+            "sourceRef": "3",
+            "targetRef": "4"
+        },
+        {
+            "id": "21",
+            "sourceRef": "4",
+            "targetRef": "9"
+        },
+        {
+            "id": "22",
+            "sourceRef": "11",
+            "targetRef": "2",
+            "condition": "No"
+        },
+        {
+            "id": "23",
+            "sourceRef": "2",
+            "targetRef": "5"
+        },
+        {
+            "id": "24",
+            "sourceRef": "5",
+            "targetRef": "6"
+        },
+        {
+            "id": "25",
+            "sourceRef": "6",
+            "targetRef": "7"
+        },
+        {
+            "id": "26",
+            "sourceRef": "7",
+            "targetRef": "10"
+        }
+    ],
+    "messageFlows": [
+        {
+            "id": "27",
+            "sourceRef": "3",
+            "targetRef": "4",
+            "label": "Message"
+        }
+    ]
+}

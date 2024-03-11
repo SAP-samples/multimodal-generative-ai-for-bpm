@@ -1,0 +1,296 @@
+{
+    "tasks": [
+        {
+            "id": "0",
+            "name": "Collect travels data",
+            "type": "Task"
+        },
+        {
+            "id": "1",
+            "name": "Check Missing Reported Kilometers",
+            "type": "Task"
+        },
+        {
+            "id": "2",
+            "name": "Ask Transporters for Kilometers",
+            "type": "Task"
+        },
+        {
+            "id": "3",
+            "name": "Information received",
+            "type": "Task"
+        },
+        {
+            "id": "4",
+            "name": "Check missing kilometers again",
+            "type": "Task"
+        },
+        {
+            "id": "5",
+            "name": "Missing kilometers found",
+            "type": "Task"
+        },
+        {
+            "id": "6",
+            "name": "All kilometers found",
+            "type": "Task"
+        },
+        {
+            "id": "7",
+            "name": "All kilometers in the document",
+            "type": "Task"
+        },
+        {
+            "id": "8",
+            "name": "Search all trips in Google Maps",
+            "type": "Task"
+        },
+        {
+            "id": "9",
+            "name": "Test all cost hypotheses",
+            "type": "Task"
+        },
+        {
+            "id": "10",
+            "name": "Calculate \u20ac/m3 and \u20ac/km (current and all the new hypotheses)",
+            "type": "Task"
+        },
+        {
+            "id": "11",
+            "name": "Select the best cost method option",
+            "type": "Task"
+        },
+        {
+            "id": "12",
+            "name": "Do a counter-proposal",
+            "type": "Task"
+        },
+        {
+            "id": "13",
+            "name": "Send the counter-proposal to the transporter",
+            "type": "Task"
+        },
+        {
+            "id": "14",
+            "name": "Check travel information",
+            "type": "Task"
+        },
+        {
+            "id": "15",
+            "name": "Send Kilometers traveled",
+            "type": "Task"
+        },
+        {
+            "id": "16",
+            "name": "Counter-Proposal Received",
+            "type": "Task"
+        }
+    ],
+    "events": [
+        {
+            "id": "17",
+            "name": "Proposal Received",
+            "type": "StartMessageEvent"
+        },
+        {
+            "id": "18",
+            "name": "Order fulfilled",
+            "type": "EndNoneEvent"
+        },
+        {
+            "id": "19",
+            "name": "Order received",
+            "type": "StartMessageEvent"
+        },
+        {
+            "id": "20",
+            "name": "Proposal fulfilled",
+            "type": "EndNoneEvent"
+        }
+    ],
+    "gateways": [
+        {
+            "id": "21",
+            "name": "Exclusive (XOR) Gateway",
+            "type": "Exclusive"
+        },
+        {
+            "id": "22",
+            "type": "Exclusive"
+        },
+        {
+            "id": "23",
+            "type": "Exclusive"
+        }
+    ],
+    "pools": [
+        {
+            "id": "24",
+            "name": "Logistics",
+            "lanes": [
+                {
+                    "id": "25",
+                    "name": "Lane",
+                    "elemRefs": [
+                        "0",
+                        "1",
+                        "21",
+                        "2",
+                        "3",
+                        "4",
+                        "22",
+                        "6",
+                        "7",
+                        "23",
+                        "8",
+                        "9",
+                        "10",
+                        "11",
+                        "12",
+                        "13",
+                        "18"
+                    ]
+                }
+            ]
+        },
+        {
+            "id": "26",
+            "name": "Transporter",
+            "lanes": [
+                {
+                    "id": "27",
+                    "name": "Lane",
+                    "elemRefs": [
+                        "17",
+                        "19",
+                        "14",
+                        "15",
+                        "16",
+                        "20"
+                    ]
+                }
+            ]
+        }
+    ],
+    "sequenceFlows": [
+        {
+            "id": "28",
+            "sourceRef": "0",
+            "targetRef": "1"
+        },
+        {
+            "id": "29",
+            "sourceRef": "1",
+            "targetRef": "21"
+        },
+        {
+            "id": "30",
+            "sourceRef": "21",
+            "targetRef": "2"
+        },
+        {
+            "id": "31",
+            "sourceRef": "2",
+            "targetRef": "3"
+        },
+        {
+            "id": "32",
+            "sourceRef": "3",
+            "targetRef": "4"
+        },
+        {
+            "id": "33",
+            "sourceRef": "4",
+            "targetRef": "22"
+        },
+        {
+            "id": "34",
+            "sourceRef": "22",
+            "targetRef": "5"
+        },
+        {
+            "id": "35",
+            "sourceRef": "22",
+            "targetRef": "6"
+        },
+        {
+            "id": "36",
+            "sourceRef": "6",
+            "targetRef": "7"
+        },
+        {
+            "id": "37",
+            "sourceRef": "7",
+            "targetRef": "23"
+        },
+        {
+            "id": "38",
+            "sourceRef": "23",
+            "targetRef": "8"
+        },
+        {
+            "id": "39",
+            "sourceRef": "8",
+            "targetRef": "9"
+        },
+        {
+            "id": "40",
+            "sourceRef": "9",
+            "targetRef": "10"
+        },
+        {
+            "id": "41",
+            "sourceRef": "10",
+            "targetRef": "11"
+        },
+        {
+            "id": "42",
+            "sourceRef": "11",
+            "targetRef": "12"
+        },
+        {
+            "id": "43",
+            "sourceRef": "12",
+            "targetRef": "13"
+        },
+        {
+            "id": "44",
+            "sourceRef": "13",
+            "targetRef": "18"
+        },
+        {
+            "id": "45",
+            "sourceRef": "19",
+            "targetRef": "14"
+        },
+        {
+            "id": "46",
+            "sourceRef": "14",
+            "targetRef": "15"
+        },
+        {
+            "id": "47",
+            "sourceRef": "15",
+            "targetRef": "16"
+        },
+        {
+            "id": "48",
+            "sourceRef": "16",
+            "targetRef": "20"
+        }
+    ],
+    "messageFlows": [
+        {
+            "id": "49",
+            "sourceRef": "17",
+            "targetRef": "19",
+            "label": "Order Message"
+        },
+        {
+            "id": "50",
+            "sourceRef": "20",
+            "targetRef": "18",
+            "label": "Response Message"
+        }
+    ]
+}

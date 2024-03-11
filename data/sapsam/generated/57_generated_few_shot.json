@@ -1,0 +1,277 @@
+{
+    "tasks": [
+        {
+            "id": "0",
+            "name": "Eingangsbest\u00e4tigung senden",
+            "type": "Send"
+        },
+        {
+            "id": "1",
+            "name": "Bewerbung pr\u00fcfen",
+            "type": "Business Rule"
+        },
+        {
+            "id": "2",
+            "name": "Bewerbung beurteilen",
+            "type": "Manual"
+        },
+        {
+            "id": "3",
+            "name": "Bewerber einladen",
+            "type": "CollapsedSubprocess"
+        },
+        {
+            "id": "4",
+            "name": "Bewerber auf die Liste setzen",
+            "type": "User"
+        },
+        {
+            "id": "5",
+            "name": "Bewerber ausw\u00e4hlen",
+            "type": "CollapsedSubprocess"
+        },
+        {
+            "id": "6",
+            "name": "Genehmigung einholen",
+            "type": "Business Rule"
+        },
+        {
+            "id": "7",
+            "name": "Vertrag vorbereiten",
+            "type": "Business Rule"
+        },
+        {
+            "id": "8",
+            "name": "Bewerbungsverfahren abschlie\u00dfen",
+            "type": "User"
+        },
+        {
+            "id": "9",
+            "name": "Bewerber absagen",
+            "type": "Send"
+        },
+        {
+            "id": "10",
+            "name": "Bewerbungs-unterlagen archivieren",
+            "type": "User"
+        }
+    ],
+    "events": [
+        {
+            "id": "11",
+            "name": "Bewerbung trifft ein",
+            "type": "StartMessageEvent"
+        },
+        {
+            "id": "12",
+            "name": "Ist der Bewerber gut?",
+            "type": "IntermediateErrorEvent"
+        },
+        {
+            "id": "13",
+            "name": "Einstellung wurde nicht genehmigt",
+            "type": "IntermediateErrorEvent"
+        },
+        {
+            "id": "14",
+            "name": "Bewerber einstellen",
+            "type": "EndNoneEvent"
+        },
+        {
+            "id": "15",
+            "name": "Bewerber abgelehnt",
+            "type": "EndNoneEvent"
+        },
+        {
+            "id": "16",
+            "name": "Intermediate Cancel Event",
+            "type": "IntermediateCancelEvent"
+        }
+    ],
+    "gateways": [
+        {
+            "id": "17",
+            "type": "Exclusive"
+        },
+        {
+            "id": "18",
+            "type": "Exclusive"
+        },
+        {
+            "id": "19",
+            "type": "Exclusive"
+        },
+        {
+            "id": "20",
+            "type": "Exclusive"
+        },
+        {
+            "id": "21",
+            "type": "Exclusive"
+        }
+    ],
+    "pools": [
+        {
+            "id": "22",
+            "name": "Applicant",
+            "lanes": []
+        },
+        {
+            "id": "23",
+            "name": "Sparkasse",
+            "lanes": [
+                {
+                    "id": "24",
+                    "name": "Personalteam",
+                    "elemRefs": [
+                        "0",
+                        "1",
+                        "11",
+                        "3",
+                        "7",
+                        "8",
+                        "10",
+                        "15"
+                    ]
+                },
+                {
+                    "id": "25",
+                    "name": "IT-Abteilung",
+                    "elemRefs": [
+                        "2",
+                        "4",
+                        "5",
+                        "12",
+                        "14"
+                    ]
+                },
+                {
+                    "id": "26",
+                    "name": "Vorstand",
+                    "elemRefs": [
+                        "6",
+                        "13",
+                        "16"
+                    ]
+                }
+            ]
+        }
+    ],
+    "sequenceFlows": [
+        {
+            "id": "27",
+            "sourceRef": "11",
+            "targetRef": "0"
+        },
+        {
+            "id": "28",
+            "sourceRef": "0",
+            "targetRef": "1"
+        },
+        {
+            "id": "29",
+            "sourceRef": "1",
+            "targetRef": "17"
+        },
+        {
+            "id": "30",
+            "sourceRef": "17",
+            "targetRef": "2",
+            "condition": "ja"
+        },
+        {
+            "id": "31",
+            "sourceRef": "17",
+            "targetRef": "3",
+            "condition": "nein"
+        },
+        {
+            "id": "32",
+            "sourceRef": "2",
+            "targetRef": "18"
+        },
+        {
+            "id": "33",
+            "sourceRef": "18",
+            "targetRef": "4",
+            "condition": "ja"
+        },
+        {
+            "id": "34",
+            "sourceRef": "18",
+            "targetRef": "5",
+            "condition": "nein"
+        },
+        {
+            "id": "35",
+            "sourceRef": "4",
+            "targetRef": "19"
+        },
+        {
+            "id": "36",
+            "sourceRef": "19",
+            "targetRef": "6",
+            "condition": "ja"
+        },
+        {
+            "id": "37",
+            "sourceRef": "19",
+            "targetRef": "7",
+            "condition": "nein"
+        },
+        {
+            "id": "38",
+            "sourceRef": "6",
+            "targetRef": "20"
+        },
+        {
+            "id": "39",
+            "sourceRef": "20",
+            "targetRef": "8",
+            "condition": "ja"
+        },
+        {
+            "id": "40",
+            "sourceRef": "20",
+            "targetRef": "9",
+            "condition": "nein"
+        },
+        {
+            "id": "41",
+            "sourceRef": "9",
+            "targetRef": "21"
+        },
+        {
+            "id": "42",
+            "sourceRef": "21",
+            "targetRef": "10"
+        },
+        {
+            "id": "43",
+            "sourceRef": "8",
+            "targetRef": "14"
+        },
+        {
+            "id": "44",
+            "sourceRef": "10",
+            "targetRef": "15"
+        }
+    ],
+    "messageFlows": [
+        {
+            "id": "45",
+            "sourceRef": "22",
+            "targetRef": "11"
+        },
+        {
+            "id": "46",
+            "sourceRef": "19",
+            "targetRef": "12"
+        },
+        {
+            "id": "47",
+            "sourceRef": "20",
+            "targetRef": "13"
+        }
+    ]
+}

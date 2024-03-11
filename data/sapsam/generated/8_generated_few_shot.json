@@ -1,0 +1,297 @@
+{
+    "tasks": [
+        {
+            "id": "0",
+            "name": "perform BKR check",
+            "type": "Task"
+        },
+        {
+            "id": "1",
+            "name": "perform Jane Doe check",
+            "type": "Task"
+        },
+        {
+            "id": "2",
+            "name": "perform credibility check",
+            "type": "Task"
+        },
+        {
+            "id": "3",
+            "name": "confirm credibility check",
+            "type": "Task"
+        },
+        {
+            "id": "4",
+            "name": "send rejection letter",
+            "type": "Task"
+        },
+        {
+            "id": "5",
+            "name": "call client to complement information",
+            "type": "Task"
+        },
+        {
+            "id": "6",
+            "name": "create loan offer",
+            "type": "Task"
+        },
+        {
+            "id": "7",
+            "name": "send loan offer",
+            "type": "Task"
+        },
+        {
+            "id": "8",
+            "name": "remind client",
+            "type": "Task"
+        },
+        {
+            "id": "9",
+            "name": "send welcome letter",
+            "type": "Task"
+        },
+        {
+            "id": "10",
+            "name": "activate loan application",
+            "type": "Task"
+        },
+        {
+            "id": "11",
+            "name": "validate loan activation",
+            "type": "Task"
+        },
+        {
+            "id": "12",
+            "name": "execute initial payment",
+            "type": "Task"
+        },
+        {
+            "id": "13",
+            "name": "return documents to client",
+            "type": "Task"
+        }
+    ],
+    "events": [
+        {
+            "id": "14",
+            "name": "start",
+            "type": "StartNoneEvent"
+        },
+        {
+            "id": "15",
+            "name": "end",
+            "type": "EndNoneEvent"
+        },
+        {
+            "id": "16",
+            "name": "after one hour 2",
+            "type": "IntermediateTimerEvent"
+        },
+        {
+            "id": "17",
+            "name": "receive accepted offer",
+            "type": "IntermediateMessageEventCatching"
+        },
+        {
+            "id": "18",
+            "name": "end",
+            "type": "EndNoneEvent"
+        },
+        {
+            "id": "19",
+            "name": "after one hour 1",
+            "type": "IntermediateTimerEvent"
+        }
+    ],
+    "gateways": [
+        {
+            "id": "20",
+            "type": "Parallel"
+        },
+        {
+            "id": "21",
+            "type": "Parallel"
+        },
+        {
+            "id": "22",
+            "name": "Exclusive Gateway",
+            "type": "Exclusive"
+        },
+        {
+            "id": "23",
+            "type": "Exclusive"
+        },
+        {
+            "id": "24",
+            "type": "Eventbased"
+        }
+    ],
+    "pools": [
+        {
+            "id": "25",
+            "name": "Company",
+            "lanes": [
+                {
+                    "id": "26",
+                    "name": "risk management",
+                    "elemRefs": [
+                        "0",
+                        "1",
+                        "20",
+                        "2",
+                        "3",
+                        "21"
+                    ]
+                },
+                {
+                    "id": "27",
+                    "name": "senior risk management",
+                    "elemRefs": [
+                        "22",
+                        "4"
+                    ]
+                },
+                {
+                    "id": "28",
+                    "name": "Administration",
+                    "elemRefs": [
+                        "5",
+                        "23",
+                        "6",
+                        "7",
+                        "15",
+                        "9",
+                        "13",
+                        "18"
+                    ]
+                },
+                {
+                    "id": "29",
+                    "name": "customer contact",
+                    "elemRefs": [
+                        "5",
+                        "23",
+                        "6",
+                        "7",
+                        "16",
+                        "8",
+                        "24",
+                        "17"
+                    ]
+                },
+                {
+                    "id": "30",
+                    "name": "finance",
+                    "elemRefs": [
+                        "10",
+                        "11",
+                        "12"
+                    ]
+                }
+            ]
+        }
+    ],
+    "sequenceFlows": [
+        {
+            "id": "31",
+            "sourceRef": "14",
+            "targetRef": "20"
+        },
+        {
+            "id": "32",
+            "sourceRef": "0",
+            "targetRef": "1"
+        },
+        {
+            "id": "33",
+            "sourceRef": "1",
+            "targetRef": "21"
+        },
+        {
+            "id": "34",
+            "sourceRef": "2",
+            "targetRef": "3"
+        },
+        {
+            "id": "35",
+            "sourceRef": "3",
+            "targetRef": "22"
+        },
+        {
+            "id": "36",
+            "sourceRef": "22",
+            "targetRef": "4"
+        },
+        {
+            "id": "37",
+            "sourceRef": "22",
+            "targetRef": "5"
+        },
+        {
+            "id": "38",
+            "sourceRef": "5",
+            "targetRef": "23"
+        },
+        {
+            "id": "39",
+            "sourceRef": "23",
+            "targetRef": "6"
+        },
+        {
+            "id": "40",
+            "sourceRef": "6",
+            "targetRef": "7"
+        },
+        {
+            "id": "41",
+            "sourceRef": "16",
+            "targetRef": "8"
+        },
+        {
+            "id": "42",
+            "sourceRef": "8",
+            "targetRef": "24"
+        },
+        {
+            "id": "43",
+            "sourceRef": "24",
+            "targetRef": "17"
+        },
+        {
+            "id": "44",
+            "sourceRef": "17",
+            "targetRef": "9"
+        },
+        {
+            "id": "45",
+            "sourceRef": "9",
+            "targetRef": "10"
+        },
+        {
+            "id": "46",
+            "sourceRef": "10",
+            "targetRef": "11"
+        },
+        {
+            "id": "47",
+            "sourceRef": "11",
+            "targetRef": "12"
+        },
+        {
+            "id": "48",
+            "sourceRef": "12",
+            "targetRef": "13"
+        },
+        {
+            "id": "49",
+            "sourceRef": "13",
+            "targetRef": "18"
+        },
+        {
+            "id": "50",
+            "sourceRef": "19",
+            "targetRef": "7"
+        }
+    ],
+    "messageFlows": []
+}

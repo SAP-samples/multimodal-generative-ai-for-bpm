@@ -1,0 +1,498 @@
+{
+    "tasks": [
+        {
+            "id": "sid-03C6AAD5-E0C1-49FD-8BD6-6AD0C298446F",
+            "name": "Receive delivery order",
+            "type": "Task"
+        },
+        {
+            "id": "sid-3EE84B03-0E9C-4187-80E2-A80D30FC90AF",
+            "name": "Deliver to customer",
+            "type": "Task"
+        },
+        {
+            "id": "sid-F0A87BD1-B4AE-4AFE-8B31-C7F2FB604BE0",
+            "name": "Go to shop",
+            "type": "Task"
+        },
+        {
+            "id": "sid-BCD6570D-DD82-4AF6-9C5C-1A04C1661DFF",
+            "name": "Take food order for delivery",
+            "type": "Task"
+        },
+        {
+            "id": "sid-634D2AF8-47B3-4081-B207-696F3B66BE78",
+            "name": "Take vegetable order for delivery",
+            "type": "Task"
+        },
+        {
+            "id": "sid-49BA250D-3EEF-418F-B8CB-04757340EF53",
+            "name": "Customer confirm order",
+            "type": "Task"
+        },
+        {
+            "id": "sid-9B037454-2AC2-4A57-8F23-79FFED533BB4",
+            "name": "Order menus",
+            "type": "Task"
+        },
+        {
+            "id": "sid-F9271E27-2436-4207-8014-D04EF94ED7E3",
+            "name": "Payment",
+            "type": "Task"
+        },
+        {
+            "id": "sid-A7112F09-F7C2-4661-9E1A-5437A8EE025F",
+            "name": "Credit card",
+            "type": "Task"
+        },
+        {
+            "id": "sid-A06F1439-2CCE-4267-8EEC-FD0F7E710A65",
+            "name": "Cash",
+            "type": "Task"
+        },
+        {
+            "id": "sid-22FD1077-708B-429E-BEC3-E09C47C591AD",
+            "name": "Complete payment and receive order",
+            "type": "Task"
+        },
+        {
+            "id": "sid-5CF1E6CB-08CE-442D-A290-F710D4519E67",
+            "name": "Paypal",
+            "type": "Task"
+        },
+        {
+            "id": "sid-15C9A2BC-9EA7-4BB4-98F4-5001A25A6DE9",
+            "name": "Receive food order",
+            "type": "Task"
+        },
+        {
+            "id": "sid-4F5B8C2D-98AE-43E4-8023-D6539E2FA759",
+            "name": "Cook",
+            "type": "Task"
+        },
+        {
+            "id": "sid-8D1D831C-4400-4254-97AF-21893A6CC289",
+            "name": "Receive vegetable order",
+            "type": "Task"
+        },
+        {
+            "id": "sid-0A16E74D-02A5-48D3-87B2-E96E7D461303",
+            "name": "Prepare order",
+            "type": "Task"
+        },
+        {
+            "id": "sid-856A4B1F-702C-4643-B4B6-FFC214B3B9A6",
+            "name": "Collect Order",
+            "type": "Task"
+        },
+        {
+            "id": "sid-C8076FE6-67ED-46B9-B9F9-0B143520B371",
+            "name": "Confirm order",
+            "type": "Task"
+        },
+        {
+            "id": "sid-2762FD88-951E-4CB7-B95B-9AFC57E10A5A",
+            "name": "Food order",
+            "type": "Task"
+        },
+        {
+            "id": "sid-CCD0C3A6-BB04-49D6-82F9-BEB229548C4B",
+            "name": "Vegetable order",
+            "type": "Task"
+        },
+        {
+            "id": "sid-51D1269E-7773-442A-AE71-7B440358C426",
+            "name": "Record order and payment",
+            "type": "Task"
+        }
+    ],
+    "events": [
+        {
+            "id": "sid-689A79DB-C22F-49D7-B1CC-A6A6708A3274",
+            "name": "",
+            "type": "IntermediateMultipleEventThrowing"
+        },
+        {
+            "id": "sid-7428970B-A3CE-4CCA-87C7-279C4F44E48E",
+            "name": "start",
+            "type": "StartNoneEvent"
+        },
+        {
+            "id": "sid-ADEF61B5-39D2-4B1B-BD06-AF7D48391FA9",
+            "name": "End",
+            "type": "EndNoneEvent"
+        },
+        {
+            "id": "sid-7819C061-E49B-4982-A19D-E43A1E7D32C8",
+            "name": "",
+            "type": "IntermediateMultipleEventThrowing"
+        },
+        {
+            "id": "sid-54F56ABE-1AC9-418B-BA34-8DAAC199F730",
+            "name": "Start",
+            "type": "StartNoneEvent"
+        },
+        {
+            "id": "sid-3318726A-2A04-41A1-93D7-1E53A3AA7656",
+            "name": "End",
+            "type": "EndNoneEvent"
+        }
+    ],
+    "gateways": [
+        {
+            "id": "sid-124A64CA-D5A9-4E0E-AF4B-10B7125EA16B",
+            "type": "Exclusive"
+        },
+        {
+            "id": "sid-28125CBF-3D2B-4309-8606-06EC8AAFB51C",
+            "type": "Exclusive"
+        },
+        {
+            "id": "sid-573764C7-6A23-41D9-9EAF-435B5AB4925F",
+            "type": "Parallel"
+        },
+        {
+            "id": "sid-46950525-4745-4487-968E-2E8134D7C2EB",
+            "type": "Exclusive"
+        },
+        {
+            "id": "sid-07A3BA5F-12AE-4B1C-9BE2-168D0939C4CA",
+            "type": "Exclusive"
+        },
+        {
+            "id": "sid-88636C48-F7D6-459E-BC67-9CD07503D6E3",
+            "type": "Exclusive"
+        },
+        {
+            "id": "sid-1578AE08-5C67-486D-818A-0C9F8BCCC6A8",
+            "name": "Vegetable or food",
+            "type": "Exclusive"
+        },
+        {
+            "id": "sid-7E25CFCB-A464-4DD9-8B2F-4D7DF934FF68",
+            "type": "Exclusive"
+        }
+    ],
+    "pools": [
+        {
+            "id": "sid-04E3903E-BB7F-4D48-B9C8-E3FE14822559",
+            "name": "External",
+            "lanes": [
+                {
+                    "id": "sid-832D5F6E-D6AE-49C8-93D6-C3B91062942E",
+                    "name": "Delivery",
+                    "elemRefs": [
+                        "sid-03C6AAD5-E0C1-49FD-8BD6-6AD0C298446F",
+                        "sid-3EE84B03-0E9C-4187-80E2-A80D30FC90AF",
+                        "sid-F0A87BD1-B4AE-4AFE-8B31-C7F2FB604BE0",
+                        "sid-BCD6570D-DD82-4AF6-9C5C-1A04C1661DFF",
+                        "sid-634D2AF8-47B3-4081-B207-696F3B66BE78",
+                        "sid-689A79DB-C22F-49D7-B1CC-A6A6708A3274",
+                        "sid-124A64CA-D5A9-4E0E-AF4B-10B7125EA16B",
+                        "sid-28125CBF-3D2B-4309-8606-06EC8AAFB51C",
+                        "sid-573764C7-6A23-41D9-9EAF-435B5AB4925F"
+                    ]
+                },
+                {
+                    "id": "sid-94F7AABE-32ED-453A-8174-4E946B4D928E",
+                    "name": "Customer",
+                    "elemRefs": [
+                        "sid-49BA250D-3EEF-418F-B8CB-04757340EF53",
+                        "sid-9B037454-2AC2-4A57-8F23-79FFED533BB4",
+                        "sid-F9271E27-2436-4207-8014-D04EF94ED7E3",
+                        "sid-A7112F09-F7C2-4661-9E1A-5437A8EE025F",
+                        "sid-A06F1439-2CCE-4267-8EEC-FD0F7E710A65",
+                        "sid-22FD1077-708B-429E-BEC3-E09C47C591AD",
+                        "sid-5CF1E6CB-08CE-442D-A290-F710D4519E67",
+                        "sid-7428970B-A3CE-4CCA-87C7-279C4F44E48E",
+                        "sid-ADEF61B5-39D2-4B1B-BD06-AF7D48391FA9",
+                        "sid-46950525-4745-4487-968E-2E8134D7C2EB",
+                        "sid-07A3BA5F-12AE-4B1C-9BE2-168D0939C4CA"
+                    ]
+                },
+                {
+                    "id": "sid-0B818FC2-E9A6-4E44-A46C-B2EE1D54C5A7",
+                    "name": "Restaurant",
+                    "elemRefs": [
+                        "sid-15C9A2BC-9EA7-4BB4-98F4-5001A25A6DE9",
+                        "sid-4F5B8C2D-98AE-43E4-8023-D6539E2FA759",
+                        "sid-7819C061-E49B-4982-A19D-E43A1E7D32C8",
+                        "sid-88636C48-F7D6-459E-BC67-9CD07503D6E3"
+                    ]
+                },
+                {
+                    "id": "sid-77CF6DE9-5823-42C9-8029-35EC8CFAE6F3",
+                    "name": "Famer",
+                    "elemRefs": [
+                        "sid-8D1D831C-4400-4254-97AF-21893A6CC289",
+                        "sid-0A16E74D-02A5-48D3-87B2-E96E7D461303"
+                    ]
+                }
+            ]
+        },
+        {
+            "id": "sid-7DD859EE-0088-448B-AD7C-96605CB24641",
+            "name": "Internal",
+            "lanes": [
+                {
+                    "id": "sid-5801B717-4C73-4F06-8D4E-D7AE01D55B92",
+                    "name": "GreenIn company",
+                    "elemRefs": [
+                        "sid-856A4B1F-702C-4643-B4B6-FFC214B3B9A6",
+                        "sid-C8076FE6-67ED-46B9-B9F9-0B143520B371",
+                        "sid-2762FD88-951E-4CB7-B95B-9AFC57E10A5A",
+                        "sid-CCD0C3A6-BB04-49D6-82F9-BEB229548C4B",
+                        "sid-51D1269E-7773-442A-AE71-7B440358C426",
+                        "sid-54F56ABE-1AC9-418B-BA34-8DAAC199F730",
+                        "sid-3318726A-2A04-41A1-93D7-1E53A3AA7656",
+                        "sid-1578AE08-5C67-486D-818A-0C9F8BCCC6A8",
+                        "sid-7E25CFCB-A464-4DD9-8B2F-4D7DF934FF68"
+                    ]
+                }
+            ]
+        }
+    ],
+    "messageFlows": [
+        {
+            "id": "sid-55530EA6-9B73-4841-B334-0284D9951E93",
+            "targetRef": "sid-856A4B1F-702C-4643-B4B6-FFC214B3B9A6",
+            "sourceRef": "sid-49BA250D-3EEF-418F-B8CB-04757340EF53"
+        },
+        {
+            "id": "sid-DF41B5C3-5EFB-4C19-B99D-6DE5D874E0D5",
+            "targetRef": "sid-8D1D831C-4400-4254-97AF-21893A6CC289",
+            "sourceRef": "sid-CCD0C3A6-BB04-49D6-82F9-BEB229548C4B"
+        },
+        {
+            "id": "sid-3C1B959D-90DA-4396-AEDE-6C45F716A1AA",
+            "targetRef": "sid-51D1269E-7773-442A-AE71-7B440358C426",
+            "sourceRef": "sid-A7112F09-F7C2-4661-9E1A-5437A8EE025F"
+        },
+        {
+            "id": "sid-D24EE184-77AD-4E3B-89F5-19DDBCC5A5E9",
+            "targetRef": "sid-51D1269E-7773-442A-AE71-7B440358C426",
+            "sourceRef": "sid-A06F1439-2CCE-4267-8EEC-FD0F7E710A65"
+        },
+        {
+            "id": "sid-CD0FF47E-E3A1-4814-BDC2-4F80196FB6F1",
+            "targetRef": "sid-15C9A2BC-9EA7-4BB4-98F4-5001A25A6DE9",
+            "sourceRef": "sid-2762FD88-951E-4CB7-B95B-9AFC57E10A5A"
+        },
+        {
+            "id": "sid-3FE38E3F-C650-423E-BE43-4BCBE18F8B69",
+            "targetRef": "sid-22FD1077-708B-429E-BEC3-E09C47C591AD",
+            "sourceRef": "sid-51D1269E-7773-442A-AE71-7B440358C426"
+        },
+        {
+            "id": "sid-0CABE1CA-FE21-491E-850B-C04D9B45DEF3",
+            "targetRef": "sid-51D1269E-7773-442A-AE71-7B440358C426",
+            "sourceRef": "sid-5CF1E6CB-08CE-442D-A290-F710D4519E67"
+        }
+    ],
+    "sequenceFlows": [
+        {
+            "id": "sid-EADF7254-5F6E-451B-982D-431820832B1E",
+            "targetRef": "sid-856A4B1F-702C-4643-B4B6-FFC214B3B9A6",
+            "sourceRef": "sid-54F56ABE-1AC9-418B-BA34-8DAAC199F730"
+        },
+        {
+            "id": "sid-92FE3585-50E9-4618-92C7-5D6483B058E9",
+            "targetRef": "sid-C8076FE6-67ED-46B9-B9F9-0B143520B371",
+            "sourceRef": "sid-856A4B1F-702C-4643-B4B6-FFC214B3B9A6"
+        },
+        {
+            "id": "sid-463209F9-FA1E-4177-BCBC-FB02B8DEFE05",
+            "targetRef": "sid-1578AE08-5C67-486D-818A-0C9F8BCCC6A8",
+            "sourceRef": "sid-C8076FE6-67ED-46B9-B9F9-0B143520B371"
+        },
+        {
+            "id": "sid-DA8D3C82-215B-4424-B58D-E1E68E08BD24",
+            "targetRef": "sid-46950525-4745-4487-968E-2E8134D7C2EB",
+            "sourceRef": "sid-F9271E27-2436-4207-8014-D04EF94ED7E3"
+        },
+        {
+            "id": "sid-6717D085-F8DC-44C7-BB32-98F5CE2A330C",
+            "targetRef": "sid-F9271E27-2436-4207-8014-D04EF94ED7E3",
+            "sourceRef": "sid-3EE84B03-0E9C-4187-80E2-A80D30FC90AF"
+        },
+        {
+            "id": "sid-41BE13F4-0D4C-4AEB-900B-E221E71B3D65",
+            "targetRef": "sid-ADEF61B5-39D2-4B1B-BD06-AF7D48391FA9",
+            "sourceRef": "sid-22FD1077-708B-429E-BEC3-E09C47C591AD"
+        },
+        {
+            "id": "sid-A78681C0-FE61-4F28-8DDC-F4236A4A907F",
+            "targetRef": "sid-7E25CFCB-A464-4DD9-8B2F-4D7DF934FF68",
+            "sourceRef": "sid-CCD0C3A6-BB04-49D6-82F9-BEB229548C4B"
+        },
+        {
+            "id": "sid-3FDB7400-C9D8-48AA-89CF-995628FD6353",
+            "targetRef": "sid-7E25CFCB-A464-4DD9-8B2F-4D7DF934FF68",
+            "sourceRef": "sid-2762FD88-951E-4CB7-B95B-9AFC57E10A5A"
+        },
+        {
+            "id": "sid-74710A08-DF47-45B7-BD34-929711B1463C",
+            "targetRef": "sid-2762FD88-951E-4CB7-B95B-9AFC57E10A5A",
+            "condition": "Food",
+            "sourceRef": "sid-1578AE08-5C67-486D-818A-0C9F8BCCC6A8"
+        },
+        {
+            "id": "sid-65B8FF8E-E41F-4257-9D68-14CDAD00D4CE",
+            "targetRef": "sid-0A16E74D-02A5-48D3-87B2-E96E7D461303",
+            "sourceRef": "sid-8D1D831C-4400-4254-97AF-21893A6CC289"
+        },
+        {
+            "id": "sid-70DB1932-92E4-41E0-9037-CAFF4896FB2C",
+            "targetRef": "sid-A06F1439-2CCE-4267-8EEC-FD0F7E710A65",
+            "condition": "Cash",
+            "sourceRef": "sid-46950525-4745-4487-968E-2E8134D7C2EB"
+        },
+        {
+            "id": "sid-80C30A58-97BB-4FFD-9E4E-DC5FE54F81EB",
+            "targetRef": "sid-A7112F09-F7C2-4661-9E1A-5437A8EE025F",
+            "condition": "Credit Card",
+            "sourceRef": "sid-46950525-4745-4487-968E-2E8134D7C2EB"
+        },
+        {
+            "id": "sid-2B78BB56-B3A8-4D21-9DBC-573B5A63137E",
+            "targetRef": "sid-3318726A-2A04-41A1-93D7-1E53A3AA7656",
+            "sourceRef": "sid-51D1269E-7773-442A-AE71-7B440358C426"
+        },
+        {
+            "id": "sid-EE41A2D8-A775-4F0D-8CDA-5F1397B5E058",
+            "targetRef": "sid-51D1269E-7773-442A-AE71-7B440358C426",
+            "sourceRef": "sid-7E25CFCB-A464-4DD9-8B2F-4D7DF934FF68"
+        },
+        {
+            "id": "sid-92DDDC2E-001D-4D5F-9871-E635F7EAE873",
+            "targetRef": "sid-22FD1077-708B-429E-BEC3-E09C47C591AD",
+            "sourceRef": "sid-07A3BA5F-12AE-4B1C-9BE2-168D0939C4CA"
+        },
+        {
+            "id": "sid-9219F8E6-F1AA-4548-9DAE-C87C2C60BB78",
+            "targetRef": "sid-07A3BA5F-12AE-4B1C-9BE2-168D0939C4CA",
+            "sourceRef": "sid-A06F1439-2CCE-4267-8EEC-FD0F7E710A65"
+        },
+        {
+            "id": "sid-687FAA09-61B3-4EA8-9345-2EF6C25A7BAB",
+            "targetRef": "sid-07A3BA5F-12AE-4B1C-9BE2-168D0939C4CA",
+            "sourceRef": "sid-A7112F09-F7C2-4661-9E1A-5437A8EE025F"
+        },
+        {
+            "id": "sid-109FF71B-0DC5-4D45-A746-33C4242A1605",
+            "targetRef": "sid-49BA250D-3EEF-418F-B8CB-04757340EF53",
+            "sourceRef": "sid-9B037454-2AC2-4A57-8F23-79FFED533BB4"
+        },
+        {
+            "id": "sid-BA831976-8964-46F4-B459-0E58079675AE",
+            "targetRef": "sid-CCD0C3A6-BB04-49D6-82F9-BEB229548C4B",
+            "condition": "Vegetable",
+            "sourceRef": "sid-1578AE08-5C67-486D-818A-0C9F8BCCC6A8"
+        },
+        {
+            "id": "sid-727F19D7-BC93-4EA6-B9A3-548B8EE7530E",
+            "targetRef": "sid-4F5B8C2D-98AE-43E4-8023-D6539E2FA759",
+            "sourceRef": "sid-15C9A2BC-9EA7-4BB4-98F4-5001A25A6DE9"
+        },
+        {
+            "id": "sid-F739212C-2F25-40E5-9C57-12AD3820DB60",
+            "targetRef": "sid-9B037454-2AC2-4A57-8F23-79FFED533BB4",
+            "sourceRef": "sid-7428970B-A3CE-4CCA-87C7-279C4F44E48E"
+        },
+        {
+            "id": "sid-E64FB46B-89DA-4D67-AEF9-373183779F1A",
+            "targetRef": "sid-15C9A2BC-9EA7-4BB4-98F4-5001A25A6DE9",
+            "condition": "Food",
+            "sourceRef": "sid-88636C48-F7D6-459E-BC67-9CD07503D6E3"
+        },
+        {
+            "id": "sid-C08C6A5E-56E4-4990-A5D0-FAAD7EFF12BC",
+            "targetRef": "sid-03C6AAD5-E0C1-49FD-8BD6-6AD0C298446F",
+            "sourceRef": "sid-49BA250D-3EEF-418F-B8CB-04757340EF53"
+        },
+        {
+            "id": "sid-6438DF33-10F8-4AC0-BD67-9D3D6F0D5EF9",
+            "targetRef": "sid-88636C48-F7D6-459E-BC67-9CD07503D6E3",
+            "sourceRef": "sid-689A79DB-C22F-49D7-B1CC-A6A6708A3274"
+        },
+        {
+            "id": "sid-F1849086-932C-490F-A0F1-9E243682584C",
+            "targetRef": "sid-689A79DB-C22F-49D7-B1CC-A6A6708A3274",
+            "sourceRef": "sid-03C6AAD5-E0C1-49FD-8BD6-6AD0C298446F"
+        },
+        {
+            "id": "sid-20A29615-2317-4D89-BDF8-82136AE893AC",
+            "targetRef": "sid-F0A87BD1-B4AE-4AFE-8B31-C7F2FB604BE0",
+            "sourceRef": "sid-689A79DB-C22F-49D7-B1CC-A6A6708A3274"
+        },
+        {
+            "id": "sid-D5490562-03D3-4785-AFDD-1348B102F72D",
+            "targetRef": "sid-8D1D831C-4400-4254-97AF-21893A6CC289",
+            "condition": "Vegetable",
+            "sourceRef": "sid-88636C48-F7D6-459E-BC67-9CD07503D6E3"
+        },
+        {
+            "id": "sid-729E9F75-24AA-4FBD-9F6C-E13D59A194E6",
+            "targetRef": "sid-124A64CA-D5A9-4E0E-AF4B-10B7125EA16B",
+            "sourceRef": "sid-F0A87BD1-B4AE-4AFE-8B31-C7F2FB604BE0"
+        },
+        {
+            "id": "sid-624CB02E-B24C-41F9-884A-0041C3AC32C1",
+            "targetRef": "sid-28125CBF-3D2B-4309-8606-06EC8AAFB51C",
+            "sourceRef": "sid-BCD6570D-DD82-4AF6-9C5C-1A04C1661DFF"
+        },
+        {
+            "id": "sid-7011C1A7-EEB6-4F97-9FC8-8F4CEE8D5A37",
+            "targetRef": "sid-28125CBF-3D2B-4309-8606-06EC8AAFB51C",
+            "sourceRef": "sid-634D2AF8-47B3-4081-B207-696F3B66BE78"
+        },
+        {
+            "id": "sid-221CB934-4C7A-4222-9FB6-7F29122010FF",
+            "targetRef": "sid-BCD6570D-DD82-4AF6-9C5C-1A04C1661DFF",
+            "condition": "Food",
+            "sourceRef": "sid-124A64CA-D5A9-4E0E-AF4B-10B7125EA16B"
+        },
+        {
+            "id": "sid-8C192C76-F813-40CB-A5FC-E8A8420F36E7",
+            "targetRef": "sid-634D2AF8-47B3-4081-B207-696F3B66BE78",
+            "condition": "Vegetable",
+            "sourceRef": "sid-124A64CA-D5A9-4E0E-AF4B-10B7125EA16B"
+        },
+        {
+            "id": "sid-4521D9BB-5CBA-484C-BF41-3FD09A39450D",
+            "targetRef": "sid-7819C061-E49B-4982-A19D-E43A1E7D32C8",
+            "sourceRef": "sid-4F5B8C2D-98AE-43E4-8023-D6539E2FA759"
+        },
+        {
+            "id": "sid-23BD9609-A0A3-4A2D-B6A8-70313879086E",
+            "targetRef": "sid-7819C061-E49B-4982-A19D-E43A1E7D32C8",
+            "sourceRef": "sid-0A16E74D-02A5-48D3-87B2-E96E7D461303"
+        },
+        {
+            "id": "sid-E8631C21-C4E1-460A-84F2-80425480CDA3",
+            "targetRef": "sid-573764C7-6A23-41D9-9EAF-435B5AB4925F",
+            "sourceRef": "sid-28125CBF-3D2B-4309-8606-06EC8AAFB51C"
+        },
+        {
+            "id": "sid-4547C591-2338-427A-A960-DB7F87095863",
+            "targetRef": "sid-3EE84B03-0E9C-4187-80E2-A80D30FC90AF",
+            "sourceRef": "sid-573764C7-6A23-41D9-9EAF-435B5AB4925F"
+        },
+        {
+            "id": "sid-22CF430B-32F8-4A80-B59C-D7E3702CF014",
+            "targetRef": "sid-573764C7-6A23-41D9-9EAF-435B5AB4925F",
+            "sourceRef": "sid-7819C061-E49B-4982-A19D-E43A1E7D32C8"
+        },
+        {
+            "id": "sid-A55E6043-F8B5-413B-A27C-7D6D700BCA51",
+            "targetRef": "sid-07A3BA5F-12AE-4B1C-9BE2-168D0939C4CA",
+            "sourceRef": "sid-5CF1E6CB-08CE-442D-A290-F710D4519E67"
+        },
+        {
+            "id": "sid-07FF136C-4A74-4172-82F7-35DB57F700A1",
+            "targetRef": "sid-5CF1E6CB-08CE-442D-A290-F710D4519E67",
+            "condition": "Paypal",
+            "sourceRef": "sid-46950525-4745-4487-968E-2E8134D7C2EB"
+        }
+    ]
+}

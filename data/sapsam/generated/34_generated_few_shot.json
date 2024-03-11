@@ -1,0 +1,154 @@
+{
+    "tasks": [
+        {
+            "id": "0",
+            "name": "\u00dcberblick \u00fcber Maschine verschaffen",
+            "type": "Manual"
+        },
+        {
+            "id": "1",
+            "name": "SPS-Projekt stationweise vervollst\u00e4ndigen",
+            "type": "Task"
+        },
+        {
+            "id": "2",
+            "name": "HMI-Projekt stationweise vervollst\u00e4ndigen",
+            "type": "User"
+        },
+        {
+            "id": "3",
+            "name": "Safety-Projekt vervollst\u00e4ndigen",
+            "type": "User"
+        },
+        {
+            "id": "4",
+            "name": "Software testen",
+            "type": "User"
+        },
+        {
+            "id": "5",
+            "name": "Software Design-Review durchf\u00fchren",
+            "type": "CollapsedSubprocess"
+        },
+        {
+            "id": "6",
+            "name": "Software bereit f\u00fcr Inbetriebnahme",
+            "type": "User"
+        }
+    ],
+    "events": [
+        {
+            "id": "7",
+            "name": "Initiates process",
+            "type": "StartNoneEvent"
+        },
+        {
+            "id": "8",
+            "name": "End event",
+            "type": "EndNoneEvent"
+        }
+    ],
+    "gateways": [
+        {
+            "id": "9",
+            "type": "Exclusive"
+        },
+        {
+            "id": "10",
+            "type": "Exclusive"
+        },
+        {
+            "id": "11",
+            "type": "Parallel"
+        }
+    ],
+    "pools": [
+        {
+            "id": "12",
+            "name": "Harro H\u00f6fliger Verpackungsmaschinen GmbH",
+            "lanes": [
+                {
+                    "id": "13",
+                    "name": "Produktion / Design und Entwicklung",
+                    "elemRefs": [
+                        "0",
+                        "1",
+                        "2",
+                        "3",
+                        "4",
+                        "5",
+                        "6",
+                        "7",
+                        "8",
+                        "9",
+                        "10",
+                        "11"
+                    ]
+                }
+            ]
+        }
+    ],
+    "sequenceFlows": [
+        {
+            "id": "14",
+            "sourceRef": "7",
+            "targetRef": "0"
+        },
+        {
+            "id": "15",
+            "sourceRef": "0",
+            "targetRef": "9"
+        },
+        {
+            "id": "16",
+            "sourceRef": "9",
+            "targetRef": "1"
+        },
+        {
+            "id": "17",
+            "sourceRef": "9",
+            "targetRef": "2"
+        },
+        {
+            "id": "18",
+            "sourceRef": "1",
+            "targetRef": "10"
+        },
+        {
+            "id": "19",
+            "sourceRef": "2",
+            "targetRef": "10"
+        },
+        {
+            "id": "20",
+            "sourceRef": "10",
+            "targetRef": "3"
+        },
+        {
+            "id": "21",
+            "sourceRef": "3",
+            "targetRef": "11"
+        },
+        {
+            "id": "22",
+            "sourceRef": "11",
+            "targetRef": "4"
+        },
+        {
+            "id": "23",
+            "sourceRef": "4",
+            "targetRef": "5"
+        },
+        {
+            "id": "24",
+            "sourceRef": "5",
+            "targetRef": "6"
+        },
+        {
+            "id": "25",
+            "sourceRef": "6",
+            "targetRef": "8"
+        }
+    ],
+    "messageFlows": []
+}

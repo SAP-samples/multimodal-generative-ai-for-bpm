@@ -1,0 +1,194 @@
+{
+    "tasks": [
+        {
+            "id": "0",
+            "name": "Aktuelle Inhalte analysieren",
+            "type": "Task"
+        },
+        {
+            "id": "1",
+            "name": "Aktuelle Inhalte reviewen",
+            "type": "Task"
+        },
+        {
+            "id": "2",
+            "name": "Neue Inhalte entwerfen",
+            "type": "Task"
+        },
+        {
+            "id": "3",
+            "name": "Vorhandene Inhalte aktualisieren",
+            "type": "Task"
+        },
+        {
+            "id": "4",
+            "name": "Inhalte bewerten",
+            "type": "Task"
+        },
+        {
+            "id": "5",
+            "name": "Gesch\u00e4ftsleitung informieren",
+            "type": "Task"
+        },
+        {
+            "id": "6",
+            "name": "Inhalte dauerhaft aktualisieren",
+            "type": "Task"
+        }
+    ],
+    "events": [
+        {
+            "id": "7",
+            "name": "Vorhandene Webseite ist veraltet",
+            "type": "StartNoneEvent"
+        },
+        {
+            "id": "8",
+            "name": "Webseite ben\u00f6tigt aktuell keine Verbesserungen",
+            "type": "EndNoneEvent"
+        },
+        {
+            "id": "9",
+            "name": "Webseite ist aktuell",
+            "type": "EndNoneEvent"
+        }
+    ],
+    "gateways": [
+        {
+            "id": "10",
+            "type": "Exclusive",
+            "name": "Exclusive Gateway"
+        },
+        {
+            "id": "11",
+            "type": "Exclusive",
+            "name": "Bewertung positiv?"
+        },
+        {
+            "id": "12",
+            "type": "Parallel",
+            "name": "Parallel Gateway"
+        },
+        {
+            "id": "13",
+            "type": "Exclusive"
+        }
+    ],
+    "pools": [
+        {
+            "id": "14",
+            "name": "SoKnow",
+            "lanes": [
+                {
+                    "id": "15",
+                    "name": "Marketingabteilung",
+                    "elemRefs": [
+                        "0",
+                        "1",
+                        "4",
+                        "5",
+                        "7",
+                        "8"
+                    ]
+                },
+                {
+                    "id": "16",
+                    "name": "Entwicklungsabteilung",
+                    "elemRefs": [
+                        "2",
+                        "3",
+                        "6",
+                        "9",
+                        "10",
+                        "12",
+                        "13"
+                    ]
+                }
+            ]
+        }
+    ],
+    "sequenceFlows": [
+        {
+            "id": "17",
+            "sourceRef": "7",
+            "targetRef": "0"
+        },
+        {
+            "id": "18",
+            "sourceRef": "0",
+            "targetRef": "1"
+        },
+        {
+            "id": "19",
+            "sourceRef": "1",
+            "targetRef": "10"
+        },
+        {
+            "id": "20",
+            "sourceRef": "10",
+            "targetRef": "2",
+            "condition": "Ja"
+        },
+        {
+            "id": "21",
+            "sourceRef": "10",
+            "targetRef": "3",
+            "condition": "Nein"
+        },
+        {
+            "id": "22",
+            "sourceRef": "2",
+            "targetRef": "12"
+        },
+        {
+            "id": "23",
+            "sourceRef": "3",
+            "targetRef": "12"
+        },
+        {
+            "id": "24",
+            "sourceRef": "12",
+            "targetRef": "4"
+        },
+        {
+            "id": "25",
+            "sourceRef": "4",
+            "targetRef": "11"
+        },
+        {
+            "id": "26",
+            "sourceRef": "11",
+            "targetRef": "8",
+            "condition": "Ja"
+        },
+        {
+            "id": "27",
+            "sourceRef": "11",
+            "targetRef": "5",
+            "condition": "Nein"
+        },
+        {
+            "id": "28",
+            "sourceRef": "5",
+            "targetRef": "13"
+        },
+        {
+            "id": "29",
+            "sourceRef": "13",
+            "targetRef": "9"
+        },
+        {
+            "id": "30",
+            "sourceRef": "13",
+            "targetRef": "6"
+        }
+    ],
+    "messageFlows": [
+        {
+            "id": "31",
+            "sourceRef": "1",
+            "targetRef": "2",
+            "label": "Analyseergebnisse"
+        }
+    ]
+}

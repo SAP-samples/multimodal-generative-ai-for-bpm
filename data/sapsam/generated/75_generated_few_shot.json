@@ -1,0 +1,118 @@
+{
+    "tasks": [
+        {
+            "id": "0",
+            "name": "Informationen zu Schlagstandort erhalten",
+            "type": "Task"
+        },
+        {
+            "id": "1",
+            "name": "Hilfsmittel aufladen",
+            "type": "Task"
+        },
+        {
+            "id": "2",
+            "name": "Zum Schlag fahren",
+            "type": "Task"
+        },
+        {
+            "id": "3",
+            "name": "Hilfsmittel abladen",
+            "type": "Task"
+        },
+        {
+            "id": "4",
+            "name": "Traubenlese von Hand durchf\u00fchren",
+            "type": "Task"
+        },
+        {
+            "id": "5",
+            "name": "Zum Weingut fahren",
+            "type": "Task"
+        },
+        {
+            "id": "6",
+            "name": "Hilfsmittel abladen",
+            "type": "Task"
+        }
+    ],
+    "events": [
+        {
+            "id": "7",
+            "name": "Aufgabe 'Traubenlese' erhalten",
+            "type": "StartNoneEvent"
+        },
+        {
+            "id": "8",
+            "name": "Aufgabe ist abgeschlossen",
+            "type": "EndNoneEvent"
+        }
+    ],
+    "gateways": [],
+    "pools": [
+        {
+            "id": "9",
+            "name": "Weinbau im Au\u00dfenbetrieb",
+            "lanes": [
+                {
+                    "id": "10",
+                    "name": "Au\u00dfenbetriebsmitarbeiter",
+                    "elemRefs": [
+                        "0",
+                        "1",
+                        "2",
+                        "3",
+                        "4",
+                        "5",
+                        "6",
+                        "7",
+                        "8"
+                    ]
+                }
+            ]
+        }
+    ],
+    "sequenceFlows": [
+        {
+            "id": "11",
+            "sourceRef": "7",
+            "targetRef": "0"
+        },
+        {
+            "id": "12",
+            "sourceRef": "0",
+            "targetRef": "1"
+        },
+        {
+            "id": "13",
+            "sourceRef": "1",
+            "targetRef": "2"
+        },
+        {
+            "id": "14",
+            "sourceRef": "2",
+            "targetRef": "3"
+        },
+        {
+            "id": "15",
+            "sourceRef": "3",
+            "targetRef": "4"
+        },
+        {
+            "id": "16",
+            "sourceRef": "4",
+            "targetRef": "5"
+        },
+        {
+            "id": "17",
+            "sourceRef": "5",
+            "targetRef": "6"
+        },
+        {
+            "id": "18",
+            "sourceRef": "6",
+            "targetRef": "8"
+        }
+    ],
+    "messageFlows": []
+}

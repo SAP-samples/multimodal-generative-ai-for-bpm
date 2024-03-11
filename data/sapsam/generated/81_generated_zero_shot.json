@@ -1,0 +1,215 @@
+{
+    "tasks": [
+        {
+            "id": "0",
+            "name": "Create enquiry",
+            "type": "Task"
+        },
+        {
+            "id": "1",
+            "name": "Create contact",
+            "type": "Task"
+        },
+        {
+            "id": "2",
+            "name": "Qualified Price OK and Interest",
+            "type": "Task"
+        },
+        {
+            "id": "3",
+            "name": "Update enquiry status",
+            "type": "Task"
+        },
+        {
+            "id": "4",
+            "name": "Create Quote",
+            "type": "Task"
+        },
+        {
+            "id": "5",
+            "name": "Qualified Requirements analysis",
+            "type": "Task"
+        },
+        {
+            "id": "6",
+            "name": "Update Enquiry Status",
+            "type": "Task"
+        },
+        {
+            "id": "7",
+            "name": "Create Job",
+            "type": "Task"
+        }
+    ],
+    "events": [
+        {
+            "id": "8",
+            "name": "Sales enquiry created",
+            "type": "StartMessageEvent"
+        },
+        {
+            "id": "9",
+            "name": "Customer approval received",
+            "type": "IntermediateMessageEventCatching"
+        },
+        {
+            "id": "10",
+            "name": "Client does not approve",
+            "type": "EndNoneEvent"
+        },
+        {
+            "id": "11",
+            "name": "Job created",
+            "type": "EndNoneEvent"
+        }
+    ],
+    "gateways": [
+        {
+            "id": "12",
+            "name": "Exclusive Gateway",
+            "type": "Exclusive"
+        },
+        {
+            "id": "13",
+            "name": "Exclusive Gateway",
+            "type": "Exclusive"
+        },
+        {
+            "id": "14",
+            "name": "Exclusive Gateway",
+            "type": "Exclusive"
+        }
+    ],
+    "pools": [
+        {
+            "id": "15",
+            "name": "Accentis",
+            "lanes": [
+                {
+                    "id": "16",
+                    "name": "Lane",
+                    "elemRefs": [
+                        "0",
+                        "1",
+                        "2",
+                        "3",
+                        "4",
+                        "5",
+                        "6",
+                        "7"
+                    ]
+                },
+                {
+                    "id": "17",
+                    "name": "Lane",
+                    "elemRefs": [
+                        "8",
+                        "9",
+                        "10",
+                        "12",
+                        "13",
+                        "14"
+                    ]
+                }
+            ]
+        },
+        {
+            "id": "18",
+            "name": "Customer",
+            "lanes": [
+                {
+                    "id": "19",
+                    "name": "Lane",
+                    "elemRefs": [
+                        "11"
+                    ]
+                }
+            ]
+        }
+    ],
+    "sequenceFlows": [
+        {
+            "id": "20",
+            "sourceRef": "8",
+            "targetRef": "12"
+        },
+        {
+            "id": "21",
+            "sourceRef": "12",
+            "targetRef": "0"
+        },
+        {
+            "id": "22",
+            "sourceRef": "0",
+            "targetRef": "13"
+        },
+        {
+            "id": "23",
+            "sourceRef": "12",
+            "targetRef": "1"
+        },
+        {
+            "id": "24",
+            "sourceRef": "1",
+            "targetRef": "13"
+        },
+        {
+            "id": "25",
+            "sourceRef": "13",
+            "targetRef": "2"
+        },
+        {
+            "id": "26",
+            "sourceRef": "2",
+            "targetRef": "14"
+        },
+        {
+            "id": "27",
+            "sourceRef": "14",
+            "targetRef": "9"
+        },
+        {
+            "id": "28",
+            "sourceRef": "14",
+            "targetRef": "3"
+        },
+        {
+            "id": "29",
+            "sourceRef": "9",
+            "targetRef": "4"
+        },
+        {
+            "id": "30",
+            "sourceRef": "4",
+            "targetRef": "5"
+        },
+        {
+            "id": "31",
+            "sourceRef": "5",
+            "targetRef": "6"
+        },
+        {
+            "id": "32",
+            "sourceRef": "6",
+            "targetRef": "7"
+        },
+        {
+            "id": "33",
+            "sourceRef": "7",
+            "targetRef": "11"
+        },
+        {
+            "id": "34",
+            "sourceRef": "3",
+            "targetRef": "10"
+        }
+    ],
+    "messageFlows": [
+        {
+            "id": "35",
+            "sourceRef": "8",
+            "targetRef": "19",
+            "label": "New sales enquiry"
+        }
+    ]
+}

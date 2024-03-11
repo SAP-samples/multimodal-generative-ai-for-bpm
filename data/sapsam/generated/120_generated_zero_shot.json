@@ -1,0 +1,169 @@
+{
+    "tasks": [
+        {
+            "id": "0",
+            "name": "Leistungsinformationen pr\u00fcfen",
+            "type": "Manual"
+        },
+        {
+            "id": "1",
+            "name": "Informationen manuell anfordern",
+            "type": "User"
+        },
+        {
+            "id": "2",
+            "name": "Problemmfall aufrufen",
+            "type": "Manual"
+        },
+        {
+            "id": "3",
+            "name": "Leistungsinformationen zusammen tragen",
+            "type": "User"
+        },
+        {
+            "id": "4",
+            "name": "Rechnungspositionen eingebe",
+            "type": "Task"
+        },
+        {
+            "id": "5",
+            "name": "Zahlungsbedingungen pr\u00fcfen und festlegen",
+            "type": "Manual"
+        },
+        {
+            "id": "6",
+            "name": "Rechnungsbeleg fertig stellen",
+            "type": "Manual"
+        }
+    ],
+    "events": [
+        {
+            "id": "7",
+            "name": "Rechnungslegung gefordert",
+            "type": "StartMessageEvent"
+        },
+        {
+            "id": "8",
+            "name": "R.Druck",
+            "type": "EndEvent"
+        }
+    ],
+    "gateways": [
+        {
+            "id": "9",
+            "type": "Exclusive"
+        },
+        {
+            "id": "10",
+            "type": "Exclusive"
+        },
+        {
+            "id": "11",
+            "type": "Exclusive"
+        }
+    ],
+    "pools": [
+        {
+            "id": "14",
+            "name": "IT-Service",
+            "lanes": [
+                {
+                    "id": "12",
+                    "name": "Buchhaltung",
+                    "elemRefs": [
+                        "0",
+                        "1",
+                        "4",
+                        "5",
+                        "6",
+                        "7",
+                        "8",
+                        "9",
+                        "10"
+                    ]
+                },
+                {
+                    "id": "13",
+                    "name": "Support-Abteilung",
+                    "elemRefs": [
+                        "2",
+                        "3",
+                        "11"
+                    ]
+                }
+            ]
+        }
+    ],
+    "sequenceFlows": [
+        {
+            "id": "15",
+            "sourceRef": "7",
+            "targetRef": "0"
+        },
+        {
+            "id": "16",
+            "sourceRef": "0",
+            "targetRef": "9"
+        },
+        {
+            "id": "17",
+            "sourceRef": "9",
+            "targetRef": "1",
+            "condition": "no"
+        },
+        {
+            "id": "18",
+            "sourceRef": "9",
+            "targetRef": "10",
+            "condition": "yes"
+        },
+        {
+            "id": "19",
+            "sourceRef": "10",
+            "targetRef": "4"
+        },
+        {
+            "id": "20",
+            "sourceRef": "1",
+            "targetRef": "11"
+        },
+        {
+            "id": "21",
+            "sourceRef": "11",
+            "targetRef": "2"
+        },
+        {
+            "id": "22",
+            "sourceRef": "2",
+            "targetRef": "3"
+        },
+        {
+            "id": "23",
+            "sourceRef": "3",
+            "targetRef": "10"
+        },
+        {
+            "id": "24",
+            "sourceRef": "4",
+            "targetRef": "5"
+        },
+        {
+            "id": "25",
+            "sourceRef": "5",
+            "targetRef": "6"
+        },
+        {
+            "id": "26",
+            "sourceRef": "6",
+            "targetRef": "8"
+        }
+    ],
+    "messageFlows": [
+        {
+            "id": "27",
+            "sourceRef": "1",
+            "targetRef": "2",
+            "label": "Informationen fehlen"
+        }
+    ]
+}

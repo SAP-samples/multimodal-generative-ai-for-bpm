@@ -1,0 +1,299 @@
+{
+    "tasks": [
+        {
+            "id": "0",
+            "name": "Anforderungen beschreiben",
+            "type": "Task"
+        },
+        {
+            "id": "1",
+            "name": "Workshop durchf\u00fchren",
+            "type": "Task"
+        },
+        {
+            "id": "2",
+            "name": "Projektskizze anfertigen",
+            "type": "Task"
+        },
+        {
+            "id": "3",
+            "name": "Kundengespr\u00e4ch durchf\u00fchren",
+            "type": "Task"
+        },
+        {
+            "id": "4",
+            "name": "Lastenheft schreiben",
+            "type": "Task"
+        },
+        {
+            "id": "5",
+            "name": "Projekt- und Kapazit\u00e4tsplanung durchf\u00fchren",
+            "type": "Task"
+        },
+        {
+            "id": "6",
+            "name": "Standard-Open-Source-Produkte pr\u00fcfen",
+            "type": "Task"
+        },
+        {
+            "id": "7",
+            "name": "Use-Cases definieren",
+            "type": "Task"
+        },
+        {
+            "id": "8",
+            "name": "Kosten kalkulieren",
+            "type": "Task"
+        },
+        {
+            "id": "9",
+            "name": "Produkt entwickeln (Soll-Prozess)",
+            "type": "CollapsedSubprocess"
+        },
+        {
+            "id": "10",
+            "name": "Anpassung von Wissensmanagementsystemen (Soll-Prozess)",
+            "type": "CollapsedSubprocess"
+        },
+        {
+            "id": "11",
+            "name": "Produktabnahme durchf\u00fchren",
+            "type": "Task"
+        },
+        {
+            "id": "12",
+            "name": "Kundenfeedback einholen",
+            "type": "Task"
+        },
+        {
+            "id": "13",
+            "name": "Folgeprojekte identifizieren",
+            "type": "Task"
+        }
+    ],
+    "events": [
+        {
+            "id": "14",
+            "name": "Auftragseingang",
+            "type": "StartNoneEvent"
+        },
+        {
+            "id": "15",
+            "name": "Termin gesetzt",
+            "type": "IntermediateMessageEventCatching"
+        },
+        {
+            "id": "16",
+            "name": "Informationen gesendet",
+            "type": "IntermediateMessageEventCatching"
+        },
+        {
+            "id": "17",
+            "name": "Feedback erhalten",
+            "type": "IntermediateMessageEventCatching"
+        },
+        {
+            "id": "18",
+            "name": "Auftrag abgeschlossen",
+            "type": "EndNoneEvent"
+        }
+    ],
+    "gateways": [
+        {
+            "id": "19",
+            "name": "Neuentwicklung oder vorhandene Produkte?",
+            "type": "Exclusive"
+        },
+        {
+            "id": "20",
+            "name": "Exclusive (XOR) Gateway",
+            "type": "Exclusive"
+        }
+    ],
+    "pools": [
+        {
+            "id": "21",
+            "name": "Entwicklungsabteilung",
+            "lanes": [
+                {
+                    "id": "22",
+                    "name": "SoKnow",
+                    "elemRefs": [
+                        "0",
+                        "1",
+                        "2",
+                        "3",
+                        "4",
+                        "5",
+                        "6",
+                        "7",
+                        "8",
+                        "9",
+                        "10",
+                        "11",
+                        "12",
+                        "13",
+                        "14",
+                        "15",
+                        "16",
+                        "17",
+                        "18",
+                        "19",
+                        "20"
+                    ]
+                }
+            ]
+        },
+        {
+            "id": "23",
+            "name": "Kundenunternehmen",
+            "lanes": []
+        },
+        {
+            "id": "24",
+            "name": "SoKnow",
+            "lanes": [
+                {
+                    "id": "22",
+                    "elemRefs": []
+                }
+            ]
+        }
+    ],
+    "sequenceFlows": [
+        {
+            "id": "25",
+            "sourceRef": "14",
+            "targetRef": "0"
+        },
+        {
+            "id": "26",
+            "sourceRef": "0",
+            "targetRef": "1"
+        },
+        {
+            "id": "27",
+            "sourceRef": "1",
+            "targetRef": "2"
+        },
+        {
+            "id": "28",
+            "sourceRef": "2",
+            "targetRef": "15"
+        },
+        {
+            "id": "29",
+            "sourceRef": "15",
+            "targetRef": "3"
+        },
+        {
+            "id": "30",
+            "sourceRef": "3",
+            "targetRef": "4"
+        },
+        {
+            "id": "31",
+            "sourceRef": "4",
+            "targetRef": "16"
+        },
+        {
+            "id": "32",
+            "sourceRef": "16",
+            "targetRef": "5"
+        },
+        {
+            "id": "33",
+            "sourceRef": "5",
+            "targetRef": "6"
+        },
+        {
+            "id": "34",
+            "sourceRef": "6",
+            "targetRef": "7"
+        },
+        {
+            "id": "35",
+            "sourceRef": "7",
+            "targetRef": "8"
+        },
+        {
+            "id": "36",
+            "sourceRef": "8",
+            "targetRef": "19"
+        },
+        {
+            "id": "37",
+            "sourceRef": "19",
+            "targetRef": "9"
+        },
+        {
+            "id": "38",
+            "sourceRef": "19",
+            "targetRef": "10",
+            "condition": "Existing development"
+        },
+        {
+            "id": "39",
+            "sourceRef": "10",
+            "targetRef": "11"
+        },
+        {
+            "id": "40",
+            "sourceRef": "9",
+            "targetRef": "11",
+            "condition": "New development"
+        },
+        {
+            "id": "41",
+            "sourceRef": "11",
+            "targetRef": "17"
+        },
+        {
+            "id": "42",
+            "sourceRef": "17",
+            "targetRef": "12"
+        },
+        {
+            "id": "43",
+            "sourceRef": "12",
+            "targetRef": "13"
+        },
+        {
+            "id": "44",
+            "sourceRef": "13",
+            "targetRef": "18"
+        },
+        {
+            "id": "45",
+            "sourceRef": "13",
+            "targetRef": "0",
+            "condition": "Identification of followup projects"
+        }
+    ],
+    "messageFlows": [
+        {
+            "id": "46",
+            "sourceRef": "23",
+            "targetRef": "16",
+            "label": "Data"
+        },
+        {
+            "id": "47",
+            "sourceRef": "16",
+            "targetRef": "24",
+            "label": "Results"
+        },
+        {
+            "id": "48",
+            "sourceRef": "23",
+            "targetRef": "15",
+            "label": "Schedule"
+        },
+        {
+            "id": "49",
+            "sourceRef": "17",
+            "targetRef": "24",
+            "label": "Feedback"
+        }
+    ]
+}

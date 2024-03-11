@@ -1,0 +1,102 @@
+{
+    "tasks": [
+        {
+            "id": "sid-C4C1D2F4-40F2-4D35-A071-C4C6390C7E10",
+            "name": "show form",
+            "type": "Service"
+        },
+        {
+            "id": "sid-0AEABE4A-709E-4C19-8F77-9B1FDF14A8B8",
+            "name": "send confirm mail",
+            "type": "Service"
+        },
+        {
+            "id": "sid-7FA76A30-DD3F-42BC-8DEE-472EBA7206CA",
+            "name": "activate account",
+            "type": "Service"
+        },
+        {
+            "id": "sid-4FA05838-AF22-47E5-BB2A-EDD4EDE69343",
+            "name": "enter the account information",
+            "type": "User"
+        },
+        {
+            "id": "sid-CC7AE467-3EBD-44B6-B418-07A78041A010",
+            "name": "click confirm mail link",
+            "type": "User"
+        }
+    ],
+    "events": [
+        {
+            "id": "sid-D9AED4A7-2D36-451E-A8BC-48CD78CBD406",
+            "name": "start setup  BattleNet account",
+            "type": "StartNoneEvent"
+        },
+        {
+            "id": "sid-556CCC08-00AA-4569-9908-A991CD960101",
+            "name": "end setup  BattleNet account",
+            "type": "EndNoneEvent"
+        }
+    ],
+    "gateways": [],
+    "pools": [
+        {
+            "id": "sid-374c1c3e-b63a-4c58-a6b2-4a3b23e14442",
+            "name": "wow community",
+            "lanes": [
+                {
+                    "id": "sid-2D7EBAB3-D697-439D-BAC2-34EE6DFC667D_2",
+                    "name": "online tool for creating characters",
+                    "elemRefs": [
+                        "sid-C4C1D2F4-40F2-4D35-A071-C4C6390C7E10",
+                        "sid-0AEABE4A-709E-4C19-8F77-9B1FDF14A8B8",
+                        "sid-7FA76A30-DD3F-42BC-8DEE-472EBA7206CA",
+                        "sid-D9AED4A7-2D36-451E-A8BC-48CD78CBD406",
+                        "sid-556CCC08-00AA-4569-9908-A991CD960101"
+                    ]
+                },
+                {
+                    "id": "sid-BBB6BABC-8D34-428C-A4CF-F404BB6107A8_2",
+                    "name": "applicant",
+                    "elemRefs": [
+                        "sid-4FA05838-AF22-47E5-BB2A-EDD4EDE69343",
+                        "sid-CC7AE467-3EBD-44B6-B418-07A78041A010"
+                    ]
+                }
+            ]
+        }
+    ],
+    "messageFlows": [],
+    "sequenceFlows": [
+        {
+            "id": "sid-28EF3DA3-7E8D-4807-8675-E8A12A3C4F7C",
+            "targetRef": "sid-C4C1D2F4-40F2-4D35-A071-C4C6390C7E10",
+            "sourceRef": "sid-D9AED4A7-2D36-451E-A8BC-48CD78CBD406"
+        },
+        {
+            "id": "sid-7F4CD84C-0C97-4227-A705-79D5DEFBD60F",
+            "targetRef": "sid-4FA05838-AF22-47E5-BB2A-EDD4EDE69343",
+            "sourceRef": "sid-C4C1D2F4-40F2-4D35-A071-C4C6390C7E10"
+        },
+        {
+            "id": "sid-F7809E4D-6216-45FD-A984-6A5EFBAD5CB6",
+            "targetRef": "sid-0AEABE4A-709E-4C19-8F77-9B1FDF14A8B8",
+            "sourceRef": "sid-4FA05838-AF22-47E5-BB2A-EDD4EDE69343"
+        },
+        {
+            "id": "sid-E503BBE3-C252-4947-AA8D-E7929E3378CD",
+            "targetRef": "sid-CC7AE467-3EBD-44B6-B418-07A78041A010",
+            "sourceRef": "sid-0AEABE4A-709E-4C19-8F77-9B1FDF14A8B8"
+        },
+        {
+            "id": "sid-BAA80C34-3CD4-4A5E-AD95-9CB23C4CDEE9",
+            "targetRef": "sid-7FA76A30-DD3F-42BC-8DEE-472EBA7206CA",
+            "sourceRef": "sid-CC7AE467-3EBD-44B6-B418-07A78041A010"
+        },
+        {
+            "id": "sid-B68BAF36-9916-4546-AF38-74329CE7D498",
+            "targetRef": "sid-556CCC08-00AA-4569-9908-A991CD960101",
+            "sourceRef": "sid-7FA76A30-DD3F-42BC-8DEE-472EBA7206CA"
+        }
+    ]
+}

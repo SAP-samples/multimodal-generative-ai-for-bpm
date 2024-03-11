@@ -1,0 +1,139 @@
+{
+    "tasks": [
+        {
+            "id": "0",
+            "name": "Arbeitsplatz vorbereiten mit Antistatik-Matte, Werkzeug und - Handschuhen",
+            "type": "Manual"
+        },
+        {
+            "id": "1",
+            "name": "Motherboard auf Antistatik-Matte legen",
+            "type": "Manual"
+        },
+        {
+            "id": "2",
+            "name": "CPU in Prozessor",
+            "type": "Manual"
+        },
+        {
+            "id": "3",
+            "name": "W\u00e4rmeleitpaste",
+            "type": "Manual"
+        },
+        {
+            "id": "4",
+            "name": "Pr\u00fcfen, ob die angegebene Adresse korrekt und die gew\u00fcnschten Artikel gelistet sind.",
+            "type": "Manual"
+        },
+        {
+            "id": "5",
+            "name": "Pr\u00fcfen, ob die eingegebene Adresse korrekt und die gew\u00fcnschten Artikel gelistet sind.",
+            "type": "Manual"
+        },
+        {
+            "id": "6",
+            "name": "Pr\u00fcfen, ob die eingegebene Adresse korrekt und die gew\u00fcnschten Artikel gelistet sind.",
+            "type": "Manual"
+        }
+    ],
+    "events": [
+        {
+            "id": "0",
+            "name": "Start Event",
+            "type": "StartNoneEvent"
+        },
+        {
+            "id": "1",
+            "name": "End Event",
+            "type": "EndNoneEvent"
+        }
+    ],
+    "gateways": [
+        {
+            "id": "0",
+            "type": "Exclusive"
+        },
+        {
+            "id": "1",
+            "type": "Inclusive"
+        }
+    ],
+    "pools": [
+        {
+            "id": "0",
+            "name": "PC Zusammenbau",
+            "lanes": [
+                {
+                    "id": "0",
+                    "name": "PC Zusammenbau",
+                    "elemRefs": [
+                        "0",
+                        "1",
+                        "2",
+                        "3",
+                        "4",
+                        "5",
+                        "6",
+                        "0",
+                        "1",
+                        "0",
+                        "1"
+                    ]
+                }
+            ]
+        }
+    ],
+    "sequenceFlows": [
+        {
+            "id": "0",
+            "sourceRef": "0",
+            "targetRef": "0"
+        },
+        {
+            "id": "1",
+            "sourceRef": "0",
+            "targetRef": "1"
+        },
+        {
+            "id": "2",
+            "sourceRef": "1",
+            "targetRef": "2"
+        },
+        {
+            "id": "3",
+            "sourceRef": "2",
+            "targetRef": "0"
+        },
+        {
+            "id": "4",
+            "sourceRef": "0",
+            "targetRef": "3"
+        },
+        {
+            "id": "5",
+            "sourceRef": "3",
+            "targetRef": "1"
+        },
+        {
+            "id": "6",
+            "sourceRef": "1",
+            "targetRef": "4"
+        },
+        {
+            "id": "7",
+            "sourceRef": "4",
+            "targetRef": "5"
+        },
+        {
+            "id": "8",
+            "sourceRef": "5",
+            "targetRef": "6"
+        },
+        {
+            "id": "9",
+            "sourceRef": "6",
+            "targetRef": "1"
+        }
+    ],
+    "messageFlows": []
+}

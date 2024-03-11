@@ -1,0 +1,225 @@
+{
+    "tasks": [
+        {
+            "id": "0",
+            "name": "Order received",
+            "type": "Receive"
+        },
+        {
+            "id": "1",
+            "name": "Create and pass on order ticket",
+            "type": "User"
+        },
+        {
+            "id": "2",
+            "name": "Prepare cart",
+            "type": "Manual"
+        },
+        {
+            "id": "3",
+            "name": "Prepare non-alcoholic beverages",
+            "type": "Manual"
+        },
+        {
+            "id": "4",
+            "name": "Prepare dishes",
+            "type": "Manual"
+        },
+        {
+            "id": "5",
+            "name": "Deliver order",
+            "type": "Manual"
+        },
+        {
+            "id": "6",
+            "name": "Charge customer's account",
+            "type": "Manual"
+        },
+        {
+            "id": "7",
+            "name": "Fetch wine from cellar",
+            "type": "Manual"
+        },
+        {
+            "id": "8",
+            "name": "Prepare alcoholic beverages",
+            "type": "Manual"
+        }
+    ],
+    "events": [
+        {
+            "id": "9",
+            "name": "Message event 'Order received'",
+            "type": "StartMessageEvent"
+        },
+        {
+            "id": "10",
+            "name": "Intermediate conditional event 'No further orders'",
+            "type": "IntermediateConditionalEvent"
+        },
+        {
+            "id": "11",
+            "name": "End event 'Customer order completed'",
+            "type": "EndNoneEvent"
+        }
+    ],
+    "gateways": [
+        {
+            "id": "12",
+            "type": "Parallel"
+        },
+        {
+            "id": "13",
+            "type": "Exclusive"
+        },
+        {
+            "id": "14",
+            "type": "Exclusive"
+        },
+        {
+            "id": "15",
+            "type": "Exclusive"
+        }
+    ],
+    "pools": [
+        {
+            "id": "16",
+            "name": "Hotel Evanstonian",
+            "lanes": [
+                {
+                    "id": "17",
+                    "name": "Waiter",
+                    "elemRefs": [
+                        "1",
+                        "2",
+                        "3",
+                        "5",
+                        "6"
+                    ]
+                },
+                {
+                    "id": "18",
+                    "name": "Kitchen",
+                    "elemRefs": [
+                        "4"
+                    ]
+                },
+                {
+                    "id": "19",
+                    "name": "Sommelier",
+                    "elemRefs": [
+                        "7",
+                        "8"
+                    ]
+                },
+                {
+                    "id": "20",
+                    "name": "Room Service Manager",
+                    "elemRefs": [
+                        "0",
+                        "9",
+                        "10",
+                        "11"
+                    ]
+                }
+            ]
+        }
+    ],
+    "sequenceFlows": [
+        {
+            "id": "21",
+            "sourceRef": "9",
+            "targetRef": "0"
+        },
+        {
+            "id": "22",
+            "sourceRef": "0",
+            "targetRef": "1"
+        },
+        {
+            "id": "23",
+            "sourceRef": "1",
+            "targetRef": "12"
+        },
+        {
+            "id": "24",
+            "sourceRef": "12",
+            "targetRef": "2"
+        },
+        {
+            "id": "25",
+            "sourceRef": "12",
+            "targetRef": "4"
+        },
+        {
+            "id": "26",
+            "sourceRef": "13",
+            "targetRef": "7"
+        },
+        {
+            "id": "27",
+            "sourceRef": "7",
+            "targetRef": "14"
+        },
+        {
+            "id": "28",
+            "sourceRef": "14",
+            "targetRef": "8"
+        },
+        {
+            "id": "29",
+            "sourceRef": "2",
+            "targetRef": "3"
+        },
+        {
+            "id": "30",
+            "sourceRef": "3",
+            "targetRef": "5"
+        },
+        {
+            "id": "31",
+            "sourceRef": "8",
+            "targetRef": "5"
+        },
+        {
+            "id": "32",
+            "sourceRef": "4",
+            "targetRef": "5"
+        },
+        {
+            "id": "33",
+            "sourceRef": "5",
+            "targetRef": "10"
+        },
+        {
+            "id": "34",
+            "sourceRef": "10",
+            "targetRef": "6"
+        },
+        {
+            "id": "35",
+            "sourceRef": "6",
+            "targetRef": "11"
+        }
+    ],
+    "messageFlows": [
+        {
+            "id": "36",
+            "sourceRef": "Room Service Manager",
+            "targetRef": "Kitchen",
+            "label": "Order ticket"
+        },
+        {
+            "id": "37",
+            "sourceRef": "Room Service Manager",
+            "targetRef": "Waiter",
+            "label": "Order ticket"
+        },
+        {
+            "id": "38",
+            "sourceRef": "Room Service Manager",
+            "targetRef": "Sommelier",
+            "label": "Order ticket"
+        }
+    ]
+}

@@ -1,0 +1,236 @@
+{
+    "tasks": [
+        {
+            "id": "0",
+            "name": "Auftrag erteilen",
+            "type": "Task"
+        },
+        {
+            "id": "1",
+            "name": "Machbarkeit pr\u00fcfen",
+            "type": "Task"
+        },
+        {
+            "id": "2",
+            "name": "Preiskalkulation durchf\u00fchren",
+            "type": "CollapsedSubprocess"
+        },
+        {
+            "id": "3",
+            "name": "Angebot erstellen und versenden",
+            "type": "CollapsedSubprocess"
+        },
+        {
+            "id": "4",
+            "name": "Auftrag anlegen",
+            "type": "Task"
+        },
+        {
+            "id": "5",
+            "name": "Auftrag in Planung Fertigung eintragen",
+            "type": "Task"
+        },
+        {
+            "id": "6",
+            "name": "Auftragsbest\u00e4tigung versenden",
+            "type": "Task"
+        }
+    ],
+    "events": [
+        {
+            "id": "7",
+            "name": "Bestellung",
+            "type": "StartNoneEvent"
+        },
+        {
+            "id": "8",
+            "name": "nicht machbar",
+            "type": "IntermediateErrorEvent"
+        },
+        {
+            "id": "9",
+            "name": "Abbruch",
+            "type": "EndCancelEvent"
+        },
+        {
+            "id": "10",
+            "name": "Auftragsbest\u00e4tigung versandt",
+            "type": "EndNoneEvent"
+        },
+        {
+            "id": "11",
+            "name": "Kundeninfo keine Auftrags- best\u00e4tigung",
+            "type": "EndNoneEvent"
+        },
+        {
+            "id": "12",
+            "name": "Wartezeit",
+            "type": "IntermediateTimerEvent"
+        }
+    ],
+    "gateways": [
+        {
+            "id": "13",
+            "name": "",
+            "type": "Exclusive"
+        },
+        {
+            "id": "14",
+            "name": "",
+            "type": "Exclusive"
+        },
+        {
+            "id": "15",
+            "name": "",
+            "type": "Exclusive"
+        }
+    ],
+    "pools": [
+        {
+            "id": "16",
+            "name": "Bohrwerker",
+            "lanes": [
+                {
+                    "id": "17",
+                    "name": "Jane Doe",
+                    "elemRefs": [
+                        "0",
+                        "1",
+                        "2",
+                        "3",
+                        "8",
+                        "9",
+                        "13"
+                    ]
+                },
+                {
+                    "id": "18",
+                    "name": "Silke",
+                    "elemRefs": [
+                        "4",
+                        "5",
+                        "6",
+                        "10",
+                        "11",
+                        "12",
+                        "14",
+                        "15"
+                    ]
+                }
+            ]
+        },
+        {
+            "id": "19",
+            "name": "Kunde",
+            "lanes": [
+                {
+                    "id": "20",
+                    "name": "",
+                    "elemRefs": [
+                        "7"
+                    ]
+                }
+            ]
+        }
+    ],
+    "sequenceFlows": [
+        {
+            "id": "21",
+            "sourceRef": "7",
+            "targetRef": "0"
+        },
+        {
+            "id": "22",
+            "sourceRef": "0",
+            "targetRef": "13"
+        },
+        {
+            "id": "23",
+            "sourceRef": "13",
+            "targetRef": "1",
+            "condition": "Angebot vorhanden? / Weitere Bearbeitungsschritte?"
+        },
+        {
+            "id": "24",
+            "sourceRef": "1",
+            "targetRef": "2",
+            "condition": ""
+        },
+        {
+            "id": "25",
+            "sourceRef": "2",
+            "targetRef": "3",
+            "condition": ""
+        },
+        {
+            "id": "26",
+            "sourceRef": "3",
+            "targetRef": "14"
+        },
+        {
+            "id": "27",
+            "sourceRef": "14",
+            "targetRef": "4"
+        },
+        {
+            "id": "28",
+            "sourceRef": "4",
+            "targetRef": "5"
+        },
+        {
+            "id": "29",
+            "sourceRef": "5",
+            "targetRef": "6"
+        },
+        {
+            "id": "30",
+            "sourceRef": "6",
+            "targetRef": "10"
+        },
+        {
+            "id": "31",
+            "sourceRef": "13",
+            "targetRef": "8",
+            "condition": "nicht machbar"
+        },
+        {
+            "id": "32",
+            "sourceRef": "8",
+            "targetRef": "9"
+        },
+        {
+            "id": "33",
+            "sourceRef": "14",
+            "targetRef": "12"
+        },
+        {
+            "id": "34",
+            "sourceRef": "12",
+            "targetRef": "11"
+        },
+        {
+            "id": "35",
+            "sourceRef": "14",
+            "targetRef": "15"
+        },
+        {
+            "id": "36",
+            "sourceRef": "15",
+            "targetRef": "4"
+        }
+    ],
+    "messageFlows": [
+        {
+            "id": "37",
+            "sourceRef": "7",
+            "targetRef": "0",
+            "label": ""
+        },
+        {
+            "id": "38",
+            "sourceRef": "3",
+            "targetRef": "4",
+            "label": ""
+        }
+    ]
+}

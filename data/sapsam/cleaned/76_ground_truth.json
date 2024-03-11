@@ -1,0 +1,178 @@
+{
+    "tasks": [
+        {
+            "id": "sid-321AB7CE-DECB-4B82-8983-8EE242269AEF",
+            "name": "submits PO",
+            "type": "Task"
+        },
+        {
+            "id": "sid-15782FC7-B283-4D33-BF7F-11B7342E2EAA",
+            "name": "system assumes",
+            "type": "Task"
+        },
+        {
+            "id": "sid-732AF102-A859-41D6-9D47-7358B7423A02",
+            "name": "send PO response",
+            "type": "Task"
+        },
+        {
+            "id": "sid-34D6539E-6FC1-42F2-AEE4-08C777D8F20E",
+            "name": "receive an error message",
+            "type": "Task"
+        },
+        {
+            "id": "sid-FA14D728-B7BF-4E73-AA15-ED995FD50A8B",
+            "name": "gets a response",
+            "type": "Task"
+        },
+        {
+            "id": "sid-6879B523-8718-4153-AF47-13A66D64D1C5",
+            "name": "must be \u0131nformed by the stuff",
+            "type": "Task"
+        },
+        {
+            "id": "sid-40514A6B-402D-41F9-AD8F-50A5753C3739",
+            "name": "no receive anything",
+            "type": "Task"
+        },
+        {
+            "id": "sid-F5FB52D5-B5AD-439B-B52C-90CE8C0FA166",
+            "name": "notified.",
+            "type": "Task"
+        }
+    ],
+    "events": [
+        {
+            "id": "sid-9D4DD062-A914-4738-B77D-2542524E339C",
+            "name": "order process  complited",
+            "type": "EndNoneEvent"
+        },
+        {
+            "id": "sid-5DE0FE54-6E3B-4C56-A68A-9B38A46D2819",
+            "name": "order not complited",
+            "type": "EndNoneEvent"
+        },
+        {
+            "id": "sid-2D0DB650-93EA-42D3-A10F-4E20B7B55F42",
+            "name": "The restaurant chain",
+            "type": "StartNoneEvent"
+        },
+        {
+            "id": "sid-6869692C-22FC-4B80-9DAD-3D4EEAC5096D",
+            "name": "orfer not comlited",
+            "type": "EndNoneEvent"
+        }
+    ],
+    "gateways": [
+        {
+            "id": "sid-B098D583-2417-4A48-AFC5-1F2441429042",
+            "type": "Exclusive"
+        },
+        {
+            "id": "sid-6E7B105D-4813-43AD-A9B4-9A8402040658",
+            "name": "What is the response?",
+            "type": "Exclusive"
+        }
+    ],
+    "pools": [
+        {
+            "id": "sid-11F4F491-20FB-48CB-A33C-71373E6F41E7",
+            "name": "ACME AG",
+            "lanes": [
+                {
+                    "id": "sid-604E1EB8-9312-4522-B243-7299C05573B2",
+                    "name": "",
+                    "elemRefs": [
+                        "sid-321AB7CE-DECB-4B82-8983-8EE242269AEF",
+                        "sid-15782FC7-B283-4D33-BF7F-11B7342E2EAA",
+                        "sid-732AF102-A859-41D6-9D47-7358B7423A02",
+                        "sid-34D6539E-6FC1-42F2-AEE4-08C777D8F20E",
+                        "sid-FA14D728-B7BF-4E73-AA15-ED995FD50A8B",
+                        "sid-6879B523-8718-4153-AF47-13A66D64D1C5",
+                        "sid-40514A6B-402D-41F9-AD8F-50A5753C3739",
+                        "sid-F5FB52D5-B5AD-439B-B52C-90CE8C0FA166",
+                        "sid-9D4DD062-A914-4738-B77D-2542524E339C",
+                        "sid-5DE0FE54-6E3B-4C56-A68A-9B38A46D2819",
+                        "sid-2D0DB650-93EA-42D3-A10F-4E20B7B55F42",
+                        "sid-6869692C-22FC-4B80-9DAD-3D4EEAC5096D",
+                        "sid-B098D583-2417-4A48-AFC5-1F2441429042",
+                        "sid-6E7B105D-4813-43AD-A9B4-9A8402040658"
+                    ]
+                }
+            ]
+        }
+    ],
+    "messageFlows": [],
+    "sequenceFlows": [
+        {
+            "id": "sid-28A79F63-B3B3-4BA0-BBB5-29CD5A1D6BDA",
+            "targetRef": "sid-15782FC7-B283-4D33-BF7F-11B7342E2EAA",
+            "sourceRef": "sid-321AB7CE-DECB-4B82-8983-8EE242269AEF"
+        },
+        {
+            "id": "sid-8AA43445-BA24-4FC4-8EA8-606EBCB17975",
+            "targetRef": "sid-FA14D728-B7BF-4E73-AA15-ED995FD50A8B",
+            "sourceRef": "sid-732AF102-A859-41D6-9D47-7358B7423A02"
+        },
+        {
+            "id": "sid-1040DCF5-261C-4637-8AEF-8DBB1560E736",
+            "targetRef": "sid-9D4DD062-A914-4738-B77D-2542524E339C",
+            "sourceRef": "sid-FA14D728-B7BF-4E73-AA15-ED995FD50A8B"
+        },
+        {
+            "id": "sid-CA68D7FA-DBF5-4BAC-BED4-FB7C780FD03E",
+            "targetRef": "sid-F5FB52D5-B5AD-439B-B52C-90CE8C0FA166",
+            "sourceRef": "sid-40514A6B-402D-41F9-AD8F-50A5753C3739"
+        },
+        {
+            "id": "sid-8EA6A4B5-7305-4127-8E44-A03A5EDBA5E4",
+            "targetRef": "sid-5DE0FE54-6E3B-4C56-A68A-9B38A46D2819",
+            "sourceRef": "sid-6879B523-8718-4153-AF47-13A66D64D1C5"
+        },
+        {
+            "id": "sid-3E5551CA-0D88-4B00-A353-780D06E84117",
+            "targetRef": "sid-321AB7CE-DECB-4B82-8983-8EE242269AEF",
+            "sourceRef": "sid-2D0DB650-93EA-42D3-A10F-4E20B7B55F42"
+        },
+        {
+            "id": "sid-89EDD03E-A2AA-4C99-A15F-C6BA17495B59",
+            "targetRef": "sid-34D6539E-6FC1-42F2-AEE4-08C777D8F20E",
+            "condition": "yes",
+            "sourceRef": "sid-6E7B105D-4813-43AD-A9B4-9A8402040658"
+        },
+        {
+            "id": "sid-E8CC8DEE-0A4B-4BAD-80E9-418BE60B7CC0",
+            "targetRef": "sid-B098D583-2417-4A48-AFC5-1F2441429042",
+            "condition": "PO response or error?",
+            "sourceRef": "sid-15782FC7-B283-4D33-BF7F-11B7342E2EAA"
+        },
+        {
+            "id": "sid-89E35BF3-8C2E-4498-A4A7-9A8EB8062B4F",
+            "targetRef": "sid-732AF102-A859-41D6-9D47-7358B7423A02",
+            "condition": "yes",
+            "sourceRef": "sid-B098D583-2417-4A48-AFC5-1F2441429042"
+        },
+        {
+            "id": "sid-1CE98D22-F825-4ECD-8469-F54E1AE36DB6",
+            "targetRef": "sid-6E7B105D-4813-43AD-A9B4-9A8402040658",
+            "condition": "no",
+            "sourceRef": "sid-B098D583-2417-4A48-AFC5-1F2441429042"
+        },
+        {
+            "id": "sid-542FA2A9-19B8-40DE-9032-05785CB126FC",
+            "targetRef": "sid-6879B523-8718-4153-AF47-13A66D64D1C5",
+            "sourceRef": "sid-34D6539E-6FC1-42F2-AEE4-08C777D8F20E"
+        },
+        {
+            "id": "sid-E1E0332A-411B-4E06-8DA7-59B5527C0F0E",
+            "targetRef": "sid-6869692C-22FC-4B80-9DAD-3D4EEAC5096D",
+            "sourceRef": "sid-F5FB52D5-B5AD-439B-B52C-90CE8C0FA166"
+        },
+        {
+            "id": "sid-1798AB6A-E6EF-4BC7-B739-AB1869844852",
+            "targetRef": "sid-40514A6B-402D-41F9-AD8F-50A5753C3739",
+            "condition": "no",
+            "sourceRef": "sid-6E7B105D-4813-43AD-A9B4-9A8402040658"
+        }
+    ]
+}

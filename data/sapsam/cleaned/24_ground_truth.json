@@ -1,0 +1,199 @@
+{
+    "tasks": [
+        {
+            "id": "sid-B7D50FFF-2844-4FD2-B405-5C90707AB61E",
+            "name": "Aktuelle Inhalte analysieren",
+            "type": "Task"
+        },
+        {
+            "id": "sid-03A743A9-A6FD-4639-ABE8-AB35E77A4FDD",
+            "name": "Inhalte bewerten",
+            "type": "Task"
+        },
+        {
+            "id": "sid-B5650721-6E10-40DB-9B72-CD333251E622",
+            "name": "Gesch\u00e4ftsleitung informieren",
+            "type": "Task"
+        },
+        {
+            "id": "sid-27C97D62-9767-465C-9651-1B8B01353034",
+            "name": "Aktuelle Inhalte reviewen",
+            "type": "Task"
+        },
+        {
+            "id": "sid-7FFEB1CD-E16A-4838-93F9-4D8B80EA0DBB",
+            "name": "Neue Inhalte entwerfen",
+            "type": "Task"
+        },
+        {
+            "id": "sid-5867B137-525C-47FF-9471-9441A6178A0E",
+            "name": "Vorhandene Inhalte aktualisieren",
+            "type": "Task"
+        },
+        {
+            "id": "sid-D574FB49-AE95-443A-BCCC-FE9B078453E1",
+            "name": "Inhalte dauerhaft aktualiseren",
+            "type": "Task"
+        }
+    ],
+    "events": [
+        {
+            "id": "sid-0C834CBC-3A16-49CA-AEC1-6BA2DF4B8D44",
+            "name": "Vorhandene Webseite ist veraltet",
+            "type": "StartNoneEvent"
+        },
+        {
+            "id": "sid-82B8F164-7464-4AE3-8AEF-4053FDE95AEC",
+            "name": "Webseite ben\u00f6tigt aktuell keine Verbesserungen",
+            "type": "EndNoneEvent"
+        },
+        {
+            "id": "sid-06A1BC21-AC6F-4219-88DE-48352507F6B3",
+            "name": "Webseite ist aktuell",
+            "type": "EndNoneEvent"
+        }
+    ],
+    "gateways": [
+        {
+            "id": "sid-E812B06B-C8E3-48BA-9D83-A593EFF7D24A",
+            "name": "Bewertung positiv?",
+            "type": "Exclusive"
+        },
+        {
+            "id": "sid-F22ABEE1-C196-4B49-9215-FE05A60F4B4B",
+            "type": "Parallel"
+        },
+        {
+            "id": "sid-ED9582A8-5524-434D-9532-7C0801F5C900",
+            "type": "Parallel"
+        },
+        {
+            "id": "sid-5A0528EA-40F0-4B06-8AD1-9654C35CBDC1",
+            "type": "Parallel"
+        },
+        {
+            "id": "sid-F9F96B42-38F2-4296-A4C8-12B4BBBE26E0",
+            "type": "Exclusive"
+        }
+    ],
+    "pools": [
+        {
+            "id": "sid-A56C13BA-1F62-48DD-AE8D-7DD88548695D",
+            "name": "SoKnow",
+            "lanes": [
+                {
+                    "id": "sid-35FBDCAC-9940-432E-8CDA-1ED8EFC739CC",
+                    "name": "Marketingabteilung",
+                    "elemRefs": [
+                        "sid-B7D50FFF-2844-4FD2-B405-5C90707AB61E",
+                        "sid-03A743A9-A6FD-4639-ABE8-AB35E77A4FDD",
+                        "sid-B5650721-6E10-40DB-9B72-CD333251E622",
+                        "sid-0C834CBC-3A16-49CA-AEC1-6BA2DF4B8D44",
+                        "sid-82B8F164-7464-4AE3-8AEF-4053FDE95AEC",
+                        "sid-E812B06B-C8E3-48BA-9D83-A593EFF7D24A"
+                    ]
+                },
+                {
+                    "id": "sid-37EFE51C-75A0-4F57-BCFA-960174D4A847",
+                    "name": "Entwicklungsabteilung",
+                    "elemRefs": [
+                        "sid-27C97D62-9767-465C-9651-1B8B01353034",
+                        "sid-7FFEB1CD-E16A-4838-93F9-4D8B80EA0DBB",
+                        "sid-5867B137-525C-47FF-9471-9441A6178A0E",
+                        "sid-D574FB49-AE95-443A-BCCC-FE9B078453E1",
+                        "sid-06A1BC21-AC6F-4219-88DE-48352507F6B3",
+                        "sid-F22ABEE1-C196-4B49-9215-FE05A60F4B4B",
+                        "sid-ED9582A8-5524-434D-9532-7C0801F5C900",
+                        "sid-5A0528EA-40F0-4B06-8AD1-9654C35CBDC1",
+                        "sid-F9F96B42-38F2-4296-A4C8-12B4BBBE26E0"
+                    ]
+                }
+            ]
+        }
+    ],
+    "messageFlows": [],
+    "sequenceFlows": [
+        {
+            "id": "sid-CA0FB210-3E97-4F29-A63B-BFC61AE7FC7A",
+            "targetRef": "sid-B7D50FFF-2844-4FD2-B405-5C90707AB61E",
+            "sourceRef": "sid-0C834CBC-3A16-49CA-AEC1-6BA2DF4B8D44"
+        },
+        {
+            "id": "sid-50E3886B-45FB-4173-B113-4DDD125BCEC5",
+            "targetRef": "sid-27C97D62-9767-465C-9651-1B8B01353034",
+            "sourceRef": "sid-B7D50FFF-2844-4FD2-B405-5C90707AB61E"
+        },
+        {
+            "id": "sid-A8D2AA02-3A55-40A3-AA3E-2A7058EA5073",
+            "targetRef": "sid-7FFEB1CD-E16A-4838-93F9-4D8B80EA0DBB",
+            "sourceRef": "sid-F22ABEE1-C196-4B49-9215-FE05A60F4B4B"
+        },
+        {
+            "id": "sid-F6A314E7-B0AD-48F0-A39E-466F266199A8",
+            "targetRef": "sid-5867B137-525C-47FF-9471-9441A6178A0E",
+            "sourceRef": "sid-F22ABEE1-C196-4B49-9215-FE05A60F4B4B"
+        },
+        {
+            "id": "sid-D3AF4D99-4EB9-4944-9326-13DE82AC4EDA",
+            "targetRef": "sid-ED9582A8-5524-434D-9532-7C0801F5C900",
+            "sourceRef": "sid-7FFEB1CD-E16A-4838-93F9-4D8B80EA0DBB"
+        },
+        {
+            "id": "sid-8F98A973-6AEA-4C2C-ACDC-29886B7756E9",
+            "targetRef": "sid-ED9582A8-5524-434D-9532-7C0801F5C900",
+            "sourceRef": "sid-5867B137-525C-47FF-9471-9441A6178A0E"
+        },
+        {
+            "id": "sid-E8680D69-6207-492A-908F-4786047AF718",
+            "targetRef": "sid-5A0528EA-40F0-4B06-8AD1-9654C35CBDC1",
+            "sourceRef": "sid-ED9582A8-5524-434D-9532-7C0801F5C900"
+        },
+        {
+            "id": "sid-B3914BC0-C027-48A3-A842-E98E5E96CFCD",
+            "targetRef": "sid-D574FB49-AE95-443A-BCCC-FE9B078453E1",
+            "sourceRef": "sid-5A0528EA-40F0-4B06-8AD1-9654C35CBDC1"
+        },
+        {
+            "id": "sid-901E6B03-9CEE-4400-8FA5-484CF26C9E3F",
+            "targetRef": "sid-03A743A9-A6FD-4639-ABE8-AB35E77A4FDD",
+            "sourceRef": "sid-5A0528EA-40F0-4B06-8AD1-9654C35CBDC1"
+        },
+        {
+            "id": "sid-46561289-FCDF-4EF8-83C3-C65A7B776FB7",
+            "targetRef": "sid-E812B06B-C8E3-48BA-9D83-A593EFF7D24A",
+            "sourceRef": "sid-03A743A9-A6FD-4639-ABE8-AB35E77A4FDD"
+        },
+        {
+            "id": "sid-56702BCD-7A45-4EE4-9643-30CAE109211B",
+            "targetRef": "sid-B5650721-6E10-40DB-9B72-CD333251E622",
+            "condition": "Ja",
+            "sourceRef": "sid-E812B06B-C8E3-48BA-9D83-A593EFF7D24A"
+        },
+        {
+            "id": "sid-7D5F0D01-BB84-46EA-A62D-9EDE4E7880D3",
+            "targetRef": "sid-06A1BC21-AC6F-4219-88DE-48352507F6B3",
+            "sourceRef": "sid-D574FB49-AE95-443A-BCCC-FE9B078453E1"
+        },
+        {
+            "id": "sid-B62FF63A-51AB-4A5C-ACFD-088ED2818C83",
+            "targetRef": "sid-F9F96B42-38F2-4296-A4C8-12B4BBBE26E0",
+            "sourceRef": "sid-27C97D62-9767-465C-9651-1B8B01353034"
+        },
+        {
+            "id": "sid-40640D1F-0E63-4212-A092-158FC06EA9F6",
+            "targetRef": "sid-F22ABEE1-C196-4B49-9215-FE05A60F4B4B",
+            "sourceRef": "sid-F9F96B42-38F2-4296-A4C8-12B4BBBE26E0"
+        },
+        {
+            "id": "sid-A4BC5D77-A35E-4CEA-A405-41804B16D4AC",
+            "targetRef": "sid-F9F96B42-38F2-4296-A4C8-12B4BBBE26E0",
+            "condition": "Nein",
+            "sourceRef": "sid-E812B06B-C8E3-48BA-9D83-A593EFF7D24A"
+        },
+        {
+            "id": "sid-FB674E5E-72F6-4C5D-A95D-C5B745AED151",
+            "targetRef": "sid-82B8F164-7464-4AE3-8AEF-4053FDE95AEC",
+            "sourceRef": "sid-B5650721-6E10-40DB-9B72-CD333251E622"
+        }
+    ]
+}

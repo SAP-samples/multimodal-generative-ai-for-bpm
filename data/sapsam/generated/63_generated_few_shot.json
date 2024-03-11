@@ -1,0 +1,175 @@
+{
+    "tasks": [
+        {
+            "id": "0",
+            "name": "Check the data received by message",
+            "type": "User"
+        },
+        {
+            "id": "1",
+            "name": "Checking to find the cars that can be available at that moment",
+            "type": "User"
+        },
+        {
+            "id": "2",
+            "name": "List available options at that time",
+            "type": "Service"
+        },
+        {
+            "id": "3",
+            "name": "Pick the nearest taxi with the client location",
+            "type": "User"
+        },
+        {
+            "id": "4",
+            "name": "Calculate time it takes to reach the customer",
+            "type": "Service"
+        },
+        {
+            "id": "5",
+            "name": "The best option available is chosen and the car is reserved.",
+            "type": "User"
+        }
+    ],
+    "events": [
+        {
+            "id": "6",
+            "name": "Booking request received",
+            "type": "StartMessageEvent"
+        },
+        {
+            "id": "7",
+            "name": "Cancellation message sent",
+            "type": "EndMessageEvent"
+        },
+        {
+            "id": "8",
+            "name": "Booking Confirmation sent",
+            "type": "EndMessageEvent"
+        }
+    ],
+    "gateways": [
+        {
+            "id": "9",
+            "type": "Exclusive"
+        },
+        {
+            "id": "10",
+            "type": "Exclusive"
+        },
+        {
+            "id": "11",
+            "type": "Exclusive"
+        }
+    ],
+    "pools": [
+        {
+            "id": "12",
+            "name": "Customer",
+            "lanes": []
+        },
+        {
+            "id": "13",
+            "name": "Customer Service Operator",
+            "lanes": [
+                {
+                    "id": "14",
+                    "name": "Taxi booking",
+                    "elemRefs": [
+                        "0",
+                        "1",
+                        "3",
+                        "5"
+                    ]
+                }
+            ]
+        },
+        {
+            "id": "15",
+            "name": "Taxi booking",
+            "lanes": [
+                {
+                    "id": "16",
+                    "name": "Taxi System",
+                    "elemRefs": [
+                        "2",
+                        "4",
+                        "6",
+                        "7",
+                        "8",
+                        "9",
+                        "10",
+                        "11"
+                    ]
+                }
+            ]
+        }
+    ],
+    "sequenceFlows": [
+        {
+            "id": "17",
+            "sourceRef": "6",
+            "targetRef": "0"
+        },
+        {
+            "id": "18",
+            "sourceRef": "0",
+            "targetRef": "9"
+        },
+        {
+            "id": "19",
+            "sourceRef": "9",
+            "targetRef": "7",
+            "condition": "No"
+        },
+        {
+            "id": "20",
+            "sourceRef": "9",
+            "targetRef": "1",
+            "condition": "Yes"
+        },
+        {
+            "id": "21",
+            "sourceRef": "1",
+            "targetRef": "10"
+        },
+        {
+            "id": "22",
+            "sourceRef": "10",
+            "targetRef": "7",
+            "condition": "No"
+        },
+        {
+            "id": "23",
+            "sourceRef": "10",
+            "targetRef": "2",
+            "condition": "Yes"
+        },
+        {
+            "id": "24",
+            "sourceRef": "2",
+            "targetRef": "3"
+        },
+        {
+            "id": "25",
+            "sourceRef": "3",
+            "targetRef": "11"
+        },
+        {
+            "id": "26",
+            "sourceRef": "11",
+            "targetRef": "4"
+        },
+        {
+            "id": "27",
+            "sourceRef": "4",
+            "targetRef": "5"
+        },
+        {
+            "id": "28",
+            "sourceRef": "5",
+            "targetRef": "8"
+        }
+    ],
+    "messageFlows": []
+}

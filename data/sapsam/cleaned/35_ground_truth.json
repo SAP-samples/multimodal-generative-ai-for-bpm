@@ -1,0 +1,357 @@
+{
+    "tasks": [
+        {
+            "id": "sid-A68F24D0-78BD-4E3E-BD06-1BEE7DB3E3B8",
+            "name": "return documents to client",
+            "type": "Task"
+        },
+        {
+            "id": "sid-C9DAA5FE-9998-4862-BA19-EDE9F14C6963",
+            "name": "send rejection letter",
+            "type": "Task"
+        },
+        {
+            "id": "sid-1DE66AD2-4C0E-4AE1-AE41-38815EA49DE5",
+            "name": "send welcome letter",
+            "type": "Task"
+        },
+        {
+            "id": "sid-00C7D294-8BB7-43DC-8678-D13A725CA7AC",
+            "name": "call client to complement information",
+            "type": "Task"
+        },
+        {
+            "id": "sid-19FBA624-7B61-4607-B084-556B67167B62",
+            "name": "create loan offer",
+            "type": "Task"
+        },
+        {
+            "id": "sid-2D9B3AF9-9A8B-4360-9910-B7403C96AFD7",
+            "name": "send loan offer",
+            "type": "Task"
+        },
+        {
+            "id": "sid-7323B9E5-CC8E-4B75-98F3-6BD3B4535027",
+            "name": "remind client",
+            "type": "Task"
+        },
+        {
+            "id": "sid-63939D2A-9AFF-40B2-B0FD-1FD5DF3DB100",
+            "name": "check loan offer",
+            "type": "Task"
+        },
+        {
+            "id": "sid-830E3F5C-D43F-437B-952E-9B291669E662",
+            "name": "confirm credibility check",
+            "type": "Task"
+        },
+        {
+            "id": "sid-EFB456B4-AD76-4039-89F3-4D02D3313CE5",
+            "name": "execute initial payment",
+            "type": "Task"
+        },
+        {
+            "id": "sid-AD65D73B-9C00-4EDF-8DF5-AFC2650EE261",
+            "name": "validate loan activation",
+            "type": "Task"
+        },
+        {
+            "id": "sid-FA10FAAC-CC6B-4A02-B215-30DDCE1A93AD",
+            "name": "activate loan application",
+            "type": "Task"
+        },
+        {
+            "id": "sid-6DBB42C4-E889-43E3-B070-2C8033A2BA70",
+            "name": "perform credit check",
+            "type": "Task"
+        }
+    ],
+    "events": [
+        {
+            "id": "sid-0C157F6F-F9BE-4DE1-9727-83DC02AECFD4",
+            "name": "end",
+            "type": "EndNoneEvent"
+        },
+        {
+            "id": "sid-B6BA729D-4703-4E5A-A751-50FDA941BB37",
+            "name": "end",
+            "type": "EndNoneEvent"
+        },
+        {
+            "id": "sid-3E10BA34-6E56-483E-B04F-40037ABDB336",
+            "name": "after one hour 2",
+            "type": "IntermediateTimerEvent"
+        },
+        {
+            "id": "sid-AE5FEB90-3A6E-4F70-B27D-BA08C4742965",
+            "name": "receive accepted offer",
+            "type": "IntermediateMessageEventCatching"
+        },
+        {
+            "id": "sid-536EBD2C-C97C-4381-AB84-62D4239FF59E",
+            "name": "after one hour 1",
+            "type": "IntermediateTimerEvent"
+        },
+        {
+            "id": "sid-F4A37E7B-A45A-4A8D-ABFA-C20EE9172B43",
+            "name": "start",
+            "type": "StartNoneEvent"
+        }
+    ],
+    "gateways": [
+        {
+            "id": "sid-01B5812E-423C-4485-AF2D-4E99A26E3560",
+            "type": "Parallel"
+        },
+        {
+            "id": "sid-AA36C299-28FC-4E34-9A8C-A179A5ECBC1E",
+            "type": "Parallel"
+        },
+        {
+            "id": "sid-F641F78C-41A2-4BCC-A9A8-463B7A5B4F3C",
+            "type": "Eventbased"
+        },
+        {
+            "id": "sid-6688FA00-519C-4DFB-A0D2-0D823870B70D",
+            "type": "Exclusive"
+        },
+        {
+            "id": "sid-7B0BB245-E6AF-48F8-98E1-805EBA0330E6",
+            "type": "Exclusive"
+        },
+        {
+            "id": "sid-4D0180CC-98F9-47EA-BBC2-6558CAA91862",
+            "type": "Parallel"
+        },
+        {
+            "id": "sid-FCAEF65F-C2B1-4149-9DD2-EDEDB84FDECE",
+            "type": "Parallel"
+        }
+    ],
+    "pools": [
+        {
+            "id": "sid-333FC87B-E0C9-4892-91CB-4B2F6CEB7261",
+            "name": "DLL",
+            "lanes": [
+                {
+                    "id": "sid-8F4FC910-1BA8-4A94-90B2-A685D1D62BF0",
+                    "name": "Administrator",
+                    "elemRefs": [
+                        "sid-A68F24D0-78BD-4E3E-BD06-1BEE7DB3E3B8",
+                        "sid-C9DAA5FE-9998-4862-BA19-EDE9F14C6963",
+                        "sid-1DE66AD2-4C0E-4AE1-AE41-38815EA49DE5",
+                        "sid-0C157F6F-F9BE-4DE1-9727-83DC02AECFD4",
+                        "sid-B6BA729D-4703-4E5A-A751-50FDA941BB37",
+                        "sid-01B5812E-423C-4485-AF2D-4E99A26E3560"
+                    ]
+                },
+                {
+                    "id": "sid-FC07022E-8004-41B0-983B-26BAC1573C77",
+                    "name": "Customer Contact",
+                    "elemRefs": [
+                        "sid-00C7D294-8BB7-43DC-8678-D13A725CA7AC",
+                        "sid-19FBA624-7B61-4607-B084-556B67167B62",
+                        "sid-2D9B3AF9-9A8B-4360-9910-B7403C96AFD7",
+                        "sid-7323B9E5-CC8E-4B75-98F3-6BD3B4535027",
+                        "sid-63939D2A-9AFF-40B2-B0FD-1FD5DF3DB100",
+                        "sid-3E10BA34-6E56-483E-B04F-40037ABDB336",
+                        "sid-AE5FEB90-3A6E-4F70-B27D-BA08C4742965",
+                        "sid-536EBD2C-C97C-4381-AB84-62D4239FF59E",
+                        "sid-AA36C299-28FC-4E34-9A8C-A179A5ECBC1E",
+                        "sid-F641F78C-41A2-4BCC-A9A8-463B7A5B4F3C",
+                        "sid-6688FA00-519C-4DFB-A0D2-0D823870B70D"
+                    ]
+                },
+                {
+                    "id": "sid-93CB7682-85AF-4A2A-B235-F95149312B00",
+                    "name": "Senior Risk Management",
+                    "elemRefs": [
+                        "sid-830E3F5C-D43F-437B-952E-9B291669E662",
+                        "sid-7B0BB245-E6AF-48F8-98E1-805EBA0330E6"
+                    ]
+                },
+                {
+                    "id": "sid-CD866F7E-2497-4A11-9924-6D47429D9569",
+                    "name": "Finance",
+                    "elemRefs": [
+                        "sid-EFB456B4-AD76-4039-89F3-4D02D3313CE5",
+                        "sid-AD65D73B-9C00-4EDF-8DF5-AFC2650EE261",
+                        "sid-FA10FAAC-CC6B-4A02-B215-30DDCE1A93AD",
+                        "sid-4D0180CC-98F9-47EA-BBC2-6558CAA91862",
+                        "sid-FCAEF65F-C2B1-4149-9DD2-EDEDB84FDECE"
+                    ]
+                },
+                {
+                    "id": "sid-25E98BC8-C4FF-42AE-AEEC-B30994330524",
+                    "name": "Risk Management",
+                    "elemRefs": [
+                        "sid-6DBB42C4-E889-43E3-B070-2C8033A2BA70",
+                        "sid-F4A37E7B-A45A-4A8D-ABFA-C20EE9172B43"
+                    ]
+                }
+            ]
+        }
+    ],
+    "messageFlows": [],
+    "sequenceFlows": [
+        {
+            "id": "sid-C73034CE-ACB9-4ABC-BE66-FC0F02D0A352",
+            "targetRef": "sid-7B0BB245-E6AF-48F8-98E1-805EBA0330E6",
+            "sourceRef": "sid-830E3F5C-D43F-437B-952E-9B291669E662"
+        },
+        {
+            "id": "sid-5A0984EF-1FBC-497B-84F9-5E4115D35338",
+            "targetRef": "sid-6688FA00-519C-4DFB-A0D2-0D823870B70D",
+            "sourceRef": "sid-00C7D294-8BB7-43DC-8678-D13A725CA7AC"
+        },
+        {
+            "id": "sid-9BFED1FC-CEF2-4F57-A6E4-E5EB7C11D803",
+            "targetRef": "sid-63939D2A-9AFF-40B2-B0FD-1FD5DF3DB100",
+            "condition": "LoanOffer IN {created}",
+            "sourceRef": "sid-19FBA624-7B61-4607-B084-556B67167B62"
+        },
+        {
+            "id": "sid-66153DE6-C201-43B7-B1CF-83F4980EA0C4",
+            "targetRef": "sid-3E10BA34-6E56-483E-B04F-40037ABDB336",
+            "sourceRef": "sid-F641F78C-41A2-4BCC-A9A8-463B7A5B4F3C"
+        },
+        {
+            "id": "sid-3A6E7140-D96C-4BE2-A885-D361A011D32C",
+            "targetRef": "sid-7323B9E5-CC8E-4B75-98F3-6BD3B4535027",
+            "sourceRef": "sid-3E10BA34-6E56-483E-B04F-40037ABDB336"
+        },
+        {
+            "id": "sid-88D66A4F-ADA5-4944-9E95-D4368BCF5163",
+            "targetRef": "sid-2D9B3AF9-9A8B-4360-9910-B7403C96AFD7",
+            "condition": "LoanOffer IN {created}",
+            "sourceRef": "sid-63939D2A-9AFF-40B2-B0FD-1FD5DF3DB100"
+        },
+        {
+            "id": "sid-F6971C54-9726-4B67-A337-803171B1B1DD",
+            "targetRef": "sid-F641F78C-41A2-4BCC-A9A8-463B7A5B4F3C",
+            "condition": "LoanOffer IN {created}",
+            "sourceRef": "sid-2D9B3AF9-9A8B-4360-9910-B7403C96AFD7"
+        },
+        {
+            "id": "sid-E57D2A34-464B-4955-952B-52D85FF51BCF",
+            "targetRef": "sid-1DE66AD2-4C0E-4AE1-AE41-38815EA49DE5",
+            "sourceRef": "sid-AA36C299-28FC-4E34-9A8C-A179A5ECBC1E"
+        },
+        {
+            "id": "sid-F576BFFA-8C9F-4358-8199-AA0BD416FA6C",
+            "targetRef": "sid-FA10FAAC-CC6B-4A02-B215-30DDCE1A93AD",
+            "sourceRef": "sid-AA36C299-28FC-4E34-9A8C-A179A5ECBC1E"
+        },
+        {
+            "id": "sid-13EEED90-3850-455D-BE3F-AFCD0DA59724",
+            "targetRef": "sid-FCAEF65F-C2B1-4149-9DD2-EDEDB84FDECE",
+            "sourceRef": "sid-AD65D73B-9C00-4EDF-8DF5-AFC2650EE261"
+        },
+        {
+            "id": "sid-1AB3E460-D402-45CD-9CE0-F01F2FF37AA4",
+            "targetRef": "sid-FCAEF65F-C2B1-4149-9DD2-EDEDB84FDECE",
+            "condition": "InitialPayment IN {completed}",
+            "sourceRef": "sid-EFB456B4-AD76-4039-89F3-4D02D3313CE5"
+        },
+        {
+            "id": "sid-8B98CD4F-255A-4421-9B05-B9588902AEF7",
+            "targetRef": "sid-01B5812E-423C-4485-AF2D-4E99A26E3560",
+            "sourceRef": "sid-A68F24D0-78BD-4E3E-BD06-1BEE7DB3E3B8"
+        },
+        {
+            "id": "sid-BF27C1C6-A8E8-4383-936C-810174F607E8",
+            "targetRef": "sid-01B5812E-423C-4485-AF2D-4E99A26E3560",
+            "sourceRef": "sid-1DE66AD2-4C0E-4AE1-AE41-38815EA49DE5"
+        },
+        {
+            "id": "sid-D4FC9BA3-0729-4317-B52B-87D2EDF223C1",
+            "targetRef": "sid-A68F24D0-78BD-4E3E-BD06-1BEE7DB3E3B8",
+            "sourceRef": "sid-FCAEF65F-C2B1-4149-9DD2-EDEDB84FDECE"
+        },
+        {
+            "id": "sid-6F7B0261-C6E2-4324-9BA1-AE469C697D2D",
+            "targetRef": "sid-AE5FEB90-3A6E-4F70-B27D-BA08C4742965",
+            "sourceRef": "sid-F641F78C-41A2-4BCC-A9A8-463B7A5B4F3C"
+        },
+        {
+            "id": "sid-5431AF98-12FF-4508-81A9-5F238377D376",
+            "targetRef": "sid-AA36C299-28FC-4E34-9A8C-A179A5ECBC1E",
+            "condition": "AcceptedOffer IN {received}",
+            "sourceRef": "sid-AE5FEB90-3A6E-4F70-B27D-BA08C4742965"
+        },
+        {
+            "id": "sid-FF4D2EE8-BBBB-4F6D-86F4-BA8185A25A49",
+            "targetRef": "sid-B6BA729D-4703-4E5A-A751-50FDA941BB37",
+            "condition": "RejectionLetter IN {sent}",
+            "sourceRef": "sid-C9DAA5FE-9998-4862-BA19-EDE9F14C6963"
+        },
+        {
+            "id": "sid-A96273B8-27D4-4DE5-A69D-6111D34A3ABE",
+            "targetRef": "sid-C9DAA5FE-9998-4862-BA19-EDE9F14C6963",
+            "condition": "(CheckedCredibilityAssessment IN {rejected}) AND (LoanDetails {received})",
+            "sourceRef": "sid-7B0BB245-E6AF-48F8-98E1-805EBA0330E6"
+        },
+        {
+            "id": "sid-10439557-B91A-4FD8-B2E1-CC5102A8DAF9",
+            "targetRef": "sid-00C7D294-8BB7-43DC-8678-D13A725CA7AC",
+            "condition": "(CheckedCredibilityAssessment IN {accepted}) AND (LoanDetails {received})",
+            "sourceRef": "sid-7B0BB245-E6AF-48F8-98E1-805EBA0330E6"
+        },
+        {
+            "id": "sid-A05DB8CA-0089-4BD3-AE8B-E38738084685",
+            "targetRef": "sid-4D0180CC-98F9-47EA-BBC2-6558CAA91862",
+            "sourceRef": "sid-FA10FAAC-CC6B-4A02-B215-30DDCE1A93AD"
+        },
+        {
+            "id": "sid-70E6D61F-18DE-40AB-ACA5-81DE25A32ECF",
+            "targetRef": "sid-EFB456B4-AD76-4039-89F3-4D02D3313CE5",
+            "condition": "(LoanDetails IN {received}) AND (LoanActivation IN {completed})",
+            "sourceRef": "sid-4D0180CC-98F9-47EA-BBC2-6558CAA91862"
+        },
+        {
+            "id": "sid-9636E18C-176A-4BB4-B76D-3AF678E696D2",
+            "targetRef": "sid-AD65D73B-9C00-4EDF-8DF5-AFC2650EE261",
+            "condition": "LoanActivation IN {completed}",
+            "sourceRef": "sid-4D0180CC-98F9-47EA-BBC2-6558CAA91862"
+        },
+        {
+            "id": "sid-5B4D3184-6A77-456B-BBFC-527B019CBD5F",
+            "targetRef": "sid-00C7D294-8BB7-43DC-8678-D13A725CA7AC",
+            "sourceRef": "sid-536EBD2C-C97C-4381-AB84-62D4239FF59E"
+        },
+        {
+            "id": "sid-FC9FD61C-7F18-4749-BBE7-C35FC41489CF",
+            "targetRef": "sid-536EBD2C-C97C-4381-AB84-62D4239FF59E",
+            "condition": "PickedUp IN {notpickedup}",
+            "sourceRef": "sid-6688FA00-519C-4DFB-A0D2-0D823870B70D"
+        },
+        {
+            "id": "sid-4EE906BD-B7B3-4140-AB7E-742A5DDD71C7",
+            "targetRef": "sid-19FBA624-7B61-4607-B084-556B67167B62",
+            "condition": "PickedUp IN {pickedup}",
+            "sourceRef": "sid-6688FA00-519C-4DFB-A0D2-0D823870B70D"
+        },
+        {
+            "id": "sid-0385D71E-2DEC-4407-9C2D-623D4D01946D",
+            "targetRef": "sid-F641F78C-41A2-4BCC-A9A8-463B7A5B4F3C",
+            "sourceRef": "sid-7323B9E5-CC8E-4B75-98F3-6BD3B4535027"
+        },
+        {
+            "id": "sid-A72A6233-BF9E-441A-A4A8-7EC29FD09A24",
+            "targetRef": "sid-6DBB42C4-E889-43E3-B070-2C8033A2BA70",
+            "condition": "LoanDetails IN {received}",
+            "sourceRef": "sid-F4A37E7B-A45A-4A8D-ABFA-C20EE9172B43"
+        },
+        {
+            "id": "sid-9BF4A6F1-E3B3-4AE5-B45F-E36AF5483F73",
+            "targetRef": "sid-830E3F5C-D43F-437B-952E-9B291669E662",
+            "condition": "((BKRAssessment IN {accepted}) OR (BKRAssessment IN {rejected})) AND ((EVAAssessment IN {accepted}) OR (EVAAssessment IN {accepted})) AND ((CredibilityAssessment IN {undecided}) OR (CredibilityAssessment IN {accepted}) OR (CredibilityAssessment IN {rejected}))",
+            "sourceRef": "sid-6DBB42C4-E889-43E3-B070-2C8033A2BA70"
+        },
+        {
+            "id": "sid-3C4CDC36-7DA0-428D-88E7-154D3F5040C7",
+            "targetRef": "sid-0C157F6F-F9BE-4DE1-9727-83DC02AECFD4",
+            "sourceRef": "sid-01B5812E-423C-4485-AF2D-4E99A26E3560"
+        }
+    ]
+}

@@ -1,0 +1,206 @@
+{
+    "tasks": [
+        {
+            "id": "sid-4EC28E1D-DEED-4268-BE34-7162DD10DCAD",
+            "name": "Projekt ausw\u00e4hlen",
+            "type": "Service"
+        },
+        {
+            "id": "sid-1D6EA959-DFDC-4038-91CD-46539B7BEFE5",
+            "name": "Zuletzt erstellte Upload Excel ausw\u00e4hlen",
+            "type": "Service"
+        },
+        {
+            "id": "sid-1E329282-221D-4167-BB9F-67B91AD9903A",
+            "name": "Durch klick auf \"hinzuf\u00fcgen\" als Importtabelle markieren",
+            "type": "Service"
+        },
+        {
+            "id": "sid-3735206E-C575-4A30-9592-17DD541028E9",
+            "name": "Fraud Konfiguration ausw\u00e4hlen",
+            "type": "Service"
+        },
+        {
+            "id": "sid-F485D9C8-6CB1-4E90-A356-1CF644F91ABE",
+            "name": "\u00dcbernehmen klicken",
+            "type": "Service"
+        },
+        {
+            "id": "sid-FA225D0C-38E3-4FE2-BD56-97ECA032B997",
+            "name": "Weiter  klicken",
+            "type": "Service"
+        },
+        {
+            "id": "sid-37A72F40-A884-4117-80CC-936CB712E20B",
+            "name": "Datei  klicken",
+            "type": "Service"
+        },
+        {
+            "id": "sid-BFEA19C9-6A2D-4AE3-ABF3-12AE9F23548C",
+            "name": "Konfiguration laden klicken",
+            "type": "Service"
+        },
+        {
+            "id": "sid-B5918100-E0FC-4C6C-8ECF-601C6FF25088",
+            "name": "Weiter  klicken",
+            "type": "Service"
+        },
+        {
+            "id": "sid-A55732DF-24FA-42B3-8339-C49A4BCAFA73",
+            "name": "Importiere klicken",
+            "type": "Service"
+        },
+        {
+            "id": "sid-2A1F50E9-A60A-46A6-9918-0BC66802C869",
+            "name": "Daten- banken einlesen \u00f6ffnen",
+            "type": "Service"
+        },
+        {
+            "id": "sid-AB410DF8-9B28-4BF7-AFE1-A816E9EB3E6B",
+            "name": "TTCALL System \u00f6ffnen",
+            "type": "Service"
+        },
+        {
+            "id": "sid-44CD527C-2251-448F-B675-B3C12DC6542C",
+            "name": "Daten- banken  \u00f6ffnen",
+            "type": "Service"
+        },
+        {
+            "id": "sid-3ED7A09C-0146-4E76-9A08-95290D7A22AC",
+            "name": "Navigation richtigen Explorer Speicherort",
+            "type": "Service"
+        },
+        {
+            "id": "sid-4FD49BAA-DA99-4873-A768-6075750833B9",
+            "name": "Fertigstellen  klicken",
+            "type": "Service"
+        }
+    ],
+    "events": [
+        {
+            "id": "sid-19351353-2B37-4D84-91F1-3740EB494891",
+            "name": "Neue Importexcel  abgespeichert",
+            "type": "StartNoneEvent"
+        },
+        {
+            "id": "sid-3C21031F-371B-4C50-9A5E-9DF81BCD98C5",
+            "name": "Import  abgeschlossen",
+            "type": "EndNoneEvent"
+        }
+    ],
+    "gateways": [],
+    "pools": [
+        {
+            "id": "sid-a049d4f0-05b2-404a-aba3-d8fdaf32e98f",
+            "name": "TAS AG",
+            "lanes": [
+                {
+                    "id": "sid-95B72973-3F17-467D-8973-370DCD9C0F2B",
+                    "name": "Team Fraud",
+                    "elemRefs": [
+                        "sid-4EC28E1D-DEED-4268-BE34-7162DD10DCAD",
+                        "sid-1D6EA959-DFDC-4038-91CD-46539B7BEFE5",
+                        "sid-1E329282-221D-4167-BB9F-67B91AD9903A",
+                        "sid-3735206E-C575-4A30-9592-17DD541028E9",
+                        "sid-F485D9C8-6CB1-4E90-A356-1CF644F91ABE",
+                        "sid-FA225D0C-38E3-4FE2-BD56-97ECA032B997",
+                        "sid-37A72F40-A884-4117-80CC-936CB712E20B",
+                        "sid-BFEA19C9-6A2D-4AE3-ABF3-12AE9F23548C",
+                        "sid-B5918100-E0FC-4C6C-8ECF-601C6FF25088",
+                        "sid-A55732DF-24FA-42B3-8339-C49A4BCAFA73",
+                        "sid-2A1F50E9-A60A-46A6-9918-0BC66802C869",
+                        "sid-AB410DF8-9B28-4BF7-AFE1-A816E9EB3E6B",
+                        "sid-44CD527C-2251-448F-B675-B3C12DC6542C",
+                        "sid-3ED7A09C-0146-4E76-9A08-95290D7A22AC",
+                        "sid-4FD49BAA-DA99-4873-A768-6075750833B9",
+                        "sid-19351353-2B37-4D84-91F1-3740EB494891",
+                        "sid-3C21031F-371B-4C50-9A5E-9DF81BCD98C5"
+                    ]
+                }
+            ]
+        }
+    ],
+    "messageFlows": [],
+    "sequenceFlows": [
+        {
+            "id": "sid-3C656A93-7155-4096-A508-2E4FAF605F72",
+            "targetRef": "sid-44CD527C-2251-448F-B675-B3C12DC6542C",
+            "sourceRef": "sid-AB410DF8-9B28-4BF7-AFE1-A816E9EB3E6B"
+        },
+        {
+            "id": "sid-17AB3193-2B2D-4E97-A164-526A89F862FC",
+            "targetRef": "sid-2A1F50E9-A60A-46A6-9918-0BC66802C869",
+            "sourceRef": "sid-44CD527C-2251-448F-B675-B3C12DC6542C"
+        },
+        {
+            "id": "sid-D7E5E344-3A6A-43CC-A873-79DABCD446B9",
+            "targetRef": "sid-FA225D0C-38E3-4FE2-BD56-97ECA032B997",
+            "sourceRef": "sid-4EC28E1D-DEED-4268-BE34-7162DD10DCAD"
+        },
+        {
+            "id": "sid-17A03D4A-B965-4315-B1EA-A1641A26BEF2",
+            "targetRef": "sid-37A72F40-A884-4117-80CC-936CB712E20B",
+            "sourceRef": "sid-FA225D0C-38E3-4FE2-BD56-97ECA032B997"
+        },
+        {
+            "id": "sid-18EE6353-D442-481E-8F9B-439616BEBF5A",
+            "targetRef": "sid-1E329282-221D-4167-BB9F-67B91AD9903A",
+            "sourceRef": "sid-1D6EA959-DFDC-4038-91CD-46539B7BEFE5"
+        },
+        {
+            "id": "sid-D8654E05-5F7F-413D-B59A-FFE7E91565ED",
+            "targetRef": "sid-B5918100-E0FC-4C6C-8ECF-601C6FF25088",
+            "sourceRef": "sid-1E329282-221D-4167-BB9F-67B91AD9903A"
+        },
+        {
+            "id": "sid-1046D395-783B-44C7-AF9F-B0587E9944F3",
+            "targetRef": "sid-BFEA19C9-6A2D-4AE3-ABF3-12AE9F23548C",
+            "sourceRef": "sid-B5918100-E0FC-4C6C-8ECF-601C6FF25088"
+        },
+        {
+            "id": "sid-C5F7E0DE-9218-424A-ACDC-87193C91704C",
+            "targetRef": "sid-F485D9C8-6CB1-4E90-A356-1CF644F91ABE",
+            "sourceRef": "sid-3735206E-C575-4A30-9592-17DD541028E9"
+        },
+        {
+            "id": "sid-5BB548ED-B4D4-49EC-9D5B-620A893E9C62",
+            "targetRef": "sid-A55732DF-24FA-42B3-8339-C49A4BCAFA73",
+            "sourceRef": "sid-F485D9C8-6CB1-4E90-A356-1CF644F91ABE"
+        },
+        {
+            "id": "sid-E05ADFF1-409E-468D-819F-F43C524F7E68",
+            "targetRef": "sid-4EC28E1D-DEED-4268-BE34-7162DD10DCAD",
+            "sourceRef": "sid-2A1F50E9-A60A-46A6-9918-0BC66802C869"
+        },
+        {
+            "id": "sid-A4294123-E5D9-416C-A708-6191DF16719B",
+            "targetRef": "sid-AB410DF8-9B28-4BF7-AFE1-A816E9EB3E6B",
+            "sourceRef": "sid-19351353-2B37-4D84-91F1-3740EB494891"
+        },
+        {
+            "id": "sid-EE612669-74E3-4C40-A0ED-D50F2344BE90",
+            "targetRef": "sid-3735206E-C575-4A30-9592-17DD541028E9",
+            "sourceRef": "sid-BFEA19C9-6A2D-4AE3-ABF3-12AE9F23548C"
+        },
+        {
+            "id": "sid-666C2549-7EF7-472B-8CD7-53949E38525D",
+            "targetRef": "sid-3ED7A09C-0146-4E76-9A08-95290D7A22AC",
+            "sourceRef": "sid-37A72F40-A884-4117-80CC-936CB712E20B"
+        },
+        {
+            "id": "sid-9CDD0E03-2FF1-4DEB-A49F-7847BB83379D",
+            "targetRef": "sid-1D6EA959-DFDC-4038-91CD-46539B7BEFE5",
+            "sourceRef": "sid-3ED7A09C-0146-4E76-9A08-95290D7A22AC"
+        },
+        {
+            "id": "sid-A14E2736-D843-4CCD-87EF-BD15E004D929",
+            "targetRef": "sid-4FD49BAA-DA99-4873-A768-6075750833B9",
+            "sourceRef": "sid-A55732DF-24FA-42B3-8339-C49A4BCAFA73"
+        },
+        {
+            "id": "sid-3AE42EFD-8D0F-4D6C-8814-4A22AEB39F84",
+            "targetRef": "sid-3C21031F-371B-4C50-9A5E-9DF81BCD98C5",
+            "sourceRef": "sid-4FD49BAA-DA99-4873-A768-6075750833B9"
+        }
+    ]
+}

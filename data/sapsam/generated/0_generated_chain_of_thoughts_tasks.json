@@ -1,0 +1,37 @@
+[
+    {
+        "id": "0",
+        "name": "Send receipt confirmation",
+        "type": "Task"
+    },
+    {
+        "id": "1",
+        "name": "Applicant verified",
+        "type": "Task"
+    },
+    {
+        "id": "2",
+        "name": "Invite to job interview",
+        "type": "Task"
+    },
+    {
+        "id": "3",
+        "name": "Prepare employment agreement",
+        "type": "Task"
+    },
+    {
+        "id": "4",
+        "name": "Carry out job interview",
+        "type": "Task"
+    },
+    {
+        "id": "5",
+        "name": "Send employment contract",
+        "type": "Task"
+    },
+    {
+        "id": "6",
+        "name": "Send rejection",
+        "type": "Task"
+    }
+]

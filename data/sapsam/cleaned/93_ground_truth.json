@@ -1,0 +1,114 @@
+{
+    "tasks": [
+        {
+            "id": "sid-6B470BCA-F464-4DFB-89D3-75035CC313AE",
+            "name": "Withdraw contract",
+            "type": "Service"
+        },
+        {
+            "id": "sid-959C8F43-C8B7-495C-B3E8-1042B7AD0ABA",
+            "name": "Student place given back to the pool",
+            "type": "Service"
+        },
+        {
+            "id": "sid-3A2E5C07-7219-4BAA-A115-A39D749953EE",
+            "name": "Decrement course counter",
+            "type": "Service"
+        },
+        {
+            "id": "sid-1EE8ED09-2047-4066-BFE0-C93418D11A23",
+            "name": "Check if contract has been withdrawn",
+            "type": "Service"
+        }
+    ],
+    "events": [
+        {
+            "id": "sid-3FB75E50-9FD0-4BA2-A890-BD80B719D68E",
+            "name": "Check for duplicates  complete",
+            "type": "StartNoneEvent"
+        },
+        {
+            "id": "sid-0B4C21CE-4DF5-4A83-B6F1-5FBD6D6E7FD8",
+            "name": "Closing of \"Student Registration\"  Moodle course",
+            "type": "EndNoneEvent"
+        }
+    ],
+    "gateways": [
+        {
+            "id": "sid-D34CB896-16CC-4E12-B7D5-BE3046BC89E8",
+            "name": "Contract(s)  withdrawn?",
+            "type": "Exclusive"
+        },
+        {
+            "id": "sid-A102B120-598D-46DD-9890-34965C8E79EC",
+            "type": "Exclusive"
+        }
+    ],
+    "pools": [
+        {
+            "id": "sid-af65c791-85e0-4346-8516-4adc23f942e9",
+            "name": "DHBW",
+            "lanes": [
+                {
+                    "id": "sid-21B124E9-30DF-45FE-B164-AAC7FC159AE4_5",
+                    "name": "Moodle",
+                    "elemRefs": [
+                        "sid-6B470BCA-F464-4DFB-89D3-75035CC313AE",
+                        "sid-959C8F43-C8B7-495C-B3E8-1042B7AD0ABA",
+                        "sid-3A2E5C07-7219-4BAA-A115-A39D749953EE",
+                        "sid-1EE8ED09-2047-4066-BFE0-C93418D11A23",
+                        "sid-3FB75E50-9FD0-4BA2-A890-BD80B719D68E",
+                        "sid-0B4C21CE-4DF5-4A83-B6F1-5FBD6D6E7FD8",
+                        "sid-D34CB896-16CC-4E12-B7D5-BE3046BC89E8",
+                        "sid-A102B120-598D-46DD-9890-34965C8E79EC"
+                    ]
+                }
+            ]
+        }
+    ],
+    "messageFlows": [],
+    "sequenceFlows": [
+        {
+            "id": "sid-3D833539-D42A-4894-9ABF-BDF8504D5A0E",
+            "targetRef": "sid-959C8F43-C8B7-495C-B3E8-1042B7AD0ABA",
+            "sourceRef": "sid-6B470BCA-F464-4DFB-89D3-75035CC313AE"
+        },
+        {
+            "id": "sid-BE9333F7-A52E-4F2D-9A91-C77DAF225348",
+            "targetRef": "sid-0B4C21CE-4DF5-4A83-B6F1-5FBD6D6E7FD8",
+            "sourceRef": "sid-A102B120-598D-46DD-9890-34965C8E79EC"
+        },
+        {
+            "id": "sid-87544331-69DE-4D89-A39C-99B16BE1241E",
+            "targetRef": "sid-3A2E5C07-7219-4BAA-A115-A39D749953EE",
+            "sourceRef": "sid-959C8F43-C8B7-495C-B3E8-1042B7AD0ABA"
+        },
+        {
+            "id": "sid-CB975E74-2066-4EAF-9C21-0806A562840E",
+            "targetRef": "sid-A102B120-598D-46DD-9890-34965C8E79EC",
+            "sourceRef": "sid-3A2E5C07-7219-4BAA-A115-A39D749953EE"
+        },
+        {
+            "id": "sid-D91B875F-DEBC-4A4D-B7B7-18E9F9DF558C",
+            "targetRef": "sid-1EE8ED09-2047-4066-BFE0-C93418D11A23",
+            "sourceRef": "sid-3FB75E50-9FD0-4BA2-A890-BD80B719D68E"
+        },
+        {
+            "id": "sid-990FF4F6-BD0E-4FFD-A6FC-CAD79A13D9EF",
+            "targetRef": "sid-D34CB896-16CC-4E12-B7D5-BE3046BC89E8",
+            "sourceRef": "sid-1EE8ED09-2047-4066-BFE0-C93418D11A23"
+        },
+        {
+            "id": "sid-EF39B578-2394-4B74-A805-7926BF052140",
+            "targetRef": "sid-A102B120-598D-46DD-9890-34965C8E79EC",
+            "condition": "No",
+            "sourceRef": "sid-D34CB896-16CC-4E12-B7D5-BE3046BC89E8"
+        },
+        {
+            "id": "sid-3E81D6FA-B3CC-463B-8ED8-EC40DF41246F",
+            "targetRef": "sid-6B470BCA-F464-4DFB-89D3-75035CC313AE",
+            "condition": "Yes",
+            "sourceRef": "sid-D34CB896-16CC-4E12-B7D5-BE3046BC89E8"
+        }
+    ]
+}

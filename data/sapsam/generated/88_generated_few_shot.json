@@ -1,0 +1,150 @@
+{
+    "tasks": [
+        {
+            "id": "0",
+            "name": "Anfrage verifizieren",
+            "type": "Task"
+        },
+        {
+            "id": "1",
+            "name": "Angebot erstellen",
+            "type": "CollapsedSubprocess"
+        },
+        {
+            "id": "2",
+            "name": "Angebot versenden & archivieren",
+            "type": "Task"
+        },
+        {
+            "id": "3",
+            "name": "AB erstellen",
+            "type": "CollapsedSubprocess"
+        },
+        {
+            "id": "4",
+            "name": "AB kontrollieren",
+            "type": "Task"
+        },
+        {
+            "id": "5",
+            "name": "AB archivieren",
+            "type": "Task"
+        }
+    ],
+    "events": [
+        {
+            "id": "6",
+            "name": "Anfrage erhalten",
+            "type": "StartMessageEvent"
+        },
+        {
+            "id": "7",
+            "name": "Angebotsverfolgung",
+            "type": "EndEvent"
+        },
+        {
+            "id": "8",
+            "name": "Direktauftrag erhalten",
+            "type": "StartMessageEvent"
+        }
+    ],
+    "gateways": [
+        {
+            "id": "9",
+            "name": "Auftrag erhalten?",
+            "type": "Exclusive"
+        },
+        {
+            "id": "10",
+            "name": "Produkt- Bauvorschrift vorhanden?",
+            "type": "Exclusive"
+        },
+        {
+            "id": "11",
+            "name": "Bauvorschrift vorhanden",
+            "type": "Exclusive"
+        }
+    ],
+    "pools": [
+        {
+            "id": "12",
+            "name": "Rs-V",
+            "lanes": [
+                {
+                    "id": "13",
+                    "name": "Vertriebs-Innendienst",
+                    "elemRefs": [
+                        "0",
+                        "1",
+                        "2",
+                        "4",
+                        "5"
+                    ]
+                },
+                {
+                    "id": "14",
+                    "name": "Handelsvertreter",
+                    "elemRefs": [
+                        "6",
+                        "3",
+                        "8"
+                    ]
+                }
+            ]
+        },
+        {
+            "id": "15",
+            "name": "Kunde",
+            "lanes": []
+        }
+    ],
+    "sequenceFlows": [
+        {
+            "id": "16",
+            "sourceRef": "6",
+            "targetRef": "0"
+        },
+        {
+            "id": "17",
+            "sourceRef": "0",
+            "targetRef": "1"
+        },
+        {
+            "id": "18",
+            "sourceRef": "1",
+            "targetRef": "2"
+        },
+        {
+            "id": "19",
+            "sourceRef": "3",
+            "targetRef": "4"
+        },
+        {
+            "id": "20",
+            "sourceRef": "4",
+            "targetRef": "5"
+        },
+        {
+            "id": "21",
+            "sourceRef": "8",
+            "targetRef": "3"
+        }
+    ],
+    "messageFlows": [
+        {
+            "id": "22",
+            "sourceRef": "14",
+            "targetRef": "0"
+        },
+        {
+            "id": "23",
+            "sourceRef": "1",
+            "targetRef": "15"
+        },
+        {
+            "id": "24",
+            "sourceRef": "3",
+            "targetRef": "14"
+        }
+    ]
+}

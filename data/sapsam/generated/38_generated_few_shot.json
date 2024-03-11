@@ -1,0 +1,228 @@
+{
+    "tasks": [
+        {
+            "id": "0",
+            "name": "Ware ausw\u00e4hlen und Kaufen",
+            "type": "Task"
+        },
+        {
+            "id": "1",
+            "name": "Erfordert Preis Pr\u00fcfung der Kreditw\u00fcrdigkeit",
+            "type": "Task"
+        },
+        {
+            "id": "2",
+            "name": "Informationen anfordern",
+            "type": "Task"
+        },
+        {
+            "id": "3",
+            "name": "Kreditw\u00fcrdigkeit pr\u00fcfen",
+            "type": "Task"
+        },
+        {
+            "id": "4",
+            "name": "Kunden \u00fcber Ablehnung informieren",
+            "type": "Task"
+        },
+        {
+            "id": "5",
+            "name": "Lager \u00fcber Versand informieren",
+            "type": "Task"
+        },
+        {
+            "id": "6",
+            "name": "Pr\u00fcfe ob Artikel vorhanden",
+            "type": "Task"
+        },
+        {
+            "id": "7",
+            "name": "Nachbestellen",
+            "type": "Task"
+        },
+        {
+            "id": "8",
+            "name": "Kauf-und Versandbest\u00e4tigung",
+            "type": "Task"
+        },
+        {
+            "id": "9",
+            "name": "verpacken und versenden",
+            "type": "Task"
+        }
+    ],
+    "events": [
+        {
+            "id": "10",
+            "name": "Start Event",
+            "type": "StartNoneEvent"
+        },
+        {
+            "id": "11",
+            "name": "End Event Finanzabteilung",
+            "type": "EndNoneEvent"
+        },
+        {
+            "id": "12",
+            "name": "End Event online",
+            "type": "EndNoneEvent"
+        },
+        {
+            "id": "13",
+            "name": "End Event Lager",
+            "type": "EndNoneEvent"
+        }
+    ],
+    "gateways": [
+        {
+            "id": "14",
+            "name": "",
+            "type": "Exclusive"
+        },
+        {
+            "id": "15",
+            "name": "Exclusive (XOR) Gateway: \u00dcberpr\u00fcfung ob Preis Limit von 250 Euro \u00fcbersteigt",
+            "type": "Exclusive"
+        },
+        {
+            "id": "16",
+            "name": "Exclusive (XOR) Gateway: Kunden \u00fcber Ablehnung informieren",
+            "type": "Exclusive"
+        },
+        {
+            "id": "17",
+            "name": "",
+            "type": "Parallel"
+        }
+    ],
+    "pools": [
+        {
+            "id": "18",
+            "name": "Einkauf",
+            "lanes": [
+                {
+                    "id": "19",
+                    "name": "Finanzabteilung",
+                    "elemRefs": [
+                        "1",
+                        "2",
+                        "3",
+                        "4",
+                        "5",
+                        "11",
+                        "14",
+                        "15",
+                        "16"
+                    ]
+                },
+                {
+                    "id": "20",
+                    "name": "Online",
+                    "elemRefs": [
+                        "0",
+                        "8",
+                        "12"
+                    ]
+                },
+                {
+                    "id": "21",
+                    "name": "im Gesch\u00e4ft",
+                    "elemRefs": [
+                        "10"
+                    ]
+                },
+                {
+                    "id": "22",
+                    "name": "Lager",
+                    "elemRefs": [
+                        "6",
+                        "7",
+                        "9",
+                        "13",
+                        "17"
+                    ]
+                }
+            ]
+        }
+    ],
+    "sequenceFlows": [
+        {
+            "id": "23",
+            "sourceRef": "10",
+            "targetRef": "0"
+        },
+        {
+            "id": "24",
+            "sourceRef": "0",
+            "targetRef": "15"
+        },
+        {
+            "id": "25",
+            "sourceRef": "15",
+            "targetRef": "2"
+        },
+        {
+            "id": "26",
+            "sourceRef": "2",
+            "targetRef": "3"
+        },
+        {
+            "id": "27",
+            "sourceRef": "3",
+            "targetRef": "16"
+        },
+        {
+            "id": "28",
+            "sourceRef": "16",
+            "targetRef": "4",
+            "condition": "credit denied"
+        },
+        {
+            "id": "29",
+            "sourceRef": "16",
+            "targetRef": "5",
+            "condition": "credit approved"
+        },
+        {
+            "id": "30",
+            "sourceRef": "5",
+            "targetRef": "6"
+        },
+        {
+            "id": "31",
+            "sourceRef": "6",
+            "targetRef": "17"
+        },
+        {
+            "id": "32",
+            "sourceRef": "17",
+            "targetRef": "7"
+        },
+        {
+            "id": "33",
+            "sourceRef": "17",
+            "targetRef": "9"
+        },
+        {
+            "id": "34",
+            "sourceRef": "9",
+            "targetRef": "13"
+        },
+        {
+            "id": "35",
+            "sourceRef": "7",
+            "targetRef": "13"
+        },
+        {
+            "id": "36",
+            "sourceRef": "0",
+            "targetRef": "8"
+        },
+        {
+            "id": "37",
+            "sourceRef": "8",
+            "targetRef": "12"
+        }
+    ],
+    "messageFlows": []
+}

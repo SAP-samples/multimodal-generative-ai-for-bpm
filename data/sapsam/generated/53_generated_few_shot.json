@@ -1,0 +1,250 @@
+{
+    "tasks": [
+        {
+            "id": "0",
+            "name": "Prepare check-list for preparations",
+            "type": "User"
+        },
+        {
+            "id": "1",
+            "name": "Check and complete necessary papers",
+            "type": "Manual"
+        },
+        {
+            "id": "2",
+            "name": "Apply for visa",
+            "type": "Send"
+        },
+        {
+            "id": "3",
+            "name": "Clear unfinished business",
+            "type": "Task"
+        },
+        {
+            "id": "4",
+            "name": "Arrange care for pets",
+            "type": "Manual"
+        },
+        {
+            "id": "5",
+            "name": "Unsubscribe post or demand at neighbour to fetch it",
+            "type": "Manual"
+        },
+        {
+            "id": "6",
+            "name": "Get necessary vaccination",
+            "type": "Manual"
+        },
+        {
+            "id": "7",
+            "name": "Check insurance coverage and apply for further coverage if necessary",
+            "type": "Manual"
+        },
+        {
+            "id": "8",
+            "name": "Gather travel documents and addresses",
+            "type": "Manual"
+        },
+        {
+            "id": "9",
+            "name": "Prepare first-aid kit",
+            "type": "Manual"
+        },
+        {
+            "id": "10",
+            "name": "Buy or lend guidebooks and city maps",
+            "type": "Manual"
+        },
+        {
+            "id": "11",
+            "name": "Make copies of ID cards and travel documents",
+            "type": "Manual"
+        }
+    ],
+    "events": [
+        {
+            "id": "12",
+            "name": "Travel details are fixed",
+            "type": "StartNoneEvent"
+        },
+        {
+            "id": "13",
+            "name": "Travel preparations completed",
+            "type": "EndNoneEvent"
+        }
+    ],
+    "gateways": [
+        {
+            "id": "14",
+            "type": "Exclusive"
+        },
+        {
+            "id": "15",
+            "type": "Exclusive"
+        },
+        {
+            "id": "16",
+            "type": "Parallel"
+        },
+        {
+            "id": "17",
+            "type": "Exclusive"
+        }
+    ],
+    "pools": [
+        {
+            "id": "18",
+            "name": "Embassy",
+            "lanes": [
+                {
+                    "id": "19",
+                    "name": "Lane",
+                    "elemRefs": []
+                }
+            ]
+        },
+        {
+            "id": "20",
+            "name": "Insurance company",
+            "lanes": [
+                {
+                    "id": "21",
+                    "name": "Lane",
+                    "elemRefs": []
+                }
+            ]
+        },
+        {
+            "id": "22",
+            "name": "Roadtrip participant",
+            "lanes": [
+                {
+                    "id": "23",
+                    "name": "Lane",
+                    "elemRefs": [
+                        "0",
+                        "1",
+                        "2",
+                        "3",
+                        "4",
+                        "5",
+                        "6",
+                        "7",
+                        "8",
+                        "9",
+                        "10",
+                        "11",
+                        "12",
+                        "13"
+                    ]
+                }
+            ]
+        }
+    ],
+    "sequenceFlows": [
+        {
+            "id": "24",
+            "sourceRef": "12",
+            "targetRef": "0"
+        },
+        {
+            "id": "25",
+            "sourceRef": "0",
+            "targetRef": "1"
+        },
+        {
+            "id": "26",
+            "sourceRef": "1",
+            "targetRef": "14"
+        },
+        {
+            "id": "27",
+            "sourceRef": "14",
+            "targetRef": "2"
+        },
+        {
+            "id": "28",
+            "sourceRef": "14",
+            "targetRef": "3"
+        },
+        {
+            "id": "29",
+            "sourceRef": "3",
+            "targetRef": "15"
+        },
+        {
+            "id": "30",
+            "sourceRef": "15",
+            "targetRef": "4"
+        },
+        {
+            "id": "31",
+            "sourceRef": "15",
+            "targetRef": "5"
+        },
+        {
+            "id": "32",
+            "sourceRef": "5",
+            "targetRef": "16"
+        },
+        {
+            "id": "33",
+            "sourceRef": "4",
+            "targetRef": "16"
+        },
+        {
+            "id": "34",
+            "sourceRef": "16",
+            "targetRef": "6"
+        },
+        {
+            "id": "35",
+            "sourceRef": "6",
+            "targetRef": "7"
+        },
+        {
+            "id": "36",
+            "sourceRef": "7",
+            "targetRef": "8"
+        },
+        {
+            "id": "37",
+            "sourceRef": "8",
+            "targetRef": "9"
+        },
+        {
+            "id": "38",
+            "sourceRef": "9",
+            "targetRef": "10"
+        },
+        {
+            "id": "39",
+            "sourceRef": "10",
+            "targetRef": "17"
+        },
+        {
+            "id": "40",
+            "sourceRef": "17",
+            "targetRef": "11"
+        },
+        {
+            "id": "41",
+            "sourceRef": "11",
+            "targetRef": "13"
+        }
+    ],
+    "messageFlows": [
+        {
+            "id": "42",
+            "sourceRef": "2",
+            "targetRef": "18",
+            "label": "Visa application"
+        },
+        {
+            "id": "43",
+            "sourceRef": "7",
+            "targetRef": "20",
+            "label": "Insurance application"
+        }
+    ]
+}

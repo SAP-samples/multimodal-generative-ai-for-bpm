@@ -1,0 +1,326 @@
+{
+    "tasks": [
+        {
+            "id": "0",
+            "name": "Anfrage annehmen und bearbeiten",
+            "type": "User"
+        },
+        {
+            "id": "1",
+            "name": "Kundenstammdaten anlegen",
+            "type": "User"
+        },
+        {
+            "id": "2",
+            "name": "Angebot bearbeiten",
+            "type": "User"
+        },
+        {
+            "id": "3",
+            "name": "Angebot in Auftrag kopieren und an Kunde senden",
+            "type": "Service"
+        },
+        {
+            "id": "4",
+            "name": "Bestellung annehmen und bearbeiten",
+            "type": "User"
+        },
+        {
+            "id": "5",
+            "name": "Lagerbestand \u00fcberpr\u00fcfen",
+            "type": "Service"
+        },
+        {
+            "id": "6",
+            "name": "Ware besorgen/bestellen",
+            "type": "Service"
+        },
+        {
+            "id": "7",
+            "name": "Kundenauftrag bearbeiten",
+            "type": "User"
+        },
+        {
+            "id": "8",
+            "name": "Auslieferungsbeleg erstellen",
+            "type": "Service"
+        },
+        {
+            "id": "9",
+            "name": "Material kommissionieren",
+            "type": "Service"
+        },
+        {
+            "id": "10",
+            "name": "Material verpacken/verladen und an Kunde senden",
+            "type": "Service"
+        },
+        {
+            "id": "11",
+            "name": "Bestand pr\u00fcfen",
+            "type": "Service"
+        },
+        {
+            "id": "12",
+            "name": "Rechnung erstellen",
+            "type": "Service"
+        },
+        {
+            "id": "13",
+            "name": "Zahlungseingang bearbeiten",
+            "type": "Service"
+        },
+        {
+            "id": "14",
+            "name": "Belegfluss bearbeiten und anzeigen",
+            "type": "Service"
+        },
+        {
+            "id": "15",
+            "name": "Kundendaten \u00e4ndern",
+            "type": "User"
+        },
+        {
+            "id": "16",
+            "name": "Produkt im Lager anfordern",
+            "type": "User"
+        },
+        {
+            "id": "17",
+            "name": "Kundenanfrage senden",
+            "type": "Send"
+        },
+        {
+            "id": "18",
+            "name": "Fahrr\u00e4der bestellen",
+            "type": "Manual"
+        },
+        {
+            "id": "19",
+            "name": "Rechnung begleichen",
+            "type": "Manual"
+        },
+        {
+            "id": "20",
+            "name": "Wareneingang",
+            "type": "User"
+        },
+        {
+            "id": "21",
+            "name": "Rechnung empfangen",
+            "type": "Receive"
+        }
+    ],
+    "events": [
+        {
+            "id": "22",
+            "name": "Der Prozess 'Kunden-Auftrag' beginnen",
+            "type": "StartNoneEvent"
+        },
+        {
+            "id": "23",
+            "name": "Der Prozess beendet",
+            "type": "EndNoneEvent"
+        },
+        {
+            "id": "24",
+            "name": "Anfrage beginnen",
+            "type": "StartNoneEvent"
+        },
+        {
+            "id": "25",
+            "name": "Anfrage empfangen",
+            "type": "IntermediateMessageEventCatching"
+        },
+        {
+            "id": "26",
+            "name": "Auftrag beendet",
+            "type": "EndNoneEvent"
+        }
+    ],
+    "gateways": [
+        {
+            "id": "27",
+            "name": "Produkt im Lager?",
+            "type": "Exclusive"
+        }
+    ],
+    "pools": [
+        {
+            "id": "28",
+            "name": "GBI",
+            "lanes": [
+                {
+                    "id": "29",
+                    "name": "Vertrieb (SD)",
+                    "elemRefs": [
+                        "0",
+                        "1",
+                        "2",
+                        "3",
+                        "4",
+                        "7",
+                        "8",
+                        "9",
+                        "10",
+                        "12",
+                        "13",
+                        "14",
+                        "15",
+                        "22",
+                        "23"
+                    ]
+                },
+                {
+                    "id": "30",
+                    "name": "Materialwirtschaft (MM)",
+                    "elemRefs": [
+                        "5",
+                        "6",
+                        "11",
+                        "16",
+                        "27"
+                    ]
+                },
+                {
+                    "id": "31",
+                    "name": "Finanzwesen (FI)",
+                    "elemRefs": [
+                        "12",
+                        "13"
+                    ]
+                }
+            ]
+        },
+        {
+            "id": "32",
+            "name": "Kunde The Bike Zone",
+            "lanes": [
+                {
+                    "id": "33",
+                    "name": "Lane",
+                    "elemRefs": [
+                        "17",
+                        "18",
+                        "19",
+                        "20",
+                        "21",
+                        "24",
+                        "25",
+                        "26"
+                    ]
+                }
+            ]
+        }
+    ],
+    "sequenceFlows": [
+        {
+            "id": "34",
+            "sourceRef": "0",
+            "targetRef": "2"
+        },
+        {
+            "id": "35",
+            "sourceRef": "2",
+            "targetRef": "3"
+        },
+        {
+            "id": "36",
+            "sourceRef": "3",
+            "targetRef": "4"
+        },
+        {
+            "id": "37",
+            "sourceRef": "4",
+            "targetRef": "5"
+        },
+        {
+            "id": "38",
+            "sourceRef": "5",
+            "targetRef": "6",
+            "condition": "Produkt nicht im Lager"
+        },
+        {
+            "id": "39",
+            "sourceRef": "6",
+            "targetRef": "7"
+        },
+        {
+            "id": "40",
+            "sourceRef": "5",
+            "targetRef": "7",
+            "condition": "Produkt im Lager"
+        },
+        {
+            "id": "41",
+            "sourceRef": "7",
+            "targetRef": "8"
+        },
+        {
+            "id": "42",
+            "sourceRef": "8",
+            "targetRef": "9"
+        },
+        {
+            "id": "43",
+            "sourceRef": "9",
+            "targetRef": "10"
+        },
+        {
+            "id": "44",
+            "sourceRef": "10",
+            "targetRef": "11"
+        },
+        {
+            "id": "45",
+            "sourceRef": "11",
+            "targetRef": "12"
+        },
+        {
+            "id": "46",
+            "sourceRef": "12",
+            "targetRef": "13"
+        },
+        {
+            "id": "47",
+            "sourceRef": "13",
+            "targetRef": "14"
+        },
+        {
+            "id": "48",
+            "sourceRef": "22",
+            "targetRef": "0"
+        },
+        {
+            "id": "49",
+            "sourceRef": "14",
+            "targetRef": "23"
+        }
+    ],
+    "messageFlows": [
+        {
+            "id": "50",
+            "sourceRef": "17",
+            "targetRef": "0",
+            "label": "Anfrage von Kunde The Bike Zone"
+        },
+        {
+            "id": "51",
+            "sourceRef": "3",
+            "targetRef": "21",
+            "label": "Angebot als Nachricht an Kunde The Bike Zone"
+        },
+        {
+            "id": "52",
+            "sourceRef": "10",
+            "targetRef": "20",
+            "label": "Warenlieferung an Kunde The Bike Zone"
+        },
+        {
+            "id": "53",
+            "sourceRef": "19",
+            "targetRef": "13",
+            "label": "Zahlung von Kunde The Bike Zone"
+        }
+    ]
+}

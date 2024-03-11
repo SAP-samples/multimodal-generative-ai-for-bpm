@@ -1,0 +1,152 @@
+{
+    "tasks": [
+        {
+            "id": "sid-CB91E360-49E2-437D-B01B-2CF0C22A070F",
+            "name": "Bewerbung durchf\u00fchren",
+            "type": "Task"
+        },
+        {
+            "id": "sid-A60FF3B8-29FF-4ED5-9A1E-45E5D0D24E55",
+            "name": "Zulassung annehmen",
+            "type": "Task"
+        },
+        {
+            "id": "sid-58DFEAD9-8AE0-48EC-8E85-78D30CB75120",
+            "name": "Bewerbungen entgegennehmen",
+            "type": "Task"
+        },
+        {
+            "id": "sid-9A6301F1-3A84-4519-9A74-E7581F6AEDE2",
+            "name": "Bewerberakten bereitstellen",
+            "type": "Task"
+        },
+        {
+            "id": "sid-9AD645DF-95F2-4C4F-9C8A-CC68A1630EA6",
+            "name": "Ergebnisse der Zulassungspr\u00fcfung auswerten",
+            "type": "Task"
+        },
+        {
+            "id": "sid-CF7E0B76-F62D-4C6A-A0FD-B26003E0FBB8",
+            "name": "Bewerber ausw\u00e4hlen und zulassen",
+            "type": "Task"
+        },
+        {
+            "id": "sid-2D4557C6-D8F4-45AD-82DF-21ADDDE2DDBA",
+            "name": "Studenten immatrikulieren",
+            "type": "Task"
+        },
+        {
+            "id": "sid-DEAFC397-EFD2-478F-929A-7603BDD856A2",
+            "name": "Immatrikulationsunterlagen versenden",
+            "type": "Task"
+        },
+        {
+            "id": "sid-64D3792C-D18C-4781-9709-9ED348C054D9",
+            "name": "Zulassungsf\u00e4higkeit der Bewerber pr\u00fcfen",
+            "type": "Task"
+        }
+    ],
+    "events": [
+        {
+            "id": "sid-727c98a57a124db386ae4d34d3861b6f",
+            "name": "Bewerbungsverfahren er\u00f6ffnet",
+            "type": "StartNoneEvent"
+        },
+        {
+            "id": "sid-55b01944dcb2404188720025534d8019",
+            "name": "Bewerbungsverfahren beendet",
+            "type": "EndNoneEvent"
+        }
+    ],
+    "gateways": [],
+    "pools": [
+        {
+            "id": "sid-4aef709f447a48dfb7027a2c3c3c0881",
+            "name": "",
+            "lanes": [
+                {
+                    "id": "sid-995f3639f2d244c4960dca1dbb0adcb1",
+                    "name": "Student",
+                    "elemRefs": [
+                        "sid-CB91E360-49E2-437D-B01B-2CF0C22A070F",
+                        "sid-A60FF3B8-29FF-4ED5-9A1E-45E5D0D24E55",
+                        "sid-727c98a57a124db386ae4d34d3861b6f"
+                    ]
+                },
+                {
+                    "id": "sid-a3226468930a4ea4a41a6c2568fca264",
+                    "name": "Referat Zulassung und Immatrikulation",
+                    "elemRefs": [
+                        "sid-58DFEAD9-8AE0-48EC-8E85-78D30CB75120",
+                        "sid-9A6301F1-3A84-4519-9A74-E7581F6AEDE2",
+                        "sid-9AD645DF-95F2-4C4F-9C8A-CC68A1630EA6",
+                        "sid-CF7E0B76-F62D-4C6A-A0FD-B26003E0FBB8",
+                        "sid-2D4557C6-D8F4-45AD-82DF-21ADDDE2DDBA",
+                        "sid-DEAFC397-EFD2-478F-929A-7603BDD856A2",
+                        "sid-55b01944dcb2404188720025534d8019"
+                    ]
+                },
+                {
+                    "id": "sid-90301d5b234140f6bc19d82a9fadac0c",
+                    "name": "WI-Auswahlkommission",
+                    "elemRefs": [
+                        "sid-64D3792C-D18C-4781-9709-9ED348C054D9"
+                    ]
+                }
+            ]
+        }
+    ],
+    "messageFlows": [],
+    "sequenceFlows": [
+        {
+            "id": "spr-7e4120ba1860439eb3c0bd24e8b37296",
+            "targetRef": "sid-CB91E360-49E2-437D-B01B-2CF0C22A070F",
+            "sourceRef": "sid-727c98a57a124db386ae4d34d3861b6f"
+        },
+        {
+            "id": "spr-7e30d5db57c84ea5a8fc7253c696fcc5",
+            "targetRef": "sid-58DFEAD9-8AE0-48EC-8E85-78D30CB75120",
+            "sourceRef": "sid-CB91E360-49E2-437D-B01B-2CF0C22A070F"
+        },
+        {
+            "id": "spr-1ad2725199fa4d7b8ab5b0c4eb34d8fe",
+            "targetRef": "sid-9A6301F1-3A84-4519-9A74-E7581F6AEDE2",
+            "sourceRef": "sid-58DFEAD9-8AE0-48EC-8E85-78D30CB75120"
+        },
+        {
+            "id": "spr-7510619b2ac34bd09ce267f60bcaae7b",
+            "targetRef": "sid-64D3792C-D18C-4781-9709-9ED348C054D9",
+            "sourceRef": "sid-9A6301F1-3A84-4519-9A74-E7581F6AEDE2"
+        },
+        {
+            "id": "spr-ff0d880c48074e1682fefb420f44fcaa",
+            "targetRef": "sid-9AD645DF-95F2-4C4F-9C8A-CC68A1630EA6",
+            "sourceRef": "sid-64D3792C-D18C-4781-9709-9ED348C054D9"
+        },
+        {
+            "id": "spr-c533fbb4984f4f8e8ff35b3f944811b2",
+            "targetRef": "sid-CF7E0B76-F62D-4C6A-A0FD-B26003E0FBB8",
+            "sourceRef": "sid-9AD645DF-95F2-4C4F-9C8A-CC68A1630EA6"
+        },
+        {
+            "id": "spr-1908900347184e7fa2878ab802ab34f8",
+            "targetRef": "sid-A60FF3B8-29FF-4ED5-9A1E-45E5D0D24E55",
+            "sourceRef": "sid-CF7E0B76-F62D-4C6A-A0FD-B26003E0FBB8"
+        },
+        {
+            "id": "spr-fc53ed35ccde4b749ec1ca354dbd5a55",
+            "targetRef": "sid-2D4557C6-D8F4-45AD-82DF-21ADDDE2DDBA",
+            "sourceRef": "sid-A60FF3B8-29FF-4ED5-9A1E-45E5D0D24E55"
+        },
+        {
+            "id": "spr-3b2feb88b012469991cdfc4cbcb0a855",
+            "targetRef": "sid-55b01944dcb2404188720025534d8019",
+            "sourceRef": "sid-DEAFC397-EFD2-478F-929A-7603BDD856A2"
+        },
+        {
+            "id": "spr-8248903ea93f4d3caa0353890fe6efa8",
+            "targetRef": "sid-DEAFC397-EFD2-478F-929A-7603BDD856A2",
+            "sourceRef": "sid-2D4557C6-D8F4-45AD-82DF-21ADDDE2DDBA"
+        }
+    ]
+}

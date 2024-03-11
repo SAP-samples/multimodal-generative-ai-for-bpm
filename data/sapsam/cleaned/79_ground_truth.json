@@ -1,0 +1,388 @@
+{
+    "tasks": [
+        {
+            "id": "sid-74EE7FF0-A250-4C88-B4B4-3463C14FFDCE",
+            "name": "Bevorzugtes Mittagessen w\u00e4hlen",
+            "type": "Task"
+        },
+        {
+            "id": "sid-F85B6511-AC42-4726-B718-5926610B869E",
+            "name": "Bestellform w\u00e4hlen",
+            "type": "Task"
+        },
+        {
+            "id": "sid-7BFCE173-E174-4BCC-BC35-79D287F0B415",
+            "name": "Nudeln zubereiten",
+            "type": "Task"
+        },
+        {
+            "id": "sid-B535F2F7-BCB8-4B60-B99D-CB49E8F516ED",
+            "name": "Wasser kochen",
+            "type": "Task"
+        },
+        {
+            "id": "sid-D98DEA9F-30D0-49DE-A17D-221350C08EE7",
+            "name": "So\u00dfe vorbereiten",
+            "type": "Task"
+        },
+        {
+            "id": "sid-42F9D9F1-8A98-460C-94FF-26AE5D8BC66F",
+            "name": "Nudeln hinzuf\u00fcgen",
+            "type": "Task"
+        },
+        {
+            "id": "sid-46DE282B-379B-4DDF-A69F-9A4670C8289B",
+            "name": "Nudeln & So\u00dfe vermischen",
+            "type": "Task"
+        },
+        {
+            "id": "sid-0DD523DD-6E44-4D4C-8F5E-2924549C255C",
+            "name": "Gericht essen",
+            "type": "Task"
+        },
+        {
+            "id": "sid-45A472FA-43FA-4265-868C-C15501A0D18E",
+            "name": "Website aufrufen",
+            "type": "Task"
+        },
+        {
+            "id": "sid-6AD237D4-CE51-453A-B096-2684F1CC0BA2",
+            "name": "Pizzalieferant anrufen",
+            "type": "Task"
+        },
+        {
+            "id": "sid-10DA43A0-A188-46B3-9765-D2E72C2AF239",
+            "name": "Pizza erhalten",
+            "type": "Task"
+        },
+        {
+            "id": "sid-DF381316-CEE4-4091-AB34-6D9A4FD6D72E",
+            "name": "Pizza bezahlen",
+            "type": "Task"
+        },
+        {
+            "id": "sid-6EC295D3-1351-44E9-AD1E-94813573FD5B",
+            "name": "Pizza zubereiten",
+            "type": "Task"
+        },
+        {
+            "id": "sid-80DCDD56-CA72-4E9D-9B87-0578A0CD428A",
+            "name": "Pizza ausliefern",
+            "type": "Task"
+        },
+        {
+            "id": "sid-EBB0FD5F-62CE-473A-9D13-9EF159C7F501",
+            "name": "Pizza \u00fcbergeben",
+            "type": "Task"
+        },
+        {
+            "id": "sid-D973A39F-8C69-41F3-9985-FFB237D4B320",
+            "name": "Bezahlung entgegennehmen",
+            "type": "Task"
+        }
+    ],
+    "events": [
+        {
+            "id": "sid-744843CF-7140-450C-9713-41257C3C84BC",
+            "name": "Mittagspause beginnt",
+            "type": "StartNoneEvent"
+        },
+        {
+            "id": "sid-CABA560D-3E0A-463E-9C75-1ACD1E6CC6E0",
+            "name": "Mittagspause endet",
+            "type": "EndNoneEvent"
+        },
+        {
+            "id": "sid-890F3CBB-63E7-4969-9ED9-328FFF2F5515",
+            "name": "8 Minuten kochen",
+            "type": "IntermediateTimerEvent"
+        },
+        {
+            "id": "sid-0D804C46-0315-40B2-9378-E71CC64C1944",
+            "name": "Auf Pizza warten",
+            "type": "IntermediateTimerEvent"
+        },
+        {
+            "id": "sid-7A62E443-8431-4778-8289-596DE411A750",
+            "name": "10 Minuten kochen",
+            "type": "IntermediateTimerEvent"
+        },
+        {
+            "id": "sid-C56534BE-18FE-4DFD-9911-11FD4310C36E",
+            "name": "Bestellung aufgeben",
+            "type": "IntermediateMessageEventThrowing"
+        },
+        {
+            "id": "sid-A210599A-A402-4E05-B12F-D4735C9E573B",
+            "name": "Bestellung abgeschlossen",
+            "type": "EndNoneEvent"
+        },
+        {
+            "id": "sid-5C1C13BD-2ECF-4C0F-A7C3-E1089CACB622",
+            "name": "Eingehende Bestellung",
+            "type": "StartMessageEvent"
+        }
+    ],
+    "gateways": [
+        {
+            "id": "sid-F7FFBC5E-846A-40C9-8981-5F3B596F52EA",
+            "type": "Exclusive"
+        },
+        {
+            "id": "sid-34D3D8BB-CDE9-4271-B282-8D9D49D7E7CC",
+            "type": "Parallel"
+        },
+        {
+            "id": "sid-70CF5320-CF09-400C-836C-C5CA8986CAEB",
+            "type": "Parallel"
+        },
+        {
+            "id": "sid-175AB045-A8DF-4716-835A-0028C56748FD",
+            "type": "Exclusive"
+        },
+        {
+            "id": "sid-148BE62B-7C23-428B-A137-4783A1015628",
+            "type": "Exclusive"
+        },
+        {
+            "id": "sid-A99E3F96-371E-44B8-9DE7-1CCECF8A089E",
+            "type": "Exclusive"
+        }
+    ],
+    "pools": [
+        {
+            "id": "sid-8D161D15-029D-4668-8EE8-615836373480",
+            "name": "Global Car Manufacturing Inc.",
+            "lanes": [
+                {
+                    "id": "sid-0C296EFA-EFD9-4961-A8BC-26E70F998732",
+                    "name": "Franks Mittagspause",
+                    "elemRefs": [
+                        "sid-74EE7FF0-A250-4C88-B4B4-3463C14FFDCE",
+                        "sid-F85B6511-AC42-4726-B718-5926610B869E",
+                        "sid-7BFCE173-E174-4BCC-BC35-79D287F0B415",
+                        "sid-B535F2F7-BCB8-4B60-B99D-CB49E8F516ED",
+                        "sid-D98DEA9F-30D0-49DE-A17D-221350C08EE7",
+                        "sid-42F9D9F1-8A98-460C-94FF-26AE5D8BC66F",
+                        "sid-46DE282B-379B-4DDF-A69F-9A4670C8289B",
+                        "sid-0DD523DD-6E44-4D4C-8F5E-2924549C255C",
+                        "sid-45A472FA-43FA-4265-868C-C15501A0D18E",
+                        "sid-6AD237D4-CE51-453A-B096-2684F1CC0BA2",
+                        "sid-10DA43A0-A188-46B3-9765-D2E72C2AF239",
+                        "sid-DF381316-CEE4-4091-AB34-6D9A4FD6D72E",
+                        "sid-744843CF-7140-450C-9713-41257C3C84BC",
+                        "sid-CABA560D-3E0A-463E-9C75-1ACD1E6CC6E0",
+                        "sid-890F3CBB-63E7-4969-9ED9-328FFF2F5515",
+                        "sid-0D804C46-0315-40B2-9378-E71CC64C1944",
+                        "sid-7A62E443-8431-4778-8289-596DE411A750",
+                        "sid-C56534BE-18FE-4DFD-9911-11FD4310C36E",
+                        "sid-F7FFBC5E-846A-40C9-8981-5F3B596F52EA",
+                        "sid-34D3D8BB-CDE9-4271-B282-8D9D49D7E7CC",
+                        "sid-70CF5320-CF09-400C-836C-C5CA8986CAEB",
+                        "sid-175AB045-A8DF-4716-835A-0028C56748FD",
+                        "sid-148BE62B-7C23-428B-A137-4783A1015628",
+                        "sid-A99E3F96-371E-44B8-9DE7-1CCECF8A089E"
+                    ]
+                }
+            ]
+        },
+        {
+            "id": "sid-549423EA-AF7F-4327-BD72-3BF29535F87B",
+            "name": "Pizzaria",
+            "lanes": [
+                {
+                    "id": "sid-EF8CC970-DF3F-4360-9CC8-C5AFCB5E69E9",
+                    "name": "Pizzalieferant",
+                    "elemRefs": [
+                        "sid-6EC295D3-1351-44E9-AD1E-94813573FD5B",
+                        "sid-80DCDD56-CA72-4E9D-9B87-0578A0CD428A",
+                        "sid-EBB0FD5F-62CE-473A-9D13-9EF159C7F501",
+                        "sid-D973A39F-8C69-41F3-9985-FFB237D4B320",
+                        "sid-A210599A-A402-4E05-B12F-D4735C9E573B",
+                        "sid-5C1C13BD-2ECF-4C0F-A7C3-E1089CACB622"
+                    ]
+                }
+            ]
+        }
+    ],
+    "messageFlows": [
+        {
+            "id": "sid-64879C19-675C-4961-853A-768599FE60BF",
+            "targetRef": "sid-D973A39F-8C69-41F3-9985-FFB237D4B320",
+            "label": "Bezahlung",
+            "sourceRef": "sid-DF381316-CEE4-4091-AB34-6D9A4FD6D72E"
+        },
+        {
+            "id": "sid-76CB2B7C-BAB3-4E97-8A5F-450487D7FE59",
+            "targetRef": "sid-5C1C13BD-2ECF-4C0F-A7C3-E1089CACB622",
+            "sourceRef": "sid-C56534BE-18FE-4DFD-9911-11FD4310C36E"
+        },
+        {
+            "id": "sid-C9A75C36-6542-4477-9549-4CA0A25FBF48",
+            "targetRef": "sid-10DA43A0-A188-46B3-9765-D2E72C2AF239",
+            "label": "Pizza",
+            "sourceRef": "sid-EBB0FD5F-62CE-473A-9D13-9EF159C7F501"
+        }
+    ],
+    "sequenceFlows": [
+        {
+            "id": "sid-E590A1C3-54EE-4E44-A6D7-2FC6BCA1ABEE",
+            "targetRef": "sid-74EE7FF0-A250-4C88-B4B4-3463C14FFDCE",
+            "sourceRef": "sid-744843CF-7140-450C-9713-41257C3C84BC"
+        },
+        {
+            "id": "sid-08DE181C-FA2F-446A-85B3-9C3E57FDB17E",
+            "targetRef": "sid-F7FFBC5E-846A-40C9-8981-5F3B596F52EA",
+            "sourceRef": "sid-74EE7FF0-A250-4C88-B4B4-3463C14FFDCE"
+        },
+        {
+            "id": "sid-74BF08AA-FC0E-4995-BC1C-F0DF65EAE0DB",
+            "targetRef": "sid-F85B6511-AC42-4726-B718-5926610B869E",
+            "condition": "Pizza",
+            "sourceRef": "sid-F7FFBC5E-846A-40C9-8981-5F3B596F52EA"
+        },
+        {
+            "id": "sid-0421991E-17AB-4053-9C6B-47C73138617E",
+            "targetRef": "sid-7BFCE173-E174-4BCC-BC35-79D287F0B415",
+            "condition": "Nudeln",
+            "sourceRef": "sid-F7FFBC5E-846A-40C9-8981-5F3B596F52EA"
+        },
+        {
+            "id": "sid-F70E19A3-C4A1-42A3-AB2D-AFA25D3B1206",
+            "targetRef": "sid-B535F2F7-BCB8-4B60-B99D-CB49E8F516ED",
+            "sourceRef": "sid-34D3D8BB-CDE9-4271-B282-8D9D49D7E7CC"
+        },
+        {
+            "id": "sid-FDB09302-50A7-47FF-939E-F26C3BDDED43",
+            "targetRef": "sid-D98DEA9F-30D0-49DE-A17D-221350C08EE7",
+            "sourceRef": "sid-34D3D8BB-CDE9-4271-B282-8D9D49D7E7CC"
+        },
+        {
+            "id": "sid-B69C972A-4A74-40CA-85D8-8AA90BF6D0E6",
+            "targetRef": "sid-42F9D9F1-8A98-460C-94FF-26AE5D8BC66F",
+            "sourceRef": "sid-B535F2F7-BCB8-4B60-B99D-CB49E8F516ED"
+        },
+        {
+            "id": "sid-28889ADB-10E9-4C6C-A495-564EC5697CA6",
+            "targetRef": "sid-34D3D8BB-CDE9-4271-B282-8D9D49D7E7CC",
+            "sourceRef": "sid-7BFCE173-E174-4BCC-BC35-79D287F0B415"
+        },
+        {
+            "id": "sid-E343FAE5-28FC-4414-A376-A5913A183CAE",
+            "targetRef": "sid-46DE282B-379B-4DDF-A69F-9A4670C8289B",
+            "sourceRef": "sid-70CF5320-CF09-400C-836C-C5CA8986CAEB"
+        },
+        {
+            "id": "sid-E62CAB0F-098B-4CAB-B3EF-169CF8FAE523",
+            "targetRef": "sid-175AB045-A8DF-4716-835A-0028C56748FD",
+            "sourceRef": "sid-F85B6511-AC42-4726-B718-5926610B869E"
+        },
+        {
+            "id": "sid-17AFE7B4-95A5-4521-93FB-4987379692DB",
+            "targetRef": "sid-45A472FA-43FA-4265-868C-C15501A0D18E",
+            "condition": "Online Bestellen",
+            "sourceRef": "sid-175AB045-A8DF-4716-835A-0028C56748FD"
+        },
+        {
+            "id": "sid-90678B3E-D01F-4BF8-96E5-E042E536CFCB",
+            "targetRef": "sid-6AD237D4-CE51-453A-B096-2684F1CC0BA2",
+            "condition": "Telefonisch bestellen",
+            "sourceRef": "sid-175AB045-A8DF-4716-835A-0028C56748FD"
+        },
+        {
+            "id": "sid-314D93D2-D942-4EE6-B15E-49C735386B0C",
+            "targetRef": "sid-148BE62B-7C23-428B-A137-4783A1015628",
+            "sourceRef": "sid-45A472FA-43FA-4265-868C-C15501A0D18E"
+        },
+        {
+            "id": "sid-0842C556-1C14-4756-B635-860D3336A56F",
+            "targetRef": "sid-80DCDD56-CA72-4E9D-9B87-0578A0CD428A",
+            "sourceRef": "sid-6EC295D3-1351-44E9-AD1E-94813573FD5B"
+        },
+        {
+            "id": "sid-B48BECEA-6BBF-40C8-919F-71DFAFAEE08E",
+            "targetRef": "sid-EBB0FD5F-62CE-473A-9D13-9EF159C7F501",
+            "sourceRef": "sid-80DCDD56-CA72-4E9D-9B87-0578A0CD428A"
+        },
+        {
+            "id": "sid-B32F3E5D-B499-45A9-B2FB-1BA690AAB57E",
+            "targetRef": "sid-D973A39F-8C69-41F3-9985-FFB237D4B320",
+            "sourceRef": "sid-EBB0FD5F-62CE-473A-9D13-9EF159C7F501"
+        },
+        {
+            "id": "sid-DDE1AA17-4B56-4AA7-8DB2-23C0FE04417A",
+            "targetRef": "sid-A210599A-A402-4E05-B12F-D4735C9E573B",
+            "sourceRef": "sid-D973A39F-8C69-41F3-9985-FFB237D4B320"
+        },
+        {
+            "id": "sid-165A615B-077E-4724-844A-C469EAD54E2C",
+            "targetRef": "sid-CABA560D-3E0A-463E-9C75-1ACD1E6CC6E0",
+            "sourceRef": "sid-0DD523DD-6E44-4D4C-8F5E-2924549C255C"
+        },
+        {
+            "id": "sid-CD8B90B3-711C-4B92-B109-F11A247105EB",
+            "targetRef": "sid-A99E3F96-371E-44B8-9DE7-1CCECF8A089E",
+            "sourceRef": "sid-46DE282B-379B-4DDF-A69F-9A4670C8289B"
+        },
+        {
+            "id": "sid-FE8772C4-DD37-4690-B917-FD04EC1EB122",
+            "targetRef": "sid-DF381316-CEE4-4091-AB34-6D9A4FD6D72E",
+            "sourceRef": "sid-10DA43A0-A188-46B3-9765-D2E72C2AF239"
+        },
+        {
+            "id": "sid-1832405F-14E2-4FF5-BFEC-02B5DB64903A",
+            "targetRef": "sid-A99E3F96-371E-44B8-9DE7-1CCECF8A089E",
+            "sourceRef": "sid-DF381316-CEE4-4091-AB34-6D9A4FD6D72E"
+        },
+        {
+            "id": "sid-92991D3F-08F4-483E-86A2-D8CE6C7681F6",
+            "targetRef": "sid-148BE62B-7C23-428B-A137-4783A1015628",
+            "sourceRef": "sid-6AD237D4-CE51-453A-B096-2684F1CC0BA2"
+        },
+        {
+            "id": "sid-51A2E86E-F811-460B-830B-9A9EC5067E0C",
+            "targetRef": "sid-10DA43A0-A188-46B3-9765-D2E72C2AF239",
+            "sourceRef": "sid-0D804C46-0315-40B2-9378-E71CC64C1944"
+        },
+        {
+            "id": "sid-A1CA38BB-AEA4-4C3D-89F3-1330010B5A81",
+            "targetRef": "sid-70CF5320-CF09-400C-836C-C5CA8986CAEB",
+            "sourceRef": "sid-7A62E443-8431-4778-8289-596DE411A750"
+        },
+        {
+            "id": "sid-49F9E165-365C-451A-886F-9F13A3C8EA17",
+            "targetRef": "sid-890F3CBB-63E7-4969-9ED9-328FFF2F5515",
+            "sourceRef": "sid-42F9D9F1-8A98-460C-94FF-26AE5D8BC66F"
+        },
+        {
+            "id": "sid-9BEB6576-F158-4F27-ACEF-20D11DBAB884",
+            "targetRef": "sid-70CF5320-CF09-400C-836C-C5CA8986CAEB",
+            "sourceRef": "sid-890F3CBB-63E7-4969-9ED9-328FFF2F5515"
+        },
+        {
+            "id": "sid-269658D1-6106-416E-BD19-54100BDFF40E",
+            "targetRef": "sid-7A62E443-8431-4778-8289-596DE411A750",
+            "sourceRef": "sid-D98DEA9F-30D0-49DE-A17D-221350C08EE7"
+        },
+        {
+            "id": "sid-E34AA8F8-C4B3-4A42-8E49-EC7D10F9CC6B",
+            "targetRef": "sid-6EC295D3-1351-44E9-AD1E-94813573FD5B",
+            "sourceRef": "sid-5C1C13BD-2ECF-4C0F-A7C3-E1089CACB622"
+        },
+        {
+            "id": "sid-8ACAE062-9C5B-4D51-9A9D-B1E6CC4C0BB9",
+            "targetRef": "sid-C56534BE-18FE-4DFD-9911-11FD4310C36E",
+            "sourceRef": "sid-148BE62B-7C23-428B-A137-4783A1015628"
+        },
+        {
+            "id": "sid-BF7BD882-3D0A-40A8-A4C3-AC5869D28588",
+            "targetRef": "sid-0D804C46-0315-40B2-9378-E71CC64C1944",
+            "sourceRef": "sid-C56534BE-18FE-4DFD-9911-11FD4310C36E"
+        },
+        {
+            "id": "sid-DF6BDE9E-265A-46B9-AA73-9631D84022AB",
+            "targetRef": "sid-0DD523DD-6E44-4D4C-8F5E-2924549C255C",
+            "sourceRef": "sid-A99E3F96-371E-44B8-9DE7-1CCECF8A089E"
+        }
+    ]
+}

@@ -1,0 +1,221 @@
+{
+    "tasks": [
+        {
+            "id": "sid-8B54DFCE-699E-4B1C-9B69-7FF1DA8C40CA",
+            "name": "Buchungssystem starten",
+            "type": "Task"
+        },
+        {
+            "id": "sid-5D9CD746-7E3F-4543-826E-E641ABCF788C",
+            "name": "Zahlung einlesen",
+            "type": "Task"
+        },
+        {
+            "id": "sid-B2BD4DA1-1F94-4D97-8DBF-852CC2144EF1",
+            "name": "Zahlung automatisieren starten",
+            "type": "Task"
+        },
+        {
+            "id": "sid-6B12C227-5501-40E9-9D46-86CE0209FA39",
+            "name": "Zahlung buchen",
+            "type": "Task"
+        },
+        {
+            "id": "sid-1A8BA158-1E1C-4589-91D7-58314AE3DA94",
+            "name": "Mahnung senden",
+            "type": "Task"
+        },
+        {
+            "id": "sid-25AEB980-21AC-4886-A870-CA511E52542E",
+            "name": "Schriftliche Mahnverfahren einleiten",
+            "type": "Task"
+        },
+        {
+            "id": "sid-74ED4545-99BC-4519-8647-BB1E8BA3CF04",
+            "name": "Mahnbescheid pr\u00fcfen",
+            "type": "CollapsedSubprocess"
+        },
+        {
+            "id": "sid-4F80E3D2-70B7-4533-8D82-E2DDF886A155",
+            "name": "Mahnbescheid verschicken",
+            "type": "Task"
+        },
+        {
+            "id": "sid-AFA4BD29-E75D-4A17-AA50-C368CF5DF513",
+            "name": "Mahnbescheid richtig ausf\u00fcllen",
+            "type": "Task"
+        }
+    ],
+    "events": [
+        {
+            "id": "sid-BD9E317C-7612-4826-8EB4-FE342F3E0A8A",
+            "name": "Buchungssystem  anlegen",
+            "type": "StartNoneEvent"
+        },
+        {
+            "id": "sid-BE91CD83-DA78-4E06-BD64-EAD335A56F9B",
+            "name": "Zahlung gezahlt",
+            "type": "EndNoneEvent"
+        },
+        {
+            "id": "sid-3FA525CD-A213-452D-8066-165C0F405120",
+            "name": "Mahnbescheid verschickt",
+            "type": "EndNoneEvent"
+        }
+    ],
+    "gateways": [
+        {
+            "id": "sid-AB2BBA71-97F4-4B05-896C-9B1A31E8938C",
+            "name": "Erfolgt die Zahlung?",
+            "type": "Exclusive"
+        },
+        {
+            "id": "sid-29691F99-16EB-4205-8C0B-5B61510AB0A6",
+            "name": "Erfolgt die Zahlung nach der Mahnung?",
+            "type": "Exclusive"
+        },
+        {
+            "id": "sid-18AF074F-A2D2-440F-8789-DF6EEA707230",
+            "name": "Pr\u00fcfung erfolgereich?",
+            "type": "Exclusive"
+        },
+        {
+            "id": "sid-86EC6AE5-E042-40BE-8F2D-8780C44289A4",
+            "type": "Exclusive"
+        },
+        {
+            "id": "sid-72E0734C-0FED-4557-9742-7B77972C4D56",
+            "type": "Exclusive"
+        }
+    ],
+    "pools": [
+        {
+            "id": "sid-036834A0-0577-496E-9AB4-5DBB96CC6568",
+            "name": "Accounting und Controlling",
+            "lanes": [
+                {
+                    "id": "sid-A9BF0312-60BF-49CD-B6C9-FEDE3BBC6B55",
+                    "name": "",
+                    "elemRefs": [
+                        "sid-8B54DFCE-699E-4B1C-9B69-7FF1DA8C40CA",
+                        "sid-5D9CD746-7E3F-4543-826E-E641ABCF788C",
+                        "sid-B2BD4DA1-1F94-4D97-8DBF-852CC2144EF1",
+                        "sid-6B12C227-5501-40E9-9D46-86CE0209FA39",
+                        "sid-1A8BA158-1E1C-4589-91D7-58314AE3DA94",
+                        "sid-25AEB980-21AC-4886-A870-CA511E52542E",
+                        "sid-74ED4545-99BC-4519-8647-BB1E8BA3CF04",
+                        "sid-4F80E3D2-70B7-4533-8D82-E2DDF886A155",
+                        "sid-AFA4BD29-E75D-4A17-AA50-C368CF5DF513",
+                        "sid-BD9E317C-7612-4826-8EB4-FE342F3E0A8A",
+                        "sid-BE91CD83-DA78-4E06-BD64-EAD335A56F9B",
+                        "sid-3FA525CD-A213-452D-8066-165C0F405120",
+                        "sid-AB2BBA71-97F4-4B05-896C-9B1A31E8938C",
+                        "sid-29691F99-16EB-4205-8C0B-5B61510AB0A6",
+                        "sid-18AF074F-A2D2-440F-8789-DF6EEA707230",
+                        "sid-86EC6AE5-E042-40BE-8F2D-8780C44289A4",
+                        "sid-72E0734C-0FED-4557-9742-7B77972C4D56"
+                    ]
+                }
+            ]
+        }
+    ],
+    "messageFlows": [],
+    "sequenceFlows": [
+        {
+            "id": "sid-143891F9-EA82-4238-BBC0-478B63A616A0",
+            "targetRef": "sid-8B54DFCE-699E-4B1C-9B69-7FF1DA8C40CA",
+            "sourceRef": "sid-BD9E317C-7612-4826-8EB4-FE342F3E0A8A"
+        },
+        {
+            "id": "sid-EDE959D5-EF5F-4BF1-9D9B-7E88E7007966",
+            "targetRef": "sid-5D9CD746-7E3F-4543-826E-E641ABCF788C",
+            "sourceRef": "sid-8B54DFCE-699E-4B1C-9B69-7FF1DA8C40CA"
+        },
+        {
+            "id": "sid-958F0C5D-349A-43EE-8424-116646E0DF49",
+            "targetRef": "sid-B2BD4DA1-1F94-4D97-8DBF-852CC2144EF1",
+            "sourceRef": "sid-5D9CD746-7E3F-4543-826E-E641ABCF788C"
+        },
+        {
+            "id": "sid-C9461D23-847D-4304-8105-7AE22DC0F456",
+            "targetRef": "sid-AB2BBA71-97F4-4B05-896C-9B1A31E8938C",
+            "sourceRef": "sid-B2BD4DA1-1F94-4D97-8DBF-852CC2144EF1"
+        },
+        {
+            "id": "sid-4565ECAC-C19D-4CD7-84CE-C57F7D412669",
+            "targetRef": "sid-72E0734C-0FED-4557-9742-7B77972C4D56",
+            "condition": "Ja",
+            "sourceRef": "sid-AB2BBA71-97F4-4B05-896C-9B1A31E8938C"
+        },
+        {
+            "id": "sid-94E6BDB1-B7C0-4B92-A2BC-15A2737E927A",
+            "targetRef": "sid-BE91CD83-DA78-4E06-BD64-EAD335A56F9B",
+            "sourceRef": "sid-6B12C227-5501-40E9-9D46-86CE0209FA39"
+        },
+        {
+            "id": "sid-B027BC18-E873-4AFC-958C-7EB0468C28A4",
+            "targetRef": "sid-29691F99-16EB-4205-8C0B-5B61510AB0A6",
+            "sourceRef": "sid-1A8BA158-1E1C-4589-91D7-58314AE3DA94"
+        },
+        {
+            "id": "sid-987C1269-852A-4669-AF88-1756B22D069E",
+            "targetRef": "sid-25AEB980-21AC-4886-A870-CA511E52542E",
+            "condition": "Nein",
+            "sourceRef": "sid-29691F99-16EB-4205-8C0B-5B61510AB0A6"
+        },
+        {
+            "id": "sid-8C0352AE-B3CC-4C6F-A3A8-2FE2F9545AA7",
+            "targetRef": "sid-18AF074F-A2D2-440F-8789-DF6EEA707230",
+            "sourceRef": "sid-74ED4545-99BC-4519-8647-BB1E8BA3CF04"
+        },
+        {
+            "id": "sid-EB862C6B-630C-4CC6-B60B-3159F1EFF51A",
+            "targetRef": "sid-AFA4BD29-E75D-4A17-AA50-C368CF5DF513",
+            "condition": "Nein",
+            "sourceRef": "sid-18AF074F-A2D2-440F-8789-DF6EEA707230"
+        },
+        {
+            "id": "sid-FDA93A99-C3CF-43A8-975E-9E634F66F79B",
+            "targetRef": "sid-74ED4545-99BC-4519-8647-BB1E8BA3CF04",
+            "sourceRef": "sid-86EC6AE5-E042-40BE-8F2D-8780C44289A4"
+        },
+        {
+            "id": "sid-50BC0D3F-4832-4352-9328-7914E19553CF",
+            "targetRef": "sid-86EC6AE5-E042-40BE-8F2D-8780C44289A4",
+            "sourceRef": "sid-AFA4BD29-E75D-4A17-AA50-C368CF5DF513"
+        },
+        {
+            "id": "sid-FA9E04D2-BBFB-49AC-B693-5E6897DFC7C3",
+            "targetRef": "sid-3FA525CD-A213-452D-8066-165C0F405120",
+            "sourceRef": "sid-4F80E3D2-70B7-4533-8D82-E2DDF886A155"
+        },
+        {
+            "id": "sid-E3186824-9A6D-4A9C-A6C0-4E27FD20C5AD",
+            "targetRef": "sid-6B12C227-5501-40E9-9D46-86CE0209FA39",
+            "sourceRef": "sid-72E0734C-0FED-4557-9742-7B77972C4D56"
+        },
+        {
+            "id": "sid-F4629173-94D1-46BC-92B1-A0E21749E0CA",
+            "targetRef": "sid-4F80E3D2-70B7-4533-8D82-E2DDF886A155",
+            "condition": "Ja",
+            "sourceRef": "sid-18AF074F-A2D2-440F-8789-DF6EEA707230"
+        },
+        {
+            "id": "sid-7FC3E690-B2A3-4BB5-9681-DF5A77563349",
+            "targetRef": "sid-72E0734C-0FED-4557-9742-7B77972C4D56",
+            "condition": "Ja",
+            "sourceRef": "sid-29691F99-16EB-4205-8C0B-5B61510AB0A6"
+        },
+        {
+            "id": "sid-1AF234D7-C513-4CC1-87C1-E69C4C294B99",
+            "targetRef": "sid-86EC6AE5-E042-40BE-8F2D-8780C44289A4",
+            "sourceRef": "sid-25AEB980-21AC-4886-A870-CA511E52542E"
+        },
+        {
+            "id": "sid-9AB3BF79-D409-42FC-9B70-0B4866EC9415",
+            "targetRef": "sid-1A8BA158-1E1C-4589-91D7-58314AE3DA94",
+            "condition": "Nein",
+            "sourceRef": "sid-AB2BBA71-97F4-4B05-896C-9B1A31E8938C"
+        }
+    ]
+}

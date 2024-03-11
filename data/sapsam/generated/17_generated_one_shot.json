@@ -1,0 +1,170 @@
+{
+    "tasks": [
+        {
+            "id": "0",
+            "name": "Log on email provider website",
+            "type": "Task"
+        },
+        {
+            "id": "1",
+            "name": "Choose package",
+            "type": "Task"
+        },
+        {
+            "id": "2",
+            "name": "Enter Private account welcome page",
+            "type": "Task"
+        },
+        {
+            "id": "3",
+            "name": "Provide personal information",
+            "type": "Task"
+        },
+        {
+            "id": "4",
+            "name": "Enter Full Names",
+            "type": "Task"
+        },
+        {
+            "id": "5",
+            "name": "Upload photo ID",
+            "type": "Task"
+        },
+        {
+            "id": "6",
+            "name": "Personal Data confirmed",
+            "type": "Task"
+        },
+        {
+            "id": "7",
+            "name": "New email ID & password generated",
+            "type": "Task"
+        }
+    ],
+    "events": [
+        {
+            "id": "8",
+            "name": "Email account needed",
+            "type": "StartNoneEvent"
+        },
+        {
+            "id": "9",
+            "name": "Private account unavailable",
+            "type": "EndNoneEvent"
+        },
+        {
+            "id": "10",
+            "name": "Private email created",
+            "type": "EndNoneEvent"
+        }
+    ],
+    "gateways": [
+        {
+            "id": "11",
+            "name": "Personal account available?",
+            "type": "Exclusive"
+        },
+        {
+            "id": "12",
+            "type": "Parallel"
+        }
+    ],
+    "pools": [
+        {
+            "id": "13",
+            "name": "Email Account Creation Portal",
+            "lanes": [
+                {
+                    "id": "14",
+                    "name": "Lane",
+                    "elemRefs": [
+                        "0",
+                        "1",
+                        "2",
+                        "3",
+                        "4",
+                        "5",
+                        "6",
+                        "7",
+                        "8",
+                        "9",
+                        "10",
+                        "11",
+                        "12"
+                    ]
+                }
+            ]
+        }
+    ],
+    "sequenceFlows": [
+        {
+            "id": "15",
+            "sourceRef": "8",
+            "targetRef": "0"
+        },
+        {
+            "id": "16",
+            "sourceRef": "0",
+            "targetRef": "1"
+        },
+        {
+            "id": "17",
+            "sourceRef": "1",
+            "targetRef": "11",
+            "condition": "Email package suitable?"
+        },
+        {
+            "id": "18",
+            "sourceRef": "11",
+            "targetRef": "2",
+            "condition": "Yes"
+        },
+        {
+            "id": "19",
+            "sourceRef": "11",
+            "targetRef": "9",
+            "condition": "No"
+        },
+        {
+            "id": "20",
+            "sourceRef": "2",
+            "targetRef": "3"
+        },
+        {
+            "id": "21",
+            "sourceRef": "3",
+            "targetRef": "12"
+        },
+        {
+            "id": "22",
+            "sourceRef": "12",
+            "targetRef": "4"
+        },
+        {
+            "id": "23",
+            "sourceRef": "12",
+            "targetRef": "5"
+        },
+        {
+            "id": "24",
+            "sourceRef": "4",
+            "targetRef": "6"
+        },
+        {
+            "id": "25",
+            "sourceRef": "5",
+            "targetRef": "6"
+        },
+        {
+            "id": "26",
+            "sourceRef": "6",
+            "targetRef": "7"
+        },
+        {
+            "id": "27",
+            "sourceRef": "7",
+            "targetRef": "10"
+        }
+    ],
+    "messageFlows": []
+}

@@ -1,0 +1,219 @@
+{
+    "tasks": [
+        {
+            "id": "0",
+            "name": "Arbeitszeitaufwand sch\u00e4tzen",
+            "type": "Task"
+        },
+        {
+            "id": "1",
+            "name": "Verf\u00fcgbarkeit der Ressourcen pr\u00fcfen",
+            "type": "Task"
+        },
+        {
+            "id": "2",
+            "name": "Au\u00dfenbetriebsmitarbeiter ausw\u00e4hlen",
+            "type": "Task"
+        },
+        {
+            "id": "3",
+            "name": "Au\u00dfenbetriebsmitarbeiter kontaktieren",
+            "type": "Task"
+        },
+        {
+            "id": "4",
+            "name": "Aufgabe nicht \u00fcbertragen",
+            "type": "Task"
+        },
+        {
+            "id": "5",
+            "name": "Aufgabe Mitarbeiter \u00fcbertragen",
+            "type": "Task"
+        },
+        {
+            "id": "6",
+            "name": "Vorgehen zur Aufgabenerledigung vorgeben",
+            "type": "Task"
+        },
+        {
+            "id": "7",
+            "name": "Aufgabe erhalten",
+            "type": "Task"
+        },
+        {
+            "id": "8",
+            "name": "Aufgabe best\u00e4tigen",
+            "type": "CollapsedSubprocess"
+        },
+        {
+            "id": "9",
+            "name": "Aufgabe bearbeiten",
+            "type": "CollapsedSubprocess"
+        },
+        {
+            "id": "10",
+            "name": "Aufgabe abschlie\u00dfen",
+            "type": "Task"
+        },
+        {
+            "id": "11",
+            "name": "Fertigmeldung machen",
+            "type": "CollapsedSubprocess"
+        },
+        {
+            "id": "12",
+            "name": "Fertigmeldung dokumentieren",
+            "type": "Task"
+        }
+    ],
+    "events": [
+        {
+            "id": "13",
+            "name": "Aufgabe f\u00e4llt an",
+            "type": "StartNoneEvent"
+        },
+        {
+            "id": "14",
+            "name": "Aufgabe ist bearbeitet",
+            "type": "EndNoneEvent"
+        }
+    ],
+    "gateways": [
+        {
+            "id": "15",
+            "name": "Mitarbeiter erreichtbar?",
+            "type": "Exclusive"
+        },
+        {
+            "id": "16",
+            "name": "Mitarbeiter erreichtbar?",
+            "type": "Exclusive"
+        }
+    ],
+    "pools": [
+        {
+            "id": "17",
+            "name": "Weinbau im Au\u00dfenbetrieb",
+            "lanes": [
+                {
+                    "id": "18",
+                    "name": "Au\u00dfenbetriebsmitarbeiter",
+                    "elemRefs": []
+                },
+                {
+                    "id": "19",
+                    "name": "technischer Jane Doe",
+                    "elemRefs": [
+                        "0",
+                        "1",
+                        "2",
+                        "3",
+                        "4",
+                        "5",
+                        "6",
+                        "7",
+                        "8",
+                        "9",
+                        "10",
+                        "11",
+                        "12",
+                        "13",
+                        "14",
+                        "15",
+                        "16"
+                    ]
+                }
+            ]
+        }
+    ],
+    "sequenceFlows": [
+        {
+            "id": "20",
+            "sourceRef": "13",
+            "targetRef": "0"
+        },
+        {
+            "id": "21",
+            "sourceRef": "0",
+            "targetRef": "1"
+        },
+        {
+            "id": "22",
+            "sourceRef": "1",
+            "targetRef": "15"
+        },
+        {
+            "id": "23",
+            "sourceRef": "15",
+            "targetRef": "2"
+        },
+        {
+            "id": "24",
+            "sourceRef": "2",
+            "targetRef": "3"
+        },
+        {
+            "id": "25",
+            "sourceRef": "3",
+            "targetRef": "16"
+        },
+        {
+            "id": "26",
+            "sourceRef": "15",
+            "targetRef": "4",
+            "condition": "No"
+        },
+        {
+            "id": "27",
+            "sourceRef": "4",
+            "targetRef": "14"
+        },
+        {
+            "id": "28",
+            "sourceRef": "16",
+            "targetRef": "5",
+            "condition": "Yes"
+        },
+        {
+            "id": "29",
+            "sourceRef": "5",
+            "targetRef": "6"
+        },
+        {
+            "id": "30",
+            "sourceRef": "6",
+            "targetRef": "7"
+        },
+        {
+            "id": "31",
+            "sourceRef": "7",
+            "targetRef": "8"
+        },
+        {
+            "id": "32",
+            "sourceRef": "8",
+            "targetRef": "9"
+        },
+        {
+            "id": "33",
+            "sourceRef": "9",
+            "targetRef": "10"
+        },
+        {
+            "id": "34",
+            "sourceRef": "10",
+            "targetRef": "11"
+        },
+        {
+            "id": "35",
+            "sourceRef": "11",
+            "targetRef": "12"
+        },
+        {
+            "id": "36",
+            "sourceRef": "12",
+            "targetRef": "14"
+        }
+    ],
+    "messageFlows": []
+}

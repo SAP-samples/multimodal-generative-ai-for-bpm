@@ -1,0 +1,183 @@
+{
+    "tasks": [
+        {
+            "id": "0",
+            "name": "receive proforma invoice confirmation",
+            "type": "Receive"
+        },
+        {
+            "id": "1",
+            "name": "upload the confirmation letter",
+            "type": "Manual"
+        },
+        {
+            "id": "2",
+            "name": "specify network nodes based on generic service description",
+            "type": "Manual"
+        },
+        {
+            "id": "3",
+            "name": "register a feasibility study ticket",
+            "type": "Manual"
+        },
+        {
+            "id": "4",
+            "name": "perform a feasibility study",
+            "type": "Manual"
+        },
+        {
+            "id": "5",
+            "name": "announce feasibility study results",
+            "type": "Send"
+        },
+        {
+            "id": "6",
+            "name": "announce purchase methods",
+            "type": "Send"
+        },
+        {
+            "id": "7",
+            "name": "get the signed service contract",
+            "type": "Receive"
+        },
+        {
+            "id": "8",
+            "name": "modify sale profile documents",
+            "type": "Manual"
+        },
+        {
+            "id": "9",
+            "name": "update sale profile and send a report to corporate customer affairs",
+            "type": "Send"
+        },
+        {
+            "id": "10",
+            "name": "allocate corporate customer unique ID",
+            "type": "Manual"
+        },
+        {
+            "id": "11",
+            "name": "verify corporate customer's unique ID",
+            "type": "Manual"
+        },
+        {
+            "id": "12",
+            "name": "update the information and sending a report",
+            "type": "Send"
+        },
+        {
+            "id": "13",
+            "name": "assigning an official supervisor",
+            "type": "Manual"
+        },
+        {
+            "id": "14",
+            "name": "sending the current sale profile to the CFS department",
+            "type": "Send"
+        },
+        {
+            "id": "15",
+            "name": "updating the sale profile status",
+            "type": "Manual"
+        },
+        {
+            "id": "16",
+            "name": "register service cancellation reasons",
+            "type": "Manual"
+        }
+    ],
+    "events": [
+        {
+            "id": "17",
+            "name": "finalize the sale",
+            "type": "StartNoneEvent"
+        },
+        {
+            "id": "18",
+            "name": "sale process finishes",
+            "type": "EndNoneEvent"
+        }
+    ],
+    "gateways": [
+        {
+            "id": "19",
+            "name": "Does it require a sophisticated feasibility study?",
+            "type": "Exclusive"
+        },
+        {
+            "id": "20",
+            "name": "are the results of the required feasibility study positive?",
+            "type": "Exclusive"
+        },
+        {
+            "id": "21",
+            "name": "assuring customer's purchase",
+            "type": "Exclusive"
+        },
+        {
+            "id": "22",
+            "name": "is a unique customer code assigned to the customer?",
+            "type": "Exclusive"
+        }
+    ],
+    "pools": [
+        {
+            "id": "23",
+            "name": "B2B sale and marketing (2nd Phase)",
+            "lanes": [
+                {
+                    "id": "24",
+                    "name": "cooperate Sale department",
+                    "elemRefs": [
+                        "0",
+                        "1",
+                        "2",
+                        "3",
+                        "5",
+                        "6",
+                        "7",
+                        "8",
+                        "9",
+                        "10",
+                        "11",
+                        "12",
+                        "13",
+                        "14",
+                        "15",
+                        "16",
+                        "17",
+                        "18"
+                    ]
+                },
+                {
+                    "id": "25",
+                    "name": "CFS department",
+                    "elemRefs": [
+                        "4",
+                        "19",
+                        "20",
+                        "21",
+                        "22"
+                    ]
+                },
+                {
+                    "id": "26",
+                    "name": "Corporate Customer",
+                    "elemRefs": []
+                },
+                {
+                    "id": "27",
+                    "name": "corporate customer affairs",
+                    "elemRefs": []
+                },
+                {
+                    "id": "28",
+                    "name": "Financial affairs",
+                    "elemRefs": []
+                }
+            ]
+        }
+    ],
+    "sequenceFlows": [],
+    "messageFlows": []
+}

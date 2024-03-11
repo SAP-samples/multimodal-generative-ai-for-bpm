@@ -1,0 +1,198 @@
+{
+    "tasks": [
+        {
+            "id": "sid-3E2A3B4E-F895-4F4B-A56F-D03535DEA971",
+            "name": "Display list of options",
+            "type": "Service"
+        },
+        {
+            "id": "sid-93508ED5-D841-4241-8B30-CD47D25FB2B2",
+            "name": "Calculate time of arrival",
+            "type": "Service"
+        },
+        {
+            "id": "sid-58470E50-0E98-4AA0-AE98-843918B604B1",
+            "name": "Check the data",
+            "type": "User"
+        },
+        {
+            "id": "sid-FC7331D9-05BC-4122-9D21-1BAFFCE5C1AB",
+            "name": "Check for available cars",
+            "type": "User"
+        },
+        {
+            "id": "sid-98937A5F-4BD6-4A9A-A8D0-ADB6B491BE15",
+            "name": "Book the Taxi",
+            "type": "User"
+        },
+        {
+            "id": "sid-08F4C2D8-7CCC-4B3D-8431-148AB257E445",
+            "name": "Pick the nearest car with client",
+            "type": "User"
+        }
+    ],
+    "events": [
+        {
+            "id": "sid-D5DBEB31-E0E3-4181-9A23-A4C3DE04CE4E",
+            "name": "Booking Confirmation    sent",
+            "type": "EndMessageEvent"
+        },
+        {
+            "id": "sid-56470977-A05E-4E47-A824-793A2577BC78",
+            "name": "Booking request  received",
+            "type": "StartMessageEvent"
+        },
+        {
+            "id": "sid-EA5A8C1E-F423-4403-9317-C50090F8086F",
+            "name": "Cancellation  message sent",
+            "type": "EndMessageEvent"
+        },
+        {
+            "id": "sid-8946700A-3B85-4DE2-B264-DF7A4F6BB8B0",
+            "name": "Cancellation message sent",
+            "type": "EndMessageEvent"
+        }
+    ],
+    "gateways": [
+        {
+            "id": "sid-EE8EFE39-4DC5-45F1-BDFD-03CB4256A347",
+            "name": "is there any  available car in next  30 min?",
+            "type": "Exclusive"
+        },
+        {
+            "id": "sid-1A492704-C7E7-459B-8BA7-95DF1D9EDB71",
+            "name": "Did the user send  the necessary data?",
+            "type": "Exclusive"
+        }
+    ],
+    "pools": [
+        {
+            "id": "sid-90F1BC4D-279C-4FB5-9BB7-A1ED1EF5487C",
+            "name": "Taxi booking",
+            "lanes": [
+                {
+                    "id": "sid-54583463-968F-456C-863B-0E6D5B27B2E7",
+                    "name": "Taxi System",
+                    "elemRefs": [
+                        "sid-3E2A3B4E-F895-4F4B-A56F-D03535DEA971",
+                        "sid-93508ED5-D841-4241-8B30-CD47D25FB2B2",
+                        "sid-D5DBEB31-E0E3-4181-9A23-A4C3DE04CE4E",
+                        "sid-56470977-A05E-4E47-A824-793A2577BC78",
+                        "sid-EA5A8C1E-F423-4403-9317-C50090F8086F",
+                        "sid-8946700A-3B85-4DE2-B264-DF7A4F6BB8B0",
+                        "sid-EE8EFE39-4DC5-45F1-BDFD-03CB4256A347"
+                    ]
+                },
+                {
+                    "id": "sid-80E4DA3B-D96A-4698-9FE2-BCD4F4615C3E",
+                    "name": "Customer Service Operator",
+                    "elemRefs": [
+                        "sid-58470E50-0E98-4AA0-AE98-843918B604B1",
+                        "sid-FC7331D9-05BC-4122-9D21-1BAFFCE5C1AB",
+                        "sid-98937A5F-4BD6-4A9A-A8D0-ADB6B491BE15",
+                        "sid-08F4C2D8-7CCC-4B3D-8431-148AB257E445",
+                        "sid-1A492704-C7E7-459B-8BA7-95DF1D9EDB71"
+                    ]
+                }
+            ]
+        },
+        {
+            "id": "sid-72A5BAA4-7EA4-4B86-87B4-3D29FF06C032",
+            "name": "Customer",
+            "lanes": [
+                {
+                    "id": "sid-E85FFA31-343B-43A7-9775-CB4DFB4CC2F7",
+                    "name": "",
+                    "elemRefs": []
+                }
+            ]
+        }
+    ],
+    "messageFlows": [
+        {
+            "id": "sid-1E852C86-3F17-4CC1-A84B-8E8461DF51ED",
+            "targetRef": "sid-72A5BAA4-7EA4-4B86-87B4-3D29FF06C032",
+            "label": "Cancellation Message",
+            "sourceRef": "sid-8946700A-3B85-4DE2-B264-DF7A4F6BB8B0"
+        },
+        {
+            "id": "sid-25B06280-E5C5-400E-B243-C51C328F54EC",
+            "targetRef": "sid-72A5BAA4-7EA4-4B86-87B4-3D29FF06C032",
+            "label": "Cancellation Message",
+            "sourceRef": "sid-EA5A8C1E-F423-4403-9317-C50090F8086F"
+        },
+        {
+            "id": "sid-0FBF47B6-0DA0-4136-B18C-808F172A2403",
+            "targetRef": "sid-72A5BAA4-7EA4-4B86-87B4-3D29FF06C032",
+            "label": "Booking Confirmation",
+            "sourceRef": "sid-D5DBEB31-E0E3-4181-9A23-A4C3DE04CE4E"
+        },
+        {
+            "id": "sid-06EE4B91-FD9F-4216-B53C-625A460330F8",
+            "targetRef": "sid-56470977-A05E-4E47-A824-793A2577BC78",
+            "label": "Booking Request",
+            "sourceRef": "sid-72A5BAA4-7EA4-4B86-87B4-3D29FF06C032"
+        }
+    ],
+    "sequenceFlows": [
+        {
+            "id": "sid-BDD10C04-2EFA-4B57-9EA3-74717E1E89BC",
+            "targetRef": "sid-1A492704-C7E7-459B-8BA7-95DF1D9EDB71",
+            "sourceRef": "sid-58470E50-0E98-4AA0-AE98-843918B604B1"
+        },
+        {
+            "id": "sid-7B9CAC8E-B15A-4C2E-917E-382EDAC25F01",
+            "targetRef": "sid-58470E50-0E98-4AA0-AE98-843918B604B1",
+            "sourceRef": "sid-56470977-A05E-4E47-A824-793A2577BC78"
+        },
+        {
+            "id": "sid-29BB9A77-05C0-4E86-AAB0-5839E299FAEC",
+            "targetRef": "sid-FC7331D9-05BC-4122-9D21-1BAFFCE5C1AB",
+            "condition": "Yes",
+            "sourceRef": "sid-1A492704-C7E7-459B-8BA7-95DF1D9EDB71"
+        },
+        {
+            "id": "sid-E44C7AD2-3F2A-4B47-83DC-590374FFE1D0",
+            "targetRef": "sid-EE8EFE39-4DC5-45F1-BDFD-03CB4256A347",
+            "sourceRef": "sid-FC7331D9-05BC-4122-9D21-1BAFFCE5C1AB"
+        },
+        {
+            "id": "sid-CA01F973-DEC9-4F4E-86DD-507C524D16A4",
+            "targetRef": "sid-93508ED5-D841-4241-8B30-CD47D25FB2B2",
+            "sourceRef": "sid-08F4C2D8-7CCC-4B3D-8431-148AB257E445"
+        },
+        {
+            "id": "sid-D3EBA849-83F8-4EA1-A5A5-5EF6C9295CC2",
+            "targetRef": "sid-3E2A3B4E-F895-4F4B-A56F-D03535DEA971",
+            "condition": "Yes",
+            "sourceRef": "sid-EE8EFE39-4DC5-45F1-BDFD-03CB4256A347"
+        },
+        {
+            "id": "sid-19968319-5EE7-4685-B830-9660DE2DEF61",
+            "targetRef": "sid-EA5A8C1E-F423-4403-9317-C50090F8086F",
+            "condition": "No",
+            "sourceRef": "sid-EE8EFE39-4DC5-45F1-BDFD-03CB4256A347"
+        },
+        {
+            "id": "sid-66F22A5A-5B64-4E30-AE00-4A0BCB4C08E5",
+            "targetRef": "sid-08F4C2D8-7CCC-4B3D-8431-148AB257E445",
+            "sourceRef": "sid-3E2A3B4E-F895-4F4B-A56F-D03535DEA971"
+        },
+        {
+            "id": "sid-EA4C1E04-8DC1-4346-AB6C-73D66317A05C",
+            "targetRef": "sid-D5DBEB31-E0E3-4181-9A23-A4C3DE04CE4E",
+            "sourceRef": "sid-98937A5F-4BD6-4A9A-A8D0-ADB6B491BE15"
+        },
+        {
+            "id": "sid-40FE449E-B5B4-4984-97D2-876384207E11",
+            "targetRef": "sid-98937A5F-4BD6-4A9A-A8D0-ADB6B491BE15",
+            "sourceRef": "sid-93508ED5-D841-4241-8B30-CD47D25FB2B2"
+        },
+        {
+            "id": "sid-4F3EACE9-0C1E-463E-B27B-D640987453DF",
+            "targetRef": "sid-8946700A-3B85-4DE2-B264-DF7A4F6BB8B0",
+            "condition": "No",
+            "sourceRef": "sid-1A492704-C7E7-459B-8BA7-95DF1D9EDB71"
+        }
+    ]
+}

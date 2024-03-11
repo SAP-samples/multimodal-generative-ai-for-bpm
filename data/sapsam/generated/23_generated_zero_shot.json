@@ -1,0 +1,91 @@
+{
+    "tasks": [
+        {
+            "id": "0",
+            "name": "Evaluate the condition of patient",
+            "type": "Task"
+        },
+        {
+            "id": "1",
+            "name": "Test the patient in laboratory",
+            "type": "Task"
+        },
+        {
+            "id": "2",
+            "name": "Treat patient",
+            "type": "Task"
+        },
+        {
+            "id": "3",
+            "name": "Prescribe medicines",
+            "type": "Task"
+        }
+    ],
+    "events": [
+        {
+            "id": "4",
+            "name": "Enter short-term treatment",
+            "type": "StartNoneEvent"
+        },
+        {
+            "id": "5",
+            "name": "Prescription delivered",
+            "type": "EndNoneEvent"
+        }
+    ],
+    "gateways": [],
+    "pools": [
+        {
+            "id": "6",
+            "name": "Treatment Chambers",
+            "lanes": [
+                {
+                    "id": "7",
+                    "name": "Doctors",
+                    "elemRefs": [
+                        "0",
+                        "2",
+                        "3",
+                        "4",
+                        "5"
+                    ]
+                },
+                {
+                    "id": "8",
+                    "name": "Technicians",
+                    "elemRefs": [
+                        "1"
+                    ]
+                }
+            ]
+        }
+    ],
+    "sequenceFlows": [
+        {
+            "id": "9",
+            "sourceRef": "4",
+            "targetRef": "0"
+        },
+        {
+            "id": "10",
+            "sourceRef": "0",
+            "targetRef": "1"
+        },
+        {
+            "id": "11",
+            "sourceRef": "1",
+            "targetRef": "2"
+        },
+        {
+            "id": "12",
+            "sourceRef": "2",
+            "targetRef": "3"
+        },
+        {
+            "id": "13",
+            "sourceRef": "3",
+            "targetRef": "5"
+        }
+    ],
+    "messageFlows": []
+}

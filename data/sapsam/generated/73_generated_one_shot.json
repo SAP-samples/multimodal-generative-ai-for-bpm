@@ -1,0 +1,152 @@
+{
+    "tasks": [
+        {
+            "id": "0",
+            "name": "Benutzer anmelden",
+            "type": "CollapsedSubprocess"
+        },
+        {
+            "id": "1",
+            "name": "Medien verl\u00e4ngern",
+            "type": "Task"
+        },
+        {
+            "id": "2",
+            "name": "Medium aussuchen",
+            "type": "Task"
+        },
+        {
+            "id": "3",
+            "name": "Medium in der Datenbank suchen",
+            "type": "Task"
+        },
+        {
+            "id": "4",
+            "name": "Benutzer identifizieren",
+            "type": "Task"
+        },
+        {
+            "id": "5",
+            "name": "Reservierungsvorgang",
+            "type": "Task"
+        }
+    ],
+    "events": [
+        {
+            "id": "6",
+            "name": "Benutzer kommt in die Bibliothek",
+            "type": "StartNoneEvent"
+        },
+        {
+            "id": "7",
+            "name": "Medien wurden verl\u00e4ngert",
+            "type": "EndNoneEvent"
+        },
+        {
+            "id": "8",
+            "name": "Medium wird zur\u00fcckgegeben",
+            "type": "EndNoneEvent"
+        },
+        {
+            "id": "9",
+            "name": "Medium nicht vorhanden",
+            "type": "IntermediateMessageEvent"
+        },
+        {
+            "id": "10",
+            "name": "Reservierung best\u00e4tigen",
+            "type": "IntermediateMessageEvent"
+        },
+        {
+            "id": "11",
+            "name": "Medium wird Reserviert",
+            "type": "EndNoneEvent"
+        },
+        {
+            "id": "12",
+            "name": "Reservierung ablehnen",
+            "type": "IntermediateMessageEvent"
+        },
+        {
+            "id": "13",
+            "name": "Verleihvorgang abgebrochen",
+            "type": "EndNoneEvent"
+        }
+    ],
+    "gateways": [
+        {
+            "id": "14",
+            "type": "Exclusive"
+        },
+        {
+            "id": "15",
+            "type": "Exclusive"
+        },
+        {
+            "id": "16",
+            "type": "Exclusive"
+        },
+        {
+            "id": "17",
+            "type": "Eventbased"
+        }
+    ],
+    "pools": [
+        {
+            "id": "18",
+            "name": "Nutzer der Bibliothek nicht HTW",
+            "lanes": []
+        },
+        {
+            "id": "19",
+            "name": "Reservierung best\u00e4tigen",
+            "lanes": [
+                {
+                    "id": "20",
+                    "name": "Ausleihe",
+                    "elemRefs": [
+                        "0",
+                        "1",
+                        "2",
+                        "3",
+                        "4",
+                        "5",
+                        "6",
+                        "7",
+                        "8",
+                        "9",
+                        "10",
+                        "11",
+                        "12",
+                        "13",
+                        "14",
+                        "15",
+                        "16",
+                        "17"
+                    ]
+                }
+            ]
+        }
+    ],
+    "sequenceFlows": [],
+    "messageFlows": [
+        {
+            "id": "21",
+            "sourceRef": "18",
+            "targetRef": "9",
+            "label": "Medium nicht vorhanden"
+        },
+        {
+            "id": "22",
+            "sourceRef": "18",
+            "targetRef": "10",
+            "label": "Reservierung best\u00e4tigen"
+        },
+        {
+            "id": "23",
+            "sourceRef": "18",
+            "targetRef": "12",
+            "label": "Reservierung ablehnen"
+        }
+    ]
+}

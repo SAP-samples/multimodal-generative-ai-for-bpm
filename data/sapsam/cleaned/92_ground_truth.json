@@ -1,0 +1,296 @@
+{
+    "tasks": [
+        {
+            "id": "sid-1D0ED781-3197-48FA-B03C-172F495DBAEB",
+            "name": "Check existing process models",
+            "type": "User"
+        },
+        {
+            "id": "sid-7C9F2FF4-1B3D-4E63-B795-0AFBEE20F05E",
+            "name": "Include technical changes",
+            "type": "Task"
+        },
+        {
+            "id": "sid-6AFEC3C1-40F3-45C5-AC34-0EE97299CD88",
+            "name": "Start editing the process model",
+            "type": "User"
+        },
+        {
+            "id": "sid-12FBAF77-A482-4102-A8D4-0B2423525454",
+            "name": "Plan changes",
+            "type": "User"
+        },
+        {
+            "id": "sid-AB287A22-0324-4876-BDB9-A80B69CA95EC",
+            "name": "Understanding technical process content",
+            "type": "Task"
+        },
+        {
+            "id": "sid-A3140ED7-D3F0-4F28-A3BA-F0076DF3DAA4",
+            "name": "Modeling process according to the chosen notation",
+            "type": "Task"
+        },
+        {
+            "id": "sid-138B7262-7A65-4D8C-BFE1-EFC28094450F",
+            "name": "Pass on process model for internal quality assurance",
+            "type": "Task"
+        },
+        {
+            "id": "sid-A3A1D7F5-3E12-4800-B5E2-CD641887D72D",
+            "name": "Checking the process model for syntactic errors",
+            "type": "Task"
+        },
+        {
+            "id": "sid-2A6AC52D-3E41-4701-98FC-FEB8A188897D",
+            "name": "Structure and map changes",
+            "type": "Task"
+        },
+        {
+            "id": "sid-490DDCB0-51CC-4A09-A40E-B0BD96E716EC",
+            "name": "Issue working instruction for modelling",
+            "type": "Task"
+        },
+        {
+            "id": "sid-55F49568-0634-4BB5-B204-B0540238FB08",
+            "name": "Discuss necessary changes with the modeler",
+            "type": "Task"
+        },
+        {
+            "id": "sid-1C2BBD4F-DFEE-4F06-B106-1AD634FBF625",
+            "name": "Pass on documentation to the modeler",
+            "type": "Task"
+        },
+        {
+            "id": "sid-9BC7752B-6BEF-44DE-B0DC-83732F2D7148",
+            "name": "Comparison with existing model",
+            "type": "Task"
+        },
+        {
+            "id": "sid-E7629D9F-8B7F-4A54-840C-DADCBB9A510E",
+            "name": "Document mistakes",
+            "type": "Task"
+        },
+        {
+            "id": "sid-44B87223-D7C1-4D84-8C46-576C72B80F3A",
+            "name": "Create plan for change",
+            "type": "Task"
+        },
+        {
+            "id": "sid-5D0C0DBA-16EE-452D-8404-A6CA9A69A616",
+            "name": "Build up a plan of the model",
+            "type": "Task"
+        },
+        {
+            "id": "sid-317352C3-4700-447A-A6FB-C3667A0B0343",
+            "name": "Specifying a notation",
+            "type": "Task"
+        },
+        {
+            "id": "sid-3699AEA9-6305-40C4-9F32-952ED987C6F8",
+            "name": "Check for rough layout mistakes",
+            "type": "Task"
+        }
+    ],
+    "events": [
+        {
+            "id": "sid-8900A007-5BF4-479D-9CE9-D8A058486FD0",
+            "name": "Prozesserhebung / -doumentation",
+            "type": "StartMessageEvent"
+        },
+        {
+            "id": "sid-E48929B9-67B2-4167-9597-46624E9868D8",
+            "name": "Prozesserhebung / -dokumentation beendet",
+            "type": "EndMessageEvent"
+        }
+    ],
+    "gateways": [
+        {
+            "id": "sid-33588787-3A05-405F-A307-74DF4DC5AC08",
+            "name": "Is the process model already existing?",
+            "type": "Exclusive"
+        },
+        {
+            "id": "sid-041B64B7-45ED-446B-8FE6-F1DF88A52F47",
+            "type": "Exclusive"
+        },
+        {
+            "id": "sid-E7A1745A-F683-4425-BB32-1D71BEFFAF59",
+            "name": "Process model correctly modeled?",
+            "type": "Exclusive"
+        },
+        {
+            "id": "sid-BD0AD4B4-CBD3-4DE2-9A20-E97782A891D4",
+            "type": "Exclusive"
+        }
+    ],
+    "pools": [
+        {
+            "id": "sid-22712A01-EF95-4508-B086-04BA057A43D3",
+            "name": "Unternehmen",
+            "lanes": [
+                {
+                    "id": "sid-4CDC998A-F6E1-43D6-A97F-EB8696087850",
+                    "name": "Prozessmodellierer",
+                    "elemRefs": [
+                        "sid-1D0ED781-3197-48FA-B03C-172F495DBAEB",
+                        "sid-7C9F2FF4-1B3D-4E63-B795-0AFBEE20F05E",
+                        "sid-6AFEC3C1-40F3-45C5-AC34-0EE97299CD88",
+                        "sid-12FBAF77-A482-4102-A8D4-0B2423525454",
+                        "sid-AB287A22-0324-4876-BDB9-A80B69CA95EC",
+                        "sid-A3140ED7-D3F0-4F28-A3BA-F0076DF3DAA4",
+                        "sid-138B7262-7A65-4D8C-BFE1-EFC28094450F",
+                        "sid-A3A1D7F5-3E12-4800-B5E2-CD641887D72D",
+                        "sid-2A6AC52D-3E41-4701-98FC-FEB8A188897D",
+                        "sid-490DDCB0-51CC-4A09-A40E-B0BD96E716EC",
+                        "sid-55F49568-0634-4BB5-B204-B0540238FB08",
+                        "sid-1C2BBD4F-DFEE-4F06-B106-1AD634FBF625",
+                        "sid-9BC7752B-6BEF-44DE-B0DC-83732F2D7148",
+                        "sid-E7629D9F-8B7F-4A54-840C-DADCBB9A510E",
+                        "sid-44B87223-D7C1-4D84-8C46-576C72B80F3A",
+                        "sid-5D0C0DBA-16EE-452D-8404-A6CA9A69A616",
+                        "sid-317352C3-4700-447A-A6FB-C3667A0B0343",
+                        "sid-3699AEA9-6305-40C4-9F32-952ED987C6F8",
+                        "sid-8900A007-5BF4-479D-9CE9-D8A058486FD0",
+                        "sid-E48929B9-67B2-4167-9597-46624E9868D8",
+                        "sid-33588787-3A05-405F-A307-74DF4DC5AC08",
+                        "sid-041B64B7-45ED-446B-8FE6-F1DF88A52F47",
+                        "sid-E7A1745A-F683-4425-BB32-1D71BEFFAF59",
+                        "sid-BD0AD4B4-CBD3-4DE2-9A20-E97782A891D4"
+                    ]
+                }
+            ]
+        }
+    ],
+    "messageFlows": [],
+    "sequenceFlows": [
+        {
+            "id": "sid-1C367833-6C90-432C-B6AB-07F0B2E0DEB4",
+            "targetRef": "sid-12FBAF77-A482-4102-A8D4-0B2423525454",
+            "sourceRef": "sid-6AFEC3C1-40F3-45C5-AC34-0EE97299CD88"
+        },
+        {
+            "id": "sid-68762F7B-0CB3-452F-A5C1-4F8AF98E3060",
+            "targetRef": "sid-33588787-3A05-405F-A307-74DF4DC5AC08",
+            "sourceRef": "sid-1D0ED781-3197-48FA-B03C-172F495DBAEB"
+        },
+        {
+            "id": "sid-11320F7E-AB17-4C9F-B307-831E86D90746",
+            "targetRef": "sid-E7A1745A-F683-4425-BB32-1D71BEFFAF59",
+            "sourceRef": "sid-A3A1D7F5-3E12-4800-B5E2-CD641887D72D"
+        },
+        {
+            "id": "sid-CFF99A4A-640D-476C-BD43-5270FBA72AAE",
+            "targetRef": "sid-2A6AC52D-3E41-4701-98FC-FEB8A188897D",
+            "sourceRef": "sid-7C9F2FF4-1B3D-4E63-B795-0AFBEE20F05E"
+        },
+        {
+            "id": "sid-92F4FE93-F00C-4E48-BB09-B09DA8E752F7",
+            "targetRef": "sid-1C2BBD4F-DFEE-4F06-B106-1AD634FBF625",
+            "sourceRef": "sid-2A6AC52D-3E41-4701-98FC-FEB8A188897D"
+        },
+        {
+            "id": "sid-859D5204-22F8-4D8E-BA12-6F161D065005",
+            "targetRef": "sid-6AFEC3C1-40F3-45C5-AC34-0EE97299CD88",
+            "sourceRef": "sid-1C2BBD4F-DFEE-4F06-B106-1AD634FBF625"
+        },
+        {
+            "id": "sid-3ECCCFF3-29DC-40F6-AB2D-84203A8760AA",
+            "targetRef": "sid-AB287A22-0324-4876-BDB9-A80B69CA95EC",
+            "sourceRef": "sid-490DDCB0-51CC-4A09-A40E-B0BD96E716EC"
+        },
+        {
+            "id": "sid-3EE3E291-BF56-4095-819C-5873613DB33A",
+            "targetRef": "sid-138B7262-7A65-4D8C-BFE1-EFC28094450F",
+            "sourceRef": "sid-A3140ED7-D3F0-4F28-A3BA-F0076DF3DAA4"
+        },
+        {
+            "id": "sid-C7858D4E-50C9-437D-80D6-531E55DB74AB",
+            "targetRef": "sid-041B64B7-45ED-446B-8FE6-F1DF88A52F47",
+            "sourceRef": "sid-12FBAF77-A482-4102-A8D4-0B2423525454"
+        },
+        {
+            "id": "sid-D154484F-9584-417F-B7A2-F82D1F3BE996",
+            "targetRef": "sid-BD0AD4B4-CBD3-4DE2-9A20-E97782A891D4",
+            "sourceRef": "sid-041B64B7-45ED-446B-8FE6-F1DF88A52F47"
+        },
+        {
+            "id": "sid-75959429-4A5C-47D2-A255-B678B44688FB",
+            "targetRef": "sid-A3140ED7-D3F0-4F28-A3BA-F0076DF3DAA4",
+            "sourceRef": "sid-BD0AD4B4-CBD3-4DE2-9A20-E97782A891D4"
+        },
+        {
+            "id": "sid-7B282470-0C44-40A8-B500-CF4993662CC4",
+            "targetRef": "sid-7C9F2FF4-1B3D-4E63-B795-0AFBEE20F05E",
+            "sourceRef": "sid-9BC7752B-6BEF-44DE-B0DC-83732F2D7148"
+        },
+        {
+            "id": "sid-D035EC2B-4E05-4CC5-8050-21C9F9C54E9E",
+            "targetRef": "sid-44B87223-D7C1-4D84-8C46-576C72B80F3A",
+            "sourceRef": "sid-55F49568-0634-4BB5-B204-B0540238FB08"
+        },
+        {
+            "id": "sid-4CE525CD-A5CC-4592-A470-DFC3298DFEE2",
+            "targetRef": "sid-BD0AD4B4-CBD3-4DE2-9A20-E97782A891D4",
+            "sourceRef": "sid-44B87223-D7C1-4D84-8C46-576C72B80F3A"
+        },
+        {
+            "id": "sid-85247D1D-BA76-4886-AB69-0A34D4E2D8FA",
+            "targetRef": "sid-5D0C0DBA-16EE-452D-8404-A6CA9A69A616",
+            "sourceRef": "sid-AB287A22-0324-4876-BDB9-A80B69CA95EC"
+        },
+        {
+            "id": "sid-E211152B-6950-40DF-B374-385F3A4D7D71",
+            "targetRef": "sid-041B64B7-45ED-446B-8FE6-F1DF88A52F47",
+            "sourceRef": "sid-5D0C0DBA-16EE-452D-8404-A6CA9A69A616"
+        },
+        {
+            "id": "sid-A534DB0A-B418-4E9D-8F68-3B8BCB8949BB",
+            "targetRef": "sid-490DDCB0-51CC-4A09-A40E-B0BD96E716EC",
+            "sourceRef": "sid-317352C3-4700-447A-A6FB-C3667A0B0343"
+        },
+        {
+            "id": "sid-77D53B1C-DE49-4E2B-B808-E3F9BDC81E5B",
+            "targetRef": "sid-1D0ED781-3197-48FA-B03C-172F495DBAEB",
+            "sourceRef": "sid-8900A007-5BF4-479D-9CE9-D8A058486FD0"
+        },
+        {
+            "id": "sid-9E73AAB3-5E74-4681-A786-F12D42B184C9",
+            "targetRef": "sid-3699AEA9-6305-40C4-9F32-952ED987C6F8",
+            "sourceRef": "sid-138B7262-7A65-4D8C-BFE1-EFC28094450F"
+        },
+        {
+            "id": "sid-8089690F-6620-449F-AD41-86D629DDD850",
+            "targetRef": "sid-A3A1D7F5-3E12-4800-B5E2-CD641887D72D",
+            "sourceRef": "sid-3699AEA9-6305-40C4-9F32-952ED987C6F8"
+        },
+        {
+            "id": "sid-6822F75A-9D06-4129-B33C-5EE444C01439",
+            "targetRef": "sid-55F49568-0634-4BB5-B204-B0540238FB08",
+            "sourceRef": "sid-E7629D9F-8B7F-4A54-840C-DADCBB9A510E"
+        },
+        {
+            "id": "sid-1C2DDA65-D449-4A20-84A7-EDD4B20CFB03",
+            "targetRef": "sid-317352C3-4700-447A-A6FB-C3667A0B0343",
+            "condition": "no",
+            "sourceRef": "sid-33588787-3A05-405F-A307-74DF4DC5AC08"
+        },
+        {
+            "id": "sid-03B6A81C-0706-4009-82DB-85C2B6AE7564",
+            "targetRef": "sid-9BC7752B-6BEF-44DE-B0DC-83732F2D7148",
+            "condition": "yes",
+            "sourceRef": "sid-33588787-3A05-405F-A307-74DF4DC5AC08"
+        },
+        {
+            "id": "sid-9D14851C-5D9D-4D65-8D41-19669AD2E4D5",
+            "targetRef": "sid-E48929B9-67B2-4167-9597-46624E9868D8",
+            "condition": "yes",
+            "sourceRef": "sid-E7A1745A-F683-4425-BB32-1D71BEFFAF59"
+        },
+        {
+            "id": "sid-22F83321-A26B-4ADC-86FB-D7289457B68F",
+            "targetRef": "sid-E7629D9F-8B7F-4A54-840C-DADCBB9A510E",
+            "condition": "no",
+            "sourceRef": "sid-E7A1745A-F683-4425-BB32-1D71BEFFAF59"
+        }
+    ]
+}

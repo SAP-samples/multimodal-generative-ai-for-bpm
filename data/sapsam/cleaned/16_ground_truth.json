@@ -1,0 +1,240 @@
+{
+    "tasks": [
+        {
+            "id": "sid-D171169E-2A26-41B3-9BC6-E24DA1A3C8AE",
+            "name": "Bei den einzelnen Objekten auf \"Lernfortschritt\" klicken",
+            "type": "Task"
+        },
+        {
+            "id": "sid-B267E316-91C5-4766-8571-743E21EEDE72",
+            "name": "Manuell durch Benutzer festlegen",
+            "type": "Task"
+        },
+        {
+            "id": "sid-9CE3372B-1044-4201-84DD-CF26AC71F43A",
+            "name": "Automatisch durch Lehrenden festgelegt",
+            "type": "Task"
+        },
+        {
+            "id": "sid-3A5985F9-B781-420A-AA08-25C695EDDAFD",
+            "name": "Status siehe farbliche Markierung",
+            "type": "Task"
+        },
+        {
+            "id": "sid-AAB61271-B027-4C1F-87DB-45F0226CE43A",
+            "name": "rotes Kreuz:  nicht bestanden (bei Kursen, Tests, \u00dcbungen)",
+            "type": "Task"
+        },
+        {
+            "id": "sid-CB993387-6424-4A26-B8FD-47AD222CBC10",
+            "name": "gr\u00fcn: vollst\u00e4ndig bearbeitet",
+            "type": "Task"
+        },
+        {
+            "id": "sid-E819DD51-DD6A-47F5-9520-CD83DDAA5D7B",
+            "name": "gelb: in Bearbeitung",
+            "type": "Task"
+        },
+        {
+            "id": "sid-B6C1FF74-0783-4AE4-832E-060A286882BD",
+            "name": "grau:  noch nicht  begonnen",
+            "type": "Task"
+        },
+        {
+            "id": "sid-A3621A2C-F854-4B0D-BBE4-CD1579FDD352",
+            "name": "In ausgew\u00e4hlte Objekte Lernfortschritt aktivieren",
+            "type": "CollapsedSubprocess"
+        }
+    ],
+    "events": [
+        {
+            "id": "sid-c8144dbeb6cf40a38530724b996c6d7e",
+            "name": "Start",
+            "type": "StartNoneEvent"
+        },
+        {
+            "id": "sid-73B622D7-293E-49BC-BDED-B5EC09E9DD11",
+            "name": "Ende",
+            "type": "EndNoneEvent"
+        }
+    ],
+    "gateways": [
+        {
+            "id": "sid-FE83F5F3-EF00-4461-920C-014D24FE8473",
+            "type": "Exclusive"
+        },
+        {
+            "id": "sid-00633CAE-F2D7-447A-ABC5-0B6BEA5A1EA8",
+            "type": "Exclusive"
+        },
+        {
+            "id": "sid-FA43BB9B-9FFF-4228-8020-2F9702623387",
+            "type": "Exclusive"
+        },
+        {
+            "id": "sid-D5A7DB02-621B-4DE1-A0CB-6CF6F9237860",
+            "type": "Exclusive"
+        },
+        {
+            "id": "sid-77E26964-4606-4DAE-9C7C-C552E17E46CF",
+            "type": "Exclusive"
+        },
+        {
+            "id": "sid-AA6CF7D5-3816-466A-95C1-05470E7B0922",
+            "type": "Exclusive"
+        }
+    ],
+    "pools": [
+        {
+            "id": "sid-7f7c7501833346c9ab0aa237e9b12f7f",
+            "name": "Lernfortschritt",
+            "lanes": [
+                {
+                    "id": "sid-5ea2493386b04e34a2399fb3840f0dce",
+                    "name": "Studierende",
+                    "elemRefs": [
+                        "sid-D171169E-2A26-41B3-9BC6-E24DA1A3C8AE",
+                        "sid-B267E316-91C5-4766-8571-743E21EEDE72",
+                        "sid-9CE3372B-1044-4201-84DD-CF26AC71F43A",
+                        "sid-3A5985F9-B781-420A-AA08-25C695EDDAFD",
+                        "sid-AAB61271-B027-4C1F-87DB-45F0226CE43A",
+                        "sid-CB993387-6424-4A26-B8FD-47AD222CBC10",
+                        "sid-E819DD51-DD6A-47F5-9520-CD83DDAA5D7B",
+                        "sid-B6C1FF74-0783-4AE4-832E-060A286882BD",
+                        "sid-c8144dbeb6cf40a38530724b996c6d7e",
+                        "sid-73B622D7-293E-49BC-BDED-B5EC09E9DD11",
+                        "sid-FE83F5F3-EF00-4461-920C-014D24FE8473",
+                        "sid-00633CAE-F2D7-447A-ABC5-0B6BEA5A1EA8",
+                        "sid-FA43BB9B-9FFF-4228-8020-2F9702623387",
+                        "sid-D5A7DB02-621B-4DE1-A0CB-6CF6F9237860",
+                        "sid-77E26964-4606-4DAE-9C7C-C552E17E46CF",
+                        "sid-AA6CF7D5-3816-466A-95C1-05470E7B0922"
+                    ]
+                },
+                {
+                    "id": "sid-04DB03F6-99D5-41C1-B717-9383339A5223",
+                    "name": "Lehrende",
+                    "elemRefs": [
+                        "sid-A3621A2C-F854-4B0D-BBE4-CD1579FDD352"
+                    ]
+                }
+            ]
+        }
+    ],
+    "messageFlows": [],
+    "sequenceFlows": [
+        {
+            "id": "spr-51c2ffc514be44ceadff7f82502bac44",
+            "targetRef": "sid-FA43BB9B-9FFF-4228-8020-2F9702623387",
+            "sourceRef": "sid-c8144dbeb6cf40a38530724b996c6d7e"
+        },
+        {
+            "id": "sid-1760252C-594B-4F15-B084-C40BB07FEB8E",
+            "targetRef": "sid-FE83F5F3-EF00-4461-920C-014D24FE8473",
+            "sourceRef": "sid-D171169E-2A26-41B3-9BC6-E24DA1A3C8AE"
+        },
+        {
+            "id": "sid-DAE8758A-0023-4FC2-8B35-2E6B0DB26FA6",
+            "targetRef": "sid-00633CAE-F2D7-447A-ABC5-0B6BEA5A1EA8",
+            "sourceRef": "sid-B267E316-91C5-4766-8571-743E21EEDE72"
+        },
+        {
+            "id": "sid-27EF0C18-44F4-4681-8194-3F2D47F38BA9",
+            "targetRef": "sid-D5A7DB02-621B-4DE1-A0CB-6CF6F9237860",
+            "sourceRef": "sid-3A5985F9-B781-420A-AA08-25C695EDDAFD"
+        },
+        {
+            "id": "sid-4AE24E9F-0767-4A3D-8642-837E8AB2D16D",
+            "targetRef": "sid-A3621A2C-F854-4B0D-BBE4-CD1579FDD352",
+            "condition": "Lehrende",
+            "sourceRef": "sid-FA43BB9B-9FFF-4228-8020-2F9702623387"
+        },
+        {
+            "id": "sid-3AEEF22F-02BA-4347-808F-83CC9DF62E49",
+            "targetRef": "sid-D171169E-2A26-41B3-9BC6-E24DA1A3C8AE",
+            "condition": "Studierende",
+            "sourceRef": "sid-FA43BB9B-9FFF-4228-8020-2F9702623387"
+        },
+        {
+            "id": "sid-B5AC2374-F642-465D-A3CA-B2F1EF392536",
+            "targetRef": "sid-B267E316-91C5-4766-8571-743E21EEDE72",
+            "condition": "manuell",
+            "sourceRef": "sid-FE83F5F3-EF00-4461-920C-014D24FE8473"
+        },
+        {
+            "id": "sid-DA442A34-C32B-45A5-8D02-67AF12B46C74",
+            "targetRef": "sid-9CE3372B-1044-4201-84DD-CF26AC71F43A",
+            "condition": "automatisch",
+            "sourceRef": "sid-FE83F5F3-EF00-4461-920C-014D24FE8473"
+        },
+        {
+            "id": "sid-DD75C2FF-169D-4FC1-9CF5-458843A85167",
+            "targetRef": "sid-77E26964-4606-4DAE-9C7C-C552E17E46CF",
+            "sourceRef": "sid-B6C1FF74-0783-4AE4-832E-060A286882BD"
+        },
+        {
+            "id": "sid-1593BC4C-49E6-4D4C-8651-1B8A6FED7E80",
+            "targetRef": "sid-77E26964-4606-4DAE-9C7C-C552E17E46CF",
+            "sourceRef": "sid-AAB61271-B027-4C1F-87DB-45F0226CE43A"
+        },
+        {
+            "id": "sid-6C3F18E3-9B1B-4445-BB0B-436681400935",
+            "targetRef": "sid-00633CAE-F2D7-447A-ABC5-0B6BEA5A1EA8",
+            "sourceRef": "sid-9CE3372B-1044-4201-84DD-CF26AC71F43A"
+        },
+        {
+            "id": "sid-4D366587-846C-4A79-89B7-D30533219269",
+            "targetRef": "sid-AAB61271-B027-4C1F-87DB-45F0226CE43A",
+            "condition": "rot",
+            "sourceRef": "sid-D5A7DB02-621B-4DE1-A0CB-6CF6F9237860"
+        },
+        {
+            "id": "sid-CCCD13A6-C4D4-4272-8DE2-8A45F960BBC0",
+            "targetRef": "sid-77E26964-4606-4DAE-9C7C-C552E17E46CF",
+            "sourceRef": "sid-E819DD51-DD6A-47F5-9520-CD83DDAA5D7B"
+        },
+        {
+            "id": "sid-28C28FF8-D575-418B-8559-5E07EA950D71",
+            "targetRef": "sid-AA6CF7D5-3816-466A-95C1-05470E7B0922",
+            "sourceRef": "sid-A3621A2C-F854-4B0D-BBE4-CD1579FDD352"
+        },
+        {
+            "id": "sid-606CB83C-E83F-4F60-959E-BADD7B9C7DAE",
+            "targetRef": "sid-AA6CF7D5-3816-466A-95C1-05470E7B0922",
+            "sourceRef": "sid-00633CAE-F2D7-447A-ABC5-0B6BEA5A1EA8"
+        },
+        {
+            "id": "sid-C1245D4A-3E74-4814-AC5A-16F1D6398B2B",
+            "targetRef": "sid-3A5985F9-B781-420A-AA08-25C695EDDAFD",
+            "sourceRef": "sid-AA6CF7D5-3816-466A-95C1-05470E7B0922"
+        },
+        {
+            "id": "sid-DAA45154-DDAE-4770-935D-B15F25730B31",
+            "targetRef": "sid-73B622D7-293E-49BC-BDED-B5EC09E9DD11",
+            "sourceRef": "sid-77E26964-4606-4DAE-9C7C-C552E17E46CF"
+        },
+        {
+            "id": "sid-623B3684-34E7-4953-921E-277ED7A5BB3E",
+            "targetRef": "sid-B6C1FF74-0783-4AE4-832E-060A286882BD",
+            "condition": "grau",
+            "sourceRef": "sid-D5A7DB02-621B-4DE1-A0CB-6CF6F9237860"
+        },
+        {
+            "id": "sid-30D1BD08-7ECA-4F06-9921-D97930E458E7",
+            "targetRef": "sid-E819DD51-DD6A-47F5-9520-CD83DDAA5D7B",
+            "condition": "gelb",
+            "sourceRef": "sid-D5A7DB02-621B-4DE1-A0CB-6CF6F9237860"
+        },
+        {
+            "id": "sid-27AC57AA-25A1-4C1D-8C76-C10FCC907F0A",
+            "targetRef": "sid-77E26964-4606-4DAE-9C7C-C552E17E46CF",
+            "sourceRef": "sid-CB993387-6424-4A26-B8FD-47AD222CBC10"
+        },
+        {
+            "id": "sid-B6790C12-115C-4E21-9330-E7E627DFEE97",
+            "targetRef": "sid-CB993387-6424-4A26-B8FD-47AD222CBC10",
+            "condition": "gr\u00fcn",
+            "sourceRef": "sid-D5A7DB02-621B-4DE1-A0CB-6CF6F9237860"
+        }
+    ]
+}

@@ -1,0 +1,149 @@
+{
+    "tasks": [
+        {
+            "id": "0",
+            "name": "Anfrage erhalten",
+            "type": "Task"
+        },
+        {
+            "id": "1",
+            "name": "Anfrage verifizieren",
+            "type": "Task"
+        },
+        {
+            "id": "2",
+            "name": "Angebot erstellen",
+            "type": "CollapsedSubprocess"
+        },
+        {
+            "id": "3",
+            "name": "Angebot versenden & archivieren",
+            "type": "Task"
+        },
+        {
+            "id": "4",
+            "name": "AB kontrollieren",
+            "type": "Task"
+        },
+        {
+            "id": "5",
+            "name": "AB archivieren",
+            "type": "Task"
+        }
+    ],
+    "events": [
+        {
+            "id": "6",
+            "name": "Angebotserfolgung",
+            "type": "EndNoneEvent"
+        },
+        {
+            "id": "7",
+            "name": "Start event",
+            "type": "StartNoneEvent"
+        },
+        {
+            "id": "8",
+            "name": "End event",
+            "type": "EndNoneEvent"
+        }
+    ],
+    "gateways": [
+        {
+            "id": "9",
+            "type": "Exclusive"
+        },
+        {
+            "id": "10",
+            "type": "Exclusive"
+        }
+    ],
+    "pools": [
+        {
+            "id": "11",
+            "name": "Universit\u00e4t Ulm",
+            "lanes": [
+                {
+                    "id": "12",
+                    "name": "Handelsvertreter",
+                    "elemRefs": [
+                        "0",
+                        "1",
+                        "2",
+                        "3"
+                    ]
+                },
+                {
+                    "id": "13",
+                    "name": "Vertriebs-Innendienst",
+                    "elemRefs": [
+                        "4",
+                        "5"
+                    ]
+                }
+            ]
+        }
+    ],
+    "sequenceFlows": [
+        {
+            "id": "14",
+            "sourceRef": "7",
+            "targetRef": "0"
+        },
+        {
+            "id": "15",
+            "sourceRef": "0",
+            "targetRef": "1"
+        },
+        {
+            "id": "16",
+            "sourceRef": "1",
+            "targetRef": "9"
+        },
+        {
+            "id": "17",
+            "sourceRef": "9",
+            "targetRef": "2",
+            "condition": "Bauvorschrift notwendig"
+        },
+        {
+            "id": "18",
+            "sourceRef": "9",
+            "targetRef": "3",
+            "condition": "Keine Bauvorschrift / Auftrag erhalten?"
+        },
+        {
+            "id": "19",
+            "sourceRef": "2",
+            "targetRef": "3"
+        },
+        {
+            "id": "20",
+            "sourceRef": "3",
+            "targetRef": "10"
+        },
+        {
+            "id": "21",
+            "sourceRef": "10",
+            "targetRef": "4",
+            "condition": "Auftrag Wert ab 5.000\u20ac"
+        },
+        {
+            "id": "22",
+            "sourceRef": "10",
+            "targetRef": "6",
+            "condition": "Auftrag Wert unter 5.000\u20ac"
+        },
+        {
+            "id": "23",
+            "sourceRef": "4",
+            "targetRef": "5"
+        },
+        {
+            "id": "24",
+            "sourceRef": "5",
+            "targetRef": "8"
+        }
+    ],
+    "messageFlows": []
+}

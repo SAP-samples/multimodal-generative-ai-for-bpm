@@ -1,0 +1,27 @@
+[
+    {
+        "id": "0",
+        "name": "Receipt of application",
+        "type": "StartMessageEvent"
+    },
+    {
+        "id": "1",
+        "name": "Receipt of signed employment contract",
+        "type": "IntermediateMessageEventCatching"
+    },
+    {
+        "id": "2",
+        "name": "Signed employment contract is present",
+        "type": "EndEvent"
+    },
+    {
+        "id": "3",
+        "name": "Rejection sent",
+        "type": "IntermediateMessageEventThrowing"
+    },
+    {
+        "id": "4",
+        "name": "Applicant rejected",
+        "type": "EndEvent"
+    }
+]

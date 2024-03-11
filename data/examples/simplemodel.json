@@ -1,0 +1,127 @@
+{
+    "tasks": [
+        {
+            "id": "0",
+            "name": "Produce the car",
+            "type": "Task"
+        },
+        {
+            "id": "1",
+            "name": "Test the car",
+            "type": "Task"
+        },
+        {
+            "id": "2",
+            "name": "Fix the issue",
+            "type": "Task"
+        }
+    ],
+    "events": [
+        {
+            "id": "3",
+            "name": "Order arrived",
+            "type": "StartMessageEvent"
+        },
+        {
+            "id": "4",
+            "name": "Car produced",
+            "type": "EndMessageEvent"
+        }
+    ],
+    "gateways": [
+        {
+            "id": "5",
+            "name": "Detected errors?",
+            "type": "Exclusive"
+        },
+        {
+            "id": "6",
+            "type": "Exclusive"
+        }
+    ],
+    "pools": [
+        {
+            "id": "7",
+            "name": "Car manufacture",
+            "lanes": [
+                {
+                    "id": "8",
+                    "name": "Production",
+                    "elemRefs": [
+                        "0",
+                        "2",
+                        "3",
+                        "6"
+                    ]
+                },
+                {
+                    "id": "9",
+                    "name": "Quality Control",
+                    "elemRefs": [
+                        "1",
+                        "4",
+                        "5"
+                    ]
+                }
+            ]
+            
+        },
+        {
+            "id": "10",
+            "name": "Customer",
+            "lanes": []
+            
+        }
+    ],
+    "sequenceFlows": [
+        {
+            "id": "11",
+            "sourceRef": "3",
+            "targetRef": "0"
+        },
+        {
+            "id": "12",
+            "sourceRef": "0",
+            "targetRef": "6"
+        },
+        {
+            "id": "13",
+            "sourceRef": "6",
+            "targetRef": "1"
+        },
+        {
+            "id": "14",
+            "sourceRef": "1",
+            "targetRef": "5"
+        },
+        {
+            "id": "15",
+            "sourceRef": "5",
+            "targetRef": "2",
+            "condition": "no"
+        },
+        {
+            "id": "16",
+            "sourceRef": "5",
+            "targetRef": "4",
+            "condition": "yes"
+        },
+        {
+            "id": "17",
+            "sourceRef": "2",
+            "targetRef": "6"
+        }
+    ],
+    "messageFlows": [
+        {
+            "id": "18",
+            "sourceRef": "10",
+            "targetRef": "3"
+        },
+        {
+            "id": "19",
+            "sourceRef": "4",
+            "targetRef": "10"
+        }
+    ]
+}

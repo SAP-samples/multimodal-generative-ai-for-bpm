@@ -1,0 +1,304 @@
+{
+    "tasks": [
+        {
+            "id": "0",
+            "name": "Check existing process models",
+            "type": "Task"
+        },
+        {
+            "id": "1",
+            "name": "Is the process model already existing?",
+            "type": "Exclusive"
+        },
+        {
+            "id": "2",
+            "name": "Specify a notation",
+            "type": "Task"
+        },
+        {
+            "id": "3",
+            "name": "Issue working instruction for modelling",
+            "type": "Task"
+        },
+        {
+            "id": "4",
+            "name": "Understanding technical process content",
+            "type": "Task"
+        },
+        {
+            "id": "5",
+            "name": "Build up a plan of the model",
+            "type": "Task"
+        },
+        {
+            "id": "6",
+            "name": "Comparison with existing model",
+            "type": "Task"
+        },
+        {
+            "id": "7",
+            "name": "Include technical changes",
+            "type": "Task"
+        },
+        {
+            "id": "8",
+            "name": "Structure and map changes",
+            "type": "Task"
+        },
+        {
+            "id": "9",
+            "name": "Pass on documentation to the modeler",
+            "type": "Task"
+        },
+        {
+            "id": "10",
+            "name": "Start editing the process model",
+            "type": "Task"
+        },
+        {
+            "id": "11",
+            "name": "Plan changes",
+            "type": "Task"
+        },
+        {
+            "id": "12",
+            "name": "Exclusive (XOR) Gateway",
+            "type": "Exclusive"
+        },
+        {
+            "id": "13",
+            "name": "Modeling process according to the chosen notation",
+            "type": "Task"
+        },
+        {
+            "id": "14",
+            "name": "Pass on process model for internal quality assurance",
+            "type": "Task"
+        },
+        {
+            "id": "15",
+            "name": "Check for rough layout mistakes",
+            "type": "Task"
+        },
+        {
+            "id": "16",
+            "name": "Checking the process model for syntactic errors",
+            "type": "Task"
+        },
+        {
+            "id": "17",
+            "name": "Process model correctly modeled?",
+            "type": "Exclusive"
+        },
+        {
+            "id": "18",
+            "name": "Document mistakes",
+            "type": "Task"
+        },
+        {
+            "id": "19",
+            "name": "Discuss necessary changes with the modeler",
+            "type": "Task"
+        },
+        {
+            "id": "20",
+            "name": "Create plan for change",
+            "type": "Task"
+        }
+    ],
+    "events": [
+        {
+            "id": "21",
+            "name": "Prozesserhebung / -dokumentation",
+            "type": "StartMessageEvent"
+        },
+        {
+            "id": "22",
+            "name": "Prozesserhebung / -dokumentation beendet",
+            "type": "EndMessageEvent"
+        }
+    ],
+    "gateways": [
+        {
+            "id": "23",
+            "type": "Exclusive"
+        },
+        {
+            "id": "24",
+            "type": "Exclusive"
+        }
+    ],
+    "pools": [
+        {
+            "id": "25",
+            "name": "Prozessmodellierer",
+            "lanes": [
+                {
+                    "id": "26",
+                    "name": "Prozessmodellierer",
+                    "elemRefs": [
+                        "0",
+                        "1",
+                        "2",
+                        "3",
+                        "4",
+                        "5",
+                        "6",
+                        "7",
+                        "8",
+                        "9",
+                        "10",
+                        "11",
+                        "12",
+                        "13",
+                        "14",
+                        "15",
+                        "16",
+                        "17",
+                        "18",
+                        "19",
+                        "20"
+                    ]
+                }
+            ]
+        },
+        {
+            "id": "27",
+            "name": "Unternehmen",
+            "lanes": [
+                {
+                    "id": "28",
+                    "name": "Unternehmen",
+                    "elemRefs": []
+                }
+            ]
+        }
+    ],
+    "sequenceFlows": [
+        {
+            "id": "29",
+            "sourceRef": "21",
+            "targetRef": "0"
+        },
+        {
+            "id": "30",
+            "sourceRef": "0",
+            "targetRef": "1"
+        },
+        {
+            "id": "31",
+            "sourceRef": "1",
+            "targetRef": "2",
+            "condition": "Yes"
+        },
+        {
+            "id": "32",
+            "sourceRef": "1",
+            "targetRef": "3",
+            "condition": "No"
+        },
+        {
+            "id": "33",
+            "sourceRef": "2",
+            "targetRef": "4"
+        },
+        {
+            "id": "34",
+            "sourceRef": "3",
+            "targetRef": "4"
+        },
+        {
+            "id": "35",
+            "sourceRef": "4",
+            "targetRef": "5"
+        },
+        {
+            "id": "36",
+            "sourceRef": "5",
+            "targetRef": "6"
+        },
+        {
+            "id": "37",
+            "sourceRef": "6",
+            "targetRef": "7"
+        },
+        {
+            "id": "38",
+            "sourceRef": "7",
+            "targetRef": "8"
+        },
+        {
+            "id": "39",
+            "sourceRef": "8",
+            "targetRef": "9"
+        },
+        {
+            "id": "40",
+            "sourceRef": "9",
+            "targetRef": "10"
+        },
+        {
+            "id": "41",
+            "sourceRef": "10",
+            "targetRef": "11"
+        },
+        {
+            "id": "42",
+            "sourceRef": "11",
+            "targetRef": "12"
+        },
+        {
+            "id": "43",
+            "sourceRef": "12",
+            "targetRef": "13"
+        },
+        {
+            "id": "44",
+            "sourceRef": "13",
+            "targetRef": "14"
+        },
+        {
+            "id": "45",
+            "sourceRef": "14",
+            "targetRef": "15"
+        },
+        {
+            "id": "46",
+            "sourceRef": "15",
+            "targetRef": "16"
+        },
+        {
+            "id": "47",
+            "sourceRef": "16",
+            "targetRef": "17"
+        },
+        {
+            "id": "48",
+            "sourceRef": "17",
+            "targetRef": "18",
+            "condition": "Yes"
+        },
+        {
+            "id": "49",
+            "sourceRef": "17",
+            "targetRef": "19",
+            "condition": "No"
+        },
+        {
+            "id": "50",
+            "sourceRef": "18",
+            "targetRef": "20"
+        },
+        {
+            "id": "51",
+            "sourceRef": "19",
+            "targetRef": "20"
+        },
+        {
+            "id": "52",
+            "sourceRef": "20",
+            "targetRef": "22"
+        }
+    ],
+    "messageFlows": []
+}

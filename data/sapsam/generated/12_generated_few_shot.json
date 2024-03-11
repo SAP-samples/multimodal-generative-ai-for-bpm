@@ -1,0 +1,207 @@
+{
+    "tasks": [
+        {
+            "id": "0",
+            "name": "Kostenkalkulation durchf\u00fchren",
+            "type": "Task"
+        },
+        {
+            "id": "1",
+            "name": "Planungsdokument erstellen",
+            "type": "Task"
+        },
+        {
+            "id": "2",
+            "name": "Preisanpassung durchf\u00fchren",
+            "type": "Task"
+        },
+        {
+            "id": "3",
+            "name": "Zahlungsdokumentation durchf\u00fchren",
+            "type": "Task"
+        },
+        {
+            "id": "4",
+            "name": "Projekt durchf\u00fchren",
+            "type": "Task"
+        },
+        {
+            "id": "5",
+            "name": "Situation bewerten",
+            "type": "Task"
+        },
+        {
+            "id": "6",
+            "name": "Projektabnahme durchf\u00fchren",
+            "type": "Task"
+        },
+        {
+            "id": "7",
+            "name": "Folgeprojekte identifizieren",
+            "type": "Task"
+        }
+    ],
+    "events": [
+        {
+            "id": "8",
+            "name": "Projektbeginn",
+            "type": "StartNoneEvent"
+        },
+        {
+            "id": "9",
+            "name": "Projektabbruch",
+            "type": "EndNoneEvent"
+        },
+        {
+            "id": "10",
+            "name": "Projektabschluss",
+            "type": "EndNoneEvent"
+        },
+        {
+            "id": "11",
+            "name": "Versp\u00e4tete Zahlung",
+            "type": "IntermediateEscalationEvent"
+        }
+    ],
+    "gateways": [
+        {
+            "id": "12",
+            "type": "Eventbased"
+        },
+        {
+            "id": "13",
+            "name": "Gleichbleibende Anforderungen",
+            "type": "Exclusive"
+        },
+        {
+            "id": "14",
+            "type": "Exclusive"
+        },
+        {
+            "id": "15",
+            "name": "Neue Kundenanforderungen",
+            "type": "Exclusive"
+        },
+        {
+            "id": "16",
+            "type": "Exclusive"
+        }
+    ],
+    "pools": [
+        {
+            "id": "17",
+            "name": "SoKnow",
+            "lanes": [
+                {
+                    "id": "18",
+                    "name": "Projektteam",
+                    "elemRefs": [
+                        "0",
+                        "1",
+                        "2",
+                        "3",
+                        "4",
+                        "5",
+                        "6",
+                        "7",
+                        "8",
+                        "9",
+                        "10",
+                        "11",
+                        "12",
+                        "13",
+                        "14",
+                        "15",
+                        "16"
+                    ]
+                }
+            ]
+        },
+        {
+            "id": "19",
+            "name": "Kundenunternehmen",
+            "lanes": []
+        }
+    ],
+    "sequenceFlows": [
+        {
+            "id": "20",
+            "sourceRef": "8",
+            "targetRef": "0"
+        },
+        {
+            "id": "21",
+            "sourceRef": "0",
+            "targetRef": "1"
+        },
+        {
+            "id": "22",
+            "sourceRef": "1",
+            "targetRef": "12"
+        },
+        {
+            "id": "23",
+            "sourceRef": "12",
+            "targetRef": "2"
+        },
+        {
+            "id": "24",
+            "sourceRef": "2",
+            "targetRef": "3"
+        },
+        {
+            "id": "25",
+            "sourceRef": "3",
+            "targetRef": "4"
+        },
+        {
+            "id": "26",
+            "sourceRef": "4",
+            "targetRef": "11"
+        },
+        {
+            "id": "27",
+            "sourceRef": "11",
+            "targetRef": "5"
+        },
+        {
+            "id": "28",
+            "sourceRef": "5",
+            "targetRef": "14"
+        },
+        {
+            "id": "29",
+            "sourceRef": "14",
+            "targetRef": "6"
+        },
+        {
+            "id": "30",
+            "sourceRef": "15",
+            "targetRef": "9"
+        },
+        {
+            "id": "31",
+            "sourceRef": "16",
+            "targetRef": "10"
+        },
+        {
+            "id": "32",
+            "sourceRef": "6",
+            "targetRef": "7"
+        }
+    ],
+    "messageFlows": [
+        {
+            "id": "33",
+            "sourceRef": "13",
+            "targetRef": "2",
+            "label": "Gleichbleibende Anforderungen"
+        },
+        {
+            "id": "34",
+            "sourceRef": "15",
+            "targetRef": "2",
+            "label": "Neue Kundenanforderungen"
+        }
+    ]
+}

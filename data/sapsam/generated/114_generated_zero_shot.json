@@ -1,0 +1,130 @@
+{
+    "tasks": [
+        {
+            "id": "0",
+            "name": "Protokoll f\u00fchren",
+            "type": "Task"
+        },
+        {
+            "id": "1",
+            "name": "Protokoll auf Wiedervorlage ablegen",
+            "type": "Task"
+        },
+        {
+            "id": "2",
+            "name": "Protokoll im Schnellzugriff speichern",
+            "type": "Task"
+        },
+        {
+            "id": "3",
+            "name": "Protokoll archivieren",
+            "type": "Task"
+        }
+    ],
+    "events": [
+        {
+            "id": "4",
+            "name": "Protokoll muss gef\u00fchrt werden",
+            "type": "StartNoneEvent"
+        },
+        {
+            "id": "5",
+            "name": "Protokollf\u00fchrung beendet",
+            "type": "EndNoneEvent"
+        }
+    ],
+    "gateways": [
+        {
+            "id": "6",
+            "type": "Exclusive"
+        },
+        {
+            "id": "7",
+            "type": "Exclusive"
+        },
+        {
+            "id": "8",
+            "type": "Exclusive"
+        }
+    ],
+    "pools": [
+        {
+            "id": "9",
+            "name": "SoKnow",
+            "lanes": [
+                {
+                    "id": "10",
+                    "name": "Sekretariat",
+                    "elemRefs": [
+                        "4",
+                        "0",
+                        "6",
+                        "1",
+                        "7",
+                        "2",
+                        "8",
+                        "3",
+                        "5"
+                    ]
+                }
+            ]
+        }
+    ],
+    "sequenceFlows": [
+        {
+            "id": "11",
+            "sourceRef": "4",
+            "targetRef": "0"
+        },
+        {
+            "id": "12",
+            "sourceRef": "0",
+            "targetRef": "6"
+        },
+        {
+            "id": "13",
+            "sourceRef": "6",
+            "targetRef": "1",
+            "condition": "Ja"
+        },
+        {
+            "id": "14",
+            "sourceRef": "6",
+            "targetRef": "8",
+            "condition": "Nein"
+        },
+        {
+            "id": "15",
+            "sourceRef": "1",
+            "targetRef": "7"
+        },
+        {
+            "id": "16",
+            "sourceRef": "7",
+            "targetRef": "2",
+            "condition": "Nein"
+        },
+        {
+            "id": "17",
+            "sourceRef": "7",
+            "targetRef": "3",
+            "condition": "Ja"
+        },
+        {
+            "id": "18",
+            "sourceRef": "2",
+            "targetRef": "8"
+        },
+        {
+            "id": "19",
+            "sourceRef": "8",
+            "targetRef": "3"
+        },
+        {
+            "id": "20",
+            "sourceRef": "3",
+            "targetRef": "5"
+        }
+    ],
+    "messageFlows": []
+}

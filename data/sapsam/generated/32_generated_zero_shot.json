@@ -1,0 +1,218 @@
+{
+    "tasks": [
+        {
+            "id": "0",
+            "name": "geplante Entlassung",
+            "type": "Task"
+        },
+        {
+            "id": "1",
+            "name": "Entlassungstermin festlegen",
+            "type": "Task"
+        },
+        {
+            "id": "2",
+            "name": "\u00e4rztlichen Versorgungsbedarf bestimmen",
+            "type": "CollapsedSubprocess"
+        },
+        {
+            "id": "3",
+            "name": "mit Patient und Angehoerigen den weiteren Verlauf besprechen",
+            "type": "Task"
+        },
+        {
+            "id": "4",
+            "name": "pflegerischen Versorgungsbedarf bestimmen",
+            "type": "Task"
+        },
+        {
+            "id": "5",
+            "name": "Versorgungseinrichtung festlegen",
+            "type": "CollapsedSubprocess"
+        },
+        {
+            "id": "6",
+            "name": "Arztbrief erstellen",
+            "type": "Task"
+        },
+        {
+            "id": "7",
+            "name": "Sozialdienst erforderlich?",
+            "type": "Exclusive"
+        },
+        {
+            "id": "8",
+            "name": "veranlassen weiterer Pflegedienstleistungen",
+            "type": "CollapsedSubprocess"
+        },
+        {
+            "id": "9",
+            "name": "Entlassungsdokumentation erstellen",
+            "type": "CollapsedSubprocess"
+        },
+        {
+            "id": "10",
+            "name": "weiterf\u00fchrende Aufgaben Entlassung",
+            "type": "CollapsedSubprocess"
+        }
+    ],
+    "events": [
+        {
+            "id": "11",
+            "name": "geplante Entlassung",
+            "type": "StartNoneEvent"
+        },
+        {
+            "id": "12",
+            "name": "Entlassung",
+            "type": "EndNoneEvent"
+        }
+    ],
+    "gateways": [
+        {
+            "id": "13",
+            "type": "Parallel"
+        },
+        {
+            "id": "14",
+            "type": "Exclusive"
+        },
+        {
+            "id": "15",
+            "type": "Parallel"
+        },
+        {
+            "id": "16",
+            "type": "Exclusive"
+        }
+    ],
+    "pools": [
+        {
+            "id": "17",
+            "name": "Pool",
+            "lanes": [
+                {
+                    "id": "18",
+                    "name": "Arzt",
+                    "elemRefs": [
+                        "11",
+                        "1",
+                        "2",
+                        "3"
+                    ]
+                },
+                {
+                    "id": "19",
+                    "name": "Pflege",
+                    "elemRefs": [
+                        "0",
+                        "13",
+                        "4",
+                        "5",
+                        "6",
+                        "14",
+                        "7",
+                        "8",
+                        "15",
+                        "9",
+                        "10",
+                        "12"
+                    ]
+                },
+                {
+                    "id": "20",
+                    "name": "Sozialdienst",
+                    "elemRefs": []
+                }
+            ]
+        }
+    ],
+    "sequenceFlows": [
+        {
+            "id": "21",
+            "sourceRef": "11",
+            "targetRef": "1"
+        },
+        {
+            "id": "22",
+            "sourceRef": "1",
+            "targetRef": "13"
+        },
+        {
+            "id": "23",
+            "sourceRef": "13",
+            "targetRef": "2"
+        },
+        {
+            "id": "24",
+            "sourceRef": "13",
+            "targetRef": "3"
+        },
+        {
+            "id": "25",
+            "sourceRef": "2",
+            "targetRef": "15"
+        },
+        {
+            "id": "26",
+            "sourceRef": "3",
+            "targetRef": "15"
+        },
+        {
+            "id": "27",
+            "sourceRef": "15",
+            "targetRef": "4"
+        },
+        {
+            "id": "28",
+            "sourceRef": "4",
+            "targetRef": "5"
+        },
+        {
+            "id": "29",
+            "sourceRef": "5",
+            "targetRef": "6"
+        },
+        {
+            "id": "30",
+            "sourceRef": "6",
+            "targetRef": "14"
+        },
+        {
+            "id": "31",
+            "sourceRef": "14",
+            "targetRef": "7"
+        },
+        {
+            "id": "32",
+            "sourceRef": "7",
+            "targetRef": "8"
+        },
+        {
+            "id": "33",
+            "sourceRef": "14",
+            "targetRef": "9"
+        },
+        {
+            "id": "34",
+            "sourceRef": "8",
+            "targetRef": "16"
+        },
+        {
+            "id": "35",
+            "sourceRef": "9",
+            "targetRef": "16"
+        },
+        {
+            "id": "36",
+            "sourceRef": "16",
+            "targetRef": "10"
+        },
+        {
+            "id": "37",
+            "sourceRef": "10",
+            "targetRef": "12"
+        }
+    ],
+    "messageFlows": []
+}

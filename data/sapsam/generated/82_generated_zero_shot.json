@@ -1,0 +1,188 @@
+{
+    "tasks": [
+        {
+            "id": "0",
+            "name": "Montageplatz am Montageterminal reservieren.",
+            "type": "Manual"
+        },
+        {
+            "id": "1",
+            "name": "Waren der Bestellung einsammeln und scannen.",
+            "type": "Manual"
+        },
+        {
+            "id": "2",
+            "name": "PC zusammenbauen",
+            "type": "CollapsedSubprocess"
+        },
+        {
+            "id": "3",
+            "name": "Betriebssystem installieren",
+            "type": "Manual"
+        },
+        {
+            "id": "4",
+            "name": "Fehleranalyse",
+            "type": "Manual"
+        },
+        {
+            "id": "5",
+            "name": "entsprechende Kabel und Netzteile pr\u00fcfen",
+            "type": "Manual"
+        },
+        {
+            "id": "6",
+            "name": "entsprechende Kabel und Grafikkarte pr\u00fcfen",
+            "type": "Manual"
+        },
+        {
+            "id": "7",
+            "name": "entsprechende Kabel und Festplatte pr\u00fcfen",
+            "type": "Manual"
+        },
+        {
+            "id": "8",
+            "name": "Ram austauschen, Steckpl\u00e4tze pr\u00fcfen, Motherboard tauschen",
+            "type": "Manual"
+        },
+        {
+            "id": "9",
+            "name": "Betriebssystem erneut installieren",
+            "type": "Manual"
+        },
+        {
+            "id": "10",
+            "name": "Funktionstest",
+            "type": "Manual"
+        }
+    ],
+    "events": [
+        {
+            "id": "11",
+            "name": "Start Event",
+            "type": "StartNoneEvent"
+        },
+        {
+            "id": "12",
+            "name": "End Event",
+            "type": "EndNoneEvent"
+        }
+    ],
+    "gateways": [
+        {
+            "id": "13",
+            "name": "Exclusive (XOR) Gateway",
+            "type": "Exclusive"
+        },
+        {
+            "id": "14",
+            "name": "Inclusive Gateway",
+            "type": "Inclusive"
+        }
+    ],
+    "pools": [
+        {
+            "id": "15",
+            "name": "PC Montage",
+            "lanes": [
+                {
+                    "id": "16",
+                    "name": "Lane",
+                    "elemRefs": [
+                        "0",
+                        "1",
+                        "2",
+                        "3",
+                        "4",
+                        "5",
+                        "6",
+                        "7",
+                        "8",
+                        "9",
+                        "10"
+                    ]
+                }
+            ]
+        }
+    ],
+    "sequenceFlows": [
+        {
+            "id": "17",
+            "sourceRef": "11",
+            "targetRef": "0"
+        },
+        {
+            "id": "18",
+            "sourceRef": "0",
+            "targetRef": "1"
+        },
+        {
+            "id": "19",
+            "sourceRef": "1",
+            "targetRef": "2"
+        },
+        {
+            "id": "20",
+            "sourceRef": "2",
+            "targetRef": "3"
+        },
+        {
+            "id": "21",
+            "sourceRef": "3",
+            "targetRef": "13"
+        },
+        {
+            "id": "22",
+            "sourceRef": "13",
+            "targetRef": "4",
+            "condition": "Installation nicht m\u00f6glich"
+        },
+        {
+            "id": "23",
+            "sourceRef": "4",
+            "targetRef": "14"
+        },
+        {
+            "id": "24",
+            "sourceRef": "14",
+            "targetRef": "5"
+        },
+        {
+            "id": "25",
+            "sourceRef": "5",
+            "targetRef": "6"
+        },
+        {
+            "id": "26",
+            "sourceRef": "6",
+            "targetRef": "7"
+        },
+        {
+            "id": "27",
+            "sourceRef": "7",
+            "targetRef": "8"
+        },
+        {
+            "id": "28",
+            "sourceRef": "8",
+            "targetRef": "9"
+        },
+        {
+            "id": "29",
+            "sourceRef": "9",
+            "targetRef": "10"
+        },
+        {
+            "id": "30",
+            "sourceRef": "10",
+            "targetRef": "12"
+        },
+        {
+            "id": "31",
+            "sourceRef": "13",
+            "targetRef": "10",
+            "condition": "Installation m\u00f6glich"
+        }
+    ],
+    "messageFlows": []
+}

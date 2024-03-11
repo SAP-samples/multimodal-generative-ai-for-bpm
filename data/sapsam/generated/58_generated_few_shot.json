@@ -1,0 +1,161 @@
+{
+    "tasks": [
+        {
+            "id": "0",
+            "name": "Einladungen an Mitarbeiter senden",
+            "type": "Task"
+        },
+        {
+            "id": "1",
+            "name": "J\u00e4hrliche Planungssitzung leiten",
+            "type": "Task"
+        },
+        {
+            "id": "2",
+            "name": "An j\u00e4hrlicher Planungssitzung teilnehmen",
+            "type": "Task"
+        },
+        {
+            "id": "3",
+            "name": "Review und Diskussion der aktuellen Strategie durchf\u00fchren",
+            "type": "Task"
+        },
+        {
+            "id": "4",
+            "name": "Strategie reformulieren",
+            "type": "Task"
+        },
+        {
+            "id": "5",
+            "name": "F\u00fcr Strategie abstimmen",
+            "type": "Task"
+        },
+        {
+            "id": "6",
+            "name": "Strategie kommunizieren",
+            "type": "Task"
+        },
+        {
+            "id": "7",
+            "name": "Strategie verfolgen",
+            "type": "Task"
+        }
+    ],
+    "events": [
+        {
+            "id": "8",
+            "name": "Jahressitzung steht an",
+            "type": "StartNoneEvent"
+        },
+        {
+            "id": "9",
+            "name": "Jahressitzung steht an",
+            "type": "EndNoneEvent"
+        }
+    ],
+    "gateways": [
+        {
+            "id": "10",
+            "name": "",
+            "type": "Parallel"
+        }
+    ],
+    "pools": [
+        {
+            "id": "11",
+            "name": "SoKnow",
+            "lanes": [
+                {
+                    "id": "12",
+                    "name": "Gesch\u00e4ftsleitung",
+                    "elemRefs": [
+                        "0",
+                        "1",
+                        "3",
+                        "4",
+                        "6",
+                        "7",
+                        "8",
+                        "9"
+                    ]
+                },
+                {
+                    "id": "13",
+                    "name": "Mitarbeiter",
+                    "elemRefs": [
+                        "2",
+                        "5"
+                    ]
+                }
+            ]
+        }
+    ],
+    "sequenceFlows": [
+        {
+            "id": "14",
+            "sourceRef": "8",
+            "targetRef": "0"
+        },
+        {
+            "id": "15",
+            "sourceRef": "0",
+            "targetRef": "10"
+        },
+        {
+            "id": "16",
+            "sourceRef": "10",
+            "targetRef": "1"
+        },
+        {
+            "id": "17",
+            "sourceRef": "1",
+            "targetRef": "10"
+        },
+        {
+            "id": "18",
+            "sourceRef": "10",
+            "targetRef": "3"
+        },
+        {
+            "id": "19",
+            "sourceRef": "3",
+            "targetRef": "10"
+        },
+        {
+            "id": "20",
+            "sourceRef": "10",
+            "targetRef": "4"
+        },
+        {
+            "id": "21",
+            "sourceRef": "4",
+            "targetRef": "10"
+        },
+        {
+            "id": "22",
+            "sourceRef": "10",
+            "targetRef": "5"
+        },
+        {
+            "id": "23",
+            "sourceRef": "5",
+            "targetRef": "10"
+        },
+        {
+            "id": "24",
+            "sourceRef": "10",
+            "targetRef": "6"
+        },
+        {
+            "id": "25",
+            "sourceRef": "6",
+            "targetRef": "7"
+        },
+        {
+            "id": "26",
+            "sourceRef": "7",
+            "targetRef": "9"
+        }
+    ],
+    "messageFlows": []
+}

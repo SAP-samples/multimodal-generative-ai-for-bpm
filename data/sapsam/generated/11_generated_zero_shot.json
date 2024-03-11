@@ -1,0 +1,231 @@
+{
+    "tasks": [
+        {
+            "id": "0",
+            "name": "Programm starten",
+            "type": "Service"
+        },
+        {
+            "id": "1",
+            "name": "Tutorial starten",
+            "type": "User"
+        },
+        {
+            "id": "2",
+            "name": "mit Standard Tastenbelegung starten",
+            "type": "Task"
+        },
+        {
+            "id": "3",
+            "name": "Tutorial f\u00fcr die features am Controller",
+            "type": "CollapsedSubprocess"
+        },
+        {
+            "id": "4",
+            "name": "Umweltmusik einspielen",
+            "type": "Service"
+        },
+        {
+            "id": "5",
+            "name": "Umgebungsger\u00e4usche erzeugen",
+            "type": "Service"
+        },
+        {
+            "id": "6",
+            "name": "Das Spiel wurde geladen",
+            "type": "Service"
+        },
+        {
+            "id": "7",
+            "name": "Eingabeaufforderung",
+            "type": "Service"
+        },
+        {
+            "id": "8",
+            "name": "Ank\u00fcndigung Auswahlmen\u00fc",
+            "type": "Service"
+        },
+        {
+            "id": "9",
+            "name": "Men\u00fcwahl",
+            "type": "CollapsedEventSubprocess"
+        },
+        {
+            "id": "10",
+            "name": "Spiel Fortsetzen",
+            "type": "User"
+        },
+        {
+            "id": "11",
+            "name": "Spielst\u00e4nde abrufen",
+            "type": "CollapsedSubprocess"
+        },
+        {
+            "id": "12",
+            "name": "Neues Spiel starten",
+            "type": "User"
+        },
+        {
+            "id": "13",
+            "name": "Spiel starten",
+            "type": "CollapsedSubprocess"
+        },
+        {
+            "id": "14",
+            "name": "Spiel starten",
+            "type": "CollapsedSubprocess"
+        }
+    ],
+    "events": [
+        {
+            "id": "0",
+            "name": "Programmstart",
+            "type": "StartNoneEvent"
+        },
+        {
+            "id": "1",
+            "name": "End Event",
+            "type": "EndNoneEvent"
+        }
+    ],
+    "gateways": [
+        {
+            "id": "0",
+            "type": "Exclusive"
+        },
+        {
+            "id": "1",
+            "type": "Exclusive"
+        },
+        {
+            "id": "2",
+            "type": "Exclusive"
+        },
+        {
+            "id": "3",
+            "type": "Exclusive"
+        },
+        {
+            "id": "4",
+            "type": "Exclusive"
+        },
+        {
+            "id": "5",
+            "type": "Parallel"
+        },
+        {
+            "id": "6",
+            "type": "Exclusive"
+        },
+        {
+            "id": "7",
+            "type": "Parallel"
+        }
+    ],
+    "pools": [
+        {
+            "id": "0",
+            "name": "AO-Software",
+            "lanes": [
+                {
+                    "id": "0",
+                    "name": "Spieler",
+                    "elemRefs": []
+                },
+                {
+                    "id": "1",
+                    "name": "System",
+                    "elemRefs": []
+                },
+                {
+                    "id": "2",
+                    "name": "UI - Auswahl",
+                    "elemRefs": []
+                }
+            ]
+        }
+    ],
+    "sequenceFlows": [
+        {
+            "id": "0",
+            "sourceRef": "0",
+            "targetRef": "0"
+        },
+        {
+            "id": "1",
+            "sourceRef": "0",
+            "targetRef": "1"
+        },
+        {
+            "id": "2",
+            "sourceRef": "1",
+            "targetRef": "2"
+        },
+        {
+            "id": "3",
+            "sourceRef": "1",
+            "targetRef": "3"
+        },
+        {
+            "id": "4",
+            "sourceRef": "3",
+            "targetRef": "4"
+        },
+        {
+            "id": "5",
+            "sourceRef": "4",
+            "targetRef": "5"
+        },
+        {
+            "id": "6",
+            "sourceRef": "5",
+            "targetRef": "6"
+        },
+        {
+            "id": "7",
+            "sourceRef": "6",
+            "targetRef": "7"
+        },
+        {
+            "id": "8",
+            "sourceRef": "7",
+            "targetRef": "8"
+        },
+        {
+            "id": "9",
+            "sourceRef": "8",
+            "targetRef": "9"
+        },
+        {
+            "id": "10",
+            "sourceRef": "9",
+            "targetRef": "10"
+        },
+        {
+            "id": "11",
+            "sourceRef": "10",
+            "targetRef": "11"
+        },
+        {
+            "id": "12",
+            "sourceRef": "9",
+            "targetRef": "12"
+        },
+        {
+            "id": "13",
+            "sourceRef": "12",
+            "targetRef": "13"
+        },
+        {
+            "id": "14",
+            "sourceRef": "13",
+            "targetRef": "1"
+        },
+        {
+            "id": "15",
+            "sourceRef": "9",
+            "targetRef": "14"
+        }
+    ],
+    "messageFlows": []
+}

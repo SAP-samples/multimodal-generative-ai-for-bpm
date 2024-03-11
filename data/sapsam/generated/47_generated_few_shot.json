@@ -1,0 +1,245 @@
+{
+    "tasks": [
+        {
+            "id": "0",
+            "name": "Bedarffestlegen",
+            "type": "Task"
+        },
+        {
+            "id": "1",
+            "name": "Bestimmung der Auswahl von Lizenzen",
+            "type": "Task"
+        },
+        {
+            "id": "2",
+            "name": "Lizenz kaufen",
+            "type": "Task"
+        },
+        {
+            "id": "3",
+            "name": "Testlizenz kaufen",
+            "type": "Task"
+        },
+        {
+            "id": "4",
+            "name": "Rahmenvertr\u00e4ge Vereinbaren",
+            "type": "Task"
+        },
+        {
+            "id": "5",
+            "name": "Lizenzkaufvertrag anlegen",
+            "type": "Task"
+        },
+        {
+            "id": "6",
+            "name": "System stellt Lizenzkaufvertagsdaten bereit",
+            "type": "Task"
+        },
+        {
+            "id": "7",
+            "name": "System aktualisiert Vertragsinformation",
+            "type": "Task"
+        },
+        {
+            "id": "8",
+            "name": "Bestellung aufgeben",
+            "type": "Task"
+        },
+        {
+            "id": "9",
+            "name": "Endabnahme der Lieferung",
+            "type": "Task"
+        },
+        {
+            "id": "10",
+            "name": "Review von Rahmenvertr\u00e4gen",
+            "type": "Task"
+        },
+        {
+            "id": "11",
+            "name": "System aktualisieren",
+            "type": "Task"
+        },
+        {
+            "id": "12",
+            "name": "Zahlung weiterleiten",
+            "type": "Task"
+        }
+    ],
+    "events": [
+        {
+            "id": "13",
+            "name": "Bedarffestlegen",
+            "type": "StartNoneEvent"
+        },
+        {
+            "id": "14",
+            "name": "Lizen gekauft",
+            "type": "EndNoneEvent"
+        },
+        {
+            "id": "15",
+            "name": "Zahlung durchgef\u00fchrt",
+            "type": "EndNoneEvent"
+        }
+    ],
+    "gateways": [
+        {
+            "id": "16",
+            "name": "Exclusive (XOR) Gateway",
+            "type": "Exclusive"
+        },
+        {
+            "id": "17",
+            "name": "Exclusive (XOR) Gateway",
+            "type": "Exclusive"
+        },
+        {
+            "id": "18",
+            "name": "Parallel Gateway",
+            "type": "Parallel"
+        },
+        {
+            "id": "19",
+            "name": "Parallel Gateway",
+            "type": "Parallel"
+        }
+    ],
+    "pools": [
+        {
+            "id": "20",
+            "name": "Einkauf",
+            "lanes": [
+                {
+                    "id": "21",
+                    "name": "Lizenzkauf",
+                    "elemRefs": [
+                        "0",
+                        "1",
+                        "2",
+                        "3",
+                        "4",
+                        "5",
+                        "6",
+                        "7",
+                        "8",
+                        "9",
+                        "10",
+                        "11",
+                        "12",
+                        "13",
+                        "14",
+                        "15",
+                        "16",
+                        "17",
+                        "18",
+                        "19"
+                    ]
+                }
+            ]
+        },
+        {
+            "id": "22",
+            "name": "Accounting/ Controlling",
+            "lanes": []
+        }
+    ],
+    "sequenceFlows": [
+        {
+            "id": "23",
+            "sourceRef": "13",
+            "targetRef": "0"
+        },
+        {
+            "id": "24",
+            "sourceRef": "0",
+            "targetRef": "1"
+        },
+        {
+            "id": "25",
+            "sourceRef": "1",
+            "targetRef": "16"
+        },
+        {
+            "id": "26",
+            "sourceRef": "16",
+            "targetRef": "2"
+        },
+        {
+            "id": "27",
+            "sourceRef": "16",
+            "targetRef": "3"
+        },
+        {
+            "id": "28",
+            "sourceRef": "2",
+            "targetRef": "4"
+        },
+        {
+            "id": "29",
+            "sourceRef": "3",
+            "targetRef": "4"
+        },
+        {
+            "id": "30",
+            "sourceRef": "4",
+            "targetRef": "5"
+        },
+        {
+            "id": "31",
+            "sourceRef": "5",
+            "targetRef": "18"
+        },
+        {
+            "id": "32",
+            "sourceRef": "18",
+            "targetRef": "6"
+        },
+        {
+            "id": "33",
+            "sourceRef": "18",
+            "targetRef": "7"
+        },
+        {
+            "id": "34",
+            "sourceRef": "6",
+            "targetRef": "8"
+        },
+        {
+            "id": "35",
+            "sourceRef": "7",
+            "targetRef": "8"
+        },
+        {
+            "id": "36",
+            "sourceRef": "8",
+            "targetRef": "9"
+        },
+        {
+            "id": "37",
+            "sourceRef": "9",
+            "targetRef": "10"
+        },
+        {
+            "id": "38",
+            "sourceRef": "10",
+            "targetRef": "11"
+        },
+        {
+            "id": "39",
+            "sourceRef": "11",
+            "targetRef": "14"
+        },
+        {
+            "id": "40",
+            "sourceRef": "14",
+            "targetRef": "12"
+        },
+        {
+            "id": "41",
+            "sourceRef": "12",
+            "targetRef": "15"
+        }
+    ],
+    "messageFlows": []
+}

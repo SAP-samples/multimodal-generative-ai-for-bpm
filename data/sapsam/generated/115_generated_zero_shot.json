@@ -1,0 +1,122 @@
+{
+    "tasks": [
+        {
+            "id": "0",
+            "name": "Enter Trade Details",
+            "type": "User"
+        },
+        {
+            "id": "1",
+            "name": "Verify Ability to Trade",
+            "type": "Manual"
+        },
+        {
+            "id": "2",
+            "name": "Execute Give-up",
+            "type": "Service"
+        },
+        {
+            "id": "3",
+            "name": "Fulfill Order",
+            "type": "Business Rule"
+        },
+        {
+            "id": "4",
+            "name": "Register FX Trade",
+            "type": "Manual"
+        }
+    ],
+    "events": [
+        {
+            "id": "5",
+            "name": "Request to Trade",
+            "type": "StartMessageEvent"
+        },
+        {
+            "id": "6",
+            "name": "",
+            "type": "EndNoneEvent"
+        }
+    ],
+    "gateways": [
+        {
+            "id": "7",
+            "type": "Exclusive"
+        }
+    ],
+    "pools": [
+        {
+            "id": "8",
+            "name": "Financial Institution",
+            "lanes": [
+                {
+                    "id": "9",
+                    "name": "2.1 Execute FX/Derivative Trade",
+                    "elemRefs": [
+                        "0",
+                        "1",
+                        "2",
+                        "3",
+                        "4",
+                        "5",
+                        "6",
+                        "7"
+                    ]
+                }
+            ]
+        }
+    ],
+    "sequenceFlows": [
+        {
+            "id": "10",
+            "sourceRef": "5",
+            "targetRef": "0"
+        },
+        {
+            "id": "11",
+            "sourceRef": "0",
+            "targetRef": "7",
+            "condition": "If Client Data Not Verified -> Yes"
+        },
+        {
+            "id": "12",
+            "sourceRef": "7",
+            "targetRef": "1",
+            "condition": "Yes"
+        },
+        {
+            "id": "13",
+            "sourceRef": "1",
+            "targetRef": "6"
+        },
+        {
+            "id": "14",
+            "sourceRef": "7",
+            "targetRef": "2",
+            "condition": "No"
+        },
+        {
+            "id": "15",
+            "sourceRef": "2",
+            "targetRef": "3"
+        },
+        {
+            "id": "16",
+            "sourceRef": "3",
+            "targetRef": "4"
+        },
+        {
+            "id": "17",
+            "sourceRef": "4",
+            "targetRef": "6"
+        }
+    ],
+    "messageFlows": [
+        {
+            "id": "18",
+            "sourceRef": "5",
+            "targetRef": "9",
+            "label": "Request to Trade Message"
+        }
+    ]
+}

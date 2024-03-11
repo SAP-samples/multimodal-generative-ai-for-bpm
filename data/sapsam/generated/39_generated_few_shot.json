@@ -1,0 +1,213 @@
+{
+    "tasks": [
+        {
+            "id": "0",
+            "name": "Mitarbeiterdaten analysieren",
+            "type": "Task"
+        },
+        {
+            "id": "1",
+            "name": "Personalkapazit\u00e4t pr\u00fcfen",
+            "type": "Task"
+        },
+        {
+            "id": "2",
+            "name": "Kapazit\u00e4tenbedarf ermitteln",
+            "type": "Task"
+        },
+        {
+            "id": "3",
+            "name": "Weiterbildungsm\u00f6glichkeiten ermitteln",
+            "type": "Task"
+        },
+        {
+            "id": "4",
+            "name": "Mitarbeitergespr\u00e4ch f\u00fchren",
+            "type": "Task"
+        },
+        {
+            "id": "5",
+            "name": "Weiterbildungswunsch ber\u00fccksichtigen",
+            "type": "Task"
+        },
+        {
+            "id": "6",
+            "name": "Training zuweisen",
+            "type": "Task"
+        },
+        {
+            "id": "7",
+            "name": "Verbesserungsvorschl\u00e4ge ber\u00fccksichtigen",
+            "type": "Task"
+        },
+        {
+            "id": "8",
+            "name": "Mit Abteilungsleiter besprechen",
+            "type": "Task"
+        },
+        {
+            "id": "9",
+            "name": "Training/Weiterbildung organisieren",
+            "type": "Task"
+        },
+        {
+            "id": "10",
+            "name": "Kompetenzprofil aktualisieren",
+            "type": "Task"
+        }
+    ],
+    "events": [
+        {
+            "id": "11",
+            "name": "Personalentwicklungsbedarf absichern",
+            "type": "StartNoneEvent"
+        },
+        {
+            "id": "12",
+            "name": "Personalentwicklungsbedarf abgesichert",
+            "type": "EndNoneEvent"
+        }
+    ],
+    "gateways": [
+        {
+            "id": "13",
+            "type": "Parallel"
+        },
+        {
+            "id": "14",
+            "type": "Parallel"
+        },
+        {
+            "id": "15",
+            "type": "Parallel"
+        },
+        {
+            "id": "16",
+            "type": "Parallel"
+        }
+    ],
+    "pools": [
+        {
+            "id": "17",
+            "name": "SoKnow",
+            "lanes": [
+                {
+                    "id": "18",
+                    "name": "Personalabteilung",
+                    "elemRefs": [
+                        "0",
+                        "1",
+                        "2",
+                        "3",
+                        "4",
+                        "5",
+                        "6",
+                        "7",
+                        "8",
+                        "9",
+                        "10",
+                        "11",
+                        "12",
+                        "13",
+                        "14",
+                        "15",
+                        "16"
+                    ]
+                }
+            ]
+        }
+    ],
+    "sequenceFlows": [
+        {
+            "id": "19",
+            "sourceRef": "11",
+            "targetRef": "0"
+        },
+        {
+            "id": "20",
+            "sourceRef": "0",
+            "targetRef": "13"
+        },
+        {
+            "id": "21",
+            "sourceRef": "13",
+            "targetRef": "1"
+        },
+        {
+            "id": "22",
+            "sourceRef": "13",
+            "targetRef": "2"
+        },
+        {
+            "id": "23",
+            "sourceRef": "1",
+            "targetRef": "14"
+        },
+        {
+            "id": "24",
+            "sourceRef": "2",
+            "targetRef": "14"
+        },
+        {
+            "id": "25",
+            "sourceRef": "14",
+            "targetRef": "3"
+        },
+        {
+            "id": "26",
+            "sourceRef": "3",
+            "targetRef": "4"
+        },
+        {
+            "id": "27",
+            "sourceRef": "4",
+            "targetRef": "15"
+        },
+        {
+            "id": "28",
+            "sourceRef": "15",
+            "targetRef": "5"
+        },
+        {
+            "id": "29",
+            "sourceRef": "5",
+            "targetRef": "6"
+        },
+        {
+            "id": "30",
+            "sourceRef": "5",
+            "targetRef": "7"
+        },
+        {
+            "id": "31",
+            "sourceRef": "7",
+            "targetRef": "16"
+        },
+        {
+            "id": "32",
+            "sourceRef": "6",
+            "targetRef": "16"
+        },
+        {
+            "id": "33",
+            "sourceRef": "16",
+            "targetRef": "8"
+        },
+        {
+            "id": "34",
+            "sourceRef": "8",
+            "targetRef": "9"
+        },
+        {
+            "id": "35",
+            "sourceRef": "9",
+            "targetRef": "10"
+        },
+        {
+            "id": "36",
+            "sourceRef": "10",
+            "targetRef": "12"
+        }
+    ],
+    "messageFlows": []
+}

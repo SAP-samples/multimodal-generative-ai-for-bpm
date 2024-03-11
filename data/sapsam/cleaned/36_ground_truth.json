@@ -1,0 +1,164 @@
+{
+    "tasks": [
+        {
+            "id": "sid-5A24E0B8-A7E7-4137-B1F1-B9BA41CD1196",
+            "name": "Ergebnisse   Workshops analysieren",
+            "type": "Task"
+        },
+        {
+            "id": "sid-51E15F80-4FB1-4E7D-876C-CAEB21A6560F",
+            "name": "Bericht mit Ergebnis und Zielsetzungen formulieren",
+            "type": "Task"
+        },
+        {
+            "id": "sid-3F20615A-B101-4C9B-BB1A-D3415D5927C5",
+            "name": "Beratungsleistung formulieren",
+            "type": "Task"
+        },
+        {
+            "id": "sid-8E7CE853-526E-49E2-927C-97BF3CC397F1",
+            "name": "Neuer Startegiem\u00f6glichkeiten entwickeln",
+            "type": "Task"
+        },
+        {
+            "id": "sid-F3053A97-1D46-43C1-AA4F-BD629C3D046F",
+            "name": "Bericht weiterleiten",
+            "type": "Task"
+        },
+        {
+            "id": "sid-D5308F03-7E34-42F1-A458-59E87E9184C3",
+            "name": "Bericht ausbessern, dann zur\u00fcckleiten",
+            "type": "Task"
+        },
+        {
+            "id": "sid-E94DF523-AFFA-489C-8325-1F02E2C41CDF",
+            "name": "Bericht lesen",
+            "type": "Task"
+        },
+        {
+            "id": "sid-90ADB808-5191-4C59-BF66-B52994DD81F9",
+            "name": "sofort zur\u00fcckleiten",
+            "type": "Task"
+        }
+    ],
+    "events": [
+        {
+            "id": "sid-E5BFFD5B-E846-4AD5-93E3-63CD4E33E812",
+            "name": "Beratungs- leistung formulieren",
+            "type": "StartNoneEvent"
+        },
+        {
+            "id": "sid-7283709C-CCFE-431C-8550-4B52A7A151B3",
+            "name": "Beratungsleistung  formuliert",
+            "type": "EndNoneEvent"
+        }
+    ],
+    "gateways": [
+        {
+            "id": "sid-93042983-63A8-485B-9D79-086CEA9625FC",
+            "name": "Bericht in ordnung ?",
+            "type": "Exclusive"
+        },
+        {
+            "id": "sid-F413A9B4-77C3-4152-8D94-E2E3713A04A4",
+            "type": "Exclusive"
+        }
+    ],
+    "pools": [
+        {
+            "id": "sid-75DE60A7-8DC5-4EE3-BC18-4571A041DA07",
+            "name": "SoKnow",
+            "lanes": [
+                {
+                    "id": "sid-CB432022-D863-4447-87B4-A3D487FA0BFB",
+                    "name": "Consulting",
+                    "elemRefs": [
+                        "sid-5A24E0B8-A7E7-4137-B1F1-B9BA41CD1196",
+                        "sid-51E15F80-4FB1-4E7D-876C-CAEB21A6560F",
+                        "sid-3F20615A-B101-4C9B-BB1A-D3415D5927C5",
+                        "sid-8E7CE853-526E-49E2-927C-97BF3CC397F1",
+                        "sid-F3053A97-1D46-43C1-AA4F-BD629C3D046F",
+                        "sid-E5BFFD5B-E846-4AD5-93E3-63CD4E33E812",
+                        "sid-7283709C-CCFE-431C-8550-4B52A7A151B3"
+                    ]
+                },
+                {
+                    "id": "sid-A16C555A-DC35-4DD3-A71E-6048B73EF109",
+                    "name": "Gesch\u00e4ftsleitung",
+                    "elemRefs": [
+                        "sid-D5308F03-7E34-42F1-A458-59E87E9184C3",
+                        "sid-E94DF523-AFFA-489C-8325-1F02E2C41CDF",
+                        "sid-90ADB808-5191-4C59-BF66-B52994DD81F9",
+                        "sid-93042983-63A8-485B-9D79-086CEA9625FC",
+                        "sid-F413A9B4-77C3-4152-8D94-E2E3713A04A4"
+                    ]
+                }
+            ]
+        }
+    ],
+    "messageFlows": [],
+    "sequenceFlows": [
+        {
+            "id": "sid-5D3EEDE7-5DC4-431B-904D-9B7D376C6ED6",
+            "targetRef": "sid-8E7CE853-526E-49E2-927C-97BF3CC397F1",
+            "sourceRef": "sid-5A24E0B8-A7E7-4137-B1F1-B9BA41CD1196"
+        },
+        {
+            "id": "sid-1D87D35B-CE4B-4E5D-A7FC-3F24089DCA33",
+            "targetRef": "sid-51E15F80-4FB1-4E7D-876C-CAEB21A6560F",
+            "sourceRef": "sid-8E7CE853-526E-49E2-927C-97BF3CC397F1"
+        },
+        {
+            "id": "sid-D62906A8-13CC-4152-A7B0-1CD8E50D371E",
+            "targetRef": "sid-93042983-63A8-485B-9D79-086CEA9625FC",
+            "sourceRef": "sid-E94DF523-AFFA-489C-8325-1F02E2C41CDF"
+        },
+        {
+            "id": "sid-E48A8F44-098F-446D-9DCD-322B17E0BF36",
+            "targetRef": "sid-D5308F03-7E34-42F1-A458-59E87E9184C3",
+            "condition": "nein",
+            "sourceRef": "sid-93042983-63A8-485B-9D79-086CEA9625FC"
+        },
+        {
+            "id": "sid-532E85AE-B23E-4394-A1B1-AF0EDB8EE765",
+            "targetRef": "sid-F413A9B4-77C3-4152-8D94-E2E3713A04A4",
+            "sourceRef": "sid-D5308F03-7E34-42F1-A458-59E87E9184C3"
+        },
+        {
+            "id": "sid-E0B0FCE2-D645-4F83-B614-478C87DDC89C",
+            "targetRef": "sid-3F20615A-B101-4C9B-BB1A-D3415D5927C5",
+            "sourceRef": "sid-F413A9B4-77C3-4152-8D94-E2E3713A04A4"
+        },
+        {
+            "id": "sid-BF7EA095-B303-4F4D-8503-53295588CF24",
+            "targetRef": "sid-F413A9B4-77C3-4152-8D94-E2E3713A04A4",
+            "sourceRef": "sid-90ADB808-5191-4C59-BF66-B52994DD81F9"
+        },
+        {
+            "id": "sid-C8D5322E-0ABB-489E-85EA-E38F19C5037C",
+            "targetRef": "sid-F3053A97-1D46-43C1-AA4F-BD629C3D046F",
+            "sourceRef": "sid-51E15F80-4FB1-4E7D-876C-CAEB21A6560F"
+        },
+        {
+            "id": "sid-AD160E07-7817-4354-882B-657F6A088225",
+            "targetRef": "sid-7283709C-CCFE-431C-8550-4B52A7A151B3",
+            "sourceRef": "sid-3F20615A-B101-4C9B-BB1A-D3415D5927C5"
+        },
+        {
+            "id": "sid-6BB15B01-62E7-4187-AA94-C40E8D6FA2B8",
+            "targetRef": "sid-5A24E0B8-A7E7-4137-B1F1-B9BA41CD1196",
+            "sourceRef": "sid-E5BFFD5B-E846-4AD5-93E3-63CD4E33E812"
+        },
+        {
+            "id": "sid-EC2673BF-5D5B-4426-BC01-FAA198F749E6",
+            "targetRef": "sid-E94DF523-AFFA-489C-8325-1F02E2C41CDF",
+            "sourceRef": "sid-F3053A97-1D46-43C1-AA4F-BD629C3D046F"
+        },
+        {
+            "id": "sid-1BE757D3-8614-42B8-BB6B-40F39ADDFE84",
+            "targetRef": "sid-90ADB808-5191-4C59-BF66-B52994DD81F9",
+            "condition": "ja",
+            "sourceRef": "sid-93042983-63A8-485B-9D79-086CEA9625FC"
+        }
+    ]
+}

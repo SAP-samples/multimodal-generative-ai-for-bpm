@@ -1,0 +1,404 @@
+{
+    "tasks": [
+        {
+            "id": "0",
+            "name": "Receive and check script details",
+            "type": "Task"
+        },
+        {
+            "id": "1",
+            "name": "Open and Review patient profile in the system",
+            "type": "Task"
+        },
+        {
+            "id": "2",
+            "name": "Prescription info ready to view",
+            "type": "Task"
+        },
+        {
+            "id": "3",
+            "name": "Contact GP to ask for advices",
+            "type": "Task"
+        },
+        {
+            "id": "4",
+            "name": "Patients status query check in person (including any allergy, pregnant, and past history)",
+            "type": "Task"
+        },
+        {
+            "id": "5",
+            "name": "Alternatives less doze level medicines offered to the patient",
+            "type": "Task"
+        },
+        {
+            "id": "6",
+            "name": "Add short memo",
+            "type": "Task"
+        },
+        {
+            "id": "7",
+            "name": "Correct Prescribed dosage selected",
+            "type": "Task"
+        },
+        {
+            "id": "8",
+            "name": "Prescription Inventory check",
+            "type": "Task"
+        },
+        {
+            "id": "9",
+            "name": "Inform patients about alternatives",
+            "type": "Task"
+        },
+        {
+            "id": "10",
+            "name": "Double check and collect correct drugs",
+            "type": "Task"
+        },
+        {
+            "id": "11",
+            "name": "medicare costs waivers and total fees calculated in the system",
+            "type": "Task"
+        },
+        {
+            "id": "12",
+            "name": "Print and attach labels with CMI",
+            "type": "Task"
+        },
+        {
+            "id": "13",
+            "name": "Unable provide additional actual patients signature/documents",
+            "type": "Task"
+        },
+        {
+            "id": "14",
+            "name": "Show Medicare card and Prescriptions",
+            "type": "Task"
+        },
+        {
+            "id": "15",
+            "name": "Advice/Recommendation provided",
+            "type": "Task"
+        },
+        {
+            "id": "16",
+            "name": "Decisions confirmed",
+            "type": "Task"
+        },
+        {
+            "id": "17",
+            "name": "Counselatation and Recommendation time",
+            "type": "Task"
+        },
+        {
+            "id": "18",
+            "name": "Pay the prescription fees",
+            "type": "Task"
+        },
+        {
+            "id": "19",
+            "name": "Patient receives Prescriptions",
+            "type": "Task"
+        },
+        {
+            "id": "20",
+            "name": "Call/emails replied by GP",
+            "type": "Task"
+        }
+    ],
+    "events": [
+        {
+            "id": "21",
+            "name": "Prescription unfilled",
+            "type": "EndNoneEvent"
+        },
+        {
+            "id": "22",
+            "name": "Prescription received",
+            "type": "StartNoneEvent"
+        },
+        {
+            "id": "23",
+            "name": "prescription unfilled",
+            "type": "EndNoneEvent"
+        },
+        {
+            "id": "24",
+            "name": "Prescription unfilled",
+            "type": "EndNoneEvent"
+        },
+        {
+            "id": "25",
+            "name": "Dispensing ends",
+            "type": "EndNoneEvent"
+        }
+    ],
+    "gateways": [
+        {
+            "id": "26",
+            "name": "Valid?",
+            "type": "Exclusive"
+        },
+        {
+            "id": "27",
+            "name": "suspicious patients?",
+            "type": "Exclusive"
+        },
+        {
+            "id": "28",
+            "name": "Status Check pass?",
+            "type": "Exclusive"
+        },
+        {
+            "id": "29",
+            "name": "Patients agreed?",
+            "type": "Exclusive"
+        },
+        {
+            "id": "30",
+            "name": "New customer?",
+            "type": "Exclusive"
+        },
+        {
+            "id": "31",
+            "name": "Out of stock?",
+            "type": "Exclusive"
+        },
+        {
+            "id": "32",
+            "name": "Prescriptions for yourself?",
+            "type": "Exclusive"
+        }
+    ],
+    "pools": [
+        {
+            "id": "33",
+            "name": "NewTown Health Chemist Dispensing process",
+            "lanes": [
+                {
+                    "id": "34",
+                    "name": "Pharmacist",
+                    "elemRefs": [
+                        "0",
+                        "1",
+                        "2",
+                        "3",
+                        "4",
+                        "5",
+                        "6",
+                        "7",
+                        "8",
+                        "9",
+                        "10",
+                        "11",
+                        "12",
+                        "15",
+                        "16",
+                        "17"
+                    ]
+                },
+                {
+                    "id": "35",
+                    "name": "Pharmacy information system",
+                    "elemRefs": [
+                        "1",
+                        "2",
+                        "11"
+                    ]
+                },
+                {
+                    "id": "36",
+                    "name": "Patients",
+                    "elemRefs": [
+                        "13",
+                        "14",
+                        "18",
+                        "19",
+                        "22",
+                        "32"
+                    ]
+                },
+                {
+                    "id": "37",
+                    "name": "Doctors",
+                    "elemRefs": [
+                        "20"
+                    ]
+                }
+            ]
+        }
+    ],
+    "sequenceFlows": [
+        {
+            "id": "38",
+            "sourceRef": "22",
+            "targetRef": "0"
+        },
+        {
+            "id": "39",
+            "sourceRef": "0",
+            "targetRef": "26"
+        },
+        {
+            "id": "40",
+            "sourceRef": "26",
+            "targetRef": "21",
+            "condition": "No"
+        },
+        {
+            "id": "41",
+            "sourceRef": "26",
+            "targetRef": "1",
+            "condition": "Yes"
+        },
+        {
+            "id": "42",
+            "sourceRef": "1",
+            "targetRef": "2"
+        },
+        {
+            "id": "43",
+            "sourceRef": "2",
+            "targetRef": "27"
+        },
+        {
+            "id": "44",
+            "sourceRef": "27",
+            "targetRef": "3",
+            "condition": "Yes"
+        },
+        {
+            "id": "45",
+            "sourceRef": "3",
+            "targetRef": "4"
+        },
+        {
+            "id": "46",
+            "sourceRef": "4",
+            "targetRef": "28"
+        },
+        {
+            "id": "47",
+            "sourceRef": "28",
+            "targetRef": "5",
+            "condition": "No"
+        },
+        {
+            "id": "48",
+            "sourceRef": "28",
+            "targetRef": "29",
+            "condition": "Yes"
+        },
+        {
+            "id": "49",
+            "sourceRef": "29",
+            "targetRef": "6",
+            "condition": "No"
+        },
+        {
+            "id": "50",
+            "sourceRef": "29",
+            "targetRef": "30",
+            "condition": "Yes"
+        },
+        {
+            "id": "51",
+            "sourceRef": "30",
+            "targetRef": "7",
+            "condition": "No"
+        },
+        {
+            "id": "52",
+            "sourceRef": "30",
+            "targetRef": "8",
+            "condition": "Yes"
+        },
+        {
+            "id": "53",
+            "sourceRef": "8",
+            "targetRef": "31"
+        },
+        {
+            "id": "54",
+            "sourceRef": "31",
+            "targetRef": "9",
+            "condition": "Yes"
+        },
+        {
+            "id": "55",
+            "sourceRef": "9",
+            "targetRef": "21"
+        },
+        {
+            "id": "56",
+            "sourceRef": "31",
+            "targetRef": "10",
+            "condition": "No"
+        },
+        {
+            "id": "57",
+            "sourceRef": "10",
+            "targetRef": "11"
+        },
+        {
+            "id": "58",
+            "sourceRef": "11",
+            "targetRef": "12"
+        },
+        {
+            "id": "59",
+            "sourceRef": "12",
+            "targetRef": "23"
+        },
+        {
+            "id": "60",
+            "sourceRef": "32",
+            "targetRef": "13",
+            "condition": "No"
+        },
+        {
+            "id": "61",
+            "sourceRef": "32",
+            "targetRef": "14",
+            "condition": "Yes"
+        },
+        {
+            "id": "62",
+            "sourceRef": "14",
+            "targetRef": "15"
+        },
+        {
+            "id": "63",
+            "sourceRef": "15",
+            "targetRef": "16"
+        },
+        {
+            "id": "64",
+            "sourceRef": "16",
+            "targetRef": "17"
+        },
+        {
+            "id": "65",
+            "sourceRef": "17",
+            "targetRef": "18"
+        },
+        {
+            "id": "66",
+            "sourceRef": "18",
+            "targetRef": "19"
+        },
+        {
+            "id": "67",
+            "sourceRef": "19",
+            "targetRef": "25"
+        }
+    ],
+    "messageFlows": [
+        {
+            "id": "68",
+            "sourceRef": "20",
+            "targetRef": "3",
+            "label": "Advice Request"
+        }
+    ]
+}

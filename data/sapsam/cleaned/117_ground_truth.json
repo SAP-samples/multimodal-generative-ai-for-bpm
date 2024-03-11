@@ -1,0 +1,244 @@
+{
+    "tasks": [
+        {
+            "id": "sid-8569D2F0-5918-4CD4-BF04-74097B75D7A0",
+            "name": "Experten aussuchen",
+            "type": "Task"
+        },
+        {
+            "id": "sid-A2856D3A-401E-4B4C-AE4A-06BBA3FE9273",
+            "name": "Experten zur Review & Bewertung des Falls anfragen",
+            "type": "Task"
+        },
+        {
+            "id": "sid-7D0536EB-C02F-4450-9E0C-1EC075F97357",
+            "name": "Dokument  weiterleiten",
+            "type": "Task"
+        },
+        {
+            "id": "sid-5B53B6BF-A77F-4A8B-BB8C-4E3CDBC0AB9A",
+            "name": "Scheck  ausf\u00fcllen & Experten bezahlen",
+            "type": "Task"
+        },
+        {
+            "id": "sid-D587A2CB-39A6-473E-8AD3-11A7AB0B4B71",
+            "name": "neuen Fall anlegen",
+            "type": "Task"
+        },
+        {
+            "id": "sid-98F64DC0-68A9-47DB-94A3-43275E6A8027",
+            "name": "Fall und Expertise zusammen- f\u00fchren",
+            "type": "Task"
+        },
+        {
+            "id": "sid-F303F70E-5A45-4019-AF5C-F435CA67E489",
+            "name": "Daten und Expertise  pr\u00fcfen",
+            "type": "Task"
+        },
+        {
+            "id": "sid-37A27C0C-66CD-4FE9-A0EF-B247078D8678",
+            "name": "Patienten interviewen",
+            "type": "Task"
+        }
+    ],
+    "events": [
+        {
+            "id": "sid-3F248272-495C-4425-89E8-1F2AD9A5C68A",
+            "name": "Review erhalten",
+            "type": "IntermediateMessageEventCatching"
+        },
+        {
+            "id": "sid-59C07805-98BB-4802-B9E6-300D5207E6AB",
+            "name": "Ein Arzt  soll  begutachtet  werden",
+            "type": "StartNoneEvent"
+        },
+        {
+            "id": "sid-78E632E0-12C9-43CD-A080-C946A014A460",
+            "name": "maximale  Wartezeit",
+            "type": "IntermediateTimerEvent"
+        },
+        {
+            "id": "sid-891DD340-849E-426D-BE3B-4D72A05D8FEB",
+            "name": "Gutachten  abgeschlossen",
+            "type": "EndNoneEvent"
+        }
+    ],
+    "gateways": [
+        {
+            "id": "sid-3C8A1C37-2905-4263-AB7B-D831CBCBF884",
+            "type": "Parallel"
+        },
+        {
+            "id": "sid-FE378B3D-34A0-42AE-8A55-9791C3E0EB84",
+            "type": "Eventbased"
+        },
+        {
+            "id": "sid-BDDA8F9B-2C25-49F6-9E81-4ACD98115642",
+            "type": "Parallel"
+        },
+        {
+            "id": "sid-7293C7DD-385C-4299-A013-95ABAD5D90B4",
+            "type": "Parallel"
+        },
+        {
+            "id": "sid-C6D1A051-E6F9-4240-BE7F-7A111305CEBF",
+            "type": "Parallel"
+        }
+    ],
+    "pools": [
+        {
+            "id": "sid-C1D19618-C1AE-4469-8C8C-E426A668DF10",
+            "name": "Krankenhaus",
+            "lanes": [
+                {
+                    "id": "sid-8EFF2637-7A6C-41E0-BC2F-590A11EADD8A",
+                    "name": "Direktor",
+                    "elemRefs": [
+                        "sid-8569D2F0-5918-4CD4-BF04-74097B75D7A0",
+                        "sid-A2856D3A-401E-4B4C-AE4A-06BBA3FE9273",
+                        "sid-7D0536EB-C02F-4450-9E0C-1EC075F97357",
+                        "sid-5B53B6BF-A77F-4A8B-BB8C-4E3CDBC0AB9A",
+                        "sid-3F248272-495C-4425-89E8-1F2AD9A5C68A",
+                        "sid-59C07805-98BB-4802-B9E6-300D5207E6AB",
+                        "sid-78E632E0-12C9-43CD-A080-C946A014A460",
+                        "sid-3C8A1C37-2905-4263-AB7B-D831CBCBF884",
+                        "sid-FE378B3D-34A0-42AE-8A55-9791C3E0EB84"
+                    ]
+                },
+                {
+                    "id": "sid-F6038D8D-950B-4781-9479-A8C6D870BDF6",
+                    "name": "Qualit\u00e4tssicherungsabteilung\n Gutachter",
+                    "elemRefs": [
+                        "sid-D587A2CB-39A6-473E-8AD3-11A7AB0B4B71",
+                        "sid-98F64DC0-68A9-47DB-94A3-43275E6A8027",
+                        "sid-F303F70E-5A45-4019-AF5C-F435CA67E489",
+                        "sid-37A27C0C-66CD-4FE9-A0EF-B247078D8678",
+                        "sid-891DD340-849E-426D-BE3B-4D72A05D8FEB",
+                        "sid-BDDA8F9B-2C25-49F6-9E81-4ACD98115642",
+                        "sid-7293C7DD-385C-4299-A013-95ABAD5D90B4",
+                        "sid-C6D1A051-E6F9-4240-BE7F-7A111305CEBF"
+                    ]
+                }
+            ]
+        },
+        {
+            "id": "sid-FC35D3A7-8389-46ED-9D8F-208DE2AA4DBB",
+            "name": "externer Experte",
+            "lanes": []
+        }
+    ],
+    "messageFlows": [
+        {
+            "id": "sid-DBE034B8-0427-4A50-A881-F483851EF8A3",
+            "targetRef": "sid-A2856D3A-401E-4B4C-AE4A-06BBA3FE9273",
+            "sourceRef": "sid-FC35D3A7-8389-46ED-9D8F-208DE2AA4DBB"
+        },
+        {
+            "id": "sid-82C5DF1F-4A3C-4DC2-9D27-80A21D745DA6",
+            "targetRef": "sid-FC35D3A7-8389-46ED-9D8F-208DE2AA4DBB",
+            "sourceRef": "sid-5B53B6BF-A77F-4A8B-BB8C-4E3CDBC0AB9A"
+        },
+        {
+            "id": "sid-B8CD0BBB-BF0E-4341-8DB3-0C75C2383C35",
+            "targetRef": "sid-3F248272-495C-4425-89E8-1F2AD9A5C68A",
+            "sourceRef": "sid-FC35D3A7-8389-46ED-9D8F-208DE2AA4DBB"
+        }
+    ],
+    "sequenceFlows": [
+        {
+            "id": "sid-71949230-945C-4299-B84F-BC9F67F456A0",
+            "targetRef": "sid-A2856D3A-401E-4B4C-AE4A-06BBA3FE9273",
+            "sourceRef": "sid-8569D2F0-5918-4CD4-BF04-74097B75D7A0"
+        },
+        {
+            "id": "sid-08ACA464-454C-4579-AFA8-DCE625480162",
+            "targetRef": "sid-FE378B3D-34A0-42AE-8A55-9791C3E0EB84",
+            "sourceRef": "sid-A2856D3A-401E-4B4C-AE4A-06BBA3FE9273"
+        },
+        {
+            "id": "sid-CB969A82-C466-497F-A7B9-20FAEBF60550",
+            "targetRef": "sid-98F64DC0-68A9-47DB-94A3-43275E6A8027",
+            "sourceRef": "sid-BDDA8F9B-2C25-49F6-9E81-4ACD98115642"
+        },
+        {
+            "id": "sid-2514CB27-7187-4F68-9EFF-0A9B4083DC45",
+            "targetRef": "sid-5B53B6BF-A77F-4A8B-BB8C-4E3CDBC0AB9A",
+            "sourceRef": "sid-BDDA8F9B-2C25-49F6-9E81-4ACD98115642"
+        },
+        {
+            "id": "sid-EDC7BA49-E7F9-486F-9CCB-7982BC275919",
+            "targetRef": "sid-7293C7DD-385C-4299-A013-95ABAD5D90B4",
+            "sourceRef": "sid-5B53B6BF-A77F-4A8B-BB8C-4E3CDBC0AB9A"
+        },
+        {
+            "id": "sid-B41D02A2-8BCB-430C-AF8B-9D9870F5732E",
+            "targetRef": "sid-7293C7DD-385C-4299-A013-95ABAD5D90B4",
+            "sourceRef": "sid-98F64DC0-68A9-47DB-94A3-43275E6A8027"
+        },
+        {
+            "id": "sid-62A060B5-0264-4D21-A944-00FC020B2428",
+            "targetRef": "sid-891DD340-849E-426D-BE3B-4D72A05D8FEB",
+            "sourceRef": "sid-7293C7DD-385C-4299-A013-95ABAD5D90B4"
+        },
+        {
+            "id": "sid-FD1BE247-1FD0-424E-A546-CC7FC4AF32D4",
+            "targetRef": "sid-BDDA8F9B-2C25-49F6-9E81-4ACD98115642",
+            "sourceRef": "sid-F303F70E-5A45-4019-AF5C-F435CA67E489"
+        },
+        {
+            "id": "sid-1BD5ACF0-03AE-4B32-B3A4-0AD0F650C026",
+            "targetRef": "sid-3C8A1C37-2905-4263-AB7B-D831CBCBF884",
+            "sourceRef": "sid-59C07805-98BB-4802-B9E6-300D5207E6AB"
+        },
+        {
+            "id": "sid-81190A34-4378-435F-B13D-7BA73D9A31B5",
+            "targetRef": "sid-D587A2CB-39A6-473E-8AD3-11A7AB0B4B71",
+            "sourceRef": "sid-3C8A1C37-2905-4263-AB7B-D831CBCBF884"
+        },
+        {
+            "id": "sid-CBC8ED9D-7FCA-4F54-A836-C8D555F143E6",
+            "targetRef": "sid-3F248272-495C-4425-89E8-1F2AD9A5C68A",
+            "sourceRef": "sid-FE378B3D-34A0-42AE-8A55-9791C3E0EB84"
+        },
+        {
+            "id": "sid-EAE1276C-2BCA-4E22-B3C7-A14F901ABF1A",
+            "targetRef": "sid-78E632E0-12C9-43CD-A080-C946A014A460",
+            "sourceRef": "sid-FE378B3D-34A0-42AE-8A55-9791C3E0EB84"
+        },
+        {
+            "id": "sid-751E305F-4793-4793-895E-A01FA235352A",
+            "targetRef": "sid-C6D1A051-E6F9-4240-BE7F-7A111305CEBF",
+            "sourceRef": "sid-7D0536EB-C02F-4450-9E0C-1EC075F97357"
+        },
+        {
+            "id": "sid-2004A224-90AA-4763-A0FE-AD41708A5ADF",
+            "targetRef": "sid-F303F70E-5A45-4019-AF5C-F435CA67E489",
+            "sourceRef": "sid-C6D1A051-E6F9-4240-BE7F-7A111305CEBF"
+        },
+        {
+            "id": "sid-5F545CCF-1858-45C2-85EB-FAB866CB2644",
+            "targetRef": "sid-8569D2F0-5918-4CD4-BF04-74097B75D7A0",
+            "sourceRef": "sid-3C8A1C37-2905-4263-AB7B-D831CBCBF884"
+        },
+        {
+            "id": "sid-17C20F6A-39D6-44E3-A1B3-A71C8627A2EA",
+            "targetRef": "sid-8569D2F0-5918-4CD4-BF04-74097B75D7A0",
+            "sourceRef": "sid-78E632E0-12C9-43CD-A080-C946A014A460"
+        },
+        {
+            "id": "sid-5FE30591-3AA8-4B59-B131-B09863F9C621",
+            "targetRef": "sid-7D0536EB-C02F-4450-9E0C-1EC075F97357",
+            "sourceRef": "sid-3F248272-495C-4425-89E8-1F2AD9A5C68A"
+        },
+        {
+            "id": "sid-BDD139D7-A149-4A28-8BF9-DCF5979A2E22",
+            "targetRef": "sid-37A27C0C-66CD-4FE9-A0EF-B247078D8678",
+            "sourceRef": "sid-D587A2CB-39A6-473E-8AD3-11A7AB0B4B71"
+        },
+        {
+            "id": "sid-561AE198-88BF-4325-8EAB-E08295A687DD",
+            "targetRef": "sid-C6D1A051-E6F9-4240-BE7F-7A111305CEBF",
+            "sourceRef": "sid-37A27C0C-66CD-4FE9-A0EF-B247078D8678"
+        }
+    ]
+}

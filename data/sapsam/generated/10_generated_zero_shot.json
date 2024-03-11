@@ -1,0 +1,203 @@
+{
+    "tasks": [
+        {
+            "id": "0",
+            "name": "verify request",
+            "type": "User"
+        },
+        {
+            "id": "1",
+            "name": "Sending the order for request handling",
+            "type": "User"
+        },
+        {
+            "id": "2",
+            "name": "Receiving the order",
+            "type": "User"
+        },
+        {
+            "id": "3",
+            "name": "Request Logging and Categorization",
+            "type": "User"
+        },
+        {
+            "id": "4",
+            "name": "Request Monitoring and Escalation",
+            "type": "User"
+        },
+        {
+            "id": "5",
+            "name": "Request Model Execution",
+            "type": "User"
+        },
+        {
+            "id": "6",
+            "name": "Request Closure and Evaluation",
+            "type": "User"
+        },
+        {
+            "id": "7",
+            "name": "Request Fulfilment Support",
+            "type": "User"
+        }
+    ],
+    "events": [
+        {
+            "id": "8",
+            "name": "start",
+            "type": "StartNoneEvent"
+        },
+        {
+            "id": "9",
+            "name": "successful end to the process",
+            "type": "EndNoneEvent"
+        },
+        {
+            "id": "10",
+            "name": "contact the incident manager about the problem",
+            "type": "EndNoneEvent"
+        }
+    ],
+    "gateways": [
+        {
+            "id": "11",
+            "type": "Exclusive"
+        },
+        {
+            "id": "12",
+            "type": "Exclusive"
+        },
+        {
+            "id": "13",
+            "type": "Parallel"
+        },
+        {
+            "id": "14",
+            "type": "Parallel"
+        }
+    ],
+    "pools": [
+        {
+            "id": "15",
+            "name": "Request Fulfilment",
+            "lanes": [
+                {
+                    "id": "16",
+                    "name": "1st Level Support",
+                    "elemRefs": [
+                        "2",
+                        "3",
+                        "4",
+                        "10"
+                    ]
+                },
+                {
+                    "id": "17",
+                    "name": "Incident Manager",
+                    "elemRefs": [
+                        "0",
+                        "1",
+                        "7",
+                        "9"
+                    ]
+                },
+                {
+                    "id": "18",
+                    "name": "Incident Manager+ 1st Level Support",
+                    "elemRefs": [
+                        "5",
+                        "11",
+                        "12",
+                        "13",
+                        "14"
+                    ]
+                },
+                {
+                    "id": "19",
+                    "name": "Service Request Fulfilment Group + 1st Level Support",
+                    "elemRefs": [
+                        "6"
+                    ]
+                }
+            ]
+        }
+    ],
+    "sequenceFlows": [
+        {
+            "id": "20",
+            "sourceRef": "8",
+            "targetRef": "0"
+        },
+        {
+            "id": "21",
+            "sourceRef": "0",
+            "targetRef": "11"
+        },
+        {
+            "id": "22",
+            "sourceRef": "11",
+            "targetRef": "1"
+        },
+        {
+            "id": "23",
+            "sourceRef": "1",
+            "targetRef": "2"
+        },
+        {
+            "id": "24",
+            "sourceRef": "2",
+            "targetRef": "3"
+        },
+        {
+            "id": "25",
+            "sourceRef": "3",
+            "targetRef": "12"
+        },
+        {
+            "id": "26",
+            "sourceRef": "12",
+            "targetRef": "13"
+        },
+        {
+            "id": "27",
+            "sourceRef": "12",
+            "targetRef": "10"
+        },
+        {
+            "id": "28",
+            "sourceRef": "13",
+            "targetRef": "4"
+        },
+        {
+            "id": "29",
+            "sourceRef": "4",
+            "targetRef": "14"
+        },
+        {
+            "id": "30",
+            "sourceRef": "14",
+            "targetRef": "5"
+        },
+        {
+            "id": "31",
+            "sourceRef": "5",
+            "targetRef": "6"
+        },
+        {
+            "id": "32",
+            "sourceRef": "6",
+            "targetRef": "9"
+        },
+        {
+            "id": "33",
+            "sourceRef": "13",
+            "targetRef": "7"
+        },
+        {
+            "id": "34",
+            "sourceRef": "7",
+            "targetRef": "14"
+        }
+    ],
+    "messageFlows": []
+}

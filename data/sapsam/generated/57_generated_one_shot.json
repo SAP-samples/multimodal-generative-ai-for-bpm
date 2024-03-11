@@ -1,0 +1,209 @@
+{
+    "tasks": [
+        {
+            "id": "0",
+            "name": "Eingangsbest\u00e4tigung senden",
+            "type": "Send"
+        },
+        {
+            "id": "1",
+            "name": "Bewerbung pr\u00fcfen",
+            "type": "Business Rule"
+        },
+        {
+            "id": "2",
+            "name": "Bewerbung beurteilen",
+            "type": "Manual"
+        },
+        {
+            "id": "3",
+            "name": "Bewerber einladen",
+            "type": "CollapsedSubprocess"
+        },
+        {
+            "id": "4",
+            "name": "Bewerbungsgespr\u00e4ch vorbereiten",
+            "type": "CollapsedSubprocess"
+        },
+        {
+            "id": "5",
+            "name": "Bewerber auf die Liste setzen",
+            "type": "User"
+        },
+        {
+            "id": "6",
+            "name": "Bewerber ausw\u00e4hlen",
+            "type": "CollapsedSubprocess"
+        },
+        {
+            "id": "7",
+            "name": "Genehmigung einholen",
+            "type": "Business Rule"
+        },
+        {
+            "id": "8",
+            "name": "Vertrag vorbereiten",
+            "type": "Business Rule"
+        },
+        {
+            "id": "9",
+            "name": "Vertrags Unterschreibung",
+            "type": "CollapsedSubprocess"
+        },
+        {
+            "id": "10",
+            "name": "Bewerber auf Stelle setzen",
+            "type": "CollapsedSubprocess"
+        },
+        {
+            "id": "11",
+            "name": "Stelle im System belegen",
+            "type": "Service"
+        },
+        {
+            "id": "12",
+            "name": "Bewerbungsverfahren abschlie\u00dfen",
+            "type": "User"
+        },
+        {
+            "id": "13",
+            "name": "Bewerber absagen",
+            "type": "Send"
+        },
+        {
+            "id": "14",
+            "name": "Bewerbungs-unterlagen archivieren",
+            "type": "User"
+        }
+    ],
+    "events": [
+        {
+            "id": "15",
+            "name": "Bewerbung trifft ein",
+            "type": "StartMessageEvent"
+        },
+        {
+            "id": "16",
+            "name": "Bewerber lehnt ab",
+            "type": "IntermediateErrorEvent"
+        },
+        {
+            "id": "17",
+            "name": "Einstellung wurde nicht genehmigt",
+            "type": "IntermediateErrorEvent"
+        },
+        {
+            "id": "18",
+            "name": "Bewerber eingestellt",
+            "type": "EndEvent"
+        },
+        {
+            "id": "19",
+            "name": "Bewerber abgelehnt",
+            "type": "EndEvent"
+        },
+        {
+            "id": "20",
+            "name": "Bewerber zugesagt",
+            "type": "EndEvent"
+        },
+        {
+            "id": "21",
+            "name": "Intermediate Cancel Event",
+            "type": "IntermediateCancelEvent"
+        }
+    ],
+    "gateways": [
+        {
+            "id": "22",
+            "type": "Exclusive"
+        },
+        {
+            "id": "23",
+            "type": "Exclusive"
+        },
+        {
+            "id": "24",
+            "type": "Exclusive"
+        },
+        {
+            "id": "25",
+            "type": "Exclusive"
+        },
+        {
+            "id": "26",
+            "type": "Exclusive"
+        },
+        {
+            "id": "27",
+            "type": "Exclusive"
+        }
+    ],
+    "pools": [
+        {
+            "id": "28",
+            "name": "Sparkasse",
+            "lanes": [
+                {
+                    "id": "29",
+                    "name": "Personalteam",
+                    "elemRefs": [
+                        "0",
+                        "1",
+                        "16",
+                        "18",
+                        "19",
+                        "21",
+                        "22",
+                        "23",
+                        "24",
+                        "27"
+                    ]
+                },
+                {
+                    "id": "30",
+                    "name": "IT-Abteilung",
+                    "elemRefs": [
+                        "2",
+                        "5",
+                        "11",
+                        "12",
+                        "13",
+                        "14"
+                    ]
+                }
+            ]
+        },
+        {
+            "id": "31",
+            "name": "IT-Leiter",
+            "lanes": []
+        },
+        {
+            "id": "32",
+            "name": "IT-Leiter",
+            "lanes": []
+        },
+        {
+            "id": "33",
+            "name": "Vorstand",
+            "lanes": [
+                {
+                    "id": "34",
+                    "name": "Vorstand",
+                    "elemRefs": [
+                        "7",
+                        "17"
+                    ]
+                }
+            ]
+        },
+        {
+            "id": "35",
+            "name": "Bewerber",
+            "lanes": []
+        }
+    ],
+    "sequenceFlows": [],
+    "messageFlows": []
+}

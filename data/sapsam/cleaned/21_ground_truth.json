@@ -1,0 +1,190 @@
+{
+    "tasks": [
+        {
+            "id": "sid-861C5C26-3ACC-4C2A-B29A-133F3B481EF5",
+            "name": "Prepare dough",
+            "type": "Task"
+        },
+        {
+            "id": "sid-62CA9086-82A8-4271-B9FF-CCE99D61CFBD",
+            "name": "prepare cooking paper",
+            "type": "Task"
+        },
+        {
+            "id": "sid-B286C781-9428-4183-B0FD-782C69BA1AA2",
+            "name": "set up delivery",
+            "type": "Task"
+        },
+        {
+            "id": "sid-64F8BB65-539D-4E7A-A71E-161E76D1085E",
+            "name": "prepare muffins",
+            "type": "Task"
+        },
+        {
+            "id": "sid-4F07839F-A824-49E4-8121-2249D8CF9382",
+            "name": "cook muffins",
+            "type": "Task"
+        },
+        {
+            "id": "sid-A2E1DCAF-69B0-40E4-BB48-2F2E2B41FB68",
+            "name": "payment",
+            "type": "Task"
+        },
+        {
+            "id": "sid-07A0172E-E209-4E23-91AF-9925977C6285",
+            "name": "Dispatch muffins",
+            "type": "Task"
+        }
+    ],
+    "events": [
+        {
+            "id": "sid-FF3A38F4-26DF-4CFE-BAB7-EC9DB591B2D9",
+            "name": "end of process",
+            "type": "EndNoneEvent"
+        },
+        {
+            "id": "sid-AF7F0AFF-D219-46E5-9358-FCF763A3DC12",
+            "name": "New Order",
+            "type": "StartNoneEvent"
+        }
+    ],
+    "gateways": [
+        {
+            "id": "sid-E852812B-C63C-47C1-B02C-51B5207498AE",
+            "name": "End of the phas1 tasks",
+            "type": "Parallel"
+        },
+        {
+            "id": "sid-9D633BC0-B844-44EA-9FE6-A2624A62C5D3",
+            "name": "Requirements for phase 3",
+            "type": "Parallel"
+        },
+        {
+            "id": "sid-0E1001C2-1926-457F-8B8E-E6E1A5731EF7",
+            "name": "End of the phase 3",
+            "type": "Parallel"
+        },
+        {
+            "id": "sid-F2C428C1-2857-4E96-B7E3-5717D9358168",
+            "name": "Phase 1 tasks in MyMuffin",
+            "type": "Parallel"
+        }
+    ],
+    "pools": [
+        {
+            "id": "sid-507A8390-1A05-4638-96B2-AA03506897BA",
+            "name": "MyMuffin",
+            "lanes": [
+                {
+                    "id": "sid-539BF5C6-4BF7-4E23-BA84-9753D7C2F2EC",
+                    "name": "",
+                    "elemRefs": [
+                        "sid-861C5C26-3ACC-4C2A-B29A-133F3B481EF5",
+                        "sid-62CA9086-82A8-4271-B9FF-CCE99D61CFBD",
+                        "sid-B286C781-9428-4183-B0FD-782C69BA1AA2",
+                        "sid-64F8BB65-539D-4E7A-A71E-161E76D1085E",
+                        "sid-4F07839F-A824-49E4-8121-2249D8CF9382",
+                        "sid-A2E1DCAF-69B0-40E4-BB48-2F2E2B41FB68",
+                        "sid-07A0172E-E209-4E23-91AF-9925977C6285",
+                        "sid-FF3A38F4-26DF-4CFE-BAB7-EC9DB591B2D9",
+                        "sid-AF7F0AFF-D219-46E5-9358-FCF763A3DC12",
+                        "sid-E852812B-C63C-47C1-B02C-51B5207498AE",
+                        "sid-9D633BC0-B844-44EA-9FE6-A2624A62C5D3",
+                        "sid-0E1001C2-1926-457F-8B8E-E6E1A5731EF7",
+                        "sid-F2C428C1-2857-4E96-B7E3-5717D9358168"
+                    ]
+                }
+            ]
+        }
+    ],
+    "messageFlows": [],
+    "sequenceFlows": [
+        {
+            "id": "sid-C9B29398-8CD9-4696-9B98-78BD12479973",
+            "targetRef": "sid-E852812B-C63C-47C1-B02C-51B5207498AE",
+            "sourceRef": "sid-861C5C26-3ACC-4C2A-B29A-133F3B481EF5"
+        },
+        {
+            "id": "sid-34991915-CD82-4D35-9D17-96C689831EE1",
+            "targetRef": "sid-E852812B-C63C-47C1-B02C-51B5207498AE",
+            "sourceRef": "sid-62CA9086-82A8-4271-B9FF-CCE99D61CFBD"
+        },
+        {
+            "id": "sid-BE29F37C-E579-4702-B036-0B67EFCA44FE",
+            "targetRef": "sid-E852812B-C63C-47C1-B02C-51B5207498AE",
+            "sourceRef": "sid-B286C781-9428-4183-B0FD-782C69BA1AA2"
+        },
+        {
+            "id": "sid-7140D7C5-C2F8-48B6-81BA-7BE782051FC9",
+            "targetRef": "sid-861C5C26-3ACC-4C2A-B29A-133F3B481EF5",
+            "condition": "start to prepare dough",
+            "sourceRef": "sid-F2C428C1-2857-4E96-B7E3-5717D9358168"
+        },
+        {
+            "id": "sid-D971CEB8-C7C0-45C4-920D-56A530488059",
+            "targetRef": "sid-4F07839F-A824-49E4-8121-2249D8CF9382",
+            "condition": "start Cooking",
+            "sourceRef": "sid-64F8BB65-539D-4E7A-A71E-161E76D1085E"
+        },
+        {
+            "id": "sid-227C8B0E-8B7F-45AF-8D18-D0D91C19CA14",
+            "targetRef": "sid-9D633BC0-B844-44EA-9FE6-A2624A62C5D3",
+            "condition": "Ready to phase 3",
+            "sourceRef": "sid-4F07839F-A824-49E4-8121-2249D8CF9382"
+        },
+        {
+            "id": "sid-AEC33D67-6993-45BD-A247-EF802B343B6A",
+            "targetRef": "sid-A2E1DCAF-69B0-40E4-BB48-2F2E2B41FB68",
+            "condition": "Start to payment",
+            "sourceRef": "sid-9D633BC0-B844-44EA-9FE6-A2624A62C5D3"
+        },
+        {
+            "id": "sid-8785CB45-FA59-4051-9920-020BE843CE52",
+            "targetRef": "sid-07A0172E-E209-4E23-91AF-9925977C6285",
+            "condition": "start distpatch muffins",
+            "sourceRef": "sid-9D633BC0-B844-44EA-9FE6-A2624A62C5D3"
+        },
+        {
+            "id": "sid-BD1EF4B6-2090-436E-8229-205A699F3C5B",
+            "targetRef": "sid-0E1001C2-1926-457F-8B8E-E6E1A5731EF7",
+            "condition": "payment is completed",
+            "sourceRef": "sid-A2E1DCAF-69B0-40E4-BB48-2F2E2B41FB68"
+        },
+        {
+            "id": "sid-C8A1552F-9BBA-4AE2-AC0A-DC509B62A1B7",
+            "targetRef": "sid-0E1001C2-1926-457F-8B8E-E6E1A5731EF7",
+            "condition": "Dispatch is completed",
+            "sourceRef": "sid-07A0172E-E209-4E23-91AF-9925977C6285"
+        },
+        {
+            "id": "sid-9F9D3EA9-28E9-4925-8459-9FF6731AE9AC",
+            "targetRef": "sid-B286C781-9428-4183-B0FD-782C69BA1AA2",
+            "condition": "Start set up delivery",
+            "sourceRef": "sid-F2C428C1-2857-4E96-B7E3-5717D9358168"
+        },
+        {
+            "id": "sid-D78A8CAE-63D3-4A5B-A653-9FD30F9F6800",
+            "targetRef": "sid-62CA9086-82A8-4271-B9FF-CCE99D61CFBD",
+            "condition": "start prepare cooking paper",
+            "sourceRef": "sid-F2C428C1-2857-4E96-B7E3-5717D9358168"
+        },
+        {
+            "id": "sid-EA97AE38-403D-43F1-82DF-E2592E068BFD",
+            "targetRef": "sid-F2C428C1-2857-4E96-B7E3-5717D9358168",
+            "condition": "orders is receiving",
+            "sourceRef": "sid-AF7F0AFF-D219-46E5-9358-FCF763A3DC12"
+        },
+        {
+            "id": "sid-F96777B4-E82A-43C8-8861-B2E48DAC8F3A",
+            "targetRef": "sid-64F8BB65-539D-4E7A-A71E-161E76D1085E",
+            "condition": "Phase 2",
+            "sourceRef": "sid-E852812B-C63C-47C1-B02C-51B5207498AE"
+        },
+        {
+            "id": "sid-39FC5FD8-2D80-48E2-BC2B-1CFBBC96650C",
+            "targetRef": "sid-FF3A38F4-26DF-4CFE-BAB7-EC9DB591B2D9",
+            "condition": "To complete the process",
+            "sourceRef": "sid-0E1001C2-1926-457F-8B8E-E6E1A5731EF7"
+        }
+    ]
+}

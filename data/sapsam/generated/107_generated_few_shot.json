@@ -1,0 +1,107 @@
+{
+    "tasks": [
+        {
+            "id": "0",
+            "name": "Develop prototype and import it to Test Environment",
+            "type": "Task"
+        },
+        {
+            "id": "1",
+            "name": "Test and correct version to import it in Staging Environment",
+            "type": "Task"
+        },
+        {
+            "id": "2",
+            "name": "Test and adjust with the feedback of the ticket owner and users",
+            "type": "Task"
+        },
+        {
+            "id": "3",
+            "name": "Import version with new functionality in Production Environment",
+            "type": "Task"
+        },
+        {
+            "id": "4",
+            "name": "Communicate new version and adjust with feedback of the ticket owner",
+            "type": "Task"
+        },
+        {
+            "id": "5",
+            "name": "Close ticket by deliberated new functionality and update KMS",
+            "type": "Task"
+        }
+    ],
+    "events": [
+        {
+            "id": "6",
+            "name": "A request of development is assigned",
+            "type": "StartNoneEvent"
+        },
+        {
+            "id": "7",
+            "name": "Ticket closed by new functionalities delivered and KMS updated",
+            "type": "EndNoneEvent"
+        }
+    ],
+    "gateways": [],
+    "pools": [
+        {
+            "id": "8",
+            "name": "IT-Department",
+            "lanes": [
+                {
+                    "id": "9",
+                    "name": "IS Development Staff",
+                    "elemRefs": [
+                        "0",
+                        "1",
+                        "2",
+                        "3",
+                        "4",
+                        "5",
+                        "6",
+                        "7"
+                    ]
+                }
+            ]
+        }
+    ],
+    "sequenceFlows": [
+        {
+            "id": "10",
+            "sourceRef": "6",
+            "targetRef": "0"
+        },
+        {
+            "id": "11",
+            "sourceRef": "0",
+            "targetRef": "1"
+        },
+        {
+            "id": "12",
+            "sourceRef": "1",
+            "targetRef": "2"
+        },
+        {
+            "id": "13",
+            "sourceRef": "2",
+            "targetRef": "3"
+        },
+        {
+            "id": "14",
+            "sourceRef": "3",
+            "targetRef": "4"
+        },
+        {
+            "id": "15",
+            "sourceRef": "4",
+            "targetRef": "5"
+        },
+        {
+            "id": "16",
+            "sourceRef": "5",
+            "targetRef": "7"
+        }
+    ],
+    "messageFlows": []
+}

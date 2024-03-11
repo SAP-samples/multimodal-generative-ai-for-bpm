@@ -1,0 +1,200 @@
+{
+    "tasks": [
+        {
+            "id": "0",
+            "name": "Create enquiry",
+            "type": "Task"
+        },
+        {
+            "id": "1",
+            "name": "Create contact",
+            "type": "Task"
+        },
+        {
+            "id": "2",
+            "name": "Qualified Price OK and Interest",
+            "type": "Task"
+        },
+        {
+            "id": "3",
+            "name": "Update enquiry status",
+            "type": "Task"
+        },
+        {
+            "id": "4",
+            "name": "Create Quote",
+            "type": "Task"
+        },
+        {
+            "id": "5",
+            "name": "Qualified Requirements analysis",
+            "type": "Task"
+        },
+        {
+            "id": "6",
+            "name": "Update Enquiry Status",
+            "type": "Task"
+        },
+        {
+            "id": "7",
+            "name": "Create Job",
+            "type": "Task"
+        }
+    ],
+    "events": [
+        {
+            "id": "8",
+            "name": "Sales enquiry created",
+            "type": "StartMessageEvent"
+        },
+        {
+            "id": "9",
+            "name": "Customer approval received",
+            "type": "IntermediateMessageEventCatching"
+        },
+        {
+            "id": "10",
+            "name": "Client does not approve",
+            "type": "EndEvent"
+        },
+        {
+            "id": "11",
+            "name": "Job created",
+            "type": "EndEvent"
+        }
+    ],
+    "gateways": [
+        {
+            "id": "12",
+            "name": "Exclusive XOR Gateway 1",
+            "type": "Exclusive"
+        },
+        {
+            "id": "13",
+            "name": "Exclusive XOR Gateway 2",
+            "type": "Exclusive"
+        },
+        {
+            "id": "14",
+            "name": "Exclusive XOR Gateway 3",
+            "type": "Exclusive"
+        }
+    ],
+    "pools": [
+        {
+            "id": "15",
+            "name": "Accentis",
+            "lanes": [
+                {
+                    "id": "16",
+                    "name": "Lane 1",
+                    "elemRefs": [
+                        "0",
+                        "1",
+                        "2",
+                        "3",
+                        "4",
+                        "5",
+                        "6",
+                        "7",
+                        "8",
+                        "9",
+                        "10",
+                        "11",
+                        "12",
+                        "13",
+                        "14"
+                    ]
+                }
+            ]
+        },
+        {
+            "id": "17",
+            "name": "Customer",
+            "lanes": [
+                {
+                    "id": "18",
+                    "name": "Lane 2",
+                    "elemRefs": []
+                }
+            ]
+        }
+    ],
+    "sequenceFlows": [
+        {
+            "id": "19",
+            "sourceRef": "8",
+            "targetRef": "12"
+        },
+        {
+            "id": "20",
+            "sourceRef": "12",
+            "targetRef": "0",
+            "condition": "outbound customer"
+        },
+        {
+            "id": "21",
+            "sourceRef": "12",
+            "targetRef": "1",
+            "condition": "inbound customer"
+        },
+        {
+            "id": "22",
+            "sourceRef": "0",
+            "targetRef": "2"
+        },
+        {
+            "id": "23",
+            "sourceRef": "1",
+            "targetRef": "2"
+        },
+        {
+            "id": "24",
+            "sourceRef": "2",
+            "targetRef": "13"
+        },
+        {
+            "id": "25",
+            "sourceRef": "13",
+            "targetRef": "4",
+            "condition": "qualified"
+        },
+        {
+            "id": "26",
+            "sourceRef": "4",
+            "targetRef": "9"
+        },
+        {
+            "id": "27",
+            "sourceRef": "9",
+            "targetRef": "5"
+        },
+        {
+            "id": "28",
+            "sourceRef": "5",
+            "targetRef": "7"
+        },
+        {
+            "id": "29",
+            "sourceRef": "7",
+            "targetRef": "11"
+        },
+        {
+            "id": "30",
+            "sourceRef": "13",
+            "targetRef": "3",
+            "condition": "not qualified"
+        },
+        {
+            "id": "31",
+            "sourceRef": "3",
+            "targetRef": "14"
+        },
+        {
+            "id": "32",
+            "sourceRef": "14",
+            "targetRef": "10"
+        }
+    ],
+    "messageFlows": []
+}

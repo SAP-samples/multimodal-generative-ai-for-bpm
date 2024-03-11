@@ -1,0 +1,302 @@
+{
+    "tasks": [
+        {
+            "id": "_20caff70-7c4c-4bb0-8c02-e2d5cf6d9337",
+            "name": "Bewerbungsunterlagen detaillierter pr\u00fcfen",
+            "type": "Manual"
+        },
+        {
+            "id": "_94d6ba5b-c5db-480b-a2bd-85f9587885e4",
+            "name": "Assessment Center durchf\u00fchren",
+            "type": "Manual"
+        },
+        {
+            "id": "_559242b0-dcd1-41c2-ba1c-636f67ef460d",
+            "name": "Bewerbungsunterlagen sichten und Vorselektion durchf\u00fchren",
+            "type": "Manual"
+        },
+        {
+            "id": "_0b3f8ae1-82f3-46ee-9f3e-ea59ec6f2785",
+            "name": "Termin f\u00fcr pers\u00f6nliches Interview via Email kommunizieren",
+            "type": "Manual"
+        },
+        {
+            "id": "_90a94c16-8cc9-4d4f-a1e7-7d1e9dbc7246",
+            "name": "Pers\u00f6nliches Interview durchf\u00fchren",
+            "type": "Manual"
+        },
+        {
+            "id": "_f438fbe1-dbb9-405c-987e-389f0bf1923f",
+            "name": "Termin und Bewerberunterlagen an Fachabteilung weiterleiten",
+            "type": "Manual"
+        },
+        {
+            "id": "_07b377fa-3be9-4d9e-8610-48cf4303341b",
+            "name": "Termin mit Bewerber f\u00fcr Assessment Center vereinbaren",
+            "type": "Manual"
+        },
+        {
+            "id": "_808f16a5-f5fc-44f8-8e36-fe4a698debbd",
+            "name": "Absage verfassen und an Bewerber schicken",
+            "type": "Manual"
+        },
+        {
+            "id": "_ac89dbf4-ae36-4ee5-95d5-7973eb14bb54",
+            "name": "Zusage verfassen und an Bewerber schicken",
+            "type": "Manual"
+        },
+        {
+            "id": "_0e28cc6f-1336-43e4-8fad-74f234263760",
+            "name": "Assessment Center planen und vorbereiten",
+            "type": "Manual"
+        },
+        {
+            "id": "_92bfae46-6697-46fa-9b5f-e04d1545dda9",
+            "name": "\u00dcber Bewerber abstimmen",
+            "type": "Manual"
+        },
+        {
+            "id": "_619174ce-7012-47f7-bc00-171419f90fb1",
+            "name": "Telefoninterview durchf\u00fchren",
+            "type": "Manual"
+        },
+        {
+            "id": "_dd7e5505-6a98-4298-8b00-4ea0f16a4a8c",
+            "name": "Absage nach Vorselektion erstellen und an Bewerber schicken",
+            "type": "Manual"
+        }
+    ],
+    "events": [
+        {
+            "id": "_9ecb4ffc-fb1b-47e2-97da-199f81e5bd6c",
+            "name": "Bewerbung ist eingegangen",
+            "type": "StartNoneEvent"
+        },
+        {
+            "id": "_c33d09e7-ab6b-4350-ba4a-51357aa729f0",
+            "name": "Bewerber nach Vorselektion abgelehnt",
+            "type": "EndNoneEvent"
+        },
+        {
+            "id": "_01940d92-14f3-4d6c-b648-a5b453035f07",
+            "name": "Bewerber nach Assessment Center abgelehnt",
+            "type": "EndNoneEvent"
+        },
+        {
+            "id": "_874be2a1-bf2f-4af2-ac81-c7a013be3b7d",
+            "name": "Bewerber angenommen",
+            "type": "EndNoneEvent"
+        }
+    ],
+    "gateways": [
+        {
+            "id": "_cee17895-f0c9-41f3-847a-eca4533e0eef",
+            "name": "Nicht-exklusives Gateway",
+            "type": "Parallel"
+        },
+        {
+            "id": "_739c328c-b48f-4656-a9e1-b60336b614ab",
+            "name": "Nicht-exklusives Gateway",
+            "type": "Parallel"
+        },
+        {
+            "id": "_66743183-4094-4eb4-8136-8de1f75131bb",
+            "name": "Bewerbung f\u00fcr Schl\u00fcsselposition?",
+            "type": "Exclusive"
+        },
+        {
+            "id": "sid-904D1CC2-90B0-443E-9788-E43E1C82A2AF",
+            "type": "Exclusive"
+        },
+        {
+            "id": "sid-9853CADE-ACD2-4D62-917D-78DCC7C58CDB",
+            "type": "Exclusive"
+        },
+        {
+            "id": "sid-FCD0A564-2D12-4643-AE90-CE5A299FEF85",
+            "type": "Exclusive"
+        },
+        {
+            "id": "sid-1FB64A0D-9E2A-4532-A45F-810599E5A52D",
+            "type": "Exclusive"
+        }
+    ],
+    "pools": [
+        {
+            "id": "_0c4e0543-b77b-4eca-89b9-d755f1c6e9a4",
+            "name": "ADOmoney Bank",
+            "lanes": [
+                {
+                    "id": "_7a5a466f-ddb1-4373-a653-dc103cdf6095",
+                    "name": "Recruitment",
+                    "elemRefs": [
+                        "_20caff70-7c4c-4bb0-8c02-e2d5cf6d9337",
+                        "_94d6ba5b-c5db-480b-a2bd-85f9587885e4",
+                        "_559242b0-dcd1-41c2-ba1c-636f67ef460d",
+                        "_0b3f8ae1-82f3-46ee-9f3e-ea59ec6f2785",
+                        "_90a94c16-8cc9-4d4f-a1e7-7d1e9dbc7246",
+                        "_f438fbe1-dbb9-405c-987e-389f0bf1923f",
+                        "_07b377fa-3be9-4d9e-8610-48cf4303341b",
+                        "_808f16a5-f5fc-44f8-8e36-fe4a698debbd",
+                        "_ac89dbf4-ae36-4ee5-95d5-7973eb14bb54",
+                        "_0e28cc6f-1336-43e4-8fad-74f234263760",
+                        "_92bfae46-6697-46fa-9b5f-e04d1545dda9",
+                        "_619174ce-7012-47f7-bc00-171419f90fb1",
+                        "_dd7e5505-6a98-4298-8b00-4ea0f16a4a8c",
+                        "_9ecb4ffc-fb1b-47e2-97da-199f81e5bd6c",
+                        "_c33d09e7-ab6b-4350-ba4a-51357aa729f0",
+                        "_01940d92-14f3-4d6c-b648-a5b453035f07",
+                        "_874be2a1-bf2f-4af2-ac81-c7a013be3b7d",
+                        "_cee17895-f0c9-41f3-847a-eca4533e0eef",
+                        "_739c328c-b48f-4656-a9e1-b60336b614ab",
+                        "_66743183-4094-4eb4-8136-8de1f75131bb",
+                        "sid-904D1CC2-90B0-443E-9788-E43E1C82A2AF",
+                        "sid-9853CADE-ACD2-4D62-917D-78DCC7C58CDB",
+                        "sid-FCD0A564-2D12-4643-AE90-CE5A299FEF85",
+                        "sid-1FB64A0D-9E2A-4532-A45F-810599E5A52D"
+                    ]
+                }
+            ]
+        }
+    ],
+    "messageFlows": [],
+    "sequenceFlows": [
+        {
+            "id": "_0a4efbc0-5559-4762-8d4d-eba0987504ff",
+            "targetRef": "_cee17895-f0c9-41f3-847a-eca4533e0eef",
+            "sourceRef": "_07b377fa-3be9-4d9e-8610-48cf4303341b"
+        },
+        {
+            "id": "_30ce0eba-e391-40b5-8058-b3d23a8274c7",
+            "targetRef": "_0e28cc6f-1336-43e4-8fad-74f234263760",
+            "sourceRef": "_739c328c-b48f-4656-a9e1-b60336b614ab"
+        },
+        {
+            "id": "_3383486b-3b25-4896-917b-7209995cbff5",
+            "targetRef": "_07b377fa-3be9-4d9e-8610-48cf4303341b",
+            "sourceRef": "_739c328c-b48f-4656-a9e1-b60336b614ab"
+        },
+        {
+            "id": "_7a36edd3-0fb4-49c9-b954-5bd674226af3",
+            "targetRef": "_66743183-4094-4eb4-8136-8de1f75131bb",
+            "sourceRef": "_20caff70-7c4c-4bb0-8c02-e2d5cf6d9337"
+        },
+        {
+            "id": "_847e6dc7-240f-444f-b459-4dca821384dd",
+            "targetRef": "_94d6ba5b-c5db-480b-a2bd-85f9587885e4",
+            "sourceRef": "_cee17895-f0c9-41f3-847a-eca4533e0eef"
+        },
+        {
+            "id": "_ace9721f-a2c1-44c1-8b11-b139af64f1db",
+            "targetRef": "_01940d92-14f3-4d6c-b648-a5b453035f07",
+            "sourceRef": "_808f16a5-f5fc-44f8-8e36-fe4a698debbd"
+        },
+        {
+            "id": "_b1cbe3d7-7ebb-4dbf-ae0b-f5550ab475c7",
+            "targetRef": "_90a94c16-8cc9-4d4f-a1e7-7d1e9dbc7246",
+            "sourceRef": "_f438fbe1-dbb9-405c-987e-389f0bf1923f"
+        },
+        {
+            "id": "_bd746fa2-7add-4ed2-8193-1ed72f2f3229",
+            "targetRef": "_92bfae46-6697-46fa-9b5f-e04d1545dda9",
+            "sourceRef": "_94d6ba5b-c5db-480b-a2bd-85f9587885e4"
+        },
+        {
+            "id": "_be61a1a8-9cb1-4ce7-899a-21449dbc30a5",
+            "targetRef": "_cee17895-f0c9-41f3-847a-eca4533e0eef",
+            "sourceRef": "_0e28cc6f-1336-43e4-8fad-74f234263760"
+        },
+        {
+            "id": "_dbd72143-5691-4236-8563-d60fc24aebc4",
+            "targetRef": "_874be2a1-bf2f-4af2-ac81-c7a013be3b7d",
+            "sourceRef": "_ac89dbf4-ae36-4ee5-95d5-7973eb14bb54"
+        },
+        {
+            "id": "_f4b05d67-773d-4e24-be80-50ccc2f2f15e",
+            "targetRef": "_559242b0-dcd1-41c2-ba1c-636f67ef460d",
+            "sourceRef": "_9ecb4ffc-fb1b-47e2-97da-199f81e5bd6c"
+        },
+        {
+            "id": "_fa11fef5-656a-4bdb-8812-ef1ff3297c3a",
+            "targetRef": "_c33d09e7-ab6b-4350-ba4a-51357aa729f0",
+            "sourceRef": "_dd7e5505-6a98-4298-8b00-4ea0f16a4a8c"
+        },
+        {
+            "id": "sid-3BA12FF6-35C4-4807-A82D-FDF7971CFFCE",
+            "targetRef": "_619174ce-7012-47f7-bc00-171419f90fb1",
+            "condition": "Ja",
+            "sourceRef": "_66743183-4094-4eb4-8136-8de1f75131bb"
+        },
+        {
+            "id": "sid-E22DCBDF-C6FD-4F89-B5C8-92E0D3D85468",
+            "targetRef": "_0b3f8ae1-82f3-46ee-9f3e-ea59ec6f2785",
+            "condition": "Nein",
+            "sourceRef": "_66743183-4094-4eb4-8136-8de1f75131bb"
+        },
+        {
+            "id": "_7d96d1f1-898e-4ffd-a509-912e3bcd890c",
+            "targetRef": "_0b3f8ae1-82f3-46ee-9f3e-ea59ec6f2785",
+            "sourceRef": "_619174ce-7012-47f7-bc00-171419f90fb1"
+        },
+        {
+            "id": "sid-EFE10D95-29F9-4829-99A0-37FA7C624BC2",
+            "targetRef": "_20caff70-7c4c-4bb0-8c02-e2d5cf6d9337",
+            "sourceRef": "sid-904D1CC2-90B0-443E-9788-E43E1C82A2AF"
+        },
+        {
+            "id": "sid-B141BB37-26B0-4398-BC1D-B3DB93F5590B",
+            "targetRef": "_dd7e5505-6a98-4298-8b00-4ea0f16a4a8c",
+            "sourceRef": "sid-904D1CC2-90B0-443E-9788-E43E1C82A2AF"
+        },
+        {
+            "id": "sid-9D989FDC-358E-41BC-BC29-34A306EB378E",
+            "targetRef": "sid-904D1CC2-90B0-443E-9788-E43E1C82A2AF",
+            "sourceRef": "_559242b0-dcd1-41c2-ba1c-636f67ef460d"
+        },
+        {
+            "id": "sid-146ED62F-7BF7-49D0-99F7-954F1ACACB41",
+            "targetRef": "sid-9853CADE-ACD2-4D62-917D-78DCC7C58CDB",
+            "sourceRef": "_0b3f8ae1-82f3-46ee-9f3e-ea59ec6f2785"
+        },
+        {
+            "id": "sid-37200ABD-91AE-48B5-99F8-FC7DD459B715",
+            "targetRef": "_0b3f8ae1-82f3-46ee-9f3e-ea59ec6f2785",
+            "sourceRef": "sid-9853CADE-ACD2-4D62-917D-78DCC7C58CDB"
+        },
+        {
+            "id": "sid-7A28D1F1-C324-4BE4-889F-ECD56A9AD6BE",
+            "targetRef": "_f438fbe1-dbb9-405c-987e-389f0bf1923f",
+            "sourceRef": "sid-9853CADE-ACD2-4D62-917D-78DCC7C58CDB"
+        },
+        {
+            "id": "sid-ADD925B7-889B-494F-8817-168EED2C5292",
+            "targetRef": "sid-FCD0A564-2D12-4643-AE90-CE5A299FEF85",
+            "sourceRef": "_90a94c16-8cc9-4d4f-a1e7-7d1e9dbc7246"
+        },
+        {
+            "id": "sid-215FBE1A-DDA9-42A2-945F-C375E1162F59",
+            "targetRef": "_739c328c-b48f-4656-a9e1-b60336b614ab",
+            "sourceRef": "sid-FCD0A564-2D12-4643-AE90-CE5A299FEF85"
+        },
+        {
+            "id": "sid-77167ABB-CD97-46A5-9101-BF80F0C8B078",
+            "targetRef": "_92bfae46-6697-46fa-9b5f-e04d1545dda9",
+            "sourceRef": "sid-FCD0A564-2D12-4643-AE90-CE5A299FEF85"
+        },
+        {
+            "id": "sid-9FCBDA38-53AF-4201-87AC-C078F7E4466B",
+            "targetRef": "sid-1FB64A0D-9E2A-4532-A45F-810599E5A52D",
+            "sourceRef": "_92bfae46-6697-46fa-9b5f-e04d1545dda9"
+        },
+        {
+            "id": "sid-2B1F4BDD-8D83-46D3-9133-56ABB9625C7F",
+            "targetRef": "_ac89dbf4-ae36-4ee5-95d5-7973eb14bb54",
+            "sourceRef": "sid-1FB64A0D-9E2A-4532-A45F-810599E5A52D"
+        },
+        {
+            "id": "sid-07EF2F14-B74F-49C4-BB90-7FB91DD7729E",
+            "targetRef": "_808f16a5-f5fc-44f8-8e36-fe4a698debbd",
+            "sourceRef": "sid-1FB64A0D-9E2A-4532-A45F-810599E5A52D"
+        }
+    ]
+}

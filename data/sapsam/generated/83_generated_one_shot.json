@@ -1,0 +1,171 @@
+{
+    "tasks": [
+        {
+            "id": "0",
+            "name": "Artikel aus B\u00fcrolager entnehmen",
+            "type": "Task"
+        },
+        {
+            "id": "1",
+            "name": "Bestellanforderung (BANF)",
+            "type": "Business Rule"
+        },
+        {
+            "id": "2",
+            "name": "Bestellanforderung (BANF) pr\u00fcfen",
+            "type": "Task"
+        },
+        {
+            "id": "3",
+            "name": "Kreditor im ERP erstellen",
+            "type": "Task"
+        },
+        {
+            "id": "4",
+            "name": "Bestellvorgabe aus Bestellanforderung (BANF) erzeugen",
+            "type": "Task"
+        },
+        {
+            "id": "5",
+            "name": "Genehmigung erteilen & Bestellung ausl\u00f6sen",
+            "type": "Task"
+        }
+    ],
+    "events": [
+        {
+            "id": "6",
+            "name": "Bedarf aufgetreten",
+            "type": "StartNoneEvent"
+        },
+        {
+            "id": "7",
+            "name": "Bedarf erf\u00fcllt",
+            "type": "EndNoneEvent"
+        },
+        {
+            "id": "8",
+            "name": "Bestellung-zu-Lieferung",
+            "type": "IntermediateLinkEventCatching"
+        }
+    ],
+    "gateways": [
+        {
+            "id": "9",
+            "type": "Exclusive"
+        },
+        {
+            "id": "10",
+            "type": "Exclusive"
+        },
+        {
+            "id": "11",
+            "type": "Exclusive"
+        }
+    ],
+    "pools": [
+        {
+            "id": "12",
+            "name": "ACME AG",
+            "lanes": [
+                {
+                    "id": "13",
+                    "name": "Fachabteilung",
+                    "elemRefs": [
+                        "6",
+                        "0",
+                        "9",
+                        "1",
+                        "7"
+                    ]
+                },
+                {
+                    "id": "14",
+                    "name": "Zentraleinkauf",
+                    "elemRefs": [
+                        "2",
+                        "10",
+                        "3",
+                        "11",
+                        "4",
+                        "5",
+                        "8"
+                    ]
+                },
+                {
+                    "id": "15",
+                    "name": "Freigebender",
+                    "elemRefs": []
+                }
+            ]
+        }
+    ],
+    "sequenceFlows": [
+        {
+            "id": "16",
+            "sourceRef": "6",
+            "targetRef": "0"
+        },
+        {
+            "id": "17",
+            "sourceRef": "0",
+            "targetRef": "9"
+        },
+        {
+            "id": "18",
+            "sourceRef": "9",
+            "targetRef": "1",
+            "condition": "Artikel vorr\u00e4tig"
+        },
+        {
+            "id": "19",
+            "sourceRef": "1",
+            "targetRef": "7"
+        },
+        {
+            "id": "20",
+            "sourceRef": "9",
+            "targetRef": "2",
+            "condition": "Artikel nicht vorr\u00e4tig"
+        },
+        {
+            "id": "21",
+            "sourceRef": "2",
+            "targetRef": "10"
+        },
+        {
+            "id": "22",
+            "sourceRef": "10",
+            "targetRef": "3",
+            "condition": "Kreditor existiert nicht"
+        },
+        {
+            "id": "23",
+            "sourceRef": "3",
+            "targetRef": "11"
+        },
+        {
+            "id": "24",
+            "sourceRef": "10",
+            "targetRef": "4",
+            "condition": "Kreditor existiert"
+        },
+        {
+            "id": "25",
+            "sourceRef": "4",
+            "targetRef": "5"
+        },
+        {
+            "id": "26",
+            "sourceRef": "5",
+            "targetRef": "8"
+        }
+    ],
+    "messageFlows": [
+        {
+            "id": "27",
+            "sourceRef": "8",
+            "targetRef": "15",
+            "label": "Bestellbest\u00e4tigung"
+        }
+    ]
+}

@@ -1,0 +1,245 @@
+{
+    "tasks": [
+        {
+            "id": "0",
+            "name": "registering deployment request",
+            "type": "Manual"
+        },
+        {
+            "id": "1",
+            "name": "registering a ticket for service feasibility study",
+            "type": "Manual"
+        },
+        {
+            "id": "2",
+            "name": "send the feasibility study ticket to the CFS department",
+            "type": "Manual"
+        },
+        {
+            "id": "3",
+            "name": "perform a feasibility study",
+            "type": "Manual"
+        },
+        {
+            "id": "4",
+            "name": "report the results",
+            "type": "Manual"
+        },
+        {
+            "id": "5",
+            "name": "register/modify the service deployment request",
+            "type": "Manual"
+        },
+        {
+            "id": "6",
+            "name": "deploy service equipment",
+            "type": "Manual"
+        },
+        {
+            "id": "7",
+            "name": "reporting the deployment results",
+            "type": "Manual"
+        },
+        {
+            "id": "8",
+            "name": "update the sale profile",
+            "type": "Manual"
+        },
+        {
+            "id": "9",
+            "name": "relevant payment actions",
+            "type": "Manual"
+        },
+        {
+            "id": "10",
+            "name": "Inquiring about re-deployment",
+            "type": "Manual"
+        },
+        {
+            "id": "11",
+            "name": "negotiating with the customer and addressing the reasons",
+            "type": "Manual"
+        },
+        {
+            "id": "12",
+            "name": "cancelling deployment request",
+            "type": "Manual"
+        },
+        {
+            "id": "13",
+            "name": "register a new deployment request",
+            "type": "Manual"
+        }
+    ],
+    "events": [
+        {
+            "id": "14",
+            "name": "Start to decide a service deployment",
+            "type": "StartNoneEvent"
+        },
+        {
+            "id": "15",
+            "name": "service deployment finishes",
+            "type": "EndNoneEvent"
+        }
+    ],
+    "gateways": [
+        {
+            "id": "16",
+            "type": "Exclusive"
+        },
+        {
+            "id": "17",
+            "type": "Exclusive"
+        },
+        {
+            "id": "18",
+            "type": "Exclusive"
+        },
+        {
+            "id": "19",
+            "type": "Exclusive"
+        },
+        {
+            "id": "20",
+            "type": "Exclusive"
+        }
+    ],
+    "pools": [
+        {
+            "id": "21",
+            "name": "The service re-installation process",
+            "lanes": [
+                {
+                    "id": "22",
+                    "name": "CFS Department",
+                    "elemRefs": [
+                        "2",
+                        "3",
+                        "4",
+                        "6",
+                        "7"
+                    ]
+                },
+                {
+                    "id": "23",
+                    "name": "corporate customer affairs",
+                    "elemRefs": [
+                        "0",
+                        "1",
+                        "5",
+                        "8",
+                        "9",
+                        "10",
+                        "11",
+                        "12",
+                        "13"
+                    ]
+                }
+            ]
+        }
+    ],
+    "sequenceFlows": [
+        {
+            "id": "24",
+            "sourceRef": "14",
+            "targetRef": "16"
+        },
+        {
+            "id": "25",
+            "sourceRef": "16",
+            "targetRef": "0"
+        },
+        {
+            "id": "26",
+            "sourceRef": "0",
+            "targetRef": "17"
+        },
+        {
+            "id": "27",
+            "sourceRef": "17",
+            "targetRef": "1"
+        },
+        {
+            "id": "28",
+            "sourceRef": "1",
+            "targetRef": "2"
+        },
+        {
+            "id": "29",
+            "sourceRef": "2",
+            "targetRef": "3"
+        },
+        {
+            "id": "30",
+            "sourceRef": "3",
+            "targetRef": "4"
+        },
+        {
+            "id": "31",
+            "sourceRef": "4",
+            "targetRef": "18"
+        },
+        {
+            "id": "32",
+            "sourceRef": "18",
+            "targetRef": "5"
+        },
+        {
+            "id": "33",
+            "sourceRef": "5",
+            "targetRef": "6"
+        },
+        {
+            "id": "34",
+            "sourceRef": "6",
+            "targetRef": "7"
+        },
+        {
+            "id": "35",
+            "sourceRef": "7",
+            "targetRef": "19"
+        },
+        {
+            "id": "36",
+            "sourceRef": "19",
+            "targetRef": "8"
+        },
+        {
+            "id": "37",
+            "sourceRef": "8",
+            "targetRef": "9"
+        },
+        {
+            "id": "38",
+            "sourceRef": "9",
+            "targetRef": "20"
+        },
+        {
+            "id": "39",
+            "sourceRef": "20",
+            "targetRef": "10"
+        },
+        {
+            "id": "40",
+            "sourceRef": "10",
+            "targetRef": "11"
+        },
+        {
+            "id": "41",
+            "sourceRef": "11",
+            "targetRef": "12"
+        },
+        {
+            "id": "42",
+            "sourceRef": "12",
+            "targetRef": "13"
+        },
+        {
+            "id": "43",
+            "sourceRef": "13",
+            "targetRef": "15"
+        }
+    ],
+    "messageFlows": []
+}

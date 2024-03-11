@@ -1,0 +1,120 @@
+{
+    "tasks": [
+        {
+            "id": "0",
+            "name": "Auswahlkriterien festlegen",
+            "type": "CollapsedSubprocess"
+        },
+        {
+            "id": "1",
+            "name": "Startliste erstellen",
+            "type": "Task"
+        },
+        {
+            "id": "2",
+            "name": "Inhalt der Internetseite analysieren",
+            "type": "Task"
+        },
+        {
+            "id": "3",
+            "name": "Neue gefundene URLs speichern",
+            "type": "Task"
+        },
+        {
+            "id": "4",
+            "name": "Ergebnis speichern",
+            "type": "Task"
+        }
+    ],
+    "events": [
+        {
+            "id": "5",
+            "name": "Suche beginnt",
+            "type": "StartNoneEvent"
+        },
+        {
+            "id": "6",
+            "name": "Suche beenden",
+            "type": "EndNoneEvent"
+        }
+    ],
+    "gateways": [
+        {
+            "id": "7",
+            "type": "Parallel",
+            "name": "Sind noch nicht besuchte URLs vorhanden?"
+        }
+    ],
+    "pools": [
+        {
+            "id": "8",
+            "name": "Software Anbieter",
+            "lanes": [
+                {
+                    "id": "9",
+                    "name": "Lane",
+                    "elemRefs": [
+                        "0",
+                        "1",
+                        "2",
+                        "3",
+                        "4",
+                        "5",
+                        "6",
+                        "7"
+                    ]
+                }
+            ]
+        },
+        {
+            "id": "10",
+            "name": "Kunde TUI AG",
+            "lanes": []
+        }
+    ],
+    "sequenceFlows": [
+        {
+            "id": "11",
+            "sourceRef": "5",
+            "targetRef": "0"
+        },
+        {
+            "id": "12",
+            "sourceRef": "0",
+            "targetRef": "1"
+        },
+        {
+            "id": "13",
+            "sourceRef": "1",
+            "targetRef": "7"
+        },
+        {
+            "id": "14",
+            "sourceRef": "7",
+            "targetRef": "2",
+            "condition": "Ja"
+        },
+        {
+            "id": "15",
+            "sourceRef": "2",
+            "targetRef": "3"
+        },
+        {
+            "id": "16",
+            "sourceRef": "3",
+            "targetRef": "4"
+        },
+        {
+            "id": "17",
+            "sourceRef": "4",
+            "targetRef": "6"
+        },
+        {
+            "id": "18",
+            "sourceRef": "7",
+            "targetRef": "6",
+            "condition": "Nein"
+        }
+    ],
+    "messageFlows": []
+}

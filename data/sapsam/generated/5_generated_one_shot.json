@@ -1,0 +1,216 @@
+{
+    "tasks": [
+        {
+            "id": "0",
+            "name": "Bedarf spezifizieren und quantifizieren",
+            "type": "Task"
+        },
+        {
+            "id": "1",
+            "name": "Bestellanforderung (BANF) einpflegen",
+            "type": "Task"
+        },
+        {
+            "id": "2",
+            "name": "Bestellanforderung (BANF) pr\u00fcfen",
+            "type": "Task"
+        },
+        {
+            "id": "3",
+            "name": "Kreditor anlegen",
+            "type": "Task"
+        },
+        {
+            "id": "4",
+            "name": "Bestellvorgang aus Bestellanforderung (BANF) erzeugen",
+            "type": "Task"
+        },
+        {
+            "id": "5",
+            "name": "Freigabe erteilen & Bestellung ausl\u00f6sen",
+            "type": "Task"
+        },
+        {
+            "id": "6",
+            "name": "Bestellung stornieren",
+            "type": "Task"
+        },
+        {
+            "id": "7",
+            "name": "Teile aus Lager entnehmen",
+            "type": "Task"
+        }
+    ],
+    "events": [
+        {
+            "id": "8",
+            "name": "Teile ben\u00f6tigt",
+            "type": "StartNoneEvent"
+        },
+        {
+            "id": "9",
+            "name": "Teile nicht lieferbar",
+            "type": "EndNoneEvent"
+        },
+        {
+            "id": "10",
+            "name": "Teile beschafft",
+            "type": "EndNoneEvent"
+        },
+        {
+            "id": "11",
+            "name": "Teile aus Lager entnommen",
+            "type": "EndNoneEvent"
+        },
+        {
+            "id": "12",
+            "name": "Wareneingang",
+            "type": "IntermediateMessageEventCatching"
+        }
+    ],
+    "gateways": [
+        {
+            "id": "13",
+            "type": "Exclusive"
+        },
+        {
+            "id": "14",
+            "type": "Exclusive"
+        },
+        {
+            "id": "15",
+            "type": "Exclusive"
+        },
+        {
+            "id": "16",
+            "type": "Exclusive"
+        }
+    ],
+    "pools": [
+        {
+            "id": "17",
+            "name": "ACME AG",
+            "lanes": [
+                {
+                    "id": "18",
+                    "name": "Fachabteilung",
+                    "elemRefs": [
+                        "0",
+                        "1",
+                        "13"
+                    ]
+                },
+                {
+                    "id": "19",
+                    "name": "Zentraleinkauf",
+                    "elemRefs": [
+                        "2",
+                        "3",
+                        "4",
+                        "5",
+                        "6",
+                        "12",
+                        "14",
+                        "15",
+                        "16"
+                    ]
+                },
+                {
+                    "id": "20",
+                    "name": "Freigebender",
+                    "elemRefs": []
+                }
+            ]
+        }
+    ],
+    "sequenceFlows": [
+        {
+            "id": "21",
+            "sourceRef": "8",
+            "targetRef": "0"
+        },
+        {
+            "id": "22",
+            "sourceRef": "0",
+            "targetRef": "13"
+        },
+        {
+            "id": "23",
+            "sourceRef": "13",
+            "targetRef": "1",
+            "condition": "Ja"
+        },
+        {
+            "id": "24",
+            "sourceRef": "13",
+            "targetRef": "7",
+            "condition": "Nein"
+        },
+        {
+            "id": "25",
+            "sourceRef": "7",
+            "targetRef": "11"
+        },
+        {
+            "id": "26",
+            "sourceRef": "1",
+            "targetRef": "2"
+        },
+        {
+            "id": "27",
+            "sourceRef": "2",
+            "targetRef": "14"
+        },
+        {
+            "id": "28",
+            "sourceRef": "14",
+            "targetRef": "3",
+            "condition": "Ja"
+        },
+        {
+            "id": "29",
+            "sourceRef": "14",
+            "targetRef": "16",
+            "condition": "Nein"
+        },
+        {
+            "id": "30",
+            "sourceRef": "16",
+            "targetRef": "6"
+        },
+        {
+            "id": "31",
+            "sourceRef": "6",
+            "targetRef": "9"
+        },
+        {
+            "id": "32",
+            "sourceRef": "3",
+            "targetRef": "15"
+        },
+        {
+            "id": "33",
+            "sourceRef": "15",
+            "targetRef": "4",
+            "condition": "Ja"
+        },
+        {
+            "id": "34",
+            "sourceRef": "15",
+            "targetRef": "12"
+        },
+        {
+            "id": "35",
+            "sourceRef": "12",
+            "targetRef": "10"
+        }
+    ],
+    "messageFlows": [
+        {
+            "id": "36",
+            "sourceRef": "5",
+            "targetRef": "4",
+            "label": "Freigabe"
+        }
+    ]
+}

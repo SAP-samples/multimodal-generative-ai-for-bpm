@@ -1,0 +1,91 @@
+{
+    "tasks": [
+        {
+            "id": "sid-250E4007-D468-44EA-AF5C-AE63C19F5EB7",
+            "name": "Bericht lesen",
+            "type": "Task"
+        },
+        {
+            "id": "sid-8B4080E7-92D4-4165-A418-4E019880118B",
+            "name": "Genehmigung senden",
+            "type": "Task"
+        },
+        {
+            "id": "sid-D1DE25C8-2D6A-4F49-953F-249A6F51BDCE",
+            "name": "Bericht anfertigen",
+            "type": "Task"
+        },
+        {
+            "id": "sid-6B7E60FA-1D12-403D-9AEC-6F231FB002CC",
+            "name": "Beratungs-leistung nach verschiedenen Eigenschaften formulieren",
+            "type": "Task"
+        }
+    ],
+    "events": [
+        {
+            "id": "sid-CC3A37E3-4281-4CFB-A426-DEDE62F277D2",
+            "name": "Beratungsleistung  formulieren",
+            "type": "StartNoneEvent"
+        },
+        {
+            "id": "sid-056EDC05-E4A4-4F7F-A295-E4FA4FF6D951",
+            "name": "Beratungsleistung formuliert",
+            "type": "EndNoneEvent"
+        }
+    ],
+    "gateways": [],
+    "pools": [
+        {
+            "id": "sid-0BE0F6AD-8237-4BE5-9661-C7E9D3300933",
+            "name": "SoKnow",
+            "lanes": [
+                {
+                    "id": "sid-5CB3DF24-2059-4D40-A5B4-C2BFE5D590B9",
+                    "name": "Gesch\u00e4ftsleitung",
+                    "elemRefs": [
+                        "sid-250E4007-D468-44EA-AF5C-AE63C19F5EB7",
+                        "sid-8B4080E7-92D4-4165-A418-4E019880118B"
+                    ]
+                },
+                {
+                    "id": "sid-D706EEDE-FF40-421F-83D8-1AA6E4D9851E",
+                    "name": "Consulting",
+                    "elemRefs": [
+                        "sid-D1DE25C8-2D6A-4F49-953F-249A6F51BDCE",
+                        "sid-6B7E60FA-1D12-403D-9AEC-6F231FB002CC",
+                        "sid-CC3A37E3-4281-4CFB-A426-DEDE62F277D2",
+                        "sid-056EDC05-E4A4-4F7F-A295-E4FA4FF6D951"
+                    ]
+                }
+            ]
+        }
+    ],
+    "messageFlows": [],
+    "sequenceFlows": [
+        {
+            "id": "sid-32DB056D-78C5-4203-B9D6-84F6CE63003D",
+            "targetRef": "sid-D1DE25C8-2D6A-4F49-953F-249A6F51BDCE",
+            "sourceRef": "sid-CC3A37E3-4281-4CFB-A426-DEDE62F277D2"
+        },
+        {
+            "id": "sid-9D9FA04F-D6C2-4105-9D73-581ACB39D62D",
+            "targetRef": "sid-8B4080E7-92D4-4165-A418-4E019880118B",
+            "sourceRef": "sid-250E4007-D468-44EA-AF5C-AE63C19F5EB7"
+        },
+        {
+            "id": "sid-6D833A97-E197-45C3-B807-2A79B6284AEA",
+            "targetRef": "sid-250E4007-D468-44EA-AF5C-AE63C19F5EB7",
+            "sourceRef": "sid-D1DE25C8-2D6A-4F49-953F-249A6F51BDCE"
+        },
+        {
+            "id": "sid-F47F68BD-1787-46B4-9BD1-BC6DB53B8136",
+            "targetRef": "sid-6B7E60FA-1D12-403D-9AEC-6F231FB002CC",
+            "sourceRef": "sid-8B4080E7-92D4-4165-A418-4E019880118B"
+        },
+        {
+            "id": "sid-337B9BB2-EB9F-4838-9F12-A3710D98E894",
+            "targetRef": "sid-056EDC05-E4A4-4F7F-A295-E4FA4FF6D951",
+            "sourceRef": "sid-6B7E60FA-1D12-403D-9AEC-6F231FB002CC"
+        }
+    ]
+}

@@ -1,0 +1,188 @@
+{
+    "tasks": [
+        {
+            "id": "0",
+            "name": "perform credit check",
+            "type": "Task"
+        },
+        {
+            "id": "1",
+            "name": "confirm credibility check",
+            "type": "Task"
+        },
+        {
+            "id": "2",
+            "name": "send rejection letter",
+            "type": "Task"
+        },
+        {
+            "id": "3",
+            "name": "call client to complement information",
+            "type": "Task"
+        },
+        {
+            "id": "4",
+            "name": "create loan offer",
+            "type": "Task"
+        },
+        {
+            "id": "5",
+            "name": "send loan offer",
+            "type": "Task"
+        },
+        {
+            "id": "6",
+            "name": "remind client",
+            "type": "Task"
+        },
+        {
+            "id": "7",
+            "name": "activate loan application",
+            "type": "Task"
+        },
+        {
+            "id": "8",
+            "name": "execute initial payment",
+            "type": "Task"
+        }
+    ],
+    "events": [
+        {
+            "id": "9",
+            "name": "start",
+            "type": "StartNoneEvent"
+        },
+        {
+            "id": "10",
+            "name": "end",
+            "type": "EndNoneEvent"
+        },
+        {
+            "id": "11",
+            "name": "receive accepted offer",
+            "type": "IntermediateMessageEventCatching"
+        }
+    ],
+    "gateways": [
+        {
+            "id": "12",
+            "type": "Exclusive"
+        }
+    ],
+    "pools": [
+        {
+            "id": "13",
+            "name": "DLL",
+            "lanes": [
+                {
+                    "id": "14",
+                    "name": "Risk management",
+                    "elemRefs": [
+                        "0",
+                        "1",
+                        "9"
+                    ]
+                },
+                {
+                    "id": "15",
+                    "name": "Administration",
+                    "elemRefs": [
+                        "2",
+                        "10",
+                        "11",
+                        "12"
+                    ]
+                },
+                {
+                    "id": "16",
+                    "name": "Customer contact",
+                    "elemRefs": [
+                        "3",
+                        "4",
+                        "5",
+                        "6"
+                    ]
+                },
+                {
+                    "id": "17",
+                    "name": "Finance",
+                    "elemRefs": [
+                        "7",
+                        "8"
+                    ]
+                }
+            ]
+        }
+    ],
+    "sequenceFlows": [
+        {
+            "id": "18",
+            "sourceRef": "9",
+            "targetRef": "0"
+        },
+        {
+            "id": "19",
+            "sourceRef": "0",
+            "targetRef": "1"
+        },
+        {
+            "id": "20",
+            "sourceRef": "1",
+            "targetRef": "12"
+        },
+        {
+            "id": "21",
+            "sourceRef": "12",
+            "targetRef": "2",
+            "condition": "not approved"
+        },
+        {
+            "id": "22",
+            "sourceRef": "2",
+            "targetRef": "10"
+        },
+        {
+            "id": "23",
+            "sourceRef": "12",
+            "targetRef": "3",
+            "condition": "missing info"
+        },
+        {
+            "id": "24",
+            "sourceRef": "3",
+            "targetRef": "4"
+        },
+        {
+            "id": "25",
+            "sourceRef": "4",
+            "targetRef": "5"
+        },
+        {
+            "id": "26",
+            "sourceRef": "5",
+            "targetRef": "6"
+        },
+        {
+            "id": "27",
+            "sourceRef": "12",
+            "targetRef": "7",
+            "condition": "approved"
+        },
+        {
+            "id": "28",
+            "sourceRef": "7",
+            "targetRef": "11"
+        },
+        {
+            "id": "29",
+            "sourceRef": "11",
+            "targetRef": "8"
+        },
+        {
+            "id": "30",
+            "sourceRef": "8",
+            "targetRef": "10"
+        }
+    ],
+    "messageFlows": []
+}

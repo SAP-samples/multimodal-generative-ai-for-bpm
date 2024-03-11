@@ -1,0 +1,101 @@
+{
+    "tasks": [
+        {
+            "id": "0",
+            "name": "Laden besuchen",
+            "type": "User"
+        },
+        {
+            "id": "1",
+            "name": "Online kaufen",
+            "type": "User"
+        },
+        {
+            "id": "2",
+            "name": "Schokolade aussuchen",
+            "type": "Script"
+        },
+        {
+            "id": "3",
+            "name": "Bezahlen",
+            "type": "User"
+        }
+    ],
+    "events": [
+        {
+            "id": "4",
+            "name": "Schokolade kaufen",
+            "type": "StartNoneEvent"
+        },
+        {
+            "id": "5",
+            "name": "Fertsch",
+            "type": "EndNoneEvent"
+        }
+    ],
+    "gateways": [
+        {
+            "id": "6",
+            "type": "Exclusive"
+        }
+    ],
+    "pools": [
+        {
+            "id": "7",
+            "name": "Company",
+            "lanes": [
+                {
+                    "id": "8",
+                    "name": "Lane",
+                    "elemRefs": [
+                        "0",
+                        "1",
+                        "2",
+                        "3",
+                        "4",
+                        "5",
+                        "6"
+                    ]
+                }
+            ]
+        }
+    ],
+    "sequenceFlows": [
+        {
+            "id": "9",
+            "sourceRef": "4",
+            "targetRef": "6"
+        },
+        {
+            "id": "10",
+            "sourceRef": "6",
+            "targetRef": "0"
+        },
+        {
+            "id": "11",
+            "sourceRef": "6",
+            "targetRef": "1"
+        },
+        {
+            "id": "12",
+            "sourceRef": "0",
+            "targetRef": "2"
+        },
+        {
+            "id": "13",
+            "sourceRef": "1",
+            "targetRef": "2"
+        },
+        {
+            "id": "14",
+            "sourceRef": "2",
+            "targetRef": "3"
+        },
+        {
+            "id": "15",
+            "sourceRef": "3",
+            "targetRef": "5"
+        }
+    ],
+    "messageFlows": []
+}

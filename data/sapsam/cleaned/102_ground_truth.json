@@ -1,0 +1,157 @@
+{
+    "tasks": [
+        {
+            "id": "sid-1BB54C92-5BDC-4528-8B58-8EA3E8CCAC90",
+            "name": "Register Trade economics",
+            "type": "Task"
+        },
+        {
+            "id": "sid-30BBF94A-AA64-449F-944E-DAEAA21A9CBC",
+            "name": "Verify Ability to Trade",
+            "type": "Task"
+        },
+        {
+            "id": "sid-DF1A07A0-F63B-4589-8D00-9CCF7DB864C1",
+            "name": "Fulfill Order",
+            "type": "Task"
+        },
+        {
+            "id": "sid-A63576FF-7D61-47B8-B675-4B4C5EEC0FAC",
+            "name": "Execute Give-up",
+            "type": "Task"
+        },
+        {
+            "id": "sid-7E72F9C2-C68B-4FB5-8D5D-72ECFA74977E",
+            "name": "Execute Trade",
+            "type": "Task"
+        },
+        {
+            "id": "sid-B6BDB910-3C14-416D-AF04-114D8DC880FF",
+            "name": "Affirm  Trade",
+            "type": "Task"
+        }
+    ],
+    "events": [
+        {
+            "id": "sid-09BB92BC-D493-43E6-9898-8A57FBD40A13",
+            "name": "Request  to  Trade",
+            "type": "StartMessageEvent"
+        },
+        {
+            "id": "sid-530775A3-161A-441C-ABE9-CCEE27CF1304",
+            "name": "End",
+            "type": "EndNoneEvent"
+        }
+    ],
+    "gateways": [
+        {
+            "id": "sid-546C05E4-9808-48DD-A594-3C553EDE2A11",
+            "name": "Give-up  Trade?",
+            "type": "Exclusive"
+        },
+        {
+            "id": "sid-F8451AF0-4E05-4EBE-BE95-6C7BACAC1769",
+            "type": "Exclusive"
+        }
+    ],
+    "pools": [
+        {
+            "id": "sid-DC841C63-D52D-4DB6-B686-93AE11753546",
+            "name": "1.1 Execute Fixed Income /Derivative  Trade",
+            "lanes": [
+                {
+                    "id": "sid-A8E88746-900F-477E-B08A-8CDA1250F65F",
+                    "name": "",
+                    "elemRefs": [
+                        "sid-1BB54C92-5BDC-4528-8B58-8EA3E8CCAC90",
+                        "sid-30BBF94A-AA64-449F-944E-DAEAA21A9CBC",
+                        "sid-DF1A07A0-F63B-4589-8D00-9CCF7DB864C1",
+                        "sid-A63576FF-7D61-47B8-B675-4B4C5EEC0FAC",
+                        "sid-7E72F9C2-C68B-4FB5-8D5D-72ECFA74977E",
+                        "sid-B6BDB910-3C14-416D-AF04-114D8DC880FF",
+                        "sid-09BB92BC-D493-43E6-9898-8A57FBD40A13",
+                        "sid-530775A3-161A-441C-ABE9-CCEE27CF1304",
+                        "sid-546C05E4-9808-48DD-A594-3C553EDE2A11",
+                        "sid-F8451AF0-4E05-4EBE-BE95-6C7BACAC1769"
+                    ]
+                }
+            ]
+        },
+        {
+            "id": "sid-076BA37E-80A3-4592-96F4-74306FF49758",
+            "name": "Financial institution",
+            "lanes": []
+        },
+        {
+            "id": "sid-67D229F0-032D-4FC2-9C1E-083E61A60F98",
+            "name": "Customer",
+            "lanes": []
+        }
+    ],
+    "messageFlows": [
+        {
+            "id": "sid-4236AE48-EF72-4944-8987-9950D726F588",
+            "targetRef": "sid-09BB92BC-D493-43E6-9898-8A57FBD40A13",
+            "sourceRef": "sid-076BA37E-80A3-4592-96F4-74306FF49758"
+        },
+        {
+            "id": "sid-A4241307-73BF-4F34-B5AD-158C04C7AC0A",
+            "targetRef": "sid-09BB92BC-D493-43E6-9898-8A57FBD40A13",
+            "sourceRef": "sid-67D229F0-032D-4FC2-9C1E-083E61A60F98"
+        }
+    ],
+    "sequenceFlows": [
+        {
+            "id": "sid-6B06613A-B225-4F52-A40C-D61D3E9CA1AD",
+            "targetRef": "sid-1BB54C92-5BDC-4528-8B58-8EA3E8CCAC90",
+            "sourceRef": "sid-09BB92BC-D493-43E6-9898-8A57FBD40A13"
+        },
+        {
+            "id": "sid-BD1007A0-C288-43D7-AB2F-1D5FB1878418",
+            "targetRef": "sid-30BBF94A-AA64-449F-944E-DAEAA21A9CBC",
+            "sourceRef": "sid-1BB54C92-5BDC-4528-8B58-8EA3E8CCAC90"
+        },
+        {
+            "id": "sid-C9566324-C328-4751-93E3-CF66B1D56123",
+            "targetRef": "sid-DF1A07A0-F63B-4589-8D00-9CCF7DB864C1",
+            "sourceRef": "sid-30BBF94A-AA64-449F-944E-DAEAA21A9CBC"
+        },
+        {
+            "id": "sid-40D0F413-AFA5-4CDB-8514-A8053F26C712",
+            "targetRef": "sid-546C05E4-9808-48DD-A594-3C553EDE2A11",
+            "sourceRef": "sid-DF1A07A0-F63B-4589-8D00-9CCF7DB864C1"
+        },
+        {
+            "id": "sid-64D67002-3572-41C0-8F02-8BF989B94BF9",
+            "targetRef": "sid-A63576FF-7D61-47B8-B675-4B4C5EEC0FAC",
+            "condition": "Yes",
+            "sourceRef": "sid-546C05E4-9808-48DD-A594-3C553EDE2A11"
+        },
+        {
+            "id": "sid-38B30428-AB93-4BF6-9CDC-6B5C51ABDC0D",
+            "targetRef": "sid-7E72F9C2-C68B-4FB5-8D5D-72ECFA74977E",
+            "condition": "No",
+            "sourceRef": "sid-546C05E4-9808-48DD-A594-3C553EDE2A11"
+        },
+        {
+            "id": "sid-4AE7E041-8CEE-4056-BEF6-B5C1B16168ED",
+            "targetRef": "sid-F8451AF0-4E05-4EBE-BE95-6C7BACAC1769",
+            "sourceRef": "sid-7E72F9C2-C68B-4FB5-8D5D-72ECFA74977E"
+        },
+        {
+            "id": "sid-C9E8C39C-7A66-4383-96BA-8230FCA9C779",
+            "targetRef": "sid-F8451AF0-4E05-4EBE-BE95-6C7BACAC1769",
+            "sourceRef": "sid-A63576FF-7D61-47B8-B675-4B4C5EEC0FAC"
+        },
+        {
+            "id": "sid-86153CE7-5890-49DA-99B3-2577AD0F5292",
+            "targetRef": "sid-B6BDB910-3C14-416D-AF04-114D8DC880FF",
+            "sourceRef": "sid-F8451AF0-4E05-4EBE-BE95-6C7BACAC1769"
+        },
+        {
+            "id": "sid-E003EEB7-F570-424D-B97E-18AFB108DCCA",
+            "targetRef": "sid-530775A3-161A-441C-ABE9-CCEE27CF1304",
+            "sourceRef": "sid-B6BDB910-3C14-416D-AF04-114D8DC880FF"
+        }
+    ]
+}

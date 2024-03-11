@@ -1,0 +1,276 @@
+{
+    "tasks": [
+        {
+            "id": "0",
+            "name": "Order menus",
+            "type": "Task"
+        },
+        {
+            "id": "1",
+            "name": "Customer confirm order",
+            "type": "Task"
+        },
+        {
+            "id": "2",
+            "name": "Receive delivery order",
+            "type": "Task"
+        },
+        {
+            "id": "3",
+            "name": "Receive vegetable order",
+            "type": "Task"
+        },
+        {
+            "id": "4",
+            "name": "Prepare order",
+            "type": "Task"
+        },
+        {
+            "id": "5",
+            "name": "Receive food order",
+            "type": "Task"
+        },
+        {
+            "id": "6",
+            "name": "Cook",
+            "type": "Task"
+        },
+        {
+            "id": "7",
+            "name": "Go to shop",
+            "type": "Task"
+        },
+        {
+            "id": "8",
+            "name": "Take food order for delivery",
+            "type": "Task"
+        },
+        {
+            "id": "9",
+            "name": "Take vegetable order for delivery",
+            "type": "Task"
+        },
+        {
+            "id": "10",
+            "name": "Deliver to customer",
+            "type": "Task"
+        },
+        {
+            "id": "11",
+            "name": "Payment",
+            "type": "Task"
+        },
+        {
+            "id": "12",
+            "name": "Credit card",
+            "type": "Task"
+        },
+        {
+            "id": "13",
+            "name": "Paypal",
+            "type": "Task"
+        },
+        {
+            "id": "14",
+            "name": "Cash",
+            "type": "Task"
+        },
+        {
+            "id": "15",
+            "name": "Complete payment and receive order",
+            "type": "Task"
+        },
+        {
+            "id": "16",
+            "name": "Collect Order",
+            "type": "Task"
+        },
+        {
+            "id": "17",
+            "name": "Confirm order",
+            "type": "Task"
+        },
+        {
+            "id": "18",
+            "name": "Food order",
+            "type": "Task"
+        },
+        {
+            "id": "19",
+            "name": "Vegetable order",
+            "type": "Task"
+        },
+        {
+            "id": "20",
+            "name": "Record order and payment",
+            "type": "Task"
+        }
+    ],
+    "events": [
+        {
+            "id": "21",
+            "name": "start",
+            "type": "StartNoneEvent"
+        },
+        {
+            "id": "22",
+            "name": "Intermediate Multiple Event",
+            "type": "IntermediateMultipleEventCatching"
+        },
+        {
+            "id": "23",
+            "name": "End",
+            "type": "EndNoneEvent"
+        },
+        {
+            "id": "24",
+            "name": "Start",
+            "type": "StartNoneEvent"
+        },
+        {
+            "id": "25",
+            "name": "End",
+            "type": "EndNoneEvent"
+        }
+    ],
+    "gateways": [
+        {
+            "id": "26",
+            "name": "Exclusive XOR Gateway",
+            "type": "Exclusive"
+        },
+        {
+            "id": "27",
+            "name": "Exclusive XOR Gateway",
+            "type": "Exclusive"
+        },
+        {
+            "id": "28",
+            "name": "Parallel Gateway",
+            "type": "Parallel"
+        },
+        {
+            "id": "29",
+            "name": "Exclusive XOR Gateway",
+            "type": "Exclusive"
+        },
+        {
+            "id": "30",
+            "name": "Exclusive XOR Gateway",
+            "type": "Exclusive"
+        },
+        {
+            "id": "31",
+            "name": "Exclusive XOR Gateway",
+            "type": "Exclusive"
+        }
+    ],
+    "pools": [
+        {
+            "id": "32",
+            "name": "Customer",
+            "lanes": [
+                {
+                    "id": "33",
+                    "name": "Lane",
+                    "elemRefs": [
+                        "0",
+                        "1",
+                        "2",
+                        "12",
+                        "13",
+                        "14",
+                        "15",
+                        "21",
+                        "22",
+                        "23",
+                        "26",
+                        "29"
+                    ]
+                }
+            ]
+        },
+        {
+            "id": "34",
+            "name": "Delivery",
+            "lanes": [
+                {
+                    "id": "35",
+                    "name": "Lane",
+                    "elemRefs": [
+                        "7",
+                        "8",
+                        "9",
+                        "10",
+                        "27",
+                        "31"
+                    ]
+                }
+            ]
+        },
+        {
+            "id": "36",
+            "name": "External",
+            "lanes": []
+        },
+        {
+            "id": "37",
+            "name": "Farmer",
+            "lanes": [
+                {
+                    "id": "38",
+                    "name": "Lane",
+                    "elemRefs": [
+                        "3",
+                        "4"
+                    ]
+                }
+            ]
+        },
+        {
+            "id": "39",
+            "name": "GreenInn company",
+            "lanes": [
+                {
+                    "id": "40",
+                    "name": "Lane",
+                    "elemRefs": [
+                        "16",
+                        "17",
+                        "18",
+                        "19",
+                        "20",
+                        "24",
+                        "25",
+                        "30"
+                    ]
+                }
+            ]
+        },
+        {
+            "id": "41",
+            "name": "Internal",
+            "lanes": []
+        },
+        {
+            "id": "42",
+            "name": "Restaurant",
+            "lanes": [
+                {
+                    "id": "43",
+                    "name": "Lane",
+                    "elemRefs": [
+                        "5",
+                        "6",
+                        "11",
+                        "22",
+                        "28",
+                        "31"
+                    ]
+                }
+            ]
+        }
+    ],
+    "sequenceFlows": [],
+    "messageFlows": []
+}

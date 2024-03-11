@@ -1,0 +1,246 @@
+{
+    "tasks": [
+        {
+            "id": "0",
+            "name": "Bewerbungsunterlagen sichten und Vorselektion durchf\u00fchren",
+            "type": "Manual"
+        },
+        {
+            "id": "1",
+            "name": "Bewerbungsunterlagen detaillierter pr\u00fcfen",
+            "type": "Manual"
+        },
+        {
+            "id": "2",
+            "name": "Telefoninterview durchf\u00fchren",
+            "type": "Manual"
+        },
+        {
+            "id": "3",
+            "name": "Termin f\u00fcr pers\u00f6nliches Interview via Email kommunizieren",
+            "type": "Manual"
+        },
+        {
+            "id": "4",
+            "name": "Bewerbungsunterlagen an Fachabteilung weiterleiten",
+            "type": "Manual"
+        },
+        {
+            "id": "5",
+            "name": "Pers\u00f6nliches Interview durchf\u00fchren",
+            "type": "Manual"
+        },
+        {
+            "id": "6",
+            "name": "Termin mit Bewerber f\u00fcr Assessment Center vereinbaren",
+            "type": "Manual"
+        },
+        {
+            "id": "7",
+            "name": "Assessment Center planen und vorbereiten",
+            "type": "Manual"
+        },
+        {
+            "id": "8",
+            "name": "Assessment Center durchf\u00fchren",
+            "type": "Manual"
+        },
+        {
+            "id": "9",
+            "name": "\u00dcber Bewerber abstimmen",
+            "type": "Manual"
+        },
+        {
+            "id": "10",
+            "name": "Zusage verfassen und an Bewerber schicken",
+            "type": "Manual"
+        },
+        {
+            "id": "11",
+            "name": "Absage verfassen und an Bewerber schicken",
+            "type": "Manual"
+        }
+    ],
+    "events": [
+        {
+            "id": "12",
+            "name": "Bewerbung ist eingegangen",
+            "type": "StartNoneEvent"
+        },
+        {
+            "id": "13",
+            "name": "Bewerber angenommen",
+            "type": "EndNoneEvent"
+        },
+        {
+            "id": "14",
+            "name": "Bewerber nach Assessment Center abgelehnt",
+            "type": "EndNoneEvent"
+        },
+        {
+            "id": "15",
+            "name": "Bewerber nach Vorselektion abgelehnt",
+            "type": "EndNoneEvent"
+        }
+    ],
+    "gateways": [
+        {
+            "id": "16",
+            "type": "Exclusive"
+        },
+        {
+            "id": "17",
+            "type": "Exclusive"
+        },
+        {
+            "id": "18",
+            "type": "Exclusive"
+        },
+        {
+            "id": "19",
+            "type": "Parallel"
+        },
+        {
+            "id": "20",
+            "type": "Exclusive"
+        }
+    ],
+    "pools": [
+        {
+            "id": "21",
+            "name": "AD0money Bank",
+            "lanes": [
+                {
+                    "id": "22",
+                    "name": "Recruitment",
+                    "elemRefs": [
+                        "0",
+                        "1",
+                        "2",
+                        "3",
+                        "4",
+                        "5",
+                        "6",
+                        "7",
+                        "8",
+                        "9",
+                        "10",
+                        "11",
+                        "12",
+                        "13",
+                        "14",
+                        "15",
+                        "16",
+                        "17",
+                        "18",
+                        "19",
+                        "20"
+                    ]
+                }
+            ]
+        }
+    ],
+    "sequenceFlows": [
+        {
+            "id": "23",
+            "sourceRef": "12",
+            "targetRef": "0"
+        },
+        {
+            "id": "24",
+            "sourceRef": "0",
+            "targetRef": "16"
+        },
+        {
+            "id": "25",
+            "sourceRef": "16",
+            "targetRef": "1"
+        },
+        {
+            "id": "26",
+            "sourceRef": "1",
+            "targetRef": "17"
+        },
+        {
+            "id": "27",
+            "sourceRef": "17",
+            "targetRef": "2"
+        },
+        {
+            "id": "28",
+            "sourceRef": "2",
+            "targetRef": "3"
+        },
+        {
+            "id": "29",
+            "sourceRef": "3",
+            "targetRef": "18"
+        },
+        {
+            "id": "30",
+            "sourceRef": "18",
+            "targetRef": "4"
+        },
+        {
+            "id": "31",
+            "sourceRef": "4",
+            "targetRef": "5"
+        },
+        {
+            "id": "32",
+            "sourceRef": "5",
+            "targetRef": "19"
+        },
+        {
+            "id": "33",
+            "sourceRef": "19",
+            "targetRef": "6"
+        },
+        {
+            "id": "34",
+            "sourceRef": "6",
+            "targetRef": "7"
+        },
+        {
+            "id": "35",
+            "sourceRef": "7",
+            "targetRef": "8"
+        },
+        {
+            "id": "36",
+            "sourceRef": "8",
+            "targetRef": "9"
+        },
+        {
+            "id": "37",
+            "sourceRef": "9",
+            "targetRef": "20"
+        },
+        {
+            "id": "38",
+            "sourceRef": "16",
+            "targetRef": "11"
+        },
+        {
+            "id": "39",
+            "sourceRef": "17",
+            "targetRef": "10"
+        },
+        {
+            "id": "40",
+            "sourceRef": "20",
+            "targetRef": "13"
+        },
+        {
+            "id": "41",
+            "sourceRef": "19",
+            "targetRef": "14"
+        },
+        {
+            "id": "42",
+            "sourceRef": "18",
+            "targetRef": "15"
+        }
+    ],
+    "messageFlows": []
+}

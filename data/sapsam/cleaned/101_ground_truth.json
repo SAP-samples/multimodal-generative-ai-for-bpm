@@ -1,0 +1,184 @@
+{
+    "tasks": [
+        {
+            "id": "8fee1dcf-4389-4546-95be-c9c3d725752d",
+            "name": "Verify Available Vacation Days",
+            "type": "Task"
+        },
+        {
+            "id": "deac75f2-1794-4e3d-b8f4-82c614778be2",
+            "name": "Update Payroll System",
+            "type": "Task"
+        },
+        {
+            "id": "d9a9552a-11f8-4ffc-8a61-73bb8dd9f3d9",
+            "name": "Update Payroll System",
+            "type": "Task"
+        },
+        {
+            "id": "c6f87898-1987-400d-b02f-f3f0965ef387",
+            "name": "Register Vacation Leave Request",
+            "type": "Task"
+        },
+        {
+            "id": "777c4793-14a8-4ed9-a24e-1d84f87a3747",
+            "name": "Approve Vacation Leave Request",
+            "type": "Task"
+        },
+        {
+            "id": "11fdd85c-e68f-463d-a0f6-ce7196bfa2da",
+            "name": "Send Approval Message",
+            "type": "Task"
+        },
+        {
+            "id": "af66437a-154c-4d6a-9868-a4a91cddce37",
+            "name": "Send Rejection Message",
+            "type": "Task"
+        }
+    ],
+    "events": [
+        {
+            "id": "f06bd862-6e3c-4ed9-a17b-23bae3df7f0d",
+            "name": "",
+            "type": "EndNoneEvent"
+        },
+        {
+            "id": "843625b9-5db7-4472-b3b9-dd4293c7d0c0",
+            "name": "",
+            "type": "StartNoneEvent"
+        },
+        {
+            "id": "6ab74619-9fa1-456d-bc1b-7061c88e18e4",
+            "name": "",
+            "type": "EndNoneEvent"
+        },
+        {
+            "id": "45df40fd-36c6-489d-aa7f-6babfa40d162",
+            "name": "",
+            "type": "EndNoneEvent"
+        },
+        {
+            "id": "0b18dbc2-d757-48f3-9227-ad38b09820b3",
+            "name": "",
+            "type": "IntermediateErrorEvent"
+        }
+    ],
+    "gateways": [
+        {
+            "id": "1994a317-7102-4190-b658-9602a8f8243a",
+            "name": "Decline?",
+            "type": "Exclusive"
+        },
+        {
+            "id": "590bfbfa-ff1b-4126-b103-406cad9cf87a",
+            "name": "Approved?",
+            "type": "Exclusive"
+        }
+    ],
+    "pools": [
+        {
+            "id": "c67cb8d3-4ed0-4691-94bb-ea27b9d1537b",
+            "name": "2. Vacation Leave Request",
+            "lanes": [
+                {
+                    "id": "6c7cb158-9495-41a0-8632-b529418fc1b4",
+                    "name": "Lane 1",
+                    "elemRefs": [
+                        "8fee1dcf-4389-4546-95be-c9c3d725752d",
+                        "deac75f2-1794-4e3d-b8f4-82c614778be2",
+                        "d9a9552a-11f8-4ffc-8a61-73bb8dd9f3d9",
+                        "c6f87898-1987-400d-b02f-f3f0965ef387",
+                        "777c4793-14a8-4ed9-a24e-1d84f87a3747",
+                        "11fdd85c-e68f-463d-a0f6-ce7196bfa2da",
+                        "af66437a-154c-4d6a-9868-a4a91cddce37",
+                        "f06bd862-6e3c-4ed9-a17b-23bae3df7f0d",
+                        "843625b9-5db7-4472-b3b9-dd4293c7d0c0",
+                        "6ab74619-9fa1-456d-bc1b-7061c88e18e4",
+                        "45df40fd-36c6-489d-aa7f-6babfa40d162",
+                        "0b18dbc2-d757-48f3-9227-ad38b09820b3",
+                        "1994a317-7102-4190-b658-9602a8f8243a",
+                        "590bfbfa-ff1b-4126-b103-406cad9cf87a"
+                    ]
+                }
+            ]
+        }
+    ],
+    "messageFlows": [],
+    "sequenceFlows": [
+        {
+            "id": "5c6cae2f-47f3-41c2-983d-4c6c1376c1f1",
+            "targetRef": "777c4793-14a8-4ed9-a24e-1d84f87a3747",
+            "condition": "No",
+            "sourceRef": "1994a317-7102-4190-b658-9602a8f8243a"
+        },
+        {
+            "id": "a8310a2c-3424-49f7-9e9f-da052499c5cf",
+            "targetRef": "6ab74619-9fa1-456d-bc1b-7061c88e18e4",
+            "sourceRef": "deac75f2-1794-4e3d-b8f4-82c614778be2"
+        },
+        {
+            "id": "58c43148-de03-48e7-a66a-e3731f56152f",
+            "targetRef": "c6f87898-1987-400d-b02f-f3f0965ef387",
+            "condition": "Request Change",
+            "sourceRef": "590bfbfa-ff1b-4126-b103-406cad9cf87a"
+        },
+        {
+            "id": "219edc0e-c5f3-49ac-9fc1-95efaadb3348",
+            "targetRef": "6ab74619-9fa1-456d-bc1b-7061c88e18e4",
+            "sourceRef": "d9a9552a-11f8-4ffc-8a61-73bb8dd9f3d9"
+        },
+        {
+            "id": "3a3fb936-f027-497d-af24-7658772b387c",
+            "targetRef": "deac75f2-1794-4e3d-b8f4-82c614778be2",
+            "sourceRef": "11fdd85c-e68f-463d-a0f6-ce7196bfa2da"
+        },
+        {
+            "id": "847bddb6-4a33-46ec-8534-1655a7dc9e37",
+            "targetRef": "d9a9552a-11f8-4ffc-8a61-73bb8dd9f3d9",
+            "sourceRef": "0b18dbc2-d757-48f3-9227-ad38b09820b3"
+        },
+        {
+            "id": "cc48a9f0-eb42-4108-9bf1-625a383e0a81",
+            "targetRef": "1994a317-7102-4190-b658-9602a8f8243a",
+            "sourceRef": "c6f87898-1987-400d-b02f-f3f0965ef387"
+        },
+        {
+            "id": "173c26ed-9e26-4381-b6f6-aaeb64c7846a",
+            "targetRef": "590bfbfa-ff1b-4126-b103-406cad9cf87a",
+            "sourceRef": "777c4793-14a8-4ed9-a24e-1d84f87a3747"
+        },
+        {
+            "id": "478fa842-0db6-419d-b93c-77711c469d77",
+            "targetRef": "c6f87898-1987-400d-b02f-f3f0965ef387",
+            "sourceRef": "8fee1dcf-4389-4546-95be-c9c3d725752d"
+        },
+        {
+            "id": "46c4208e-78a7-4374-8e44-4d4867401957",
+            "targetRef": "45df40fd-36c6-489d-aa7f-6babfa40d162",
+            "condition": "Yes",
+            "sourceRef": "1994a317-7102-4190-b658-9602a8f8243a"
+        },
+        {
+            "id": "46471723-b1eb-4050-9831-19d80dd82a48",
+            "targetRef": "8fee1dcf-4389-4546-95be-c9c3d725752d",
+            "sourceRef": "843625b9-5db7-4472-b3b9-dd4293c7d0c0"
+        },
+        {
+            "id": "d56d7e0c-be00-4076-b442-001a4675c96b",
+            "targetRef": "11fdd85c-e68f-463d-a0f6-ce7196bfa2da",
+            "condition": "Yes",
+            "sourceRef": "590bfbfa-ff1b-4126-b103-406cad9cf87a"
+        },
+        {
+            "id": "10c2b19e-0e66-40ac-9e05-1c916c546ad8",
+            "targetRef": "f06bd862-6e3c-4ed9-a17b-23bae3df7f0d",
+            "sourceRef": "af66437a-154c-4d6a-9868-a4a91cddce37"
+        },
+        {
+            "id": "d9fe0b71-47a6-47a2-a558-08f5173c58a7",
+            "targetRef": "af66437a-154c-4d6a-9868-a4a91cddce37",
+            "condition": "No",
+            "sourceRef": "590bfbfa-ff1b-4126-b103-406cad9cf87a"
+        }
+    ]
+}

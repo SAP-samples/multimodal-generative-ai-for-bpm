@@ -1,0 +1,156 @@
+{
+    "tasks": [
+        {
+            "id": "0",
+            "name": "Kreditantrag ausf\u00fcllen",
+            "type": "Task"
+        },
+        {
+            "id": "1",
+            "name": "20% Zinsen pro Jahr vorschlagen",
+            "type": "Task"
+        }
+    ],
+    "events": [
+        {
+            "id": "2",
+            "name": "Kreditantrag versenden",
+            "type": "IntermediateMessageEventThrowing"
+        },
+        {
+            "id": "3",
+            "name": "Ablehnung erhalten",
+            "type": "IntermediateMessageEventCatching"
+        },
+        {
+            "id": "4",
+            "name": "Kreditvorschlag erhalten",
+            "type": "IntermediateMessageEventCatching"
+        },
+        {
+            "id": "5",
+            "name": "Kreditanfrage eingegangen",
+            "type": "StartMessageEvent"
+        },
+        {
+            "id": "6",
+            "name": "Ablehnung versendet",
+            "type": "EndMessageEvent"
+        },
+        {
+            "id": "7",
+            "name": "Kreditauskunft versendet",
+            "type": "EndMessageEvent"
+        }
+    ],
+    "gateways": [
+        {
+            "id": "8",
+            "type": "Exclusive"
+        },
+        {
+            "id": "9",
+            "type": "Exclusive"
+        }
+    ],
+    "pools": [
+        {
+            "id": "10",
+            "name": "Bank A",
+            "lanes": [
+                {
+                    "id": "11",
+                    "name": "Lane",
+                    "elemRefs": [
+                        "5",
+                        "0",
+                        "8",
+                        "1",
+                        "7"
+                    ]
+                }
+            ]
+        },
+        {
+            "id": "12",
+            "name": "Bank B",
+            "lanes": [
+                {
+                    "id": "13",
+                    "name": "Lane",
+                    "elemRefs": [
+                        "5",
+                        "0",
+                        "9",
+                        "7",
+                        "6"
+                    ]
+                }
+            ]
+        },
+        {
+            "id": "14",
+            "name": "Kunde",
+            "lanes": [
+                {
+                    "id": "15",
+                    "name": "Lane",
+                    "elemRefs": [
+                        "2",
+                        "3",
+                        "4"
+                    ]
+                }
+            ]
+        },
+        {
+            "id": "16",
+            "name": "Vermittlungs-Agentur",
+            "lanes": []
+        }
+    ],
+    "sequenceFlows": [
+        {
+            "id": "17",
+            "sourceRef": "5",
+            "targetRef": "0"
+        },
+        {
+            "id": "18",
+            "sourceRef": "0",
+            "targetRef": "8"
+        },
+        {
+            "id": "19",
+            "sourceRef": "8",
+            "targetRef": "1",
+            "condition": "Kreditbetrag gr\u00f6\u00dfer als das 20 fache des Monatseinkommens"
+        },
+        {
+            "id": "20",
+            "sourceRef": "8",
+            "targetRef": "7",
+            "condition": "Kreditbetrag kleiner oder gleich dem 20 fachen des Monatseinkommens"
+        }
+    ],
+    "messageFlows": [
+        {
+            "id": "21",
+            "sourceRef": "2",
+            "targetRef": "5",
+            "label": "Kreditantrag"
+        },
+        {
+            "id": "22",
+            "sourceRef": "3",
+            "targetRef": "6",
+            "label": "Ablehnung"
+        },
+        {
+            "id": "23",
+            "sourceRef": "4",
+            "targetRef": "7",
+            "label": "Kreditvorschlag"
+        }
+    ]
+}

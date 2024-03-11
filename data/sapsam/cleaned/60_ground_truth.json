@@ -1,0 +1,96 @@
+{
+    "tasks": [
+        {
+            "id": "sid-08A0E18B-71D2-4ED2-BEDA-00A3AF57C3B2",
+            "name": "neue Strategien  mitteilen",
+            "type": "Task"
+        },
+        {
+            "id": "sid-DE040651-0626-4D3E-9EB5-89B6879F5D2A",
+            "name": "Neue Strategien und M\u00f6glichkeiten durch Beratungsleistung erhalten",
+            "type": "Task"
+        },
+        {
+            "id": "sid-9BBE9E18-7DC5-4635-9528-16C02ACE89B7",
+            "name": "Passende Systeme ausw\u00e4hlen, einf\u00fchren und mitteilen",
+            "type": "Task"
+        },
+        {
+            "id": "sid-0C6ADB6E-D0E2-46E6-8FFE-FE83349C9CFD",
+            "name": "\u00c4nderungsprozesse  im Projekt abstimmen",
+            "type": "Task"
+        },
+        {
+            "id": "sid-463152F8-B5CA-4311-BB62-012CA2D44351",
+            "name": "Arbeitsgruppen \u00fcber \u00c4nderungsprozesse beraten",
+            "type": "Task"
+        }
+    ],
+    "events": [
+        {
+            "id": "sid-47A6F158-A4A1-40F5-84DE-E531337616B1",
+            "name": "\u00c4nderungsprozesse  einf\u00fchren",
+            "type": "StartNoneEvent"
+        },
+        {
+            "id": "sid-84611039-A4E8-4018-979F-07DA97DC4FF4",
+            "name": "\u00c4nderungsprozess  eingef\u00fchrt",
+            "type": "EndNoneEvent"
+        }
+    ],
+    "gateways": [],
+    "pools": [
+        {
+            "id": "sid-81EB68B5-8F21-4DD7-82E3-30233E37A440",
+            "name": "SoKnow",
+            "lanes": [
+                {
+                    "id": "sid-CA70BF13-7203-44A6-A7EF-6F09E656C41D",
+                    "name": "Consulting",
+                    "elemRefs": [
+                        "sid-08A0E18B-71D2-4ED2-BEDA-00A3AF57C3B2",
+                        "sid-DE040651-0626-4D3E-9EB5-89B6879F5D2A",
+                        "sid-9BBE9E18-7DC5-4635-9528-16C02ACE89B7",
+                        "sid-0C6ADB6E-D0E2-46E6-8FFE-FE83349C9CFD",
+                        "sid-463152F8-B5CA-4311-BB62-012CA2D44351",
+                        "sid-47A6F158-A4A1-40F5-84DE-E531337616B1",
+                        "sid-84611039-A4E8-4018-979F-07DA97DC4FF4"
+                    ]
+                }
+            ]
+        }
+    ],
+    "messageFlows": [],
+    "sequenceFlows": [
+        {
+            "id": "sid-2AE3AAF4-A74C-4634-A51D-AD466C6AFA15",
+            "targetRef": "sid-DE040651-0626-4D3E-9EB5-89B6879F5D2A",
+            "sourceRef": "sid-47A6F158-A4A1-40F5-84DE-E531337616B1"
+        },
+        {
+            "id": "sid-72C493A5-DD5D-4F97-858E-F517FE837233",
+            "targetRef": "sid-08A0E18B-71D2-4ED2-BEDA-00A3AF57C3B2",
+            "sourceRef": "sid-DE040651-0626-4D3E-9EB5-89B6879F5D2A"
+        },
+        {
+            "id": "sid-C3ED174C-3B2F-4B72-A3DA-D1F14C223CCD",
+            "targetRef": "sid-9BBE9E18-7DC5-4635-9528-16C02ACE89B7",
+            "sourceRef": "sid-08A0E18B-71D2-4ED2-BEDA-00A3AF57C3B2"
+        },
+        {
+            "id": "sid-058CBFDB-C75C-4920-8906-6EFD405234BD",
+            "targetRef": "sid-0C6ADB6E-D0E2-46E6-8FFE-FE83349C9CFD",
+            "sourceRef": "sid-9BBE9E18-7DC5-4635-9528-16C02ACE89B7"
+        },
+        {
+            "id": "sid-54FF113E-BC9D-4838-B01D-F381DC83D8FD",
+            "targetRef": "sid-463152F8-B5CA-4311-BB62-012CA2D44351",
+            "sourceRef": "sid-0C6ADB6E-D0E2-46E6-8FFE-FE83349C9CFD"
+        },
+        {
+            "id": "sid-CA52A991-DC75-437A-B475-778B8C2AFED1",
+            "targetRef": "sid-84611039-A4E8-4018-979F-07DA97DC4FF4",
+            "sourceRef": "sid-463152F8-B5CA-4311-BB62-012CA2D44351"
+        }
+    ]
+}

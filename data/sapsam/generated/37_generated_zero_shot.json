@@ -1,0 +1,179 @@
+{
+    "tasks": [
+        {
+            "id": "0",
+            "name": "Mitarbeitergespr\u00e4che organisieren",
+            "type": "Task"
+        },
+        {
+            "id": "1",
+            "name": "Terminvorschl\u00e4ge senden",
+            "type": "Task"
+        },
+        {
+            "id": "2",
+            "name": "Mitarbeitergespr\u00e4ch durchf\u00fchren",
+            "type": "Task"
+        },
+        {
+            "id": "3",
+            "name": "Training zuordnen",
+            "type": "Task"
+        },
+        {
+            "id": "4",
+            "name": "Regelm\u00e4\u00dfige Nachfragen durchf\u00fchren",
+            "type": "Task"
+        },
+        {
+            "id": "5",
+            "name": "Termin best\u00e4tigen",
+            "type": "Task"
+        },
+        {
+            "id": "6",
+            "name": "Am Mitarbeitergespr\u00e4ch teilnehmen",
+            "type": "User"
+        },
+        {
+            "id": "7",
+            "name": "Training absolvieren",
+            "type": "User"
+        }
+    ],
+    "events": [
+        {
+            "id": "8",
+            "name": "Mitarbeiter mit Ausbildungsbedarf",
+            "type": "StartNoneEvent"
+        },
+        {
+            "id": "9",
+            "name": "Training abgeschlossen",
+            "type": "EndNoneEvent"
+        }
+    ],
+    "gateways": [
+        {
+            "id": "10",
+            "name": "Parallel Gateway",
+            "type": "Parallel"
+        }
+    ],
+    "pools": [
+        {
+            "id": "11",
+            "name": "SoKnow",
+            "lanes": [
+                {
+                    "id": "12",
+                    "name": "Mitarbeiter",
+                    "elemRefs": [
+                        "5",
+                        "6",
+                        "7"
+                    ]
+                },
+                {
+                    "id": "13",
+                    "name": "Personalabteilung",
+                    "elemRefs": [
+                        "0",
+                        "1",
+                        "2",
+                        "3",
+                        "4"
+                    ]
+                },
+                {
+                    "id": "14",
+                    "name": "Mitarbeiter mit Ausbildungsbedarf",
+                    "elemRefs": [
+                        "8"
+                    ]
+                }
+            ]
+        }
+    ],
+    "sequenceFlows": [
+        {
+            "id": "15",
+            "sourceRef": "8",
+            "targetRef": "0",
+            "condition": ""
+        },
+        {
+            "id": "16",
+            "sourceRef": "0",
+            "targetRef": "10",
+            "condition": ""
+        },
+        {
+            "id": "17",
+            "sourceRef": "10",
+            "targetRef": "1",
+            "condition": ""
+        },
+        {
+            "id": "18",
+            "sourceRef": "10",
+            "targetRef": "2",
+            "condition": ""
+        },
+        {
+            "id": "19",
+            "sourceRef": "10",
+            "targetRef": "3",
+            "condition": ""
+        },
+        {
+            "id": "20",
+            "sourceRef": "10",
+            "targetRef": "4",
+            "condition": ""
+        },
+        {
+            "id": "21",
+            "sourceRef": "1",
+            "targetRef": "5",
+            "condition": ""
+        },
+        {
+            "id": "22",
+            "sourceRef": "2",
+            "targetRef": "6",
+            "condition": ""
+        },
+        {
+            "id": "23",
+            "sourceRef": "3",
+            "targetRef": "7",
+            "condition": ""
+        },
+        {
+            "id": "24",
+            "sourceRef": "4",
+            "targetRef": "6",
+            "condition": ""
+        },
+        {
+            "id": "25",
+            "sourceRef": "5",
+            "targetRef": "6",
+            "condition": ""
+        },
+        {
+            "id": "26",
+            "sourceRef": "6",
+            "targetRef": "9",
+            "condition": ""
+        },
+        {
+            "id": "27",
+            "sourceRef": "7",
+            "targetRef": "9",
+            "condition": ""
+        }
+    ],
+    "messageFlows": []
+}

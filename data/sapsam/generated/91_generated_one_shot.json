@@ -1,0 +1,221 @@
+{
+    "tasks": [
+        {
+            "id": "0",
+            "name": "Process Trip Order",
+            "type": "Task"
+        },
+        {
+            "id": "1",
+            "name": "Cancel Trip Order",
+            "type": "Task"
+        },
+        {
+            "id": "2",
+            "name": "Send Invoice",
+            "type": "Task"
+        },
+        {
+            "id": "3",
+            "name": "Order Trip",
+            "type": "Task"
+        },
+        {
+            "id": "4",
+            "name": "Receives Invoice",
+            "type": "Task"
+        },
+        {
+            "id": "5",
+            "name": "Send Cancellation of Trip Order",
+            "type": "Task"
+        },
+        {
+            "id": "6",
+            "name": "Receive Trip Order Confirmation",
+            "type": "Task"
+        }
+    ],
+    "events": [
+        {
+            "id": "7",
+            "name": "Trip Order Start",
+            "type": "StartNoneEvent"
+        },
+        {
+            "id": "8",
+            "name": "Trip Order has been Processed.",
+            "type": "EndNoneEvent"
+        },
+        {
+            "id": "9",
+            "name": "Customer Order Start",
+            "type": "StartNoneEvent"
+        },
+        {
+            "id": "10",
+            "name": "Trip Order Processed",
+            "type": "EndNoneEvent"
+        }
+    ],
+    "gateways": [
+        {
+            "id": "11",
+            "name": "Trip Order Cancelled?",
+            "type": "Exclusive"
+        },
+        {
+            "id": "12",
+            "type": "Exclusive"
+        }
+    ],
+    "pools": [
+        {
+            "id": "13",
+            "name": "Customer Relations Division",
+            "lanes": [
+                {
+                    "id": "14",
+                    "name": "Customer Relations Division",
+                    "elemRefs": [
+                        "0",
+                        "1",
+                        "2",
+                        "6",
+                        "7",
+                        "8",
+                        "11"
+                    ]
+                }
+            ]
+        },
+        {
+            "id": "15",
+            "name": "Customer",
+            "lanes": [
+                {
+                    "id": "16",
+                    "name": "Customer",
+                    "elemRefs": [
+                        "3",
+                        "4",
+                        "5",
+                        "9",
+                        "10",
+                        "12"
+                    ]
+                }
+            ]
+        }
+    ],
+    "sequenceFlows": [
+        {
+            "id": "17",
+            "sourceRef": "7",
+            "targetRef": "0"
+        },
+        {
+            "id": "18",
+            "sourceRef": "0",
+            "targetRef": "11"
+        },
+        {
+            "id": "19",
+            "sourceRef": "11",
+            "targetRef": "1",
+            "condition": "Yes"
+        },
+        {
+            "id": "20",
+            "sourceRef": "1",
+            "targetRef": "8"
+        },
+        {
+            "id": "21",
+            "sourceRef": "11",
+            "targetRef": "2",
+            "condition": "No"
+        },
+        {
+            "id": "22",
+            "sourceRef": "2",
+            "targetRef": "8"
+        },
+        {
+            "id": "23",
+            "sourceRef": "9",
+            "targetRef": "3"
+        },
+        {
+            "id": "24",
+            "sourceRef": "3",
+            "targetRef": "12"
+        },
+        {
+            "id": "25",
+            "sourceRef": "12",
+            "targetRef": "5",
+            "condition": "Yes"
+        },
+        {
+            "id": "26",
+            "sourceRef": "5",
+            "targetRef": "10"
+        },
+        {
+            "id": "27",
+            "sourceRef": "12",
+            "targetRef": "4",
+            "condition": "No"
+        },
+        {
+            "id": "28",
+            "sourceRef": "4",
+            "targetRef": "10"
+        }
+    ],
+    "messageFlows": [
+        {
+            "id": "29",
+            "sourceRef": "15",
+            "targetRef": "7",
+            "label": "Send Trip Order"
+        },
+        {
+            "id": "30",
+            "sourceRef": "11",
+            "targetRef": "15",
+            "label": "Receive Trip Order"
+        },
+        {
+            "id": "31",
+            "sourceRef": "1",
+            "targetRef": "15",
+            "label": "Send Cancellation Confirmation"
+        },
+        {
+            "id": "32",
+            "sourceRef": "2",
+            "targetRef": "15",
+            "label": "Send Invoice"
+        },
+        {
+            "id": "33",
+            "sourceRef": "15",
+            "targetRef": "12",
+            "label": "Cancel Trip Order?"
+        },
+        {
+            "id": "34",
+            "sourceRef": "5",
+            "targetRef": "15",
+            "label": "Send Cancellation"
+        },
+        {
+            "id": "35",
+            "sourceRef": "6",
+            "targetRef": "15",
+            "label": "Receive Cancellation Confirmation"
+        }
+    ]
+}

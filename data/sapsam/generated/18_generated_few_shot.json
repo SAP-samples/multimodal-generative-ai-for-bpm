@@ -1,0 +1,139 @@
+{
+    "tasks": [
+        {
+            "id": "0",
+            "name": "Arbeitsplatz vorbereiten mit Antistatik-Matte, Werkzeug und - Handschuhen",
+            "type": "Manual"
+        },
+        {
+            "id": "1",
+            "name": "Motherboard auf Antistatik-Matte legen",
+            "type": "Manual"
+        },
+        {
+            "id": "2",
+            "name": "CPU in Prozessor",
+            "type": "Manual"
+        },
+        {
+            "id": "3",
+            "name": "W\u00e4rmeleitpaste",
+            "type": "Manual"
+        },
+        {
+            "id": "4",
+            "name": "Installation m\u00f6glich?",
+            "type": "Manual"
+        },
+        {
+            "id": "5",
+            "name": "Installation m\u00f6glich?",
+            "type": "Manual"
+        }
+    ],
+    "events": [
+        {
+            "id": "6",
+            "name": "Start",
+            "type": "StartNoneEvent"
+        },
+        {
+            "id": "7",
+            "name": "Ende",
+            "type": "EndNoneEvent"
+        }
+    ],
+    "gateways": [
+        {
+            "id": "8",
+            "type": "Exclusive"
+        },
+        {
+            "id": "9",
+            "type": "Inclusive"
+        }
+    ],
+    "pools": [
+        {
+            "id": "10",
+            "name": "PC Zusammenbau",
+            "lanes": [
+                {
+                    "id": "11",
+                    "name": "Lane",
+                    "elemRefs": [
+                        "0",
+                        "1",
+                        "2",
+                        "3",
+                        "4",
+                        "5",
+                        "6",
+                        "7",
+                        "8",
+                        "9"
+                    ]
+                }
+            ]
+        }
+    ],
+    "sequenceFlows": [
+        {
+            "id": "12",
+            "sourceRef": "6",
+            "targetRef": "0"
+        },
+        {
+            "id": "13",
+            "sourceRef": "0",
+            "targetRef": "8"
+        },
+        {
+            "id": "14",
+            "sourceRef": "8",
+            "targetRef": "1",
+            "condition": "Pr\u00fcfen, ob die angegebene Adresse korrekt und die gew\u00fcnschten Artikel gelistet sind."
+        },
+        {
+            "id": "15",
+            "sourceRef": "1",
+            "targetRef": "2",
+            "condition": "Pr\u00fcfen, ob die angegebene Adresse korrekt und die gew\u00fcnschten Artikel gelistet sind."
+        },
+        {
+            "id": "16",
+            "sourceRef": "2",
+            "targetRef": "3",
+            "condition": "Pr\u00fcfen, ob die angegebene Adresse korrekt und die gew\u00fcnschten Artikel gelistet sind."
+        },
+        {
+            "id": "17",
+            "sourceRef": "3",
+            "targetRef": "9",
+            "condition": "Pr\u00fcfen, ob die angegebene Adresse korrekt und die gew\u00fcnschten Artikel gelistet sind."
+        },
+        {
+            "id": "18",
+            "sourceRef": "9",
+            "targetRef": "4"
+        },
+        {
+            "id": "19",
+            "sourceRef": "4",
+            "targetRef": "7",
+            "condition": "Pr\u00fcfen, ob die angegebene Adresse korrekt und die gew\u00fcnschten Artikel gelistet sind."
+        },
+        {
+            "id": "20",
+            "sourceRef": "9",
+            "targetRef": "5"
+        },
+        {
+            "id": "21",
+            "sourceRef": "5",
+            "targetRef": "7",
+            "condition": "Pr\u00fcfen, ob die angegebene Adresse korrekt und die gew\u00fcnschten Artikel gelistet sind."
+        }
+    ],
+    "messageFlows": []
+}

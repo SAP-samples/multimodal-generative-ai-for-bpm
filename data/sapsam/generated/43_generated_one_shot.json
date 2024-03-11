@@ -1,0 +1,230 @@
+{
+    "tasks": [
+        {
+            "id": "0",
+            "name": "Auftrag erteilen",
+            "type": "Task"
+        },
+        {
+            "id": "1",
+            "name": "Machbarkeit pr\u00fcfen",
+            "type": "Task"
+        },
+        {
+            "id": "2",
+            "name": "Preiskalkulation durchf\u00fchren",
+            "type": "CollapsedSubprocess"
+        },
+        {
+            "id": "3",
+            "name": "Angebot erstellen und versenden",
+            "type": "CollapsedSubprocess"
+        },
+        {
+            "id": "4",
+            "name": "Angebot anlegen",
+            "type": "Task"
+        },
+        {
+            "id": "5",
+            "name": "Auftrag in Planung Fertigung eintragen",
+            "type": "Task"
+        },
+        {
+            "id": "6",
+            "name": "Auftragsbest\u00e4tigung versenden",
+            "type": "Task"
+        }
+    ],
+    "events": [
+        {
+            "id": "7",
+            "name": "Bestellung",
+            "type": "StartNoneEvent"
+        },
+        {
+            "id": "8",
+            "name": "nicht machbar",
+            "type": "IntermediateErrorEvent"
+        },
+        {
+            "id": "9",
+            "name": "Abbruch",
+            "type": "EndCancelEvent"
+        },
+        {
+            "id": "10",
+            "name": "Wartezeit",
+            "type": "IntermediateTimerEvent"
+        },
+        {
+            "id": "11",
+            "name": "Auftragsbest\u00e4tigung versandt",
+            "type": "EndNoneEvent"
+        },
+        {
+            "id": "12",
+            "name": "Kundeninfo keine Auftrags- best\u00e4tigung",
+            "type": "EndNoneEvent"
+        }
+    ],
+    "gateways": [
+        {
+            "id": "13",
+            "name": "Angebot vorhanden?",
+            "type": "Exclusive"
+        },
+        {
+            "id": "14",
+            "type": "Exclusive"
+        },
+        {
+            "id": "15",
+            "type": "Exclusive"
+        }
+    ],
+    "pools": [
+        {
+            "id": "16",
+            "name": "Bohrwerker",
+            "lanes": [
+                {
+                    "id": "17",
+                    "name": "Jane Doe",
+                    "elemRefs": [
+                        "0",
+                        "1",
+                        "2",
+                        "3",
+                        "7",
+                        "8",
+                        "9",
+                        "13"
+                    ]
+                },
+                {
+                    "id": "18",
+                    "name": "Silke",
+                    "elemRefs": [
+                        "4",
+                        "5",
+                        "6",
+                        "10",
+                        "11",
+                        "12",
+                        "14",
+                        "15"
+                    ]
+                }
+            ]
+        },
+        {
+            "id": "19",
+            "name": "Kunde",
+            "lanes": []
+        }
+    ],
+    "sequenceFlows": [
+        {
+            "id": "20",
+            "sourceRef": "7",
+            "targetRef": "0"
+        },
+        {
+            "id": "21",
+            "sourceRef": "0",
+            "targetRef": "13"
+        },
+        {
+            "id": "22",
+            "sourceRef": "13",
+            "targetRef": "1",
+            "condition": "no"
+        },
+        {
+            "id": "23",
+            "sourceRef": "1",
+            "targetRef": "8"
+        },
+        {
+            "id": "24",
+            "sourceRef": "8",
+            "targetRef": "9"
+        },
+        {
+            "id": "25",
+            "sourceRef": "13",
+            "targetRef": "2",
+            "condition": "yes"
+        },
+        {
+            "id": "26",
+            "sourceRef": "2",
+            "targetRef": "3"
+        },
+        {
+            "id": "27",
+            "sourceRef": "3",
+            "targetRef": "14"
+        },
+        {
+            "id": "28",
+            "sourceRef": "14",
+            "targetRef": "4",
+            "condition": "yes"
+        },
+        {
+            "id": "29",
+            "sourceRef": "4",
+            "targetRef": "5"
+        },
+        {
+            "id": "30",
+            "sourceRef": "5",
+            "targetRef": "6"
+        },
+        {
+            "id": "31",
+            "sourceRef": "6",
+            "targetRef": "11"
+        },
+        {
+            "id": "32",
+            "sourceRef": "14",
+            "targetRef": "15",
+            "condition": "no"
+        },
+        {
+            "id": "33",
+            "sourceRef": "15",
+            "targetRef": "10"
+        },
+        {
+            "id": "34",
+            "sourceRef": "10",
+            "targetRef": "6"
+        },
+        {
+            "id": "35",
+            "sourceRef": "15",
+            "targetRef": "12"
+        }
+    ],
+    "messageFlows": [
+        {
+            "id": "36",
+            "sourceRef": "19",
+            "targetRef": "7"
+        },
+        {
+            "id": "37",
+            "sourceRef": "11",
+            "targetRef": "19"
+        },
+        {
+            "id": "38",
+            "sourceRef": "12",
+            "targetRef": "19"
+        }
+    ]
+}

@@ -1,0 +1,230 @@
+{
+    "tasks": [
+        {
+            "id": "0",
+            "name": "Fragebogen erstellen",
+            "type": "Task"
+        },
+        {
+            "id": "1",
+            "name": "Fragebogen freigeben f\u00fcr Kunden",
+            "type": "Task"
+        },
+        {
+            "id": "2",
+            "name": "Fragebogen auswerten",
+            "type": "Task"
+        },
+        {
+            "id": "3",
+            "name": "An Arbeitsgruppe Wissensbewertung Auftrag senden",
+            "type": "Task"
+        },
+        {
+            "id": "4",
+            "name": "Umfragen zur Probleml\u00f6sung erstellen",
+            "type": "Task"
+        },
+        {
+            "id": "5",
+            "name": "L\u00f6sungsvorschl\u00e4ge weiterleiten",
+            "type": "Task"
+        },
+        {
+            "id": "6",
+            "name": "L\u00f6sung auswerten",
+            "type": "Task"
+        },
+        {
+            "id": "7",
+            "name": "umsetzen",
+            "type": "Task"
+        },
+        {
+            "id": "8",
+            "name": "Neue L\u00f6sungen anfordern",
+            "type": "Task"
+        }
+    ],
+    "events": [
+        {
+            "id": "9",
+            "name": "Kunden- beziehungen verbessern",
+            "type": "StartNoneEvent"
+        },
+        {
+            "id": "10",
+            "name": "Fragebogen ausf\u00fcllen",
+            "type": "IntermediateMessageEventCatching"
+        },
+        {
+            "id": "11",
+            "name": "Verbesserungsbedarf ?",
+            "type": "IntermediateMessageEventCatching"
+        },
+        {
+            "id": "12",
+            "name": "An Arbeitsgruppe Wissensbewertung nicht senden",
+            "type": "IntermediateMessageEventCatching"
+        },
+        {
+            "id": "13",
+            "name": "L\u00f6sung hilfreich ?",
+            "type": "IntermediateMessageEventCatching"
+        },
+        {
+            "id": "14",
+            "name": "Kundenbeziehung verbessert",
+            "type": "EndNoneEvent"
+        }
+    ],
+    "gateways": [
+        {
+            "id": "15",
+            "type": "Exclusive"
+        },
+        {
+            "id": "16",
+            "type": "Exclusive"
+        },
+        {
+            "id": "17",
+            "type": "Exclusive"
+        }
+    ],
+    "pools": [
+        {
+            "id": "18",
+            "name": "Soknow",
+            "lanes": [
+                {
+                    "id": "19",
+                    "name": "Arbeitsgruppe Wissensbewertung",
+                    "elemRefs": [
+                        "3",
+                        "11",
+                        "4",
+                        "5",
+                        "12"
+                    ]
+                },
+                {
+                    "id": "20",
+                    "name": "Consulting",
+                    "elemRefs": [
+                        "0",
+                        "1",
+                        "10",
+                        "2",
+                        "15",
+                        "6",
+                        "16",
+                        "7",
+                        "8",
+                        "17",
+                        "14"
+                    ]
+                }
+            ]
+        }
+    ],
+    "sequenceFlows": [
+        {
+            "id": "21",
+            "sourceRef": "9",
+            "targetRef": "0"
+        },
+        {
+            "id": "22",
+            "sourceRef": "0",
+            "targetRef": "1"
+        },
+        {
+            "id": "23",
+            "sourceRef": "1",
+            "targetRef": "10"
+        },
+        {
+            "id": "24",
+            "sourceRef": "10",
+            "targetRef": "2"
+        },
+        {
+            "id": "25",
+            "sourceRef": "2",
+            "targetRef": "15"
+        },
+        {
+            "id": "26",
+            "sourceRef": "15",
+            "targetRef": "3"
+        },
+        {
+            "id": "27",
+            "sourceRef": "15",
+            "targetRef": "11"
+        },
+        {
+            "id": "28",
+            "sourceRef": "3",
+            "targetRef": "4"
+        },
+        {
+            "id": "29",
+            "sourceRef": "4",
+            "targetRef": "5"
+        },
+        {
+            "id": "30",
+            "sourceRef": "5",
+            "targetRef": "6"
+        },
+        {
+            "id": "31",
+            "sourceRef": "6",
+            "targetRef": "16"
+        },
+        {
+            "id": "32",
+            "sourceRef": "16",
+            "targetRef": "7"
+        },
+        {
+            "id": "33",
+            "sourceRef": "16",
+            "targetRef": "8"
+        },
+        {
+            "id": "34",
+            "sourceRef": "8",
+            "targetRef": "17"
+        },
+        {
+            "id": "35",
+            "sourceRef": "17",
+            "targetRef": "6"
+        },
+        {
+            "id": "36",
+            "sourceRef": "17",
+            "targetRef": "14"
+        }
+    ],
+    "messageFlows": [
+        {
+            "id": "37",
+            "sourceRef": "11",
+            "targetRef": "12"
+        },
+        {
+            "id": "38",
+            "sourceRef": "13",
+            "targetRef": "7"
+        },
+        {
+            "id": "39",
+            "sourceRef": "13",
+            "targetRef": "8"
+        }
+    ]
+}

@@ -1,0 +1,238 @@
+{
+    "tasks": [
+        {
+            "id": "0",
+            "name": "Anfrage verifizieren",
+            "type": "Task"
+        },
+        {
+            "id": "1",
+            "name": "Angebot erstellen",
+            "type": "CollapsedSubprocess"
+        },
+        {
+            "id": "2",
+            "name": "Angebot versenden & archivieren",
+            "type": "Task"
+        },
+        {
+            "id": "3",
+            "name": "Angebot nachverfolgen",
+            "type": "Task"
+        },
+        {
+            "id": "4",
+            "name": "AB kontrollieren",
+            "type": "Task"
+        },
+        {
+            "id": "5",
+            "name": "AB archivieren",
+            "type": "Task"
+        }
+    ],
+    "events": [
+        {
+            "id": "6",
+            "name": "Anfrage erhalten",
+            "type": "StartMessageEvent"
+        },
+        {
+            "id": "7",
+            "name": "Angebot nachverfolgen",
+            "type": "EndEvent"
+        },
+        {
+            "id": "8",
+            "name": "Anfrage erhalten",
+            "type": "StartMessageEvent"
+        },
+        {
+            "id": "9",
+            "name": "Angebot nachverfolgen",
+            "type": "EndEvent"
+        },
+        {
+            "id": "10",
+            "name": "Direktauftrag erhalten",
+            "type": "StartMessageEvent"
+        },
+        {
+            "id": "11",
+            "name": "AB archivieren",
+            "type": "EndEvent"
+        }
+    ],
+    "gateways": [
+        {
+            "id": "12",
+            "name": "Auftrag erhalten?",
+            "type": "Exclusive"
+        },
+        {
+            "id": "13",
+            "name": "Produkt- Bauvorschrift vorhanden?",
+            "type": "Exclusive"
+        },
+        {
+            "id": "14",
+            "name": "Auftrag erhalten?",
+            "type": "Exclusive"
+        },
+        {
+            "id": "15",
+            "name": "Bauvorschrift vorhanden",
+            "type": "Exclusive"
+        }
+    ],
+    "pools": [
+        {
+            "id": "16",
+            "name": "Rs-V",
+            "lanes": [
+                {
+                    "id": "17",
+                    "name": "Vertriebs-Innendienst",
+                    "elemRefs": [
+                        "0",
+                        "1",
+                        "2",
+                        "4",
+                        "5",
+                        "6",
+                        "7"
+                    ]
+                }
+            ]
+        },
+        {
+            "id": "18",
+            "name": "Kunde",
+            "lanes": []
+        },
+        {
+            "id": "19",
+            "name": "GL-Sekretariat",
+            "lanes": []
+        },
+        {
+            "id": "20",
+            "name": "Handelsvertreter",
+            "lanes": [
+                {
+                    "id": "21",
+                    "name": "Lane",
+                    "elemRefs": [
+                        "3",
+                        "8",
+                        "9",
+                        "10",
+                        "11"
+                    ]
+                }
+            ]
+        },
+        {
+            "id": "22",
+            "name": "Rs-E",
+            "lanes": []
+        }
+    ],
+    "sequenceFlows": [
+        {
+            "id": "23",
+            "sourceRef": "6",
+            "targetRef": "0"
+        },
+        {
+            "id": "24",
+            "sourceRef": "0",
+            "targetRef": "1"
+        },
+        {
+            "id": "25",
+            "sourceRef": "1",
+            "targetRef": "2"
+        },
+        {
+            "id": "26",
+            "sourceRef": "2",
+            "targetRef": "12"
+        },
+        {
+            "id": "27",
+            "sourceRef": "12",
+            "targetRef": "3",
+            "condition": "Ja"
+        },
+        {
+            "id": "28",
+            "sourceRef": "12",
+            "targetRef": "13",
+            "condition": "Nein"
+        },
+        {
+            "id": "29",
+            "sourceRef": "8",
+            "targetRef": "0"
+        },
+        {
+            "id": "30",
+            "sourceRef": "1",
+            "targetRef": "14"
+        },
+        {
+            "id": "31",
+            "sourceRef": "14",
+            "targetRef": "3",
+            "condition": "Ja"
+        },
+        {
+            "id": "32",
+            "sourceRef": "14",
+            "targetRef": "15",
+            "condition": "Nein"
+        },
+        {
+            "id": "33",
+            "sourceRef": "10",
+            "targetRef": "1"
+        },
+        {
+            "id": "34",
+            "sourceRef": "1",
+            "targetRef": "4"
+        },
+        {
+            "id": "35",
+            "sourceRef": "4",
+            "targetRef": "5"
+        }
+    ],
+    "messageFlows": [
+        {
+            "id": "36",
+            "sourceRef": "18",
+            "targetRef": "6",
+            "label": "Anfrage"
+        },
+        {
+            "id": "37",
+            "sourceRef": "20",
+            "targetRef": "8",
+            "label": "Anfrage"
+        },
+        {
+            "id": "38",
+            "sourceRef": "20",
+            "targetRef": "10",
+            "label": "Direktauftrag"
+        },
+        {
+            "id": "39",
+            "sourceRef": "19",
+            "targetRef": "11",
+            "label": "Auftragsbest\u00e4tigung"
+        }
+    ]
+}

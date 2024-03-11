@@ -1,0 +1,41 @@
+{
+    "tasks": [],
+    "events": [
+        {
+            "id": "0",
+            "name": "Share a staff with another department",
+            "type": "StartNoneEvent"
+        },
+        {
+            "id": "1",
+            "name": "Staff attached to resource on the activity template",
+            "type": "EndNoneEvent"
+        }
+    ],
+    "gateways": [],
+    "pools": [
+        {
+            "id": "2",
+            "name": "ANU",
+            "lanes": [
+                {
+                    "id": "3",
+                    "name": "TT Officer",
+                    "elemRefs": [
+                        "0",
+                        "1"
+                    ]
+                }
+            ]
+        }
+    ],
+    "sequenceFlows": [
+        {
+            "id": "4",
+            "sourceRef": "0",
+            "targetRef": "1",
+            "condition": ""
+        }
+    ],
+    "messageFlows": []
+}

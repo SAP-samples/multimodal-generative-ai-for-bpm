@@ -1,0 +1,113 @@
+{
+    "tasks": [
+        {
+            "id": "sid-FC200062-10FE-4275-83B0-82831F7AFB4D",
+            "name": "Laden besuchen",
+            "type": "User"
+        },
+        {
+            "id": "sid-425A9918-3728-46B3-A09B-5445B51749E9",
+            "name": "Schokolade aussuchen",
+            "type": "Script"
+        },
+        {
+            "id": "sid-C40C16AB-5401-49CE-8AE9-EC4C62085D56",
+            "name": "Bezahlen",
+            "type": "User"
+        },
+        {
+            "id": "sid-E6B2F4B7-3557-4BC4-9B45-48AC1EAAF1D1",
+            "name": "Online kaufen",
+            "type": "User"
+        }
+    ],
+    "events": [
+        {
+            "id": "sid-E587ECA0-A8A6-48A4-993F-9E641781204F",
+            "name": "Fertsch",
+            "type": "EndNoneEvent"
+        },
+        {
+            "id": "sid-879EE3E3-6F94-4AD2-8654-BBED01CD9626",
+            "name": "Schokolade  kaufen",
+            "type": "StartNoneEvent"
+        }
+    ],
+    "gateways": [
+        {
+            "id": "sid-5A6C6DB4-7078-4C2D-A58A-222318664A04",
+            "type": "Exclusive"
+        },
+        {
+            "id": "sid-7C417134-CC84-4FD1-9672-E36D0EC742C2",
+            "type": "Exclusive"
+        }
+    ],
+    "pools": [
+        {
+            "id": "sid-3ee2fd67-27ab-49a5-b36e-84423ba45dba",
+            "name": "Company",
+            "lanes": [
+                {
+                    "id": "sid-EDFAAD2E-7322-4DF3-AB27-11A6A28CFE6C",
+                    "name": "",
+                    "elemRefs": [
+                        "sid-FC200062-10FE-4275-83B0-82831F7AFB4D",
+                        "sid-425A9918-3728-46B3-A09B-5445B51749E9",
+                        "sid-C40C16AB-5401-49CE-8AE9-EC4C62085D56",
+                        "sid-E6B2F4B7-3557-4BC4-9B45-48AC1EAAF1D1",
+                        "sid-E587ECA0-A8A6-48A4-993F-9E641781204F",
+                        "sid-879EE3E3-6F94-4AD2-8654-BBED01CD9626",
+                        "sid-5A6C6DB4-7078-4C2D-A58A-222318664A04",
+                        "sid-7C417134-CC84-4FD1-9672-E36D0EC742C2"
+                    ]
+                }
+            ]
+        }
+    ],
+    "messageFlows": [],
+    "sequenceFlows": [
+        {
+            "id": "sid-33367F3A-A19D-4E06-B52D-D6708FAD0617",
+            "targetRef": "sid-5A6C6DB4-7078-4C2D-A58A-222318664A04",
+            "sourceRef": "sid-879EE3E3-6F94-4AD2-8654-BBED01CD9626"
+        },
+        {
+            "id": "sid-9836DE04-DA3D-4C97-B67C-679FE55F0999",
+            "targetRef": "sid-E587ECA0-A8A6-48A4-993F-9E641781204F",
+            "sourceRef": "sid-C40C16AB-5401-49CE-8AE9-EC4C62085D56"
+        },
+        {
+            "id": "sid-F84E9556-46B9-473B-A85F-5BB22DD6965F",
+            "targetRef": "sid-7C417134-CC84-4FD1-9672-E36D0EC742C2",
+            "sourceRef": "sid-E6B2F4B7-3557-4BC4-9B45-48AC1EAAF1D1"
+        },
+        {
+            "id": "sid-3B4EF9B6-FD51-43DC-A3E2-B78C7FF29E42",
+            "targetRef": "sid-C40C16AB-5401-49CE-8AE9-EC4C62085D56",
+            "sourceRef": "sid-425A9918-3728-46B3-A09B-5445B51749E9"
+        },
+        {
+            "id": "sid-C5E8B7DD-E56D-43ED-8DCE-E6DDE4B54E17",
+            "targetRef": "sid-7C417134-CC84-4FD1-9672-E36D0EC742C2",
+            "sourceRef": "sid-FC200062-10FE-4275-83B0-82831F7AFB4D"
+        },
+        {
+            "id": "sid-0BC3C87A-31DC-46E2-B5CC-E2C7AC57476A",
+            "targetRef": "sid-425A9918-3728-46B3-A09B-5445B51749E9",
+            "sourceRef": "sid-7C417134-CC84-4FD1-9672-E36D0EC742C2"
+        },
+        {
+            "id": "sid-E1E4A273-8D8B-475A-BB09-40E35CD1DCDB",
+            "targetRef": "sid-E6B2F4B7-3557-4BC4-9B45-48AC1EAAF1D1",
+            "condition": "Online",
+            "sourceRef": "sid-5A6C6DB4-7078-4C2D-A58A-222318664A04"
+        },
+        {
+            "id": "sid-862D2646-BF71-488C-9A6F-DF3F8BC10F25",
+            "targetRef": "sid-FC200062-10FE-4275-83B0-82831F7AFB4D",
+            "condition": "Lokal",
+            "sourceRef": "sid-5A6C6DB4-7078-4C2D-A58A-222318664A04"
+        }
+    ]
+}

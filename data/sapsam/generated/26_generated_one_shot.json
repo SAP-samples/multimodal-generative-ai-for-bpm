@@ -1,0 +1,240 @@
+{
+    "tasks": [
+        {
+            "id": "0",
+            "name": "Gesch\u00e4ftsleitung informieren",
+            "type": "Task"
+        },
+        {
+            "id": "1",
+            "name": "Beim Kunden nachfragen",
+            "type": "Task"
+        },
+        {
+            "id": "2",
+            "name": "Pr\u00fcfung im Online Banking durchf\u00fchren",
+            "type": "Task"
+        },
+        {
+            "id": "3",
+            "name": "Mahnung erstellen",
+            "type": "Task"
+        },
+        {
+            "id": "4",
+            "name": "Zahlung verbuchen",
+            "type": "Task"
+        },
+        {
+            "id": "5",
+            "name": "Rechtsanwalt benachrichtigen",
+            "type": "Task"
+        },
+        {
+            "id": "6",
+            "name": "Finanzabteilung benachrichtigen",
+            "type": "Task"
+        }
+    ],
+    "events": [
+        {
+            "id": "7",
+            "name": "Versp\u00e4tete Zahlung eingetroffen",
+            "type": "StartNoneEvent"
+        },
+        {
+            "id": "8",
+            "name": "Nachfrage-Email gesendet",
+            "type": "IntermediateMessageEventThrowing"
+        },
+        {
+            "id": "9",
+            "name": "Mahnung gesendet",
+            "type": "IntermediateMessageEventThrowing"
+        },
+        {
+            "id": "10",
+            "name": "Zahlung bearbeitet",
+            "type": "EndNoneEvent"
+        },
+        {
+            "id": "11",
+            "name": "Mahnverfahren beendet",
+            "type": "EndNoneEvent"
+        },
+        {
+            "id": "12",
+            "name": "Rechtsbestand erhalten",
+            "type": "IntermediateMessageEventCatching"
+        }
+    ],
+    "gateways": [
+        {
+            "id": "13",
+            "name": "Wurde gemahnt?",
+            "type": "Exclusive"
+        },
+        {
+            "id": "14",
+            "name": "Antwort erhalten?",
+            "type": "Exclusive"
+        },
+        {
+            "id": "15",
+            "type": "Exclusive"
+        },
+        {
+            "id": "16",
+            "type": "Parallel"
+        },
+        {
+            "id": "17",
+            "type": "Exclusive"
+        }
+    ],
+    "pools": [
+        {
+            "id": "18",
+            "name": "SoKnoW",
+            "lanes": [
+                {
+                    "id": "19",
+                    "name": "Finanzabteilung",
+                    "elemRefs": [
+                        "0",
+                        "1",
+                        "2",
+                        "4",
+                        "7",
+                        "8",
+                        "14",
+                        "15"
+                    ]
+                },
+                {
+                    "id": "20",
+                    "name": "Rechtsabteilung",
+                    "elemRefs": [
+                        "3",
+                        "5",
+                        "6",
+                        "9",
+                        "11",
+                        "12",
+                        "13",
+                        "16",
+                        "17"
+                    ]
+                }
+            ]
+        },
+        {
+            "id": "21",
+            "name": "Externer Rechtsanwalt",
+            "lanes": []
+        },
+        {
+            "id": "22",
+            "name": "Kundenunternehmen",
+            "lanes": []
+        }
+    ],
+    "sequenceFlows": [
+        {
+            "id": "23",
+            "sourceRef": "7",
+            "targetRef": "0"
+        },
+        {
+            "id": "24",
+            "sourceRef": "0",
+            "targetRef": "13"
+        },
+        {
+            "id": "25",
+            "sourceRef": "13",
+            "targetRef": "1",
+            "condition": "Ja"
+        },
+        {
+            "id": "26",
+            "sourceRef": "1",
+            "targetRef": "8"
+        },
+        {
+            "id": "27",
+            "sourceRef": "13",
+            "targetRef": "3",
+            "condition": "Nein"
+        },
+        {
+            "id": "28",
+            "sourceRef": "3",
+            "targetRef": "9"
+        },
+        {
+            "id": "29",
+            "sourceRef": "8",
+            "targetRef": "14"
+        },
+        {
+            "id": "30",
+            "sourceRef": "14",
+            "targetRef": "2",
+            "condition": "Ja"
+        },
+        {
+            "id": "31",
+            "sourceRef": "2",
+            "targetRef": "10"
+        },
+        {
+            "id": "32",
+            "sourceRef": "14",
+            "targetRef": "15",
+            "condition": "Nein"
+        },
+        {
+            "id": "33",
+            "sourceRef": "15",
+            "targetRef": "16",
+            "condition": "Ja"
+        },
+        {
+            "id": "34",
+            "sourceRef": "16",
+            "targetRef": "5"
+        },
+        {
+            "id": "35",
+            "sourceRef": "5",
+            "targetRef": "12"
+        },
+        {
+            "id": "36",
+            "sourceRef": "12",
+            "targetRef": "17"
+        },
+        {
+            "id": "37",
+            "sourceRef": "17",
+            "targetRef": "11"
+        },
+        {
+            "id": "38",
+            "sourceRef": "9",
+            "targetRef": "16"
+        },
+        {
+            "id": "39",
+            "sourceRef": "15",
+            "targetRef": "3"
+        },
+        {
+            "id": "40",
+            "sourceRef": "6",
+            "targetRef": "5"
+        }
+    ],
+    "messageFlows": []
+}

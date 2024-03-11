@@ -1,0 +1,194 @@
+{
+    "tasks": [
+        {
+            "id": "0",
+            "name": "Create enquiry",
+            "type": "Task"
+        },
+        {
+            "id": "1",
+            "name": "Create contact",
+            "type": "Task"
+        },
+        {
+            "id": "2",
+            "name": "Qualified Price OK and Interest",
+            "type": "Task"
+        },
+        {
+            "id": "3",
+            "name": "Update enquiry status",
+            "type": "Task"
+        },
+        {
+            "id": "4",
+            "name": "Create Quote",
+            "type": "Task"
+        },
+        {
+            "id": "5",
+            "name": "Qualified Requirements analysis",
+            "type": "Task"
+        },
+        {
+            "id": "6",
+            "name": "Create Job",
+            "type": "Task"
+        }
+    ],
+    "events": [
+        {
+            "id": "7",
+            "name": "Sales enquiry created",
+            "type": "StartMessageEvent"
+        },
+        {
+            "id": "8",
+            "name": "Customer approval received",
+            "type": "IntermediateMessageEventCatching"
+        },
+        {
+            "id": "9",
+            "name": "Job created",
+            "type": "EndNoneEvent"
+        },
+        {
+            "id": "10",
+            "name": "Client does not approve",
+            "type": "EndNoneEvent"
+        }
+    ],
+    "gateways": [
+        {
+            "id": "11",
+            "type": "Exclusive"
+        },
+        {
+            "id": "12",
+            "type": "Exclusive"
+        }
+    ],
+    "pools": [
+        {
+            "id": "13",
+            "name": "Accentis",
+            "lanes": [
+                {
+                    "id": "14",
+                    "name": "Lane",
+                    "elemRefs": [
+                        "0",
+                        "1",
+                        "2",
+                        "3",
+                        "4",
+                        "5",
+                        "6",
+                        "7",
+                        "8",
+                        "9",
+                        "10",
+                        "11",
+                        "12"
+                    ]
+                }
+            ]
+        },
+        {
+            "id": "15",
+            "name": "Customer",
+            "lanes": [
+                {
+                    "id": "16",
+                    "name": "Lane",
+                    "elemRefs": []
+                }
+            ]
+        }
+    ],
+    "sequenceFlows": [
+        {
+            "id": "17",
+            "sourceRef": "7",
+            "targetRef": "11"
+        },
+        {
+            "id": "18",
+            "sourceRef": "11",
+            "targetRef": "0",
+            "condition": "outbound == true"
+        },
+        {
+            "id": "19",
+            "sourceRef": "11",
+            "targetRef": "1",
+            "condition": "outbound != true"
+        },
+        {
+            "id": "20",
+            "sourceRef": "0",
+            "targetRef": "2"
+        },
+        {
+            "id": "21",
+            "sourceRef": "1",
+            "targetRef": "2"
+        },
+        {
+            "id": "22",
+            "sourceRef": "2",
+            "targetRef": "8"
+        },
+        {
+            "id": "23",
+            "sourceRef": "8",
+            "targetRef": "12"
+        },
+        {
+            "id": "24",
+            "sourceRef": "12",
+            "targetRef": "4",
+            "condition": "approved == true"
+        },
+        {
+            "id": "25",
+            "sourceRef": "12",
+            "targetRef": "3",
+            "condition": "approved != true"
+        },
+        {
+            "id": "26",
+            "sourceRef": "3",
+            "targetRef": "10"
+        },
+        {
+            "id": "27",
+            "sourceRef": "4",
+            "targetRef": "5"
+        },
+        {
+            "id": "28",
+            "sourceRef": "5",
+            "targetRef": "6"
+        },
+        {
+            "id": "29",
+            "sourceRef": "6",
+            "targetRef": "9"
+        }
+    ],
+    "messageFlows": [
+        {
+            "id": "30",
+            "sourceRef": "15",
+            "targetRef": "7",
+            "label": "sales inquiry"
+        },
+        {
+            "id": "31",
+            "sourceRef": "13",
+            "targetRef": "15",
+            "label": "customer approval sent"
+        }
+    ]
+}

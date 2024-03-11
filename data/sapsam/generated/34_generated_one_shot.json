@@ -1,0 +1,87 @@
+{
+    "tasks": [
+        {
+            "id": "0",
+            "name": "\u00dcberblick \u00fcber Maschine verschaffen",
+            "type": "Manual"
+        },
+        {
+            "id": "1",
+            "name": "SPS-Projekt st\u00fcckweise vervollst\u00e4ndigen",
+            "type": "Manual"
+        },
+        {
+            "id": "2",
+            "name": "HMI-Projekt st\u00fcckweise vervollst\u00e4ndigen",
+            "type": "User"
+        },
+        {
+            "id": "3",
+            "name": "Safety-Projekt vervollst\u00e4ndigen",
+            "type": "User"
+        },
+        {
+            "id": "4",
+            "name": "Software testen",
+            "type": "User"
+        },
+        {
+            "id": "5",
+            "name": "Software Design-Review durchf\u00fchren",
+            "type": "CollapsedSubprocess"
+        }
+    ],
+    "events": [
+        {
+            "id": "6",
+            "name": "Start Event",
+            "type": "StartNoneEvent"
+        },
+        {
+            "id": "7",
+            "name": "End Event",
+            "type": "EndNoneEvent"
+        }
+    ],
+    "gateways": [
+        {
+            "id": "8",
+            "type": "Parallel"
+        },
+        {
+            "id": "9",
+            "type": "Parallel"
+        },
+        {
+            "id": "10",
+            "type": "Parallel"
+        }
+    ],
+    "pools": [
+        {
+            "id": "11",
+            "name": "Harro H\u00f6fliger Verpackungsmaschinen GmbH",
+            "lanes": [
+                {
+                    "id": "12",
+                    "name": "Produktion / Design und Entwicklung",
+                    "elemRefs": [
+                        "0",
+                        "1",
+                        "2",
+                        "3",
+                        "4",
+                        "5",
+                        "6",
+                        "7",
+                        "8",
+                        "9",
+                        "10"
+                    ]
+                }
+            ]
+        }
+    ],
+    "sequenceFlows": [],
+    "messageFlows": []
+}

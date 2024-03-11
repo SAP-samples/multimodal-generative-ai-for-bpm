@@ -1,0 +1,153 @@
+{
+    "tasks": [
+        {
+            "id": "sid-2554CB31-BD10-4DCA-8FBE-0875412B6681",
+            "name": "zum PC gehen",
+            "type": "Task"
+        },
+        {
+            "id": "sid-50A7D182-6241-40A2-A413-94D7E0CFC80A",
+            "name": "B\u00fccher suchen",
+            "type": "Task"
+        },
+        {
+            "id": "sid-D9EB5E63-E8D2-4874-9485-9128C456D6B9",
+            "name": "zur Ausleihtheke gehen",
+            "type": "Task"
+        },
+        {
+            "id": "sid-290A8218-F220-493D-A584-11AAB63003D1",
+            "name": "bekomt keine B\u00fccher",
+            "type": "Task"
+        },
+        {
+            "id": "sid-59429F59-A007-4C12-9C15-BD39EA516699",
+            "name": "bekommt B\u00fccher",
+            "type": "Task"
+        },
+        {
+            "id": "sid-F934250E-E325-4EF1-950C-CF9D090A6C49",
+            "name": "Ausweis Pr\u00fcfen",
+            "type": "Task"
+        }
+    ],
+    "events": [
+        {
+            "id": "sid-F88B2099-FCB8-4D0D-A3A7-F9875E98955F",
+            "name": "Bib betreten",
+            "type": "StartNoneEvent"
+        },
+        {
+            "id": "sid-F1A7DB13-D6F3-4DEF-9C85-770848F81966",
+            "name": "verl\u00e4sst Bib",
+            "type": "EndNoneEvent"
+        },
+        {
+            "id": "sid-E8C6553F-F21B-4BB3-BF88-63BD34AACD2B",
+            "name": "Zeit vergangen",
+            "type": "IntermediateTimerEvent"
+        }
+    ],
+    "gateways": [
+        {
+            "id": "sid-42B60C64-8D31-4556-84FA-5C1BFF2CEF2D",
+            "type": "Exclusive"
+        },
+        {
+            "id": "sid-9508C5B2-276A-49CE-BE69-F67E6612C172",
+            "name": "Ausweis g\u00fcltig?",
+            "type": "Exclusive"
+        }
+    ],
+    "pools": [
+        {
+            "id": "sid-B6F643C1-C9A0-41CA-9E43-44071EBC60A8",
+            "name": "Bibliothek",
+            "lanes": [
+                {
+                    "id": "sid-D9524E4B-7D77-4DEF-BEBD-AD4A7852DC84",
+                    "name": "Student",
+                    "elemRefs": [
+                        "sid-2554CB31-BD10-4DCA-8FBE-0875412B6681",
+                        "sid-50A7D182-6241-40A2-A413-94D7E0CFC80A",
+                        "sid-D9EB5E63-E8D2-4874-9485-9128C456D6B9",
+                        "sid-290A8218-F220-493D-A584-11AAB63003D1",
+                        "sid-59429F59-A007-4C12-9C15-BD39EA516699",
+                        "sid-F88B2099-FCB8-4D0D-A3A7-F9875E98955F",
+                        "sid-F1A7DB13-D6F3-4DEF-9C85-770848F81966",
+                        "sid-E8C6553F-F21B-4BB3-BF88-63BD34AACD2B",
+                        "sid-42B60C64-8D31-4556-84FA-5C1BFF2CEF2D"
+                    ]
+                },
+                {
+                    "id": "sid-1EA1BB89-6A01-494B-B37C-6AD41D8D0E27",
+                    "name": "Bibliothekspersonal",
+                    "elemRefs": [
+                        "sid-F934250E-E325-4EF1-950C-CF9D090A6C49",
+                        "sid-9508C5B2-276A-49CE-BE69-F67E6612C172"
+                    ]
+                }
+            ]
+        }
+    ],
+    "messageFlows": [],
+    "sequenceFlows": [
+        {
+            "id": "sid-2584D28A-719F-4046-9CB5-592E6EC55EB9",
+            "targetRef": "sid-D9EB5E63-E8D2-4874-9485-9128C456D6B9",
+            "sourceRef": "sid-50A7D182-6241-40A2-A413-94D7E0CFC80A"
+        },
+        {
+            "id": "sid-D2D4A01D-FB49-422E-B678-453D0E1F185D",
+            "targetRef": "sid-F1A7DB13-D6F3-4DEF-9C85-770848F81966",
+            "sourceRef": "sid-42B60C64-8D31-4556-84FA-5C1BFF2CEF2D"
+        },
+        {
+            "id": "sid-17DCF807-94CC-47D0-915B-69B50D86C0C0",
+            "targetRef": "sid-42B60C64-8D31-4556-84FA-5C1BFF2CEF2D",
+            "sourceRef": "sid-290A8218-F220-493D-A584-11AAB63003D1"
+        },
+        {
+            "id": "sid-B78A67A5-6CB7-4A30-9B90-73C1BFBEDC78",
+            "targetRef": "sid-9508C5B2-276A-49CE-BE69-F67E6612C172",
+            "sourceRef": "sid-F934250E-E325-4EF1-950C-CF9D090A6C49"
+        },
+        {
+            "id": "sid-D358C9D5-C038-4F40-B5BC-618A28BA3043",
+            "targetRef": "sid-F934250E-E325-4EF1-950C-CF9D090A6C49",
+            "sourceRef": "sid-D9EB5E63-E8D2-4874-9485-9128C456D6B9"
+        },
+        {
+            "id": "sid-A702E849-4881-416F-948E-826CA0C79A05",
+            "targetRef": "sid-290A8218-F220-493D-A584-11AAB63003D1",
+            "condition": "Nein",
+            "sourceRef": "sid-9508C5B2-276A-49CE-BE69-F67E6612C172"
+        },
+        {
+            "id": "sid-088E9C62-517D-424B-9847-37B66710E403",
+            "targetRef": "sid-2554CB31-BD10-4DCA-8FBE-0875412B6681",
+            "sourceRef": "sid-F88B2099-FCB8-4D0D-A3A7-F9875E98955F"
+        },
+        {
+            "id": "sid-2CF02AC7-6149-4B60-B0F4-5C13EA9C5511",
+            "targetRef": "sid-50A7D182-6241-40A2-A413-94D7E0CFC80A",
+            "sourceRef": "sid-E8C6553F-F21B-4BB3-BF88-63BD34AACD2B"
+        },
+        {
+            "id": "sid-0BFD112E-BB89-45BE-93F8-F39F6A835B02",
+            "targetRef": "sid-E8C6553F-F21B-4BB3-BF88-63BD34AACD2B",
+            "sourceRef": "sid-2554CB31-BD10-4DCA-8FBE-0875412B6681"
+        },
+        {
+            "id": "sid-F0D97898-6071-4081-BC65-8DA7C9E251AF",
+            "targetRef": "sid-59429F59-A007-4C12-9C15-BD39EA516699",
+            "condition": "Ja",
+            "sourceRef": "sid-9508C5B2-276A-49CE-BE69-F67E6612C172"
+        },
+        {
+            "id": "sid-061220E3-E51D-42AD-8537-327B1786CF77",
+            "targetRef": "sid-42B60C64-8D31-4556-84FA-5C1BFF2CEF2D",
+            "sourceRef": "sid-59429F59-A007-4C12-9C15-BD39EA516699"
+        }
+    ]
+}

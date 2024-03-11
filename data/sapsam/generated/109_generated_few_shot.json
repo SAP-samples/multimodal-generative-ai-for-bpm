@@ -1,0 +1,98 @@
+{
+    "tasks": [
+        {
+            "id": "0",
+            "name": "Bericht anfertigen",
+            "type": "Task"
+        },
+        {
+            "id": "1",
+            "name": "Bericht lesen",
+            "type": "Task"
+        },
+        {
+            "id": "2",
+            "name": "Genehmigung senden",
+            "type": "Task"
+        },
+        {
+            "id": "3",
+            "name": "Beratungs-leistung nach verschiedenen Eigenschaften formulieren",
+            "type": "Task"
+        }
+    ],
+    "events": [
+        {
+            "id": "4",
+            "name": "Beratungsleistung formulieren",
+            "type": "StartNoneEvent"
+        },
+        {
+            "id": "5",
+            "name": "Beratungsleistung formuliert",
+            "type": "EndNoneEvent"
+        }
+    ],
+    "gateways": [],
+    "pools": [
+        {
+            "id": "6",
+            "name": "SoKnow",
+            "lanes": [
+                {
+                    "id": "7",
+                    "name": "Consulting",
+                    "elemRefs": [
+                        "0",
+                        "3",
+                        "4",
+                        "5"
+                    ]
+                },
+                {
+                    "id": "8",
+                    "name": "Gesch\u00e4ftsleitung",
+                    "elemRefs": [
+                        "1",
+                        "2"
+                    ]
+                }
+            ]
+        }
+    ],
+    "sequenceFlows": [
+        {
+            "id": "9",
+            "sourceRef": "4",
+            "targetRef": "0"
+        },
+        {
+            "id": "10",
+            "sourceRef": "0",
+            "targetRef": "1"
+        },
+        {
+            "id": "11",
+            "sourceRef": "1",
+            "targetRef": "2"
+        },
+        {
+            "id": "12",
+            "sourceRef": "2",
+            "targetRef": "3"
+        },
+        {
+            "id": "13",
+            "sourceRef": "3",
+            "targetRef": "5"
+        }
+    ],
+    "messageFlows": [
+        {
+            "id": "14",
+            "sourceRef": "0",
+            "targetRef": "1",
+            "label": "Bericht"
+        }
+    ]
+}

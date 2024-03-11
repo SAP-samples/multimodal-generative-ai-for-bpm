@@ -1,0 +1,178 @@
+{
+    "tasks": [
+        {
+            "id": "0",
+            "name": "Prepare dough",
+            "type": "Task"
+        },
+        {
+            "id": "1",
+            "name": "Prepare cooking paper",
+            "type": "Task"
+        },
+        {
+            "id": "2",
+            "name": "Set up delivery",
+            "type": "Task"
+        },
+        {
+            "id": "3",
+            "name": "Prepare muffins",
+            "type": "Task"
+        },
+        {
+            "id": "4",
+            "name": "Cook muffins",
+            "type": "Task"
+        },
+        {
+            "id": "5",
+            "name": "Dispatch muffins",
+            "type": "Task"
+        },
+        {
+            "id": "6",
+            "name": "Payment",
+            "type": "Task"
+        }
+    ],
+    "events": [
+        {
+            "id": "7",
+            "name": "New Order",
+            "type": "StartNoneEvent"
+        },
+        {
+            "id": "8",
+            "name": "End of phase 1 tasks",
+            "type": "IntermediateNoneEvent"
+        },
+        {
+            "id": "9",
+            "name": "End of the phase 3",
+            "type": "IntermediateNoneEvent"
+        },
+        {
+            "id": "10",
+            "name": "End of process",
+            "type": "EndNoneEvent"
+        }
+    ],
+    "gateways": [
+        {
+            "id": "11",
+            "name": "Phase 1 tasks in MyMuffin",
+            "type": "Parallel"
+        },
+        {
+            "id": "12",
+            "name": "Requirements for phase 3",
+            "type": "Parallel"
+        },
+        {
+            "id": "13",
+            "type": "Exclusive"
+        }
+    ],
+    "pools": [
+        {
+            "id": "14",
+            "name": "MyMuffin",
+            "lanes": [
+                {
+                    "id": "15",
+                    "name": "Lane",
+                    "elemRefs": [
+                        "0",
+                        "1",
+                        "2",
+                        "3",
+                        "4",
+                        "5",
+                        "6",
+                        "7",
+                        "8",
+                        "9",
+                        "10",
+                        "11",
+                        "12",
+                        "13"
+                    ]
+                }
+            ]
+        }
+    ],
+    "sequenceFlows": [
+        {
+            "id": "16",
+            "sourceRef": "7",
+            "targetRef": "11"
+        },
+        {
+            "id": "17",
+            "sourceRef": "11",
+            "targetRef": "0"
+        },
+        {
+            "id": "18",
+            "sourceRef": "11",
+            "targetRef": "1"
+        },
+        {
+            "id": "19",
+            "sourceRef": "11",
+            "targetRef": "2"
+        },
+        {
+            "id": "20",
+            "sourceRef": "0",
+            "targetRef": "8"
+        },
+        {
+            "id": "21",
+            "sourceRef": "1",
+            "targetRef": "8"
+        },
+        {
+            "id": "22",
+            "sourceRef": "2",
+            "targetRef": "8"
+        },
+        {
+            "id": "23",
+            "sourceRef": "8",
+            "targetRef": "3"
+        },
+        {
+            "id": "24",
+            "sourceRef": "3",
+            "targetRef": "4"
+        },
+        {
+            "id": "25",
+            "sourceRef": "4",
+            "targetRef": "12"
+        },
+        {
+            "id": "26",
+            "sourceRef": "12",
+            "targetRef": "6"
+        },
+        {
+            "id": "27",
+            "sourceRef": "6",
+            "targetRef": "9"
+        },
+        {
+            "id": "28",
+            "sourceRef": "9",
+            "targetRef": "5"
+        },
+        {
+            "id": "29",
+            "sourceRef": "5",
+            "targetRef": "10"
+        }
+    ],
+    "messageFlows": []
+}

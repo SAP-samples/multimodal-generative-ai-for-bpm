@@ -1,0 +1,279 @@
+{
+    "tasks": [
+        {
+            "id": "0",
+            "name": "Programmstart",
+            "type": "Service"
+        },
+        {
+            "id": "1",
+            "name": "Programm starten",
+            "type": "Task"
+        },
+        {
+            "id": "2",
+            "name": "Tutorial starten",
+            "type": "User"
+        },
+        {
+            "id": "3",
+            "name": "mit Standard Tastenbelegung starten",
+            "type": "User"
+        },
+        {
+            "id": "4",
+            "name": "Tutorial f\u00fcr die features am Controller",
+            "type": "CollapsedSubprocess"
+        },
+        {
+            "id": "5",
+            "name": "Einf\u00fchrung beendet",
+            "type": "Service"
+        },
+        {
+            "id": "6",
+            "name": "XOR-Eingang",
+            "type": "Service"
+        },
+        {
+            "id": "7",
+            "name": "Ank\u00fcndigung Auswahlmen\u00fc",
+            "type": "Task"
+        },
+        {
+            "id": "8",
+            "name": "Men\u00fcwahl",
+            "type": "Service"
+        },
+        {
+            "id": "9",
+            "name": "Spiel Fortsetzen",
+            "type": "Task"
+        },
+        {
+            "id": "10",
+            "name": "Spielst\u00e4nde abrufen",
+            "type": "CollapsedSubprocess"
+        },
+        {
+            "id": "11",
+            "name": "Neues Spiel starten",
+            "type": "Task"
+        },
+        {
+            "id": "12",
+            "name": "Spiel starten",
+            "type": "CollapsedSubprocess"
+        },
+        {
+            "id": "13",
+            "name": "Umgebungsmusik einspielen",
+            "type": "Task"
+        },
+        {
+            "id": "14",
+            "name": "Umgebungsger\u00e4usche erzeugen",
+            "type": "Task"
+        },
+        {
+            "id": "15",
+            "name": "Das Spiel wurde geladen",
+            "type": "Service"
+        },
+        {
+            "id": "16",
+            "name": "Eingabeaufforderung",
+            "type": "Task"
+        },
+        {
+            "id": "17",
+            "name": "Spielfeld gesamt bewegt",
+            "type": "Task"
+        },
+        {
+            "id": "18",
+            "name": "Spieler wird in Spielwelt beteiligt",
+            "type": "Task"
+        }
+    ],
+    "events": [
+        {
+            "id": "19",
+            "name": "Programmstart",
+            "type": "StartNoneEvent"
+        },
+        {
+            "id": "20",
+            "name": "gestartet",
+            "type": "EndNoneEvent"
+        }
+    ],
+    "gateways": [
+        {
+            "id": "21",
+            "name": "Exclusive Gateway",
+            "type": "Exclusive"
+        },
+        {
+            "id": "22",
+            "name": "Exclusive (XOR) Gateway",
+            "type": "Exclusive"
+        },
+        {
+            "id": "23",
+            "name": "Parallel Gateway",
+            "type": "Parallel"
+        }
+    ],
+    "pools": [
+        {
+            "id": "24",
+            "name": "AO-Software",
+            "lanes": [
+                {
+                    "id": "25",
+                    "name": "Spieler",
+                    "elemRefs": [
+                        "0",
+                        "1",
+                        "2",
+                        "3",
+                        "4",
+                        "5",
+                        "6",
+                        "7",
+                        "8",
+                        "9",
+                        "10",
+                        "11",
+                        "12",
+                        "13",
+                        "14",
+                        "15",
+                        "16",
+                        "17",
+                        "18",
+                        "19",
+                        "20",
+                        "21",
+                        "22",
+                        "23"
+                    ]
+                },
+                {
+                    "id": "26",
+                    "name": "System",
+                    "elemRefs": []
+                },
+                {
+                    "id": "27",
+                    "name": "UI - Auswahl",
+                    "elemRefs": []
+                }
+            ]
+        }
+    ],
+    "sequenceFlows": [
+        {
+            "id": "28",
+            "sourceRef": "19",
+            "targetRef": "0"
+        },
+        {
+            "id": "29",
+            "sourceRef": "0",
+            "targetRef": "21"
+        },
+        {
+            "id": "30",
+            "sourceRef": "21",
+            "targetRef": "1"
+        },
+        {
+            "id": "31",
+            "sourceRef": "21",
+            "targetRef": "2"
+        },
+        {
+            "id": "32",
+            "sourceRef": "2",
+            "targetRef": "3"
+        },
+        {
+            "id": "33",
+            "sourceRef": "2",
+            "targetRef": "4"
+        },
+        {
+            "id": "34",
+            "sourceRef": "4",
+            "targetRef": "5"
+        },
+        {
+            "id": "35",
+            "sourceRef": "5",
+            "targetRef": "6"
+        },
+        {
+            "id": "36",
+            "sourceRef": "6",
+            "targetRef": "7"
+        },
+        {
+            "id": "37",
+            "sourceRef": "7",
+            "targetRef": "22"
+        },
+        {
+            "id": "38",
+            "sourceRef": "22",
+            "targetRef": "8"
+        },
+        {
+            "id": "39",
+            "sourceRef": "22",
+            "targetRef": "9"
+        },
+        {
+            "id": "40",
+            "sourceRef": "22",
+            "targetRef": "11"
+        },
+        {
+            "id": "41",
+            "sourceRef": "9",
+            "targetRef": "10"
+        },
+        {
+            "id": "42",
+            "sourceRef": "11",
+            "targetRef": "12"
+        },
+        {
+            "id": "43",
+            "sourceRef": "12",
+            "targetRef": "13"
+        },
+        {
+            "id": "44",
+            "sourceRef": "12",
+            "targetRef": "14"
+        },
+        {
+            "id": "45",
+            "sourceRef": "12",
+            "targetRef": "15"
+        },
+        {
+            "id": "46",
+            "sourceRef": "15",
+            "targetRef": "16"
+        },
+        {
+            "id": "47",
+            "sourceRef": "16",
+            "targetRef": "20"
+        }
+    ],
+    "messageFlows": []
+}

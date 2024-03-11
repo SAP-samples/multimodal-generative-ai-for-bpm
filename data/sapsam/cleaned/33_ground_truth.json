@@ -1,0 +1,167 @@
+{
+    "tasks": [
+        {
+            "id": "sid-C8451515-DCB5-4E17-B042-D0A56E8D2E87",
+            "name": "Marktanalyse durchf\u00fchren",
+            "type": "Task"
+        },
+        {
+            "id": "sid-D7B5CB2D-4C62-4418-BBAD-2CE1D3EA9120",
+            "name": "Idee an Projektleitung weitergeben",
+            "type": "Task"
+        },
+        {
+            "id": "sid-FE0242CB-3C70-4CED-A922-ED636E6E29B7",
+            "name": "\u00dcberpr\u00fcfung",
+            "type": "Task"
+        },
+        {
+            "id": "sid-B37B6D39-16F0-4E2D-8E58-FD1AE3B92CB3",
+            "name": "Idee nicht genehmigen",
+            "type": "Task"
+        },
+        {
+            "id": "sid-A26E4456-A454-4FD3-8C8B-24C88AEE80F0",
+            "name": "Idee genehmigen",
+            "type": "Task"
+        },
+        {
+            "id": "sid-094B3C02-71C4-4A79-A3CC-2D2A139F8CDA",
+            "name": "Ideen finden",
+            "type": "Task"
+        }
+    ],
+    "events": [
+        {
+            "id": "sid-91C8A1E6-87CC-4DD6-BE9E-392482B56120",
+            "name": "Technologiebedarf analysieren",
+            "type": "StartNoneEvent"
+        },
+        {
+            "id": "sid-0ABAF214-55BF-4196-B04E-5F2C06E6CB91",
+            "name": "Neue Technologien  herasusgefunden",
+            "type": "EndNoneEvent"
+        }
+    ],
+    "gateways": [
+        {
+            "id": "sid-76774278-414E-48D7-BD13-4187AFF922DB",
+            "type": "Parallel"
+        },
+        {
+            "id": "sid-8E354D8E-9CAB-434D-86BC-37BC4F28AD5E",
+            "type": "Parallel"
+        },
+        {
+            "id": "sid-C69AFBC5-9A68-4B18-BB9D-0431BB8C044A",
+            "name": "Idee genehmigen ?",
+            "type": "Exclusive"
+        },
+        {
+            "id": "sid-BDA05F29-1CA7-44EE-99AC-488411B7D0AC",
+            "type": "Exclusive"
+        }
+    ],
+    "pools": [
+        {
+            "id": "sid-F15F2391-0E66-456F-96DE-A88D2B7AA1F9",
+            "name": "SoKnow",
+            "lanes": [
+                {
+                    "id": "sid-F920995D-80CC-4499-AF07-A01202368186",
+                    "name": "Mitarbeiter",
+                    "elemRefs": [
+                        "sid-C8451515-DCB5-4E17-B042-D0A56E8D2E87",
+                        "sid-D7B5CB2D-4C62-4418-BBAD-2CE1D3EA9120",
+                        "sid-FE0242CB-3C70-4CED-A922-ED636E6E29B7",
+                        "sid-B37B6D39-16F0-4E2D-8E58-FD1AE3B92CB3",
+                        "sid-A26E4456-A454-4FD3-8C8B-24C88AEE80F0",
+                        "sid-91C8A1E6-87CC-4DD6-BE9E-392482B56120",
+                        "sid-0ABAF214-55BF-4196-B04E-5F2C06E6CB91",
+                        "sid-76774278-414E-48D7-BD13-4187AFF922DB",
+                        "sid-8E354D8E-9CAB-434D-86BC-37BC4F28AD5E",
+                        "sid-C69AFBC5-9A68-4B18-BB9D-0431BB8C044A",
+                        "sid-BDA05F29-1CA7-44EE-99AC-488411B7D0AC"
+                    ]
+                },
+                {
+                    "id": "sid-A4F6AE2B-658E-4C70-ABAF-95F3849E8875",
+                    "name": "Entwickler",
+                    "elemRefs": [
+                        "sid-094B3C02-71C4-4A79-A3CC-2D2A139F8CDA"
+                    ]
+                }
+            ]
+        }
+    ],
+    "messageFlows": [],
+    "sequenceFlows": [
+        {
+            "id": "sid-E4BF3460-529D-4F53-90D1-02593B1777C4",
+            "targetRef": "sid-76774278-414E-48D7-BD13-4187AFF922DB",
+            "sourceRef": "sid-91C8A1E6-87CC-4DD6-BE9E-392482B56120"
+        },
+        {
+            "id": "sid-52D1ADF8-E520-4D1D-8B7E-168223C3D8F7",
+            "targetRef": "sid-C8451515-DCB5-4E17-B042-D0A56E8D2E87",
+            "sourceRef": "sid-76774278-414E-48D7-BD13-4187AFF922DB"
+        },
+        {
+            "id": "sid-21AB6B88-6237-4A6E-9785-3775C3DCE39A",
+            "targetRef": "sid-8E354D8E-9CAB-434D-86BC-37BC4F28AD5E",
+            "sourceRef": "sid-FE0242CB-3C70-4CED-A922-ED636E6E29B7"
+        },
+        {
+            "id": "sid-DB572F9C-F2A2-43BF-8B22-59E58B027062",
+            "targetRef": "sid-094B3C02-71C4-4A79-A3CC-2D2A139F8CDA",
+            "sourceRef": "sid-76774278-414E-48D7-BD13-4187AFF922DB"
+        },
+        {
+            "id": "sid-1D7A5AE7-5F41-4CE3-97B4-F6FA909ED9ED",
+            "targetRef": "sid-FE0242CB-3C70-4CED-A922-ED636E6E29B7",
+            "sourceRef": "sid-094B3C02-71C4-4A79-A3CC-2D2A139F8CDA"
+        },
+        {
+            "id": "sid-8FCA97FD-A0FA-4887-A3E3-51993FF6A186",
+            "targetRef": "sid-C69AFBC5-9A68-4B18-BB9D-0431BB8C044A",
+            "sourceRef": "sid-D7B5CB2D-4C62-4418-BBAD-2CE1D3EA9120"
+        },
+        {
+            "id": "sid-C99777EA-A98B-4ED9-8AF8-938D124D6CAA",
+            "targetRef": "sid-B37B6D39-16F0-4E2D-8E58-FD1AE3B92CB3",
+            "condition": "nein",
+            "sourceRef": "sid-C69AFBC5-9A68-4B18-BB9D-0431BB8C044A"
+        },
+        {
+            "id": "sid-ED75AB47-259C-4FA6-8940-A6F5207CDF6D",
+            "targetRef": "sid-BDA05F29-1CA7-44EE-99AC-488411B7D0AC",
+            "sourceRef": "sid-A26E4456-A454-4FD3-8C8B-24C88AEE80F0"
+        },
+        {
+            "id": "sid-96A79E04-28F3-4515-ADC5-6B6F02381DFF",
+            "targetRef": "sid-BDA05F29-1CA7-44EE-99AC-488411B7D0AC",
+            "sourceRef": "sid-B37B6D39-16F0-4E2D-8E58-FD1AE3B92CB3"
+        },
+        {
+            "id": "sid-8E544573-27AC-41A4-B47E-6D9BEE342E60",
+            "targetRef": "sid-0ABAF214-55BF-4196-B04E-5F2C06E6CB91",
+            "sourceRef": "sid-BDA05F29-1CA7-44EE-99AC-488411B7D0AC"
+        },
+        {
+            "id": "sid-4AD31757-4B30-418E-90EF-A06C99EF959D",
+            "targetRef": "sid-8E354D8E-9CAB-434D-86BC-37BC4F28AD5E",
+            "sourceRef": "sid-C8451515-DCB5-4E17-B042-D0A56E8D2E87"
+        },
+        {
+            "id": "sid-FC74D4FB-EB09-4CC0-9A6D-C8CB4284DA1F",
+            "targetRef": "sid-D7B5CB2D-4C62-4418-BBAD-2CE1D3EA9120",
+            "sourceRef": "sid-8E354D8E-9CAB-434D-86BC-37BC4F28AD5E"
+        },
+        {
+            "id": "sid-9AB2A44F-C120-47FD-B4F6-03F514A8158E",
+            "targetRef": "sid-A26E4456-A454-4FD3-8C8B-24C88AEE80F0",
+            "condition": "ja",
+            "sourceRef": "sid-C69AFBC5-9A68-4B18-BB9D-0431BB8C044A"
+        }
+    ]
+}

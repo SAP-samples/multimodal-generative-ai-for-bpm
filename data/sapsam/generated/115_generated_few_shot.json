@@ -1,0 +1,125 @@
+{
+    "tasks": [
+        {
+            "id": "0",
+            "name": "Register Trade economics",
+            "type": "Task"
+        },
+        {
+            "id": "1",
+            "name": "Verify Ability to Trade",
+            "type": "Task"
+        },
+        {
+            "id": "2",
+            "name": "Execute Give-up",
+            "type": "Task"
+        },
+        {
+            "id": "3",
+            "name": "Fulfill Order",
+            "type": "Task"
+        },
+        {
+            "id": "4",
+            "name": "Register FX Trade",
+            "type": "Task"
+        }
+    ],
+    "events": [
+        {
+            "id": "5",
+            "name": "Request to Trade",
+            "type": "StartMessageEvent"
+        },
+        {
+            "id": "6",
+            "name": "End",
+            "type": "EndNoneEvent"
+        }
+    ],
+    "gateways": [
+        {
+            "id": "7",
+            "name": "Exclusive (XOR) Gateway",
+            "type": "Exclusive"
+        }
+    ],
+    "pools": [
+        {
+            "id": "8",
+            "name": "Customer",
+            "lanes": []
+        },
+        {
+            "id": "9",
+            "name": "Financial institution",
+            "lanes": [
+                {
+                    "id": "10",
+                    "name": "Lane",
+                    "elemRefs": [
+                        "0",
+                        "1",
+                        "2",
+                        "3",
+                        "4"
+                    ]
+                }
+            ]
+        }
+    ],
+    "sequenceFlows": [
+        {
+            "id": "11",
+            "sourceRef": "5",
+            "targetRef": "0"
+        },
+        {
+            "id": "12",
+            "sourceRef": "0",
+            "targetRef": "1"
+        },
+        {
+            "id": "13",
+            "sourceRef": "1",
+            "targetRef": "7"
+        },
+        {
+            "id": "14",
+            "sourceRef": "7",
+            "condition": "Yes",
+            "targetRef": "3"
+        },
+        {
+            "id": "15",
+            "sourceRef": "7",
+            "condition": "No",
+            "targetRef": "2"
+        },
+        {
+            "id": "16",
+            "sourceRef": "2",
+            "targetRef": "4"
+        },
+        {
+            "id": "17",
+            "sourceRef": "4",
+            "targetRef": "6"
+        }
+    ],
+    "messageFlows": [
+        {
+            "id": "18",
+            "sourceRef": "8",
+            "targetRef": "5",
+            "label": "Trade Request"
+        },
+        {
+            "id": "19",
+            "sourceRef": "6",
+            "targetRef": "8",
+            "label": "Trade Confirmation"
+        }
+    ]
+}

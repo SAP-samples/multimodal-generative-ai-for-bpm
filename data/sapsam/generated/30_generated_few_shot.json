@@ -1,0 +1,335 @@
+{
+    "tasks": [
+        {
+            "id": "0",
+            "name": "Enter the store",
+            "type": "Task"
+        },
+        {
+            "id": "1",
+            "name": "Collects his/her order",
+            "type": "Task"
+        },
+        {
+            "id": "2",
+            "name": "Look for a specific service",
+            "type": "Task"
+        },
+        {
+            "id": "3",
+            "name": "Take his/her ticket representing his/her turn",
+            "type": "Task"
+        },
+        {
+            "id": "4",
+            "name": "Choose the service",
+            "type": "Task"
+        },
+        {
+            "id": "5",
+            "name": "Look for the product and specific criteria",
+            "type": "Task"
+        },
+        {
+            "id": "6",
+            "name": "Check how many tickets are ahead",
+            "type": "Task"
+        },
+        {
+            "id": "7",
+            "name": "Client waits for his/her turn",
+            "type": "Task"
+        },
+        {
+            "id": "8",
+            "name": "Ask for a specific request",
+            "type": "Task"
+        },
+        {
+            "id": "9",
+            "name": "Prepare order",
+            "type": "Task"
+        },
+        {
+            "id": "10",
+            "name": "Deliver order",
+            "type": "Task"
+        },
+        {
+            "id": "11",
+            "name": "Register Request",
+            "type": "Task"
+        },
+        {
+            "id": "12",
+            "name": "Send the order request document",
+            "type": "Task"
+        },
+        {
+            "id": "13",
+            "name": "Adjust order status",
+            "type": "Task"
+        }
+    ],
+    "events": [
+        {
+            "id": "14",
+            "name": "New service",
+            "type": "StartNoneEvent"
+        },
+        {
+            "id": "15",
+            "name": "End",
+            "type": "EndNoneEvent"
+        },
+        {
+            "id": "16",
+            "name": "Process Ended",
+            "type": "EndNoneEvent"
+        },
+        {
+            "id": "17",
+            "name": "Order description",
+            "type": "StartMessageEvent"
+        },
+        {
+            "id": "18",
+            "name": "Preparation finished",
+            "type": "EndNoneEvent"
+        },
+        {
+            "id": "19",
+            "name": "Register time",
+            "type": "StartTimerEvent"
+        },
+        {
+            "id": "20",
+            "name": "Registering over",
+            "type": "EndNoneEvent"
+        },
+        {
+            "id": "21",
+            "name": "waiting time",
+            "type": "IntermediateTimerEvent"
+        }
+    ],
+    "gateways": [
+        {
+            "id": "22",
+            "name": "New request?",
+            "type": "Exclusive"
+        },
+        {
+            "id": "23",
+            "name": "Exclusive (XOR) Gateway",
+            "type": "Exclusive"
+        },
+        {
+            "id": "24",
+            "name": "Where is the ticket taken?",
+            "type": "Exclusive"
+        },
+        {
+            "id": "25",
+            "name": "Are there enough requests to respond to customer demand?",
+            "type": "Exclusive"
+        }
+    ],
+    "pools": [
+        {
+            "id": "26",
+            "name": "Client",
+            "lanes": [
+                {
+                    "id": "27",
+                    "name": "Lane",
+                    "elemRefs": [
+                        "0",
+                        "1",
+                        "2",
+                        "3",
+                        "4",
+                        "5",
+                        "6",
+                        "7",
+                        "8",
+                        "14",
+                        "15",
+                        "16",
+                        "21"
+                    ]
+                }
+            ]
+        },
+        {
+            "id": "28",
+            "name": "Shop Assistants' Team",
+            "lanes": [
+                {
+                    "id": "29",
+                    "name": "Lane",
+                    "elemRefs": [
+                        "9",
+                        "10",
+                        "13",
+                        "17",
+                        "18"
+                    ]
+                }
+            ]
+        },
+        {
+            "id": "30",
+            "name": "Request Assistant",
+            "lanes": [
+                {
+                    "id": "31",
+                    "name": "Lane",
+                    "elemRefs": [
+                        "11",
+                        "12",
+                        "19",
+                        "20",
+                        "22",
+                        "23",
+                        "24",
+                        "25"
+                    ]
+                }
+            ]
+        }
+    ],
+    "sequenceFlows": [
+        {
+            "id": "32",
+            "sourceRef": "14",
+            "targetRef": "0"
+        },
+        {
+            "id": "33",
+            "sourceRef": "0",
+            "targetRef": "22"
+        },
+        {
+            "id": "34",
+            "sourceRef": "22",
+            "targetRef": "1",
+            "condition": "No"
+        },
+        {
+            "id": "35",
+            "sourceRef": "1",
+            "targetRef": "15"
+        },
+        {
+            "id": "36",
+            "sourceRef": "22",
+            "targetRef": "2",
+            "condition": "Yes"
+        },
+        {
+            "id": "37",
+            "sourceRef": "2",
+            "targetRef": "23"
+        },
+        {
+            "id": "38",
+            "sourceRef": "23",
+            "targetRef": "3"
+        },
+        {
+            "id": "39",
+            "sourceRef": "3",
+            "targetRef": "24"
+        },
+        {
+            "id": "40",
+            "sourceRef": "24",
+            "targetRef": "4"
+        },
+        {
+            "id": "41",
+            "sourceRef": "4",
+            "targetRef": "21"
+        },
+        {
+            "id": "42",
+            "sourceRef": "21",
+            "targetRef": "5"
+        },
+        {
+            "id": "43",
+            "sourceRef": "5",
+            "targetRef": "6"
+        },
+        {
+            "id": "44",
+            "sourceRef": "6",
+            "targetRef": "7"
+        },
+        {
+            "id": "45",
+            "sourceRef": "7",
+            "targetRef": "8"
+        },
+        {
+            "id": "46",
+            "sourceRef": "8",
+            "targetRef": "16"
+        },
+        {
+            "id": "47",
+            "sourceRef": "17",
+            "targetRef": "9"
+        },
+        {
+            "id": "48",
+            "sourceRef": "9",
+            "targetRef": "10"
+        },
+        {
+            "id": "49",
+            "sourceRef": "10",
+            "targetRef": "18"
+        },
+        {
+            "id": "50",
+            "sourceRef": "19",
+            "targetRef": "11"
+        },
+        {
+            "id": "51",
+            "sourceRef": "11",
+            "targetRef": "25"
+        },
+        {
+            "id": "52",
+            "sourceRef": "25",
+            "targetRef": "12"
+        },
+        {
+            "id": "53",
+            "sourceRef": "12",
+            "targetRef": "20"
+        },
+        {
+            "id": "54",
+            "sourceRef": "13",
+            "targetRef": "16"
+        }
+    ],
+    "messageFlows": [
+        {
+            "id": "55",
+            "sourceRef": "18",
+            "targetRef": "13",
+            "label": "Message"
+        },
+        {
+            "id": "56",
+            "sourceRef": "20",
+            "targetRef": "25",
+            "label": "Message"
+        }
+    ]
+}

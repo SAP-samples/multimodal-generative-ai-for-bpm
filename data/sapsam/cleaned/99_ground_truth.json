@@ -1,0 +1,165 @@
+{
+    "tasks": [
+        {
+            "id": "sid-A07BAF56-5DBF-4D43-B6EC-91FC7CE8F9E8",
+            "name": "Rechnungen erhalten",
+            "type": "Task"
+        },
+        {
+            "id": "sid-01E74157-0FB1-48C1-9992-01B7EE04EA1B",
+            "name": "Online Bank anmelden",
+            "type": "Task"
+        },
+        {
+            "id": "sid-1A46B1D8-619D-41B2-9235-AC8D71257B29",
+            "name": "\u00dcberweisung ausf\u00fcllen",
+            "type": "Task"
+        },
+        {
+            "id": "sid-B71AC80E-845E-4B40-8DF5-F8BCCF993EB1",
+            "name": "Unterlagen ausdrucken",
+            "type": "Task"
+        },
+        {
+            "id": "sid-29936330-1FF7-400A-8184-2BA66C8A026C",
+            "name": "Nachfragen beantworten",
+            "type": "Task"
+        },
+        {
+            "id": "sid-91D81A59-C59A-4D05-9B4F-33FBD46864E3",
+            "name": "Versp\u00e4tete Zahlungen bearbeiten (Soll-Prozess)",
+            "type": "CollapsedSubprocess"
+        }
+    ],
+    "events": [
+        {
+            "id": "sid-7F38CA99-ABC7-41F0-A5EC-FD2BC7E3E570",
+            "name": "Rechnungsbearbeitung",
+            "type": "StartNoneEvent"
+        },
+        {
+            "id": "sid-455059CA-F16F-46D1-8D36-587F7656C370",
+            "name": "Unterlagen gesendet",
+            "type": "IntermediateMessageEventThrowing"
+        },
+        {
+            "id": "sid-8C9C9F77-5042-46BF-BE63-33F03C8A1683",
+            "name": "Rechnung bearbeitet",
+            "type": "EndNoneEvent"
+        }
+    ],
+    "gateways": [
+        {
+            "id": "sid-3FE6F706-7D89-4BA7-917A-6906BF792E56",
+            "name": "Versp\u00e4tete Zahlungen?",
+            "type": "Exclusive"
+        },
+        {
+            "id": "sid-2B43F635-CF29-4EFB-AAC2-A93D18BC361E",
+            "type": "Exclusive"
+        }
+    ],
+    "pools": [
+        {
+            "id": "sid-AE40FE70-6F25-46EF-A3A8-DFCE25AF19D3",
+            "name": "SoKnow",
+            "lanes": [
+                {
+                    "id": "sid-3ABC26A7-F017-4937-9762-510FBF7B39DE",
+                    "name": "Finanzabteilung",
+                    "elemRefs": [
+                        "sid-A07BAF56-5DBF-4D43-B6EC-91FC7CE8F9E8",
+                        "sid-01E74157-0FB1-48C1-9992-01B7EE04EA1B",
+                        "sid-1A46B1D8-619D-41B2-9235-AC8D71257B29",
+                        "sid-B71AC80E-845E-4B40-8DF5-F8BCCF993EB1",
+                        "sid-29936330-1FF7-400A-8184-2BA66C8A026C",
+                        "sid-91D81A59-C59A-4D05-9B4F-33FBD46864E3",
+                        "sid-7F38CA99-ABC7-41F0-A5EC-FD2BC7E3E570",
+                        "sid-455059CA-F16F-46D1-8D36-587F7656C370",
+                        "sid-8C9C9F77-5042-46BF-BE63-33F03C8A1683",
+                        "sid-3FE6F706-7D89-4BA7-917A-6906BF792E56",
+                        "sid-2B43F635-CF29-4EFB-AAC2-A93D18BC361E"
+                    ]
+                }
+            ]
+        },
+        {
+            "id": "sid-351AE42A-1B28-48BE-B322-6B669F1221D4",
+            "name": "Externer Gespr\u00e4chspartner",
+            "lanes": []
+        }
+    ],
+    "messageFlows": [
+        {
+            "id": "sid-26A028B6-B146-4C24-83CA-58EA791BC289",
+            "targetRef": "sid-351AE42A-1B28-48BE-B322-6B669F1221D4",
+            "label": "Unterlagen",
+            "sourceRef": "sid-455059CA-F16F-46D1-8D36-587F7656C370"
+        },
+        {
+            "id": "sid-78C4CABE-0781-4483-B58F-791E6720113A",
+            "targetRef": "sid-29936330-1FF7-400A-8184-2BA66C8A026C",
+            "label": "Unklarheiten",
+            "sourceRef": "sid-351AE42A-1B28-48BE-B322-6B669F1221D4"
+        }
+    ],
+    "sequenceFlows": [
+        {
+            "id": "sid-D761D6B7-E9EE-4442-80BF-50DB34DC8743",
+            "targetRef": "sid-01E74157-0FB1-48C1-9992-01B7EE04EA1B",
+            "sourceRef": "sid-A07BAF56-5DBF-4D43-B6EC-91FC7CE8F9E8"
+        },
+        {
+            "id": "sid-A0E2DAC3-A622-462B-9F4F-7C7C50E3195B",
+            "targetRef": "sid-A07BAF56-5DBF-4D43-B6EC-91FC7CE8F9E8",
+            "sourceRef": "sid-7F38CA99-ABC7-41F0-A5EC-FD2BC7E3E570"
+        },
+        {
+            "id": "sid-20E73310-0FDB-417F-89FE-80622B59B2F0",
+            "targetRef": "sid-1A46B1D8-619D-41B2-9235-AC8D71257B29",
+            "sourceRef": "sid-01E74157-0FB1-48C1-9992-01B7EE04EA1B"
+        },
+        {
+            "id": "sid-A0FA4D6C-A5F9-4B4A-A55A-B3759E04A40B",
+            "targetRef": "sid-B71AC80E-845E-4B40-8DF5-F8BCCF993EB1",
+            "sourceRef": "sid-1A46B1D8-619D-41B2-9235-AC8D71257B29"
+        },
+        {
+            "id": "sid-A97D1CEA-0F07-4C81-9C53-FB4EDB1D7323",
+            "targetRef": "sid-455059CA-F16F-46D1-8D36-587F7656C370",
+            "sourceRef": "sid-B71AC80E-845E-4B40-8DF5-F8BCCF993EB1"
+        },
+        {
+            "id": "sid-FA043F1B-2EB7-442A-8176-1AB4CFFC7C89",
+            "targetRef": "sid-29936330-1FF7-400A-8184-2BA66C8A026C",
+            "sourceRef": "sid-455059CA-F16F-46D1-8D36-587F7656C370"
+        },
+        {
+            "id": "sid-0051A673-68E1-452D-8E22-1D920D316E45",
+            "targetRef": "sid-3FE6F706-7D89-4BA7-917A-6906BF792E56",
+            "sourceRef": "sid-29936330-1FF7-400A-8184-2BA66C8A026C"
+        },
+        {
+            "id": "sid-E55637DD-69D5-4284-99AC-8152EB00A366",
+            "targetRef": "sid-91D81A59-C59A-4D05-9B4F-33FBD46864E3",
+            "condition": "Ja",
+            "sourceRef": "sid-3FE6F706-7D89-4BA7-917A-6906BF792E56"
+        },
+        {
+            "id": "sid-FEB3A566-EF42-4E4C-8E1F-73A52A468A92",
+            "targetRef": "sid-2B43F635-CF29-4EFB-AAC2-A93D18BC361E",
+            "sourceRef": "sid-91D81A59-C59A-4D05-9B4F-33FBD46864E3"
+        },
+        {
+            "id": "sid-D7EB55A8-3793-40AE-86DC-26E3831D16A9",
+            "targetRef": "sid-8C9C9F77-5042-46BF-BE63-33F03C8A1683",
+            "sourceRef": "sid-2B43F635-CF29-4EFB-AAC2-A93D18BC361E"
+        },
+        {
+            "id": "sid-4480108D-406C-4A46-A5E7-654AED969950",
+            "targetRef": "sid-2B43F635-CF29-4EFB-AAC2-A93D18BC361E",
+            "condition": "Nein",
+            "sourceRef": "sid-3FE6F706-7D89-4BA7-917A-6906BF792E56"
+        }
+    ]
+}

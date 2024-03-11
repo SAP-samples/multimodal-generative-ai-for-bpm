@@ -1,0 +1,195 @@
+{
+    "tasks": [
+        {
+            "id": "0",
+            "name": "TTCall System \u00f6ffnen",
+            "type": "Service"
+        },
+        {
+            "id": "1",
+            "name": "Datenbanken \u00f6ffnen",
+            "type": "Service"
+        },
+        {
+            "id": "2",
+            "name": "Datenbanken einlesen \u00f6ffnen",
+            "type": "Service"
+        },
+        {
+            "id": "3",
+            "name": "Projekt ausw\u00e4hlen",
+            "type": "Service"
+        },
+        {
+            "id": "4",
+            "name": "Weiter klicken",
+            "type": "Service"
+        },
+        {
+            "id": "5",
+            "name": "Datei klicken",
+            "type": "Service"
+        },
+        {
+            "id": "6",
+            "name": "Navigation zum richtigen Explorer Speicherort",
+            "type": "Service"
+        },
+        {
+            "id": "7",
+            "name": "Zuletzt erstellte Upload Excel ausw\u00e4hlen",
+            "type": "Service"
+        },
+        {
+            "id": "8",
+            "name": "Durch klick auf 'hinzuf\u00fcgen' als Importtabelle markieren",
+            "type": "Service"
+        },
+        {
+            "id": "9",
+            "name": "Konfiguration laden klicken",
+            "type": "Service"
+        },
+        {
+            "id": "10",
+            "name": "Fraud Konfiguration ausw\u00e4hlen",
+            "type": "Service"
+        },
+        {
+            "id": "11",
+            "name": "\u00dcbernehmen klicken",
+            "type": "Service"
+        },
+        {
+            "id": "12",
+            "name": "Importiere klicken",
+            "type": "Service"
+        },
+        {
+            "id": "13",
+            "name": "Fertigstellen klicken",
+            "type": "Service"
+        }
+    ],
+    "events": [
+        {
+            "id": "14",
+            "name": "Import abgeschlossen",
+            "type": "EndNoneEvent"
+        },
+        {
+            "id": "15",
+            "name": "Neue Importexcel abgespeichert",
+            "type": "StartNoneEvent"
+        }
+    ],
+    "gateways": [],
+    "pools": [
+        {
+            "id": "16",
+            "name": "TAS AG",
+            "lanes": [
+                {
+                    "id": "17",
+                    "name": "Team Fraud",
+                    "elemRefs": [
+                        "0",
+                        "1",
+                        "2",
+                        "3",
+                        "4",
+                        "5",
+                        "6",
+                        "7",
+                        "8",
+                        "9",
+                        "10",
+                        "11",
+                        "12",
+                        "13",
+                        "14",
+                        "15"
+                    ]
+                }
+            ]
+        }
+    ],
+    "sequenceFlows": [
+        {
+            "id": "18",
+            "sourceRef": "15",
+            "targetRef": "0"
+        },
+        {
+            "id": "19",
+            "sourceRef": "0",
+            "targetRef": "1"
+        },
+        {
+            "id": "20",
+            "sourceRef": "1",
+            "targetRef": "2"
+        },
+        {
+            "id": "21",
+            "sourceRef": "2",
+            "targetRef": "3"
+        },
+        {
+            "id": "22",
+            "sourceRef": "3",
+            "targetRef": "4"
+        },
+        {
+            "id": "23",
+            "sourceRef": "4",
+            "targetRef": "5"
+        },
+        {
+            "id": "24",
+            "sourceRef": "5",
+            "targetRef": "6"
+        },
+        {
+            "id": "25",
+            "sourceRef": "6",
+            "targetRef": "7"
+        },
+        {
+            "id": "26",
+            "sourceRef": "7",
+            "targetRef": "8"
+        },
+        {
+            "id": "27",
+            "sourceRef": "8",
+            "targetRef": "9"
+        },
+        {
+            "id": "28",
+            "sourceRef": "9",
+            "targetRef": "10"
+        },
+        {
+            "id": "29",
+            "sourceRef": "10",
+            "targetRef": "11"
+        },
+        {
+            "id": "30",
+            "sourceRef": "11",
+            "targetRef": "12"
+        },
+        {
+            "id": "31",
+            "sourceRef": "12",
+            "targetRef": "13"
+        },
+        {
+            "id": "32",
+            "sourceRef": "13",
+            "targetRef": "14"
+        }
+    ],
+    "messageFlows": []
+}

@@ -1,0 +1,165 @@
+{
+    "tasks": [
+        {
+            "id": "0",
+            "name": "Rechnungslegung gefordert",
+            "type": "StartMessageEvent"
+        },
+        {
+            "id": "1",
+            "name": "Leistungsinformationen pr\u00fcfen",
+            "type": "Manual"
+        },
+        {
+            "id": "2",
+            "name": "Informationen manuell anfordern",
+            "type": "User"
+        },
+        {
+            "id": "3",
+            "name": "Problemmfall aufrufen",
+            "type": "Manual"
+        },
+        {
+            "id": "4",
+            "name": "Leistungsinformationen zusammen tragen",
+            "type": "User"
+        },
+        {
+            "id": "5",
+            "name": "Rechnungspositionen eingeben",
+            "type": "Manual"
+        },
+        {
+            "id": "6",
+            "name": "Zahlungsbedingungen pr\u00fcfen und festlegen",
+            "type": "Manual"
+        },
+        {
+            "id": "7",
+            "name": "Rechnungsbeleg fertig stellen",
+            "type": "Manual"
+        },
+        {
+            "id": "8",
+            "name": "R.Druck",
+            "type": "EndNoneEvent"
+        }
+    ],
+    "events": [],
+    "gateways": [
+        {
+            "id": "9",
+            "name": "Leistungsinformationen komplett?",
+            "type": "Exclusive"
+        },
+        {
+            "id": "10",
+            "type": "Exclusive"
+        }
+    ],
+    "pools": [
+        {
+            "id": "11",
+            "name": "IT-Service",
+            "lanes": [
+                {
+                    "id": "12",
+                    "name": "Buchhaltung",
+                    "elemRefs": [
+                        "0",
+                        "1",
+                        "9",
+                        "2",
+                        "5",
+                        "6",
+                        "7",
+                        "8"
+                    ]
+                },
+                {
+                    "id": "13",
+                    "name": "Support-Abteilung",
+                    "elemRefs": [
+                        "3",
+                        "4",
+                        "10"
+                    ]
+                }
+            ]
+        }
+    ],
+    "sequenceFlows": [
+        {
+            "id": "14",
+            "sourceRef": "0",
+            "targetRef": "1"
+        },
+        {
+            "id": "15",
+            "sourceRef": "1",
+            "targetRef": "9"
+        },
+        {
+            "id": "16",
+            "sourceRef": "9",
+            "targetRef": "2",
+            "condition": "Nein"
+        },
+        {
+            "id": "17",
+            "sourceRef": "2",
+            "targetRef": "5"
+        },
+        {
+            "id": "18",
+            "sourceRef": "9",
+            "targetRef": "5",
+            "condition": "Ja"
+        },
+        {
+            "id": "19",
+            "sourceRef": "5",
+            "targetRef": "6"
+        },
+        {
+            "id": "20",
+            "sourceRef": "6",
+            "targetRef": "7"
+        },
+        {
+            "id": "21",
+            "sourceRef": "7",
+            "targetRef": "8"
+        },
+        {
+            "id": "22",
+            "sourceRef": "3",
+            "targetRef": "10"
+        },
+        {
+            "id": "23",
+            "sourceRef": "10",
+            "targetRef": "4"
+        },
+        {
+            "id": "24",
+            "sourceRef": "4",
+            "targetRef": "9"
+        }
+    ],
+    "messageFlows": [
+        {
+            "id": "25",
+            "sourceRef": "13",
+            "targetRef": "0",
+            "label": "customer invoice"
+        },
+        {
+            "id": "26",
+            "sourceRef": "13",
+            "targetRef": "3",
+            "label": "problem notification"
+        }
+    ]
+}

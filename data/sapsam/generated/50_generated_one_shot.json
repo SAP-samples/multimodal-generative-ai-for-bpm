@@ -1,0 +1,225 @@
+{
+    "tasks": [
+        {
+            "id": "0",
+            "name": "Schwerpunkte planen",
+            "type": "Task"
+        },
+        {
+            "id": "1",
+            "name": "Ideen entwerfen",
+            "type": "Task"
+        },
+        {
+            "id": "2",
+            "name": "Spezifikationen definieren",
+            "type": "Task"
+        },
+        {
+            "id": "3",
+            "name": "Entw\u00fcrfe der Agentur bewerten",
+            "type": "Task"
+        },
+        {
+            "id": "4",
+            "name": "\u00dcber Entw\u00fcrfe abstimmen",
+            "type": "Task"
+        },
+        {
+            "id": "5",
+            "name": "Gesch\u00e4ftsleitung informieren",
+            "type": "Task"
+        },
+        {
+            "id": "6",
+            "name": "Entw\u00fcrfe bewerten",
+            "type": "Task"
+        },
+        {
+            "id": "7",
+            "name": "Marketingabteilung gr\u00fcnes Licht geben",
+            "type": "Task"
+        },
+        {
+            "id": "8",
+            "name": "Kampagne durchf\u00fchren",
+            "type": "Task"
+        },
+        {
+            "id": "9",
+            "name": "Um neue Entw\u00fcrfe bitten",
+            "type": "Task"
+        }
+    ],
+    "events": [
+        {
+            "id": "10",
+            "name": "Neue Marketing-Kampagne steht an",
+            "type": "StartNoneEvent"
+        },
+        {
+            "id": "11",
+            "name": "Auftrag gesendet",
+            "type": "IntermediateMessageEventCatching"
+        },
+        {
+            "id": "12",
+            "name": "Entw\u00fcrfe erhalten",
+            "type": "IntermediateMessageEventCatching"
+        },
+        {
+            "id": "13",
+            "name": "Marketing-Kampagne ist beendet",
+            "type": "EndNoneEvent"
+        }
+    ],
+    "gateways": [
+        {
+            "id": "14",
+            "name": "Exclusive (XOR) Gateway",
+            "type": "Exclusive"
+        },
+        {
+            "id": "15",
+            "type": "Exclusive"
+        },
+        {
+            "id": "16",
+            "type": "Exclusive"
+        }
+    ],
+    "pools": [
+        {
+            "id": "17",
+            "name": "SoKnow",
+            "lanes": [
+                {
+                    "id": "18",
+                    "name": "Gesch\u00e4ftsleitung",
+                    "elemRefs": [
+                        "0",
+                        "5",
+                        "6",
+                        "7"
+                    ]
+                },
+                {
+                    "id": "19",
+                    "name": "Marketingabteilung",
+                    "elemRefs": [
+                        "1",
+                        "2",
+                        "3",
+                        "4",
+                        "8",
+                        "10",
+                        "11",
+                        "12",
+                        "14",
+                        "15",
+                        "16"
+                    ]
+                }
+            ]
+        }
+    ],
+    "sequenceFlows": [
+        {
+            "id": "20",
+            "sourceRef": "10",
+            "targetRef": "0"
+        },
+        {
+            "id": "21",
+            "sourceRef": "0",
+            "targetRef": "1"
+        },
+        {
+            "id": "22",
+            "sourceRef": "1",
+            "targetRef": "2"
+        },
+        {
+            "id": "23",
+            "sourceRef": "2",
+            "targetRef": "11"
+        },
+        {
+            "id": "24",
+            "sourceRef": "11",
+            "targetRef": "12"
+        },
+        {
+            "id": "25",
+            "sourceRef": "12",
+            "targetRef": "14"
+        },
+        {
+            "id": "26",
+            "sourceRef": "14",
+            "targetRef": "3",
+            "condition": "Ja"
+        },
+        {
+            "id": "27",
+            "sourceRef": "14",
+            "targetRef": "9",
+            "condition": "Nein"
+        },
+        {
+            "id": "28",
+            "sourceRef": "3",
+            "targetRef": "15"
+        },
+        {
+            "id": "29",
+            "sourceRef": "15",
+            "targetRef": "4",
+            "condition": "Ja"
+        },
+        {
+            "id": "30",
+            "sourceRef": "15",
+            "targetRef": "9",
+            "condition": "Nein"
+        },
+        {
+            "id": "31",
+            "sourceRef": "4",
+            "targetRef": "5"
+        },
+        {
+            "id": "32",
+            "sourceRef": "5",
+            "targetRef": "6"
+        },
+        {
+            "id": "33",
+            "sourceRef": "6",
+            "targetRef": "16"
+        },
+        {
+            "id": "34",
+            "sourceRef": "16",
+            "targetRef": "7",
+            "condition": "Ja"
+        },
+        {
+            "id": "35",
+            "sourceRef": "16",
+            "targetRef": "9",
+            "condition": "Nein"
+        },
+        {
+            "id": "36",
+            "sourceRef": "7",
+            "targetRef": "8"
+        },
+        {
+            "id": "37",
+            "sourceRef": "8",
+            "targetRef": "13"
+        }
+    ],
+    "messageFlows": []
+}

@@ -1,0 +1,211 @@
+{
+    "tasks": [
+        {
+            "id": 0,
+            "name": "Send receipt confirmation",
+            "type": "Task"
+        },
+        {
+            "id": 1,
+            "name": "Applicant verified",
+            "type": "Task"
+        },
+        {
+            "id": 2,
+            "name": "Invite to job interview",
+            "type": "Task"
+        },
+        {
+            "id": 3,
+            "name": "Prepare employment agreement",
+            "type": "Task"
+        },
+        {
+            "id": 4,
+            "name": "Carry out job interview",
+            "type": "Task"
+        },
+        {
+            "id": 5,
+            "name": "Send employment contract",
+            "type": "Task"
+        },
+        {
+            "id": 6,
+            "name": "Send rejection",
+            "type": "Task"
+        }
+    ],
+    "events": [
+        {
+            "id": 7,
+            "name": "Receipt of application",
+            "type": "StartMessageEvent"
+        },
+        {
+            "id": 8,
+            "name": "Receipt of signed employment contract",
+            "type": "IntermediateMessageEventCatching"
+        },
+        {
+            "id": 9,
+            "name": "Signed employment contract is present",
+            "type": "EndEvent"
+        },
+        {
+            "id": 10,
+            "name": "Rejection sent",
+            "type": "IntermediateMessageEventThrowing"
+        },
+        {
+            "id": 11,
+            "name": "Applicant rejected",
+            "type": "EndEvent"
+        }
+    ],
+    "gateways": [
+        {
+            "id": 12,
+            "name": "Application status?",
+            "type": "Exclusive_Databased_Gateway"
+        },
+        {
+            "id": 13,
+            "name": "Applicant suitable?",
+            "type": "Exclusive_Databased_Gateway"
+        },
+        {
+            "id": 14,
+            "name": "",
+            "type": "Exclusive_Databased_Gateway"
+        }
+    ],
+    "pools": [
+        {
+            "id": "0",
+            "name": "ACME AG",
+            "lanes": [
+                {
+                    "id": "1",
+                    "name": "Head of Human Resources",
+                    "elemRefs": [
+                        "1",
+                        "10",
+                        "11",
+                        "13",
+                        "14"
+                    ]
+                },
+                {
+                    "id": "2",
+                    "name": "Human Resources Department",
+                    "elemRefs": [
+                        "0",
+                        "2",
+                        "3",
+                        "4",
+                        "5",
+                        "6",
+                        "7",
+                        "8",
+                        "9",
+                        "12"
+                    ]
+                }
+            ]
+        },
+        {
+            "id": "3",
+            "name": "Applicant",
+            "lanes": []
+        }
+    ],
+    "sequenceFlows": [
+        {
+            "id": "sf0",
+            "sourceRef": "7",
+            "targetRef": "0"
+        },
+        {
+            "id": "sf1",
+            "sourceRef": "0",
+            "targetRef": "1"
+        },
+        {
+            "id": "sf2",
+            "sourceRef": "1",
+            "targetRef": "12"
+        },
+        {
+            "id": "sf3",
+            "sourceRef": "12",
+            "targetRef": "2",
+            "condition": "Yes"
+        },
+        {
+            "id": "sf4",
+            "sourceRef": "12",
+            "targetRef": "6",
+            "condition": "No"
+        },
+        {
+            "id": "sf5",
+            "sourceRef": "2",
+            "targetRef": "3"
+        },
+        {
+            "id": "sf6",
+            "sourceRef": "3",
+            "targetRef": "4"
+        },
+        {
+            "id": "sf7",
+            "sourceRef": "4",
+            "targetRef": "13"
+        },
+        {
+            "id": "sf8",
+            "sourceRef": "13",
+            "targetRef": "5",
+            "condition": "Yes"
+        },
+        {
+            "id": "sf9",
+            "sourceRef": "13",
+            "targetRef": "6",
+            "condition": "No"
+        },
+        {
+            "id": "sf10",
+            "sourceRef": "5",
+            "targetRef": "8"
+        },
+        {
+            "id": "sf11",
+            "sourceRef": "8",
+            "targetRef": "9"
+        },
+        {
+            "id": "sf12",
+            "sourceRef": "6",
+            "targetRef": "10"
+        },
+        {
+            "id": "sf13",
+            "sourceRef": "10",
+            "targetRef": "11"
+        }
+    ],
+    "messageFlows": [
+        {
+            "id": "mf0",
+            "sourceRef": "3",
+            "targetRef": "3"
+        },
+        {
+            "id": "mf2",
+            "sourceRef": "9",
+            "targetRef": "9"
+        }
+    ]
+}

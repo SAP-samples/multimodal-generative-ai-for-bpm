@@ -1,0 +1,286 @@
+{
+    "tasks": [
+        {
+            "id": "0",
+            "name": "Check existing process models",
+            "type": "User"
+        },
+        {
+            "id": "1",
+            "name": "Specify a notation",
+            "type": "Task"
+        },
+        {
+            "id": "2",
+            "name": "Issue working instruction for modelling",
+            "type": "Task"
+        },
+        {
+            "id": "3",
+            "name": "Understanding technical process content",
+            "type": "Task"
+        },
+        {
+            "id": "4",
+            "name": "Build up a plan of the model",
+            "type": "Task"
+        },
+        {
+            "id": "5",
+            "name": "Comparison with existing model",
+            "type": "Task"
+        },
+        {
+            "id": "6",
+            "name": "Include technical changes",
+            "type": "Task"
+        },
+        {
+            "id": "7",
+            "name": "Structure and map changes",
+            "type": "Task"
+        },
+        {
+            "id": "8",
+            "name": "Pass on documentation to the modeler",
+            "type": "Task"
+        },
+        {
+            "id": "9",
+            "name": "Start editing the process model",
+            "type": "User"
+        },
+        {
+            "id": "10",
+            "name": "Plan changes",
+            "type": "User"
+        },
+        {
+            "id": "11",
+            "name": "Modeling process according to the chosen notation",
+            "type": "Task"
+        },
+        {
+            "id": "12",
+            "name": "Pass on process model for internal quality assurance",
+            "type": "Task"
+        },
+        {
+            "id": "13",
+            "name": "Check for rough layout mistakes",
+            "type": "Task"
+        },
+        {
+            "id": "14",
+            "name": "Checking the process model for syntactic errors",
+            "type": "Task"
+        },
+        {
+            "id": "15",
+            "name": "Document mistakes",
+            "type": "Task"
+        },
+        {
+            "id": "16",
+            "name": "Discuss necessary changes with the modeler",
+            "type": "Task"
+        },
+        {
+            "id": "17",
+            "name": "Create plan for change",
+            "type": "Task"
+        }
+    ],
+    "events": [
+        {
+            "id": "18",
+            "name": "Prozesserhebung / -documentation",
+            "type": "StartMessageEvent"
+        },
+        {
+            "id": "19",
+            "name": "Prozesserhebung / -documentation beendet",
+            "type": "EndMessageEvent"
+        }
+    ],
+    "gateways": [
+        {
+            "id": "20",
+            "type": "Exclusive"
+        },
+        {
+            "id": "21",
+            "type": "Exclusive"
+        },
+        {
+            "id": "22",
+            "type": "Exclusive"
+        }
+    ],
+    "pools": [
+        {
+            "id": "23",
+            "name": "Unternehmen",
+            "lanes": [
+                {
+                    "id": "24",
+                    "name": "Prozessmodellierer",
+                    "elemRefs": [
+                        "0",
+                        "1",
+                        "2",
+                        "3",
+                        "4",
+                        "5",
+                        "6",
+                        "7",
+                        "8",
+                        "9",
+                        "10",
+                        "11",
+                        "12",
+                        "13",
+                        "14",
+                        "15",
+                        "16",
+                        "17",
+                        "18",
+                        "19",
+                        "20",
+                        "21",
+                        "22"
+                    ]
+                }
+            ]
+        }
+    ],
+    "sequenceFlows": [
+        {
+            "id": "25",
+            "sourceRef": "18",
+            "targetRef": "0"
+        },
+        {
+            "id": "26",
+            "sourceRef": "0",
+            "targetRef": "20"
+        },
+        {
+            "id": "27",
+            "sourceRef": "20",
+            "targetRef": "1",
+            "condition": "No"
+        },
+        {
+            "id": "28",
+            "sourceRef": "20",
+            "targetRef": "3",
+            "condition": "Yes"
+        },
+        {
+            "id": "29",
+            "sourceRef": "1",
+            "targetRef": "2"
+        },
+        {
+            "id": "30",
+            "sourceRef": "3",
+            "targetRef": "4"
+        },
+        {
+            "id": "31",
+            "sourceRef": "4",
+            "targetRef": "5"
+        },
+        {
+            "id": "32",
+            "sourceRef": "5",
+            "targetRef": "6"
+        },
+        {
+            "id": "33",
+            "sourceRef": "6",
+            "targetRef": "7"
+        },
+        {
+            "id": "34",
+            "sourceRef": "7",
+            "targetRef": "8"
+        },
+        {
+            "id": "35",
+            "sourceRef": "8",
+            "targetRef": "9"
+        },
+        {
+            "id": "36",
+            "sourceRef": "9",
+            "targetRef": "21"
+        },
+        {
+            "id": "37",
+            "sourceRef": "21",
+            "targetRef": "10",
+            "condition": "Defects or complaints present"
+        },
+        {
+            "id": "38",
+            "sourceRef": "21",
+            "targetRef": "11",
+            "condition": "No defects or complaints"
+        },
+        {
+            "id": "39",
+            "sourceRef": "10",
+            "targetRef": "11"
+        },
+        {
+            "id": "40",
+            "sourceRef": "11",
+            "targetRef": "12"
+        },
+        {
+            "id": "41",
+            "sourceRef": "12",
+            "targetRef": "13"
+        },
+        {
+            "id": "42",
+            "sourceRef": "13",
+            "targetRef": "14"
+        },
+        {
+            "id": "43",
+            "sourceRef": "14",
+            "targetRef": "22"
+        },
+        {
+            "id": "44",
+            "sourceRef": "22",
+            "targetRef": "15",
+            "condition": "Syntactic errors present"
+        },
+        {
+            "id": "45",
+            "sourceRef": "22",
+            "targetRef": "16",
+            "condition": "No syntactic errors"
+        },
+        {
+            "id": "46",
+            "sourceRef": "15",
+            "targetRef": "16"
+        },
+        {
+            "id": "47",
+            "sourceRef": "16",
+            "targetRef": "17"
+        },
+        {
+            "id": "48",
+            "sourceRef": "17",
+            "targetRef": "19"
+        }
+    ],
+    "messageFlows": []
+}

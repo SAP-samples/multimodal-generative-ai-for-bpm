@@ -1,0 +1,293 @@
+{
+    "tasks": [
+        {
+            "id": "sid-01249212-DC78-4018-A73B-4E000ECF606B",
+            "name": "Workshop durchf\u00fchren",
+            "type": "Task"
+        },
+        {
+            "id": "sid-AE5756B1-F148-43DF-8443-CC0228BB8874",
+            "name": "Projektskizze anfertigen",
+            "type": "Task"
+        },
+        {
+            "id": "sid-EF0BAF1F-955B-40CC-AE1F-968F4EBD2072",
+            "name": "Kundengespr\u00e4ch durchf\u00fchren",
+            "type": "Task"
+        },
+        {
+            "id": "sid-FAF533D1-8B33-479B-A1F2-05FEC30F6D29",
+            "name": "Lastenheft schreiben",
+            "type": "Task"
+        },
+        {
+            "id": "sid-BFEE43BC-0B86-429E-B765-B8D7088DE68A",
+            "name": "Standard-Open-Source-Produkte pr\u00fcfen",
+            "type": "Task"
+        },
+        {
+            "id": "sid-B4DF2BF4-070C-4719-88B6-6AB6C74D7D8C",
+            "name": "Kosten kalkulieren",
+            "type": "Task"
+        },
+        {
+            "id": "sid-71D02CCF-0759-4831-9DE9-2809331B5AB4",
+            "name": "Anforderungen beschreiben",
+            "type": "Task"
+        },
+        {
+            "id": "sid-38EF47C9-4188-4A79-B22F-E9761FCA8F3B",
+            "name": "Projekt- und Kapazit\u00e4tsplanung durchf\u00fchren",
+            "type": "Task"
+        },
+        {
+            "id": "sid-81004D99-8F63-4298-959F-046717853702",
+            "name": "Use-Cases definieren",
+            "type": "Task"
+        },
+        {
+            "id": "sid-F1EEACC4-835C-4179-BC4E-13C54394B18F",
+            "name": "Produktabnahme durchf\u00fchren",
+            "type": "Task"
+        },
+        {
+            "id": "sid-C4050B12-BC37-4CA7-98B1-2B91BA130069",
+            "name": "Kundenfeedback einholen",
+            "type": "Task"
+        },
+        {
+            "id": "sid-AA423494-E804-4877-9D10-64521435C603",
+            "name": "Anpassung von Wissensmanagementsystemen (Soll-Prozess)",
+            "type": "CollapsedSubprocess"
+        },
+        {
+            "id": "sid-20A6A3F5-9DFE-45C8-B088-39F27548E1AA",
+            "name": "Produkt entwickeln (Soll-Prozess)",
+            "type": "CollapsedSubprocess"
+        },
+        {
+            "id": "sid-445BF1D2-B532-47CC-8920-74758EC0B4F9",
+            "name": "Folgeprojekte identifizieren",
+            "type": "Task"
+        }
+    ],
+    "events": [
+        {
+            "id": "sid-83058D37-543A-453C-88FD-43DBB9E487A8",
+            "name": "Auftragseingang",
+            "type": "StartNoneEvent"
+        },
+        {
+            "id": "sid-32B0DFAA-91DC-4090-811D-89AC1B855BD2",
+            "name": "Termin gesetzt",
+            "type": "IntermediateMessageEventCatching"
+        },
+        {
+            "id": "sid-8E2A67D9-D4B6-411D-A036-07244772F589",
+            "name": "Auftrag abgeschlossen",
+            "type": "EndNoneEvent"
+        },
+        {
+            "id": "sid-ED3907FB-4D09-41BE-89ED-DE6870774394",
+            "name": "Informationen gesendet",
+            "type": "IntermediateMessageEventThrowing"
+        },
+        {
+            "id": "sid-AFEB852D-41C7-4F21-A374-F2334523B482",
+            "name": "Feedback erhalten",
+            "type": "IntermediateMessageEventCatching"
+        }
+    ],
+    "gateways": [
+        {
+            "id": "sid-125799FA-E125-48BE-B2BF-6BD6F4521740",
+            "name": "Neuentwicklung oder vorhandene Produkte?",
+            "type": "Exclusive"
+        },
+        {
+            "id": "sid-92C1C045-481E-4935-B36C-07CAFBBF829B",
+            "type": "Exclusive"
+        }
+    ],
+    "pools": [
+        {
+            "id": "sid-DCD48D1A-7CD8-424E-BD03-90DB3E64F431",
+            "name": "SoKnow",
+            "lanes": [
+                {
+                    "id": "sid-CDC2915F-80E4-4529-9DFC-AB772FAE5A2B",
+                    "name": "Entwicklungsabteilung",
+                    "elemRefs": [
+                        "sid-01249212-DC78-4018-A73B-4E000ECF606B",
+                        "sid-AE5756B1-F148-43DF-8443-CC0228BB8874",
+                        "sid-EF0BAF1F-955B-40CC-AE1F-968F4EBD2072",
+                        "sid-FAF533D1-8B33-479B-A1F2-05FEC30F6D29",
+                        "sid-BFEE43BC-0B86-429E-B765-B8D7088DE68A",
+                        "sid-B4DF2BF4-070C-4719-88B6-6AB6C74D7D8C",
+                        "sid-71D02CCF-0759-4831-9DE9-2809331B5AB4",
+                        "sid-38EF47C9-4188-4A79-B22F-E9761FCA8F3B",
+                        "sid-81004D99-8F63-4298-959F-046717853702",
+                        "sid-F1EEACC4-835C-4179-BC4E-13C54394B18F",
+                        "sid-C4050B12-BC37-4CA7-98B1-2B91BA130069",
+                        "sid-AA423494-E804-4877-9D10-64521435C603",
+                        "sid-20A6A3F5-9DFE-45C8-B088-39F27548E1AA",
+                        "sid-445BF1D2-B532-47CC-8920-74758EC0B4F9",
+                        "sid-83058D37-543A-453C-88FD-43DBB9E487A8",
+                        "sid-32B0DFAA-91DC-4090-811D-89AC1B855BD2",
+                        "sid-8E2A67D9-D4B6-411D-A036-07244772F589",
+                        "sid-ED3907FB-4D09-41BE-89ED-DE6870774394",
+                        "sid-AFEB852D-41C7-4F21-A374-F2334523B482",
+                        "sid-125799FA-E125-48BE-B2BF-6BD6F4521740",
+                        "sid-92C1C045-481E-4935-B36C-07CAFBBF829B"
+                    ]
+                }
+            ]
+        },
+        {
+            "id": "sid-141B8C4E-5CD3-407A-BBB9-1E9F2F010D8D",
+            "name": "Kundenunternehmen",
+            "lanes": []
+        }
+    ],
+    "messageFlows": [
+        {
+            "id": "sid-E9AAABF5-6C78-43D8-BC27-264CF0B0F500",
+            "targetRef": "sid-32B0DFAA-91DC-4090-811D-89AC1B855BD2",
+            "label": "Terminbest\u00e4tigung",
+            "sourceRef": "sid-141B8C4E-5CD3-407A-BBB9-1E9F2F010D8D"
+        },
+        {
+            "id": "sid-F6594BE3-717A-4FF9-9BFF-FF9FB7720A7B",
+            "targetRef": "sid-141B8C4E-5CD3-407A-BBB9-1E9F2F010D8D",
+            "label": "Informationen",
+            "sourceRef": "sid-ED3907FB-4D09-41BE-89ED-DE6870774394"
+        },
+        {
+            "id": "sid-2E8BD26E-10B3-4401-A060-36DFDDDD9C97",
+            "targetRef": "sid-AFEB852D-41C7-4F21-A374-F2334523B482",
+            "label": "Feedback",
+            "sourceRef": "sid-141B8C4E-5CD3-407A-BBB9-1E9F2F010D8D"
+        },
+        {
+            "id": "sid-52401957-E922-4051-9772-F344BC680B49",
+            "targetRef": "sid-F1EEACC4-835C-4179-BC4E-13C54394B18F",
+            "label": "Teilnahme an Produktabnahme",
+            "sourceRef": "sid-141B8C4E-5CD3-407A-BBB9-1E9F2F010D8D"
+        },
+        {
+            "id": "sid-BFC3210E-DDAB-4340-A773-7D1D475AA401",
+            "targetRef": "sid-C4050B12-BC37-4CA7-98B1-2B91BA130069",
+            "label": "Feedback",
+            "sourceRef": "sid-141B8C4E-5CD3-407A-BBB9-1E9F2F010D8D"
+        }
+    ],
+    "sequenceFlows": [
+        {
+            "id": "sid-CA793489-EEC0-4ED7-B18D-73E651737E94",
+            "targetRef": "sid-AE5756B1-F148-43DF-8443-CC0228BB8874",
+            "sourceRef": "sid-01249212-DC78-4018-A73B-4E000ECF606B"
+        },
+        {
+            "id": "sid-867F67FC-B922-45F7-B234-A588005B3723",
+            "targetRef": "sid-32B0DFAA-91DC-4090-811D-89AC1B855BD2",
+            "sourceRef": "sid-AE5756B1-F148-43DF-8443-CC0228BB8874"
+        },
+        {
+            "id": "sid-9BC447BC-2392-4339-85DA-0A49EB3CCD0B",
+            "targetRef": "sid-EF0BAF1F-955B-40CC-AE1F-968F4EBD2072",
+            "sourceRef": "sid-32B0DFAA-91DC-4090-811D-89AC1B855BD2"
+        },
+        {
+            "id": "sid-07B2C84C-9F98-4A80-AA04-567CDC1A4562",
+            "targetRef": "sid-FAF533D1-8B33-479B-A1F2-05FEC30F6D29",
+            "sourceRef": "sid-EF0BAF1F-955B-40CC-AE1F-968F4EBD2072"
+        },
+        {
+            "id": "sid-624271EF-676E-4BDB-9B0B-D178A8BABDA1",
+            "targetRef": "sid-71D02CCF-0759-4831-9DE9-2809331B5AB4",
+            "sourceRef": "sid-83058D37-543A-453C-88FD-43DBB9E487A8"
+        },
+        {
+            "id": "sid-8A0378A8-D85C-4A09-8C27-63BA10A4E916",
+            "targetRef": "sid-01249212-DC78-4018-A73B-4E000ECF606B",
+            "sourceRef": "sid-71D02CCF-0759-4831-9DE9-2809331B5AB4"
+        },
+        {
+            "id": "sid-BC345A78-CC04-4FD7-82B2-409B73EAEACE",
+            "targetRef": "sid-ED3907FB-4D09-41BE-89ED-DE6870774394",
+            "sourceRef": "sid-FAF533D1-8B33-479B-A1F2-05FEC30F6D29"
+        },
+        {
+            "id": "sid-E5CC5283-50F6-49D3-98B7-FFA24E8B26BB",
+            "targetRef": "sid-AFEB852D-41C7-4F21-A374-F2334523B482",
+            "sourceRef": "sid-ED3907FB-4D09-41BE-89ED-DE6870774394"
+        },
+        {
+            "id": "sid-6DBC04FA-F1BF-49D4-955C-895A278D4D33",
+            "targetRef": "sid-38EF47C9-4188-4A79-B22F-E9761FCA8F3B",
+            "sourceRef": "sid-AFEB852D-41C7-4F21-A374-F2334523B482"
+        },
+        {
+            "id": "sid-8963F23F-0141-42F5-BD57-4638C2F74996",
+            "targetRef": "sid-BFEE43BC-0B86-429E-B765-B8D7088DE68A",
+            "sourceRef": "sid-38EF47C9-4188-4A79-B22F-E9761FCA8F3B"
+        },
+        {
+            "id": "sid-4A561FD1-1D3D-4550-A8AB-3F65B3A26353",
+            "targetRef": "sid-AA423494-E804-4877-9D10-64521435C603",
+            "condition": "Vorhandene Produkte",
+            "sourceRef": "sid-125799FA-E125-48BE-B2BF-6BD6F4521740"
+        },
+        {
+            "id": "sid-DE48C661-3E93-49D0-81F7-E9DA7101DE55",
+            "targetRef": "sid-92C1C045-481E-4935-B36C-07CAFBBF829B",
+            "sourceRef": "sid-AA423494-E804-4877-9D10-64521435C603"
+        },
+        {
+            "id": "sid-025B5E7C-73BA-4E2E-A70F-6F0FB0A85883",
+            "targetRef": "sid-445BF1D2-B532-47CC-8920-74758EC0B4F9",
+            "sourceRef": "sid-C4050B12-BC37-4CA7-98B1-2B91BA130069"
+        },
+        {
+            "id": "sid-01DF26D5-3109-44D2-B046-318C6F126085",
+            "targetRef": "sid-8E2A67D9-D4B6-411D-A036-07244772F589",
+            "sourceRef": "sid-445BF1D2-B532-47CC-8920-74758EC0B4F9"
+        },
+        {
+            "id": "sid-B0FA747E-D5D4-4015-B9A1-8844D45EAEF9",
+            "targetRef": "sid-B4DF2BF4-070C-4719-88B6-6AB6C74D7D8C",
+            "sourceRef": "sid-81004D99-8F63-4298-959F-046717853702"
+        },
+        {
+            "id": "sid-085C558C-B662-497F-8A86-BA0E59142168",
+            "targetRef": "sid-125799FA-E125-48BE-B2BF-6BD6F4521740",
+            "sourceRef": "sid-B4DF2BF4-070C-4719-88B6-6AB6C74D7D8C"
+        },
+        {
+            "id": "sid-FBBA344C-26A7-44DD-9182-FAA0982B5FFB",
+            "targetRef": "sid-81004D99-8F63-4298-959F-046717853702",
+            "sourceRef": "sid-BFEE43BC-0B86-429E-B765-B8D7088DE68A"
+        },
+        {
+            "id": "sid-0BDD3BDF-D99F-465A-B4E0-3DAC53FBF354",
+            "targetRef": "sid-92C1C045-481E-4935-B36C-07CAFBBF829B",
+            "sourceRef": "sid-20A6A3F5-9DFE-45C8-B088-39F27548E1AA"
+        },
+        {
+            "id": "sid-114743AA-9894-4821-BECB-0876EFC84D8D",
+            "targetRef": "sid-F1EEACC4-835C-4179-BC4E-13C54394B18F",
+            "sourceRef": "sid-92C1C045-481E-4935-B36C-07CAFBBF829B"
+        },
+        {
+            "id": "sid-F854D67A-6A6A-49ED-83C9-7CAB8809CAA5",
+            "targetRef": "sid-C4050B12-BC37-4CA7-98B1-2B91BA130069",
+            "sourceRef": "sid-F1EEACC4-835C-4179-BC4E-13C54394B18F"
+        },
+        {
+            "id": "sid-1BF8356B-041B-4C54-AE51-B44A14097627",
+            "targetRef": "sid-20A6A3F5-9DFE-45C8-B088-39F27548E1AA",
+            "condition": "Neue Produkte",
+            "sourceRef": "sid-125799FA-E125-48BE-B2BF-6BD6F4521740"
+        }
+    ]
+}

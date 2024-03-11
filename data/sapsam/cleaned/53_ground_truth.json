@@ -1,0 +1,275 @@
+{
+    "tasks": [
+        {
+            "id": "_4422c46b-5a40-4d7b-90c5-f6698beb9bb3",
+            "name": "Prepare check-list for preparations",
+            "type": "User"
+        },
+        {
+            "id": "_8b0f13d8-d8a3-4b0b-ab63-e01c6b5504ab",
+            "name": "Check and complete necessary papers",
+            "type": "Manual"
+        },
+        {
+            "id": "_7a118dbb-69fc-46ff-b13a-72c7c50addeb",
+            "name": "Apply for visa",
+            "type": "Send"
+        },
+        {
+            "id": "_240c7824-033a-4800-847c-c9c08b1772fe",
+            "name": "Gather travel documents and addresses",
+            "type": "Manual"
+        },
+        {
+            "id": "_d5304108-41c0-4aa5-b494-805232f5c9f0",
+            "name": "Arrange care for pets",
+            "type": "Manual"
+        },
+        {
+            "id": "_a9de4576-9f8e-4b06-956f-6c0cf084dc8e",
+            "name": "Unsubscribe post or demand at neighbour to fetch it",
+            "type": "Manual"
+        },
+        {
+            "id": "_b78281cb-1325-4474-8385-e4f422164f80",
+            "name": "Make copies of ID cards and travel documents",
+            "type": "Manual"
+        },
+        {
+            "id": "_add9ac75-6ce0-4f6f-801e-b6ebac020cfa",
+            "name": "Get necessary vaccination",
+            "type": "Manual"
+        },
+        {
+            "id": "_d04cbd49-70b6-4e41-a429-780e2e2414ba",
+            "name": "Check insurance coverage and apply for further coverage if necessary",
+            "type": "Manual"
+        },
+        {
+            "id": "_459895cc-2279-4084-85af-41d9d42b264d",
+            "name": "Buy or lend guidebooks and city maps",
+            "type": "Manual"
+        },
+        {
+            "id": "_4decd079-b9cd-4847-8dfa-278c163109ce",
+            "name": "Prepare first-aid kit",
+            "type": "Manual"
+        },
+        {
+            "id": "_6cc7581f-618e-4fea-b7e1-b24b9a066b3f",
+            "name": "Clear unfinished business",
+            "type": "Task"
+        }
+    ],
+    "events": [
+        {
+            "id": "_8dbbdf68-4f91-4c32-abd7-efe84876947f",
+            "name": "Travel details are fixed",
+            "type": "StartNoneEvent"
+        },
+        {
+            "id": "_1ffe5aca-e64e-4edd-8a4c-e73d5a15943e",
+            "name": "Travel preparations completed",
+            "type": "EndNoneEvent"
+        }
+    ],
+    "gateways": [
+        {
+            "id": "_7018948d-5c7e-42d8-8997-b8cec0aee72c",
+            "name": "Visa required?",
+            "type": "Exclusive"
+        },
+        {
+            "id": "_dae1b38d-f223-4d67-8fe2-3aa0e66a1d3a",
+            "name": "Pets to take care of?",
+            "type": "Exclusive"
+        },
+        {
+            "id": "_458e4143-a93b-44e3-a719-ede5a34969f5",
+            "name": "Parallel Gateway",
+            "type": "Parallel"
+        },
+        {
+            "id": "_019f1b86-6829-4f67-a9dc-156d63354613",
+            "name": "Non-exlusive Gateway (converging)",
+            "type": "Parallel"
+        }
+    ],
+    "pools": [
+        {
+            "id": "_ee11fcda-6042-407b-9397-39b9bc69aa79",
+            "name": "Roadtrip participant",
+            "lanes": [
+                {
+                    "id": "sid-07929e3b-f15e-49f5-9d28-dd870a53e779",
+                    "name": "",
+                    "elemRefs": [
+                        "_4422c46b-5a40-4d7b-90c5-f6698beb9bb3",
+                        "_8b0f13d8-d8a3-4b0b-ab63-e01c6b5504ab",
+                        "_7a118dbb-69fc-46ff-b13a-72c7c50addeb",
+                        "_240c7824-033a-4800-847c-c9c08b1772fe",
+                        "_d5304108-41c0-4aa5-b494-805232f5c9f0",
+                        "_a9de4576-9f8e-4b06-956f-6c0cf084dc8e",
+                        "_b78281cb-1325-4474-8385-e4f422164f80",
+                        "_add9ac75-6ce0-4f6f-801e-b6ebac020cfa",
+                        "_d04cbd49-70b6-4e41-a429-780e2e2414ba",
+                        "_459895cc-2279-4084-85af-41d9d42b264d",
+                        "_4decd079-b9cd-4847-8dfa-278c163109ce",
+                        "_6cc7581f-618e-4fea-b7e1-b24b9a066b3f",
+                        "_8dbbdf68-4f91-4c32-abd7-efe84876947f",
+                        "_1ffe5aca-e64e-4edd-8a4c-e73d5a15943e",
+                        "_7018948d-5c7e-42d8-8997-b8cec0aee72c",
+                        "_dae1b38d-f223-4d67-8fe2-3aa0e66a1d3a",
+                        "_458e4143-a93b-44e3-a719-ede5a34969f5",
+                        "_019f1b86-6829-4f67-a9dc-156d63354613"
+                    ]
+                }
+            ]
+        },
+        {
+            "id": "_3633d092-a985-46cb-8da5-b4873aa5d36f",
+            "name": "Embassy",
+            "lanes": [
+                {
+                    "id": "sid-6ec87fc0-e608-41e2-9885-72422d8720f3",
+                    "name": "",
+                    "elemRefs": []
+                }
+            ]
+        },
+        {
+            "id": "_67840dc8-9414-4d4b-82f3-ef891dfcc38a",
+            "name": "Insurance company",
+            "lanes": [
+                {
+                    "id": "sid-a5d88d5e-5407-4d58-b9e1-f6bc0567264f",
+                    "name": "",
+                    "elemRefs": []
+                }
+            ]
+        }
+    ],
+    "messageFlows": [
+        {
+            "id": "_785c08c4-942d-402e-b5c1-ffd2ea000f67",
+            "targetRef": "_3633d092-a985-46cb-8da5-b4873aa5d36f",
+            "sourceRef": "_7a118dbb-69fc-46ff-b13a-72c7c50addeb"
+        },
+        {
+            "id": "_908dcb4a-fdca-49b0-806e-4c14ef00eda0",
+            "targetRef": "_67840dc8-9414-4d4b-82f3-ef891dfcc38a",
+            "sourceRef": "_d04cbd49-70b6-4e41-a429-780e2e2414ba"
+        }
+    ],
+    "sequenceFlows": [
+        {
+            "id": "_0278254d-4129-4c69-b50d-ea7633a65a2c",
+            "targetRef": "_019f1b86-6829-4f67-a9dc-156d63354613",
+            "sourceRef": "_240c7824-033a-4800-847c-c9c08b1772fe"
+        },
+        {
+            "id": "_0a8552e9-f972-400b-af4b-bd7c9a0f05b5",
+            "targetRef": "_b78281cb-1325-4474-8385-e4f422164f80",
+            "sourceRef": "_019f1b86-6829-4f67-a9dc-156d63354613"
+        },
+        {
+            "id": "_18b78268-935b-416b-a4a3-99dae4421ceb",
+            "targetRef": "_240c7824-033a-4800-847c-c9c08b1772fe",
+            "sourceRef": "_458e4143-a93b-44e3-a719-ede5a34969f5"
+        },
+        {
+            "id": "_1cc32318-3bb1-4093-b745-09193861fe47",
+            "targetRef": "_6cc7581f-618e-4fea-b7e1-b24b9a066b3f",
+            "sourceRef": "_7a118dbb-69fc-46ff-b13a-72c7c50addeb"
+        },
+        {
+            "id": "_20569876-fbe0-4c15-a728-5167a76165ad",
+            "targetRef": "_019f1b86-6829-4f67-a9dc-156d63354613",
+            "sourceRef": "_459895cc-2279-4084-85af-41d9d42b264d"
+        },
+        {
+            "id": "_2d0f5266-186c-4176-ac90-94dc445107a4",
+            "targetRef": "_d04cbd49-70b6-4e41-a429-780e2e2414ba",
+            "sourceRef": "_add9ac75-6ce0-4f6f-801e-b6ebac020cfa"
+        },
+        {
+            "id": "_2d755ca7-d84b-42a4-b074-8b0e9170e6b3",
+            "targetRef": "_4422c46b-5a40-4d7b-90c5-f6698beb9bb3",
+            "sourceRef": "_8dbbdf68-4f91-4c32-abd7-efe84876947f"
+        },
+        {
+            "id": "_37ca4300-9722-4873-aefb-30c87b39ea6e",
+            "targetRef": "_458e4143-a93b-44e3-a719-ede5a34969f5",
+            "sourceRef": "_d04cbd49-70b6-4e41-a429-780e2e2414ba"
+        },
+        {
+            "id": "_3cd882a2-167d-4789-ac0c-21a230235593",
+            "targetRef": "_4decd079-b9cd-4847-8dfa-278c163109ce",
+            "sourceRef": "_458e4143-a93b-44e3-a719-ede5a34969f5"
+        },
+        {
+            "id": "_4baeb8d6-401b-4799-b802-480e9a2d0b3e",
+            "targetRef": "_1ffe5aca-e64e-4edd-8a4c-e73d5a15943e",
+            "sourceRef": "_b78281cb-1325-4474-8385-e4f422164f80"
+        },
+        {
+            "id": "_5f53ea7e-635b-4d91-9b3a-127b062ddfc6",
+            "targetRef": "_d5304108-41c0-4aa5-b494-805232f5c9f0",
+            "condition": "Yes",
+            "sourceRef": "_dae1b38d-f223-4d67-8fe2-3aa0e66a1d3a"
+        },
+        {
+            "id": "_71aa63ce-a724-4fac-923c-4b86e5b452ad",
+            "targetRef": "_459895cc-2279-4084-85af-41d9d42b264d",
+            "sourceRef": "_458e4143-a93b-44e3-a719-ede5a34969f5"
+        },
+        {
+            "id": "_736c9454-8ab8-44e7-9627-98f2a2728f89",
+            "targetRef": "_019f1b86-6829-4f67-a9dc-156d63354613",
+            "sourceRef": "_4decd079-b9cd-4847-8dfa-278c163109ce"
+        },
+        {
+            "id": "_826100b6-9981-411d-ab49-bfe2e1de951a",
+            "targetRef": "_7a118dbb-69fc-46ff-b13a-72c7c50addeb",
+            "condition": "Yes",
+            "sourceRef": "_7018948d-5c7e-42d8-8997-b8cec0aee72c"
+        },
+        {
+            "id": "_832c33d6-1636-419d-8f44-de3ce9dc647d",
+            "targetRef": "_add9ac75-6ce0-4f6f-801e-b6ebac020cfa",
+            "sourceRef": "_a9de4576-9f8e-4b06-956f-6c0cf084dc8e"
+        },
+        {
+            "id": "_9d4932a3-1fb0-4a94-9348-6ec79507a844",
+            "targetRef": "_6cc7581f-618e-4fea-b7e1-b24b9a066b3f",
+            "condition": "No",
+            "sourceRef": "_7018948d-5c7e-42d8-8997-b8cec0aee72c"
+        },
+        {
+            "id": "_a0cfefcb-1be3-4c07-9ef6-65540726d87b",
+            "targetRef": "_a9de4576-9f8e-4b06-956f-6c0cf084dc8e",
+            "sourceRef": "_d5304108-41c0-4aa5-b494-805232f5c9f0"
+        },
+        {
+            "id": "_abd5dc80-7629-4029-b86c-715ae77cb812",
+            "targetRef": "_8b0f13d8-d8a3-4b0b-ab63-e01c6b5504ab",
+            "sourceRef": "_4422c46b-5a40-4d7b-90c5-f6698beb9bb3"
+        },
+        {
+            "id": "_ae1c9dc8-c6d7-40ff-b682-90652407e153",
+            "targetRef": "_7018948d-5c7e-42d8-8997-b8cec0aee72c",
+            "sourceRef": "_8b0f13d8-d8a3-4b0b-ab63-e01c6b5504ab"
+        },
+        {
+            "id": "_b9596be1-a47b-46e2-8b10-eaaf4aa5b1bc",
+            "targetRef": "_a9de4576-9f8e-4b06-956f-6c0cf084dc8e",
+            "condition": "No",
+            "sourceRef": "_dae1b38d-f223-4d67-8fe2-3aa0e66a1d3a"
+        },
+        {
+            "id": "_f75ee2f6-5211-4354-9239-dcbdc622307b",
+            "targetRef": "_dae1b38d-f223-4d67-8fe2-3aa0e66a1d3a",
+            "sourceRef": "_6cc7581f-618e-4fea-b7e1-b24b9a066b3f"
+        }
+    ]
+}

@@ -1,0 +1,224 @@
+{
+    "tasks": [
+        {
+            "id": "0",
+            "name": "Steuern abf\u00fchren",
+            "type": "Task"
+        },
+        {
+            "id": "1",
+            "name": "Steuerberatung beauftragen",
+            "type": "Task"
+        },
+        {
+            "id": "2",
+            "name": "Steuererkl\u00e4rung schreiben",
+            "type": "Task"
+        },
+        {
+            "id": "3",
+            "name": "Vollmacht ausf\u00fcllen",
+            "type": "Task"
+        },
+        {
+            "id": "4",
+            "name": "Steuererkl\u00e4rung erstellen",
+            "type": "Task"
+        },
+        {
+            "id": "5",
+            "name": "Steuererkl\u00e4rung an das Finanzamt schicken",
+            "type": "Task"
+        },
+        {
+            "id": "6",
+            "name": "Steuerberater fragt fristgem\u00e4\u00df Einspruch ein",
+            "type": "Task"
+        },
+        {
+            "id": "7",
+            "name": "Steuerbescheid pr\u00fcfen",
+            "type": "Task"
+        },
+        {
+            "id": "8",
+            "name": "Finanzamt setzt Steuer fest",
+            "type": "Task"
+        }
+    ],
+    "events": [
+        {
+            "id": "9",
+            "name": "Start Event",
+            "type": "StartNoneEvent"
+        },
+        {
+            "id": "10",
+            "name": "Vollmacht erhalten",
+            "type": "EndNoneEvent"
+        },
+        {
+            "id": "11",
+            "name": "Steuererkl\u00e4rung ist an das Finanzamt geschickt.",
+            "type": "IntermediateMessageEventCatching"
+        },
+        {
+            "id": "12",
+            "name": "Steuerberater erh\u00e4lt Steuerbescheid",
+            "type": "IntermediateMessageEventCatching"
+        },
+        {
+            "id": "13",
+            "name": "End Event",
+            "type": "EndNoneEvent"
+        }
+    ],
+    "gateways": [
+        {
+            "id": "14",
+            "type": "Exclusive"
+        },
+        {
+            "id": "15",
+            "type": "Parallel"
+        },
+        {
+            "id": "16",
+            "type": "Exclusive"
+        },
+        {
+            "id": "17",
+            "type": "Parallel"
+        },
+        {
+            "id": "18",
+            "type": "Exclusive"
+        }
+    ],
+    "pools": [
+        {
+            "id": "19",
+            "name": "Steuern kontrollieren",
+            "lanes": [
+                {
+                    "id": "20",
+                    "name": "Lane",
+                    "elemRefs": [
+                        "0",
+                        "1",
+                        "2",
+                        "3",
+                        "4",
+                        "5",
+                        "6",
+                        "7",
+                        "8",
+                        "9",
+                        "10",
+                        "11",
+                        "12",
+                        "13",
+                        "14",
+                        "15",
+                        "16",
+                        "17",
+                        "18"
+                    ]
+                }
+            ]
+        }
+    ],
+    "sequenceFlows": [
+        {
+            "id": "21",
+            "sourceRef": "9",
+            "targetRef": "0"
+        },
+        {
+            "id": "22",
+            "sourceRef": "0",
+            "targetRef": "1"
+        },
+        {
+            "id": "23",
+            "sourceRef": "1",
+            "targetRef": "2"
+        },
+        {
+            "id": "24",
+            "sourceRef": "2",
+            "targetRef": "14"
+        },
+        {
+            "id": "25",
+            "sourceRef": "14",
+            "targetRef": "3"
+        },
+        {
+            "id": "26",
+            "sourceRef": "3",
+            "targetRef": "10"
+        },
+        {
+            "id": "27",
+            "sourceRef": "14",
+            "targetRef": "4"
+        },
+        {
+            "id": "28",
+            "sourceRef": "4",
+            "targetRef": "5"
+        },
+        {
+            "id": "29",
+            "sourceRef": "5",
+            "targetRef": "11"
+        },
+        {
+            "id": "30",
+            "sourceRef": "11",
+            "targetRef": "15"
+        },
+        {
+            "id": "31",
+            "sourceRef": "15",
+            "targetRef": "6"
+        },
+        {
+            "id": "32",
+            "sourceRef": "6",
+            "targetRef": "7"
+        },
+        {
+            "id": "33",
+            "sourceRef": "7",
+            "targetRef": "17"
+        },
+        {
+            "id": "34",
+            "sourceRef": "17",
+            "targetRef": "8"
+        },
+        {
+            "id": "35",
+            "sourceRef": "17",
+            "targetRef": "18"
+        },
+        {
+            "id": "36",
+            "sourceRef": "15",
+            "targetRef": "12"
+        },
+        {
+            "id": "37",
+            "sourceRef": "12",
+            "targetRef": "18"
+        },
+        {
+            "id": "38",
+            "sourceRef": "8",
+            "targetRef": "13"
+        }
+    ],
+    "messageFlows": []
+}

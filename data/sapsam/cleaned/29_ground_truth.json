@@ -1,0 +1,258 @@
+{
+    "tasks": [
+        {
+            "id": "sid-57463499-C196-4490-A21D-85F9DC4A25B1",
+            "name": "Speisen zubereiten",
+            "type": "Task"
+        },
+        {
+            "id": "sid-B85545E3-5680-46CB-B5D2-59A9C38F234C",
+            "name": "Auftragsticket erstellen und weiterleiten",
+            "type": "Task"
+        },
+        {
+            "id": "sid-54DAB90D-DBB9-4319-B647-E47F789AFF57",
+            "name": "Wein aus dem keller holen",
+            "type": "Task"
+        },
+        {
+            "id": "sid-90DA259E-F216-4647-A9AE-718983EDE85D",
+            "name": "Alkoholische Getr\u00e4nke vorbereiten",
+            "type": "Task"
+        },
+        {
+            "id": "sid-A3F5CAB5-7D84-4134-9269-9F1C23F9009D",
+            "name": "Wagen vorbereiten",
+            "type": "Task"
+        },
+        {
+            "id": "sid-BE02D122-8BF1-4301-9FF4-4DBC5C860AC7",
+            "name": "Alkoholfreie Getr\u00e4nke vorbereiten",
+            "type": "Task"
+        },
+        {
+            "id": "sid-E544A16C-392E-418B-9CC7-B4AC95926759",
+            "name": "Gew\u00fcnschte Bestellung liefern",
+            "type": "Task"
+        },
+        {
+            "id": "sid-D496F52F-7010-49B3-9071-04E542CCB6ED",
+            "name": "Konto des Kunden belasten",
+            "type": "Task"
+        }
+    ],
+    "events": [
+        {
+            "id": "sid-D597ECCD-2300-475F-994D-4CE8F85ABA52",
+            "name": "Auftrag eingegangen",
+            "type": "StartMessageEvent"
+        },
+        {
+            "id": "sid-DAACE9EB-1A7E-43C3-BE24-EE97A6B03D07",
+            "name": "Kundenauftrag  abgeschlossen",
+            "type": "EndNoneEvent"
+        },
+        {
+            "id": "sid-18F325F6-9AE9-47DB-89FB-4F509D11E9C1",
+            "name": "keine anderen  Auftr\u00e4ge  zu bearbeiten",
+            "type": "IntermediateConditionalEvent"
+        }
+    ],
+    "gateways": [
+        {
+            "id": "sid-FAA4DAB4-3721-4D80-8536-23861F0CE92E",
+            "type": "Parallel"
+        },
+        {
+            "id": "sid-5F319538-72F8-44D0-A363-9DF2701C0699",
+            "name": "Ist Wein gew\u00fcnscht?",
+            "type": "Exclusive"
+        },
+        {
+            "id": "sid-D57ABDF1-231C-4F2E-8F55-52F7600C0EB5",
+            "type": "Exclusive"
+        },
+        {
+            "id": "sid-4C7D3BA8-68D4-4FA8-8540-C75C128AB747",
+            "name": "Sind andere alkoholische Getr\u00e4nke gew\u00fcnscht?",
+            "type": "Exclusive"
+        },
+        {
+            "id": "sid-D693A343-A611-4249-8608-0A6520B3A630",
+            "type": "Exclusive"
+        },
+        {
+            "id": "sid-78C79161-4B2B-4E43-B51F-EA170BD33797",
+            "type": "Parallel"
+        }
+    ],
+    "pools": [
+        {
+            "id": "sid-954A4382-8EDD-4562-9A50-C051C4075FB7",
+            "name": "Hotelgast",
+            "lanes": []
+        },
+        {
+            "id": "sid-60A3B572-4F52-46B7-BF88-4A80C4E19AAD",
+            "name": "Hotel Evanstonian",
+            "lanes": [
+                {
+                    "id": "sid-650DCFF8-B960-40AB-AF70-49C73C64A9F6",
+                    "name": "K\u00fcche",
+                    "elemRefs": [
+                        "sid-57463499-C196-4490-A21D-85F9DC4A25B1"
+                    ]
+                },
+                {
+                    "id": "sid-E38873E0-F3E7-411D-964D-D9C7C7940B89",
+                    "name": "Zimmer-Service-Manager",
+                    "elemRefs": [
+                        "sid-B85545E3-5680-46CB-B5D2-59A9C38F234C",
+                        "sid-D597ECCD-2300-475F-994D-4CE8F85ABA52",
+                        "sid-FAA4DAB4-3721-4D80-8536-23861F0CE92E"
+                    ]
+                },
+                {
+                    "id": "sid-E4557765-73D9-4274-97FD-28EBD33B95D1",
+                    "name": "Sommelier",
+                    "elemRefs": [
+                        "sid-54DAB90D-DBB9-4319-B647-E47F789AFF57",
+                        "sid-90DA259E-F216-4647-A9AE-718983EDE85D",
+                        "sid-5F319538-72F8-44D0-A363-9DF2701C0699",
+                        "sid-D57ABDF1-231C-4F2E-8F55-52F7600C0EB5",
+                        "sid-4C7D3BA8-68D4-4FA8-8540-C75C128AB747",
+                        "sid-D693A343-A611-4249-8608-0A6520B3A630"
+                    ]
+                },
+                {
+                    "id": "sid-DC0A8441-24D9-416D-A3F2-1EB409D782F0",
+                    "name": "Kellner",
+                    "elemRefs": [
+                        "sid-A3F5CAB5-7D84-4134-9269-9F1C23F9009D",
+                        "sid-BE02D122-8BF1-4301-9FF4-4DBC5C860AC7",
+                        "sid-E544A16C-392E-418B-9CC7-B4AC95926759",
+                        "sid-D496F52F-7010-49B3-9071-04E542CCB6ED",
+                        "sid-DAACE9EB-1A7E-43C3-BE24-EE97A6B03D07",
+                        "sid-18F325F6-9AE9-47DB-89FB-4F509D11E9C1",
+                        "sid-78C79161-4B2B-4E43-B51F-EA170BD33797"
+                    ]
+                }
+            ]
+        }
+    ],
+    "messageFlows": [
+        {
+            "id": "sid-C56CAF88-B569-482D-8991-05EEA7EC5F80",
+            "targetRef": "sid-D597ECCD-2300-475F-994D-4CE8F85ABA52",
+            "sourceRef": "sid-954A4382-8EDD-4562-9A50-C051C4075FB7"
+        },
+        {
+            "id": "sid-F37DB84D-B3DC-4BB4-914D-4FFB0F950FEF",
+            "targetRef": "sid-954A4382-8EDD-4562-9A50-C051C4075FB7",
+            "sourceRef": "sid-E544A16C-392E-418B-9CC7-B4AC95926759"
+        }
+    ],
+    "sequenceFlows": [
+        {
+            "id": "sid-9709F06A-7CD9-49FF-9224-36853405BF7C",
+            "targetRef": "sid-BE02D122-8BF1-4301-9FF4-4DBC5C860AC7",
+            "sourceRef": "sid-A3F5CAB5-7D84-4134-9269-9F1C23F9009D"
+        },
+        {
+            "id": "sid-F9AD3CD1-1141-4A91-9CDC-C4F58CAA1D01",
+            "targetRef": "sid-78C79161-4B2B-4E43-B51F-EA170BD33797",
+            "sourceRef": "sid-57463499-C196-4490-A21D-85F9DC4A25B1"
+        },
+        {
+            "id": "sid-2D3A56D4-3688-47B9-94F7-0F8782CB9501",
+            "targetRef": "sid-78C79161-4B2B-4E43-B51F-EA170BD33797",
+            "sourceRef": "sid-BE02D122-8BF1-4301-9FF4-4DBC5C860AC7"
+        },
+        {
+            "id": "sid-F6BF60F7-4B9A-496A-890A-9D80FB10974A",
+            "targetRef": "sid-18F325F6-9AE9-47DB-89FB-4F509D11E9C1",
+            "sourceRef": "sid-E544A16C-392E-418B-9CC7-B4AC95926759"
+        },
+        {
+            "id": "sid-20200D5A-BB3D-4528-9EF2-FE459F1C04BE",
+            "targetRef": "sid-D496F52F-7010-49B3-9071-04E542CCB6ED",
+            "sourceRef": "sid-18F325F6-9AE9-47DB-89FB-4F509D11E9C1"
+        },
+        {
+            "id": "sid-BD028343-D085-4183-8CF6-9C32464C0537",
+            "targetRef": "sid-DAACE9EB-1A7E-43C3-BE24-EE97A6B03D07",
+            "sourceRef": "sid-D496F52F-7010-49B3-9071-04E542CCB6ED"
+        },
+        {
+            "id": "sid-6A83C868-41D7-4721-823E-3F99E60E057D",
+            "targetRef": "sid-B85545E3-5680-46CB-B5D2-59A9C38F234C",
+            "sourceRef": "sid-D597ECCD-2300-475F-994D-4CE8F85ABA52"
+        },
+        {
+            "id": "sid-87AB8664-B429-48CB-B8C5-1DCD0DE36037",
+            "targetRef": "sid-FAA4DAB4-3721-4D80-8536-23861F0CE92E",
+            "sourceRef": "sid-B85545E3-5680-46CB-B5D2-59A9C38F234C"
+        },
+        {
+            "id": "sid-0B1BA3CC-8F1A-4EFD-BB4F-89EEF9CC3DAB",
+            "targetRef": "sid-4C7D3BA8-68D4-4FA8-8540-C75C128AB747",
+            "sourceRef": "sid-D57ABDF1-231C-4F2E-8F55-52F7600C0EB5"
+        },
+        {
+            "id": "sid-6FE0F0BD-462A-4539-9E64-4BEE338BEAEA",
+            "targetRef": "sid-57463499-C196-4490-A21D-85F9DC4A25B1",
+            "sourceRef": "sid-FAA4DAB4-3721-4D80-8536-23861F0CE92E"
+        },
+        {
+            "id": "sid-E496C1C6-6298-43DB-AB1A-DEF99ED6A91A",
+            "targetRef": "sid-A3F5CAB5-7D84-4134-9269-9F1C23F9009D",
+            "sourceRef": "sid-FAA4DAB4-3721-4D80-8536-23861F0CE92E"
+        },
+        {
+            "id": "sid-0E513E23-5711-4E6C-9AA0-4BFEEC8EBC09",
+            "targetRef": "sid-E544A16C-392E-418B-9CC7-B4AC95926759",
+            "sourceRef": "sid-78C79161-4B2B-4E43-B51F-EA170BD33797"
+        },
+        {
+            "id": "sid-6F2785AF-493C-483C-9437-8F0BFD7D1890",
+            "targetRef": "sid-90DA259E-F216-4647-A9AE-718983EDE85D",
+            "sourceRef": "sid-4C7D3BA8-68D4-4FA8-8540-C75C128AB747"
+        },
+        {
+            "id": "sid-226D648F-FEB0-4F40-B25F-4EBCF2E860FC",
+            "targetRef": "sid-D693A343-A611-4249-8608-0A6520B3A630",
+            "sourceRef": "sid-90DA259E-F216-4647-A9AE-718983EDE85D"
+        },
+        {
+            "id": "sid-2AB63DD5-59D2-4125-8A0C-44A0D49C85C3",
+            "targetRef": "sid-78C79161-4B2B-4E43-B51F-EA170BD33797",
+            "sourceRef": "sid-D693A343-A611-4249-8608-0A6520B3A630"
+        },
+        {
+            "id": "sid-1E5DFD69-8CAE-4A2A-B627-4A76757B9A13",
+            "targetRef": "sid-5F319538-72F8-44D0-A363-9DF2701C0699",
+            "sourceRef": "sid-FAA4DAB4-3721-4D80-8536-23861F0CE92E"
+        },
+        {
+            "id": "sid-341A4802-7F9A-42DD-9CAD-A175D215A66A",
+            "targetRef": "sid-54DAB90D-DBB9-4319-B647-E47F789AFF57",
+            "condition": "Ja",
+            "sourceRef": "sid-5F319538-72F8-44D0-A363-9DF2701C0699"
+        },
+        {
+            "id": "sid-D8140DC6-D4EB-4E95-9616-F807021B2CC2",
+            "targetRef": "sid-D57ABDF1-231C-4F2E-8F55-52F7600C0EB5",
+            "sourceRef": "sid-5F319538-72F8-44D0-A363-9DF2701C0699"
+        },
+        {
+            "id": "sid-FDD03D23-8697-453C-A11C-F9C9E7D738C5",
+            "targetRef": "sid-D693A343-A611-4249-8608-0A6520B3A630",
+            "sourceRef": "sid-4C7D3BA8-68D4-4FA8-8540-C75C128AB747"
+        },
+        {
+            "id": "sid-C43DC304-99E9-459A-9E57-FBC7460864C4",
+            "targetRef": "sid-D57ABDF1-231C-4F2E-8F55-52F7600C0EB5",
+            "sourceRef": "sid-54DAB90D-DBB9-4319-B647-E47F789AFF57"
+        }
+    ]
+}

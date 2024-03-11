@@ -1,0 +1,155 @@
+{
+    "tasks": [
+        {
+            "id": "0",
+            "name": "Bewerbung durchf\u00fchren",
+            "type": "Task"
+        },
+        {
+            "id": "1",
+            "name": "Bewerbungen entgegennehmen",
+            "type": "Task"
+        },
+        {
+            "id": "2",
+            "name": "Bewerberakten bereitstellen",
+            "type": "Task"
+        },
+        {
+            "id": "3",
+            "name": "Zulassungsf\u00e4higkeit der Bewerber pr\u00fcfen",
+            "type": "Task"
+        },
+        {
+            "id": "4",
+            "name": "Ergebnisse der Zulassungspr\u00fcfung auswerten",
+            "type": "Task"
+        },
+        {
+            "id": "5",
+            "name": "Bewerber ausw\u00e4hlen und zulassen",
+            "type": "Task"
+        },
+        {
+            "id": "6",
+            "name": "Studenten immatrikulieren",
+            "type": "Task"
+        },
+        {
+            "id": "7",
+            "name": "Immatrikulationsunterlagen versenden",
+            "type": "Task"
+        }
+    ],
+    "events": [
+        {
+            "id": "8",
+            "name": "Bewerbungsverfahren er\u00f6ffnet",
+            "type": "StartNoneEvent"
+        },
+        {
+            "id": "9",
+            "name": "Bewerbungsverfahren beendet",
+            "type": "EndNoneEvent"
+        }
+    ],
+    "gateways": [],
+    "pools": [
+        {
+            "id": "10",
+            "name": "Referat Zulassung und Immatrikulation",
+            "lanes": [
+                {
+                    "id": "11",
+                    "name": "Referat Zulassung und Immatrikulation",
+                    "elemRefs": [
+                        "1",
+                        "2",
+                        "3",
+                        "4",
+                        "5",
+                        "7",
+                        "9"
+                    ]
+                }
+            ]
+        },
+        {
+            "id": "12",
+            "name": "Student",
+            "lanes": [
+                {
+                    "id": "13",
+                    "name": "Student",
+                    "elemRefs": [
+                        "0",
+                        "6"
+                    ]
+                }
+            ]
+        },
+        {
+            "id": "14",
+            "name": "WI-Auswahlkommission",
+            "lanes": [
+                {
+                    "id": "15",
+                    "name": "WI-Auswahlkommission",
+                    "elemRefs": [
+                        "3",
+                        "4",
+                        "5"
+                    ]
+                }
+            ]
+        }
+    ],
+    "sequenceFlows": [
+        {
+            "id": "16",
+            "sourceRef": "8",
+            "targetRef": "0"
+        },
+        {
+            "id": "17",
+            "sourceRef": "0",
+            "targetRef": "1"
+        },
+        {
+            "id": "18",
+            "sourceRef": "1",
+            "targetRef": "2"
+        },
+        {
+            "id": "19",
+            "sourceRef": "2",
+            "targetRef": "3"
+        },
+        {
+            "id": "20",
+            "sourceRef": "3",
+            "targetRef": "4"
+        },
+        {
+            "id": "21",
+            "sourceRef": "4",
+            "targetRef": "5"
+        },
+        {
+            "id": "22",
+            "sourceRef": "5",
+            "targetRef": "6"
+        },
+        {
+            "id": "23",
+            "sourceRef": "6",
+            "targetRef": "7"
+        },
+        {
+            "id": "24",
+            "sourceRef": "7",
+            "targetRef": "9"
+        }
+    ],
+    "messageFlows": []
+}

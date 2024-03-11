@@ -1,0 +1,350 @@
+{
+    "tasks": [
+        {
+            "id": "0",
+            "name": "finalize the sale",
+            "type": "StartEvent"
+        },
+        {
+            "id": "1",
+            "name": "receive proforma invoice confirmation",
+            "type": "Receive"
+        },
+        {
+            "id": "2",
+            "name": "upload the confirmation letter",
+            "type": "Manual"
+        },
+        {
+            "id": "3",
+            "name": "specify network nodes based on generic service description",
+            "type": "Manual"
+        },
+        {
+            "id": "4",
+            "name": "register a feasibility study ticket",
+            "type": "Manual"
+        },
+        {
+            "id": "5",
+            "name": "perform a feasibility study",
+            "type": "Manual"
+        },
+        {
+            "id": "6",
+            "name": "announce feasibility study results",
+            "type": "Send"
+        },
+        {
+            "id": "7",
+            "name": "announce purchase methods",
+            "type": "Send"
+        },
+        {
+            "id": "8",
+            "name": "get the signed service contract",
+            "type": "Receive"
+        },
+        {
+            "id": "9",
+            "name": "modify sale profile documents",
+            "type": "Manual"
+        },
+        {
+            "id": "10",
+            "name": "allocate corporate customer unique ID",
+            "type": "Manual"
+        },
+        {
+            "id": "11",
+            "name": "verify corporate customer's unique ID",
+            "type": "Manual"
+        },
+        {
+            "id": "12",
+            "name": "update sale profile and send a report to corporate customer affairs",
+            "type": "Send"
+        },
+        {
+            "id": "13",
+            "name": "update the information and sending a report",
+            "type": "Send"
+        },
+        {
+            "id": "14",
+            "name": "assigning an official supervisor",
+            "type": "Manual"
+        },
+        {
+            "id": "15",
+            "name": "sending the current sale profile to the CFS department",
+            "type": "Send"
+        },
+        {
+            "id": "16",
+            "name": "updating the sale profile status",
+            "type": "Manual"
+        },
+        {
+            "id": "17",
+            "name": "register service cancellation reasons",
+            "type": "Manual"
+        },
+        {
+            "id": "18",
+            "name": "sale process finishes",
+            "type": "EndEvent"
+        },
+        {
+            "id": "19",
+            "name": "B2B payment process",
+            "type": "CollapsedSubprocess"
+        },
+        {
+            "id": "20",
+            "name": "service nodes deployment process",
+            "type": "CollapsedSubprocess"
+        }
+    ],
+    "events": [
+        {
+            "id": "21",
+            "name": "Start Event",
+            "type": "StartNoneEvent"
+        },
+        {
+            "id": "22",
+            "name": "End Event",
+            "type": "EndNoneEvent"
+        }
+    ],
+    "gateways": [
+        {
+            "id": "23",
+            "type": "Exclusive"
+        },
+        {
+            "id": "24",
+            "type": "Exclusive"
+        },
+        {
+            "id": "25",
+            "type": "Exclusive"
+        },
+        {
+            "id": "26",
+            "type": "Exclusive"
+        }
+    ],
+    "pools": [
+        {
+            "id": "27",
+            "name": "B2B sale and marketing (2nd Phase)",
+            "lanes": [
+                {
+                    "id": "28",
+                    "name": "cooperate Sale department",
+                    "elemRefs": [
+                        "0",
+                        "1",
+                        "2",
+                        "3",
+                        "7",
+                        "8",
+                        "9",
+                        "10",
+                        "11",
+                        "12",
+                        "14",
+                        "15",
+                        "16",
+                        "17",
+                        "18",
+                        "19",
+                        "20"
+                    ]
+                },
+                {
+                    "id": "29",
+                    "name": "CFS department",
+                    "elemRefs": [
+                        "4",
+                        "5",
+                        "6"
+                    ]
+                },
+                {
+                    "id": "30",
+                    "name": "Corporate Customer",
+                    "elemRefs": []
+                },
+                {
+                    "id": "31",
+                    "name": "corporate customer affairs",
+                    "elemRefs": []
+                },
+                {
+                    "id": "32",
+                    "name": "Financial affairs",
+                    "elemRefs": [
+                        "13"
+                    ]
+                }
+            ]
+        }
+    ],
+    "sequenceFlows": [
+        {
+            "id": "33",
+            "sourceRef": "0",
+            "targetRef": "1"
+        },
+        {
+            "id": "34",
+            "sourceRef": "1",
+            "targetRef": "2"
+        },
+        {
+            "id": "35",
+            "sourceRef": "2",
+            "targetRef": "3"
+        },
+        {
+            "id": "36",
+            "sourceRef": "3",
+            "targetRef": "23"
+        },
+        {
+            "id": "37",
+            "sourceRef": "23",
+            "targetRef": "4",
+            "condition": "Does it require a sophisticated feasibility study?"
+        },
+        {
+            "id": "38",
+            "sourceRef": "23",
+            "targetRef": "7",
+            "condition": "No feasibility study required"
+        },
+        {
+            "id": "39",
+            "sourceRef": "4",
+            "targetRef": "5"
+        },
+        {
+            "id": "40",
+            "sourceRef": "5",
+            "targetRef": "6"
+        },
+        {
+            "id": "41",
+            "sourceRef": "6",
+            "targetRef": "24"
+        },
+        {
+            "id": "42",
+            "sourceRef": "24",
+            "targetRef": "7",
+            "condition": "Are the results of the required feasibility study positive?"
+        },
+        {
+            "id": "43",
+            "sourceRef": "24",
+            "targetRef": "18"
+        },
+        {
+            "id": "44",
+            "sourceRef": "7",
+            "targetRef": "25"
+        },
+        {
+            "id": "45",
+            "sourceRef": "25",
+            "targetRef": "8",
+            "condition": "Assuring customer's purchase"
+        },
+        {
+            "id": "46",
+            "sourceRef": "25",
+            "targetRef": "9",
+            "condition": "Failing to assure customer's purchase"
+        },
+        {
+            "id": "47",
+            "sourceRef": "8",
+            "targetRef": "9"
+        },
+        {
+            "id": "48",
+            "sourceRef": "9",
+            "targetRef": "10"
+        },
+        {
+            "id": "49",
+            "sourceRef": "10",
+            "targetRef": "11"
+        },
+        {
+            "id": "50",
+            "sourceRef": "11",
+            "targetRef": "26"
+        },
+        {
+            "id": "51",
+            "sourceRef": "26",
+            "targetRef": "12"
+        },
+        {
+            "id": "52",
+            "sourceRef": "12",
+            "targetRef": "13"
+        },
+        {
+            "id": "53",
+            "sourceRef": "13",
+            "targetRef": "14"
+        },
+        {
+            "id": "54",
+            "sourceRef": "14",
+            "targetRef": "15"
+        },
+        {
+            "id": "55",
+            "sourceRef": "15",
+            "targetRef": "16"
+        },
+        {
+            "id": "56",
+            "sourceRef": "16",
+            "targetRef": "17"
+        },
+        {
+            "id": "57",
+            "sourceRef": "17",
+            "targetRef": "18"
+        }
+    ],
+    "messageFlows": [
+        {
+            "id": "58",
+            "sourceRef": "6",
+            "targetRef": "28"
+        },
+        {
+            "id": "59",
+            "sourceRef": "12",
+            "targetRef": "31"
+        },
+        {
+            "id": "60",
+            "sourceRef": "13",
+            "targetRef": "32"
+        },
+        {
+            "id": "61",
+            "sourceRef": "15",
+            "targetRef": "29"
+        }
+    ]
+}

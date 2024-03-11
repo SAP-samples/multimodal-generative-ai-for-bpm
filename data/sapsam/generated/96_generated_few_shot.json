@@ -1,0 +1,96 @@
+{
+    "tasks": [
+        {
+            "id": "0",
+            "name": "Navigate to the Staff window in S+ Classic",
+            "type": "Task"
+        },
+        {
+            "id": "1",
+            "name": "Create a \"new\" staff object",
+            "type": "Task"
+        },
+        {
+            "id": "2",
+            "name": "Edit the ID tab",
+            "type": "Task"
+        },
+        {
+            "id": "3",
+            "name": "Navigate to the Activity Template window",
+            "type": "Task"
+        },
+        {
+            "id": "4",
+            "name": "Dummy Staff attached to resource on the activity template",
+            "type": "Task"
+        }
+    ],
+    "events": [
+        {
+            "id": "5",
+            "name": "Create New Dummy Staff",
+            "type": "StartNoneEvent"
+        },
+        {
+            "id": "6",
+            "name": "Dummy Staff attached to resource on the activity template",
+            "type": "EndNoneEvent"
+        }
+    ],
+    "gateways": [],
+    "pools": [
+        {
+            "id": "7",
+            "name": "ANU",
+            "lanes": [
+                {
+                    "id": "8",
+                    "name": "TT Officer",
+                    "elemRefs": [
+                        "0",
+                        "1",
+                        "2",
+                        "3",
+                        "4",
+                        "5",
+                        "6"
+                    ]
+                }
+            ]
+        }
+    ],
+    "sequenceFlows": [
+        {
+            "id": "9",
+            "sourceRef": "5",
+            "targetRef": "0"
+        },
+        {
+            "id": "10",
+            "sourceRef": "0",
+            "targetRef": "1"
+        },
+        {
+            "id": "11",
+            "sourceRef": "1",
+            "targetRef": "2"
+        },
+        {
+            "id": "12",
+            "sourceRef": "2",
+            "targetRef": "3"
+        },
+        {
+            "id": "13",
+            "sourceRef": "3",
+            "targetRef": "4"
+        },
+        {
+            "id": "14",
+            "sourceRef": "4",
+            "targetRef": "6"
+        }
+    ],
+    "messageFlows": []
+}

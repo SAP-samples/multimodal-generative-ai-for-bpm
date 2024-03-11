@@ -1,0 +1,393 @@
+{
+    "tasks": [
+        {
+            "id": "_fd3c4d35-2e7b-40b2-9e18-1f1905157d7f",
+            "name": "registering deployment request",
+            "type": "Manual"
+        },
+        {
+            "id": "_c574d0e0-b1d5-442e-8d80-1238d23d91d0",
+            "name": "relevant payment actions",
+            "type": "Manual"
+        },
+        {
+            "id": "_7d875bee-0b6e-4f1d-b9d8-48c3fe3da91b",
+            "name": "registering a ticket for service feasibility study",
+            "type": "Manual"
+        },
+        {
+            "id": "_993c5ae9-fcd0-4230-8308-ad346439da5b",
+            "name": "register/modify the service deployment request",
+            "type": "Manual"
+        },
+        {
+            "id": "_71c0bb41-0a05-4f1d-950a-8d715c72e2da",
+            "name": "update the sale profile",
+            "type": "Manual"
+        },
+        {
+            "id": "_ac9db3d9-fb8f-4167-94e3-8200954ae86d",
+            "name": "Inquiring about re-deployment",
+            "type": "Task"
+        },
+        {
+            "id": "_fa51031f-48e6-4f43-9b70-c520605c0ca8",
+            "name": "co-negotiation about deployment infeasibility",
+            "type": "Task"
+        },
+        {
+            "id": "_d9cb00cd-4244-4b5a-ab53-b5d37ddf7a05",
+            "name": "co-negotiations about deployment cancellation",
+            "type": "Task"
+        },
+        {
+            "id": "_da241583-e17c-4515-8262-7e270a87ccd8",
+            "name": "cancelling deployment request",
+            "type": "Manual"
+        },
+        {
+            "id": "_e3ade1b8-f360-4254-9e6c-5175b56bce17",
+            "name": "register a new deployment request",
+            "type": "Manual"
+        },
+        {
+            "id": "_f335724e-16ae-439b-86cc-28e8d33b16e3",
+            "name": "send the feasibility study ticket to the CFS department",
+            "type": "Manual"
+        },
+        {
+            "id": "_1be641de-0b23-45a6-a0c8-ae52e09bf14e",
+            "name": "reporting the deployment results",
+            "type": "Manual"
+        },
+        {
+            "id": "_b4114e7e-d1de-4890-9619-ebd29e4c3c65",
+            "name": "report the results",
+            "type": "Manual"
+        },
+        {
+            "id": "_5a6f021b-30b6-4826-b406-c0ebaccf4bb8",
+            "name": "perform a feasibility study",
+            "type": "Manual"
+        },
+        {
+            "id": "_0ce64b54-a16d-43fb-bc08-68e08f2306b0",
+            "name": "deploy service equipment",
+            "type": "Manual"
+        }
+    ],
+    "events": [
+        {
+            "id": "_aa924533-2685-420a-8003-91cce6a00633",
+            "name": "service deployment finishes",
+            "type": "EndNoneEvent"
+        },
+        {
+            "id": "_21d6821d-e693-4ea9-9185-ba659f8089dd",
+            "name": "Start to decide a service deployment",
+            "type": "StartNoneEvent"
+        }
+    ],
+    "gateways": [
+        {
+            "id": "_48b6dcc6-596d-417e-9ba1-6e847152a3be",
+            "name": "Does it require feasibility study?",
+            "type": "Exclusive"
+        },
+        {
+            "id": "_dd9a2278-d988-4685-8ef3-6420c2a00fbb",
+            "name": "Who requests?",
+            "type": "Exclusive"
+        },
+        {
+            "id": "_664d7f7b-c4e4-4a38-8c37-779afcd50adf",
+            "name": "deployment result",
+            "type": "Exclusive"
+        },
+        {
+            "id": "_86d84cb6-6049-4465-b3e7-918bd38d78a2",
+            "name": "negotiations results",
+            "type": "Exclusive"
+        },
+        {
+            "id": "_1d1d9f1a-7d37-4935-bfb3-cb35634a6fb9",
+            "name": "negotiations results",
+            "type": "Exclusive"
+        },
+        {
+            "id": "_248111e0-ea20-4b2d-b5b5-f20f404adabd",
+            "name": "feasibility study results",
+            "type": "Exclusive"
+        },
+        {
+            "id": "_ed7faf66-ecea-4740-a816-a14c235b412a",
+            "name": "Does it require installation",
+            "type": "Exclusive"
+        },
+        {
+            "id": "_12442ead-2b7f-4c79-bd57-689e3235f6e3",
+            "name": "are there any priorities?",
+            "type": "Exclusive"
+        },
+        {
+            "id": "_eb5ab68d-2d29-4ccd-a692-1849b4faa716",
+            "name": "negotiations results",
+            "type": "Exclusive"
+        }
+    ],
+    "pools": [
+        {
+            "id": "_014fbe31-6487-4c6b-8e0a-26e3a74b8f75",
+            "name": "The service re-installation process",
+            "lanes": [
+                {
+                    "id": "_d4a7e2a6-9ece-46ff-888f-2f678d94354e",
+                    "name": "corporate customer",
+                    "elemRefs": [
+                        "_fd3c4d35-2e7b-40b2-9e18-1f1905157d7f",
+                        "_c574d0e0-b1d5-442e-8d80-1238d23d91d0"
+                    ]
+                },
+                {
+                    "id": "_3b29fdac-4dbf-4375-a91a-eca474270551",
+                    "name": "corporate customer affairs",
+                    "elemRefs": [
+                        "_7d875bee-0b6e-4f1d-b9d8-48c3fe3da91b",
+                        "_993c5ae9-fcd0-4230-8308-ad346439da5b",
+                        "_71c0bb41-0a05-4f1d-950a-8d715c72e2da",
+                        "_ac9db3d9-fb8f-4167-94e3-8200954ae86d",
+                        "_fa51031f-48e6-4f43-9b70-c520605c0ca8",
+                        "_d9cb00cd-4244-4b5a-ab53-b5d37ddf7a05",
+                        "_da241583-e17c-4515-8262-7e270a87ccd8",
+                        "_e3ade1b8-f360-4254-9e6c-5175b56bce17",
+                        "_f335724e-16ae-439b-86cc-28e8d33b16e3",
+                        "_aa924533-2685-420a-8003-91cce6a00633",
+                        "_21d6821d-e693-4ea9-9185-ba659f8089dd",
+                        "_48b6dcc6-596d-417e-9ba1-6e847152a3be",
+                        "_dd9a2278-d988-4685-8ef3-6420c2a00fbb",
+                        "_664d7f7b-c4e4-4a38-8c37-779afcd50adf",
+                        "_86d84cb6-6049-4465-b3e7-918bd38d78a2",
+                        "_1d1d9f1a-7d37-4935-bfb3-cb35634a6fb9",
+                        "_248111e0-ea20-4b2d-b5b5-f20f404adabd",
+                        "_ed7faf66-ecea-4740-a816-a14c235b412a",
+                        "_12442ead-2b7f-4c79-bd57-689e3235f6e3",
+                        "_eb5ab68d-2d29-4ccd-a692-1849b4faa716"
+                    ]
+                },
+                {
+                    "id": "_b1833549-def2-4000-8d08-8d1483039a23",
+                    "name": "CFS Department",
+                    "elemRefs": [
+                        "_1be641de-0b23-45a6-a0c8-ae52e09bf14e",
+                        "_b4114e7e-d1de-4890-9619-ebd29e4c3c65",
+                        "_5a6f021b-30b6-4826-b406-c0ebaccf4bb8",
+                        "_0ce64b54-a16d-43fb-bc08-68e08f2306b0"
+                    ]
+                }
+            ]
+        }
+    ],
+    "messageFlows": [],
+    "sequenceFlows": [
+        {
+            "id": "_0d83c4f1-4a23-447d-9409-be8d73fbb04c",
+            "targetRef": "_da241583-e17c-4515-8262-7e270a87ccd8",
+            "condition": "No",
+            "sourceRef": "_ed7faf66-ecea-4740-a816-a14c235b412a"
+        },
+        {
+            "id": "_0e6c09cb-3816-4b23-ac9a-d6a2c555514c",
+            "targetRef": "_993c5ae9-fcd0-4230-8308-ad346439da5b",
+            "condition": "positive",
+            "sourceRef": "_86d84cb6-6049-4465-b3e7-918bd38d78a2"
+        },
+        {
+            "id": "_171beaae-dd2b-47de-9ced-924dc5ffe863",
+            "targetRef": "_e3ade1b8-f360-4254-9e6c-5175b56bce17",
+            "condition": "positive",
+            "sourceRef": "_1d1d9f1a-7d37-4935-bfb3-cb35634a6fb9"
+        },
+        {
+            "id": "_1d2611aa-a694-4062-ac99-a2c723112ba3",
+            "targetRef": "_d9cb00cd-4244-4b5a-ab53-b5d37ddf7a05",
+            "condition": "cancellation",
+            "sourceRef": "_664d7f7b-c4e4-4a38-8c37-779afcd50adf"
+        },
+        {
+            "id": "_295433d9-d8d0-48d0-9b0e-07aaa8e2184d",
+            "targetRef": "_5a6f021b-30b6-4826-b406-c0ebaccf4bb8",
+            "sourceRef": "_f335724e-16ae-439b-86cc-28e8d33b16e3"
+        },
+        {
+            "id": "_31c9e578-d95d-43a7-9441-e1b0c106fe1e",
+            "targetRef": "_248111e0-ea20-4b2d-b5b5-f20f404adabd",
+            "sourceRef": "_b4114e7e-d1de-4890-9619-ebd29e4c3c65"
+        },
+        {
+            "id": "_450eda42-4693-4e39-94d4-49915aedf4cf",
+            "targetRef": "_f335724e-16ae-439b-86cc-28e8d33b16e3",
+            "sourceRef": "_7d875bee-0b6e-4f1d-b9d8-48c3fe3da91b"
+        },
+        {
+            "id": "_49b1515e-179f-4883-90f6-e1774649e1bd",
+            "targetRef": "_ac9db3d9-fb8f-4167-94e3-8200954ae86d",
+            "condition": "unsuccessful",
+            "sourceRef": "_664d7f7b-c4e4-4a38-8c37-779afcd50adf"
+        },
+        {
+            "id": "_4d8b7a60-7cf1-4b7b-81c4-e735cdf3c499",
+            "targetRef": "_12442ead-2b7f-4c79-bd57-689e3235f6e3",
+            "condition": "unsuccessful",
+            "sourceRef": "_248111e0-ea20-4b2d-b5b5-f20f404adabd"
+        },
+        {
+            "id": "_5a23ba77-e018-4217-b2d0-a3641672e2a3",
+            "targetRef": "_ed7faf66-ecea-4740-a816-a14c235b412a",
+            "condition": "successful",
+            "sourceRef": "_248111e0-ea20-4b2d-b5b5-f20f404adabd"
+        },
+        {
+            "id": "_5b6def0b-e3d1-4f36-98c3-69bac322f635",
+            "targetRef": "_da241583-e17c-4515-8262-7e270a87ccd8",
+            "condition": "negative",
+            "sourceRef": "_1d1d9f1a-7d37-4935-bfb3-cb35634a6fb9"
+        },
+        {
+            "id": "_5c1ac8cc-da46-41c9-b3a7-28250eeeeebb",
+            "targetRef": "_993c5ae9-fcd0-4230-8308-ad346439da5b",
+            "condition": "No",
+            "sourceRef": "_48b6dcc6-596d-417e-9ba1-6e847152a3be"
+        },
+        {
+            "id": "_609b1677-2332-4b8e-a43a-dbcdba01a962",
+            "targetRef": "_da241583-e17c-4515-8262-7e270a87ccd8",
+            "condition": "No",
+            "sourceRef": "_12442ead-2b7f-4c79-bd57-689e3235f6e3"
+        },
+        {
+            "id": "_61ae90b1-351e-49a7-ab5e-fead729f5898",
+            "targetRef": "_5a6f021b-30b6-4826-b406-c0ebaccf4bb8",
+            "condition": "Yes",
+            "sourceRef": "_12442ead-2b7f-4c79-bd57-689e3235f6e3"
+        },
+        {
+            "id": "_6cbf9241-5d3b-4ed7-b8d9-e5ecb100f7af",
+            "targetRef": "_0ce64b54-a16d-43fb-bc08-68e08f2306b0",
+            "sourceRef": "_993c5ae9-fcd0-4230-8308-ad346439da5b"
+        },
+        {
+            "id": "_6e09be9d-6565-48a6-9056-d4e952d4f9dc",
+            "targetRef": "_993c5ae9-fcd0-4230-8308-ad346439da5b",
+            "condition": "company",
+            "sourceRef": "_dd9a2278-d988-4685-8ef3-6420c2a00fbb"
+        },
+        {
+            "id": "_76338cc5-2454-432e-8823-5ac28627e27e",
+            "targetRef": "_0ce64b54-a16d-43fb-bc08-68e08f2306b0",
+            "sourceRef": "_e3ade1b8-f360-4254-9e6c-5175b56bce17"
+        },
+        {
+            "id": "_786cb870-3fa0-4f15-8463-c75afc841480",
+            "targetRef": "_86d84cb6-6049-4465-b3e7-918bd38d78a2",
+            "sourceRef": "_fa51031f-48e6-4f43-9b70-c520605c0ca8"
+        },
+        {
+            "id": "_789b2d75-74e9-48af-a355-1633e361d068",
+            "targetRef": "_1d1d9f1a-7d37-4935-bfb3-cb35634a6fb9",
+            "sourceRef": "_ac9db3d9-fb8f-4167-94e3-8200954ae86d"
+        },
+        {
+            "id": "_822ece09-5d24-4b91-b50f-0e966d6de6e9",
+            "targetRef": "_c574d0e0-b1d5-442e-8d80-1238d23d91d0",
+            "sourceRef": "_71c0bb41-0a05-4f1d-950a-8d715c72e2da"
+        },
+        {
+            "id": "_898042b0-2f84-4d56-b2a2-2e090f478f79",
+            "targetRef": "_eb5ab68d-2d29-4ccd-a692-1849b4faa716",
+            "sourceRef": "_d9cb00cd-4244-4b5a-ab53-b5d37ddf7a05"
+        },
+        {
+            "id": "_937cc9f5-b5f9-455e-9b6e-91d12c648b6e",
+            "targetRef": "_da241583-e17c-4515-8262-7e270a87ccd8",
+            "condition": "negative",
+            "sourceRef": "_86d84cb6-6049-4465-b3e7-918bd38d78a2"
+        },
+        {
+            "id": "_9718b3b9-dcb1-4d8e-9582-aef6e360cdd9",
+            "targetRef": "_aa924533-2685-420a-8003-91cce6a00633",
+            "sourceRef": "_da241583-e17c-4515-8262-7e270a87ccd8"
+        },
+        {
+            "id": "_9f9c6fac-e4dd-4e1a-9861-cd69df763a8a",
+            "targetRef": "_71c0bb41-0a05-4f1d-950a-8d715c72e2da",
+            "condition": "successful",
+            "sourceRef": "_664d7f7b-c4e4-4a38-8c37-779afcd50adf"
+        },
+        {
+            "id": "_a6c3a800-b763-4939-b1a1-b143445a1575",
+            "targetRef": "_da241583-e17c-4515-8262-7e270a87ccd8",
+            "condition": "Negative",
+            "sourceRef": "_eb5ab68d-2d29-4ccd-a692-1849b4faa716"
+        },
+        {
+            "id": "_b1ecf58c-f30d-407e-ae87-679fc6221eec",
+            "targetRef": "_664d7f7b-c4e4-4a38-8c37-779afcd50adf",
+            "sourceRef": "_1be641de-0b23-45a6-a0c8-ae52e09bf14e"
+        },
+        {
+            "id": "_b5388f41-c206-4bd1-be3b-1efb4920ec04",
+            "targetRef": "_fd3c4d35-2e7b-40b2-9e18-1f1905157d7f",
+            "condition": "customer",
+            "sourceRef": "_dd9a2278-d988-4685-8ef3-6420c2a00fbb"
+        },
+        {
+            "id": "_b83ca598-5425-4650-b8c2-5ca43cea674f",
+            "targetRef": "_48b6dcc6-596d-417e-9ba1-6e847152a3be",
+            "sourceRef": "_fd3c4d35-2e7b-40b2-9e18-1f1905157d7f"
+        },
+        {
+            "id": "_d3c6798a-bcde-4898-9cac-9deb74310d4e",
+            "targetRef": "_fa51031f-48e6-4f43-9b70-c520605c0ca8",
+            "condition": "infeasible",
+            "sourceRef": "_664d7f7b-c4e4-4a38-8c37-779afcd50adf"
+        },
+        {
+            "id": "_d801cc3b-c1df-472a-b9fe-bf2e12fce675",
+            "targetRef": "_7d875bee-0b6e-4f1d-b9d8-48c3fe3da91b",
+            "condition": "Yes",
+            "sourceRef": "_48b6dcc6-596d-417e-9ba1-6e847152a3be"
+        },
+        {
+            "id": "_db1de9df-9e21-4af2-a11d-4bb55822505d",
+            "targetRef": "_dd9a2278-d988-4685-8ef3-6420c2a00fbb",
+            "sourceRef": "_21d6821d-e693-4ea9-9185-ba659f8089dd"
+        },
+        {
+            "id": "_e24f305f-e1fe-42db-91cd-ce1e20fc8523",
+            "targetRef": "_993c5ae9-fcd0-4230-8308-ad346439da5b",
+            "condition": "Positive",
+            "sourceRef": "_eb5ab68d-2d29-4ccd-a692-1849b4faa716"
+        },
+        {
+            "id": "_e3e94ce1-0200-4ccf-b83e-419a960c05c5",
+            "targetRef": "_993c5ae9-fcd0-4230-8308-ad346439da5b",
+            "condition": "Yes",
+            "sourceRef": "_ed7faf66-ecea-4740-a816-a14c235b412a"
+        },
+        {
+            "id": "_ead787c7-7e86-47ba-8350-b15160c7e91e",
+            "targetRef": "_b4114e7e-d1de-4890-9619-ebd29e4c3c65",
+            "sourceRef": "_5a6f021b-30b6-4826-b406-c0ebaccf4bb8"
+        },
+        {
+            "id": "_eb68b049-5e4e-4a08-bde5-22e0ccd46245",
+            "targetRef": "_1be641de-0b23-45a6-a0c8-ae52e09bf14e",
+            "sourceRef": "_0ce64b54-a16d-43fb-bc08-68e08f2306b0"
+        },
+        {
+            "id": "_fbf5a805-56d7-49a5-9012-dab8cead0992",
+            "targetRef": "_aa924533-2685-420a-8003-91cce6a00633",
+            "sourceRef": "_c574d0e0-b1d5-442e-8d80-1238d23d91d0"
+        }
+    ]
+}

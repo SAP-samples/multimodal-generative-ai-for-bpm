@@ -1,0 +1,251 @@
+{
+    "tasks": [
+        {
+            "id": "sid-DA03903C-131A-4BB9-BB6E-44BA04A92C4C",
+            "name": "Kostenkalkulation durchf\u00fchren",
+            "type": "Task"
+        },
+        {
+            "id": "sid-234D875F-5C84-4B57-A480-E958D6AD9662",
+            "name": "Preisanpassung durchf\u00fchren",
+            "type": "Task"
+        },
+        {
+            "id": "sid-449D2B0F-61FC-4FF1-910C-596415C9D815",
+            "name": "Zahlungsdokumentation durchf\u00fchren",
+            "type": "Task"
+        },
+        {
+            "id": "sid-33D20661-C51E-4CF5-9449-1F4C7B11C2FD",
+            "name": "Projekt durchf\u00fchren",
+            "type": "Task"
+        },
+        {
+            "id": "sid-36D7703B-C74E-4BF8-B30D-CBFBA1F91746",
+            "name": "Planungsdokument erstellen",
+            "type": "Task"
+        },
+        {
+            "id": "sid-0846477B-A173-48A1-BAC1-8705BD574BDD",
+            "name": "Situation bewerten",
+            "type": "Task"
+        },
+        {
+            "id": "sid-3554278E-1252-4B95-A072-A4AF34B83B60",
+            "name": "Versp\u00e4tete Zahlungen bearbeiten (Soll-Prozess)",
+            "type": "CollapsedSubprocess"
+        },
+        {
+            "id": "sid-1994352F-6AEE-4474-B572-823917EE0C19",
+            "name": "Projektabnahme durchf\u00fchren",
+            "type": "Task"
+        },
+        {
+            "id": "sid-8DDFBAEA-8415-466A-B2C4-FC2EB8420F85",
+            "name": "Folgeprojekte identifizieren",
+            "type": "Task"
+        }
+    ],
+    "events": [
+        {
+            "id": "sid-7E0BB285-E639-4AB8-85C4-4CD7BA24808A",
+            "name": "Projektbeginn",
+            "type": "StartNoneEvent"
+        },
+        {
+            "id": "sid-E1365052-DE2D-4ECD-9621-41ED8FDDB7AD",
+            "name": "Neue Kundenanforderungen",
+            "type": "IntermediateMessageEventCatching"
+        },
+        {
+            "id": "sid-96FB8D88-3175-447B-B8EE-A39F50BAE652",
+            "name": "Gleichbleibende Anforderungen",
+            "type": "IntermediateConditionalEvent"
+        },
+        {
+            "id": "sid-6E084310-6287-4736-8A1C-818E23B67543",
+            "name": "Projektabschluss",
+            "type": "EndNoneEvent"
+        },
+        {
+            "id": "sid-0636F275-3EC8-422A-8F9F-0896A551D80C",
+            "name": "Versp\u00e4tete Zahlung",
+            "type": "IntermediateEscalationEvent"
+        },
+        {
+            "id": "sid-11DB6375-2F47-48D4-9846-605F1BF04724",
+            "name": "Projektabbruch",
+            "type": "EndNoneEvent"
+        }
+    ],
+    "gateways": [
+        {
+            "id": "sid-4CD9568B-3F92-4F7B-BEB6-DD4B091B8BEF",
+            "type": "Eventbased"
+        },
+        {
+            "id": "sid-283079D8-263D-40D7-8B4D-042480A40842",
+            "type": "Exclusive"
+        },
+        {
+            "id": "sid-FF6FC9B3-939E-44A8-89AD-55C1E3AABDF9",
+            "type": "Exclusive"
+        },
+        {
+            "id": "sid-B172B71B-030F-4C4A-AC3E-412E08935392",
+            "name": "Projekt weiterf\u00fchren?",
+            "type": "Exclusive"
+        }
+    ],
+    "pools": [
+        {
+            "id": "sid-C21C5FE4-DE36-46D2-B229-DD0483C9BC4B",
+            "name": "SoKnow",
+            "lanes": [
+                {
+                    "id": "sid-9B6EC41F-D932-408C-AD79-665FD09BC9E2",
+                    "name": "Projektteam",
+                    "elemRefs": [
+                        "sid-DA03903C-131A-4BB9-BB6E-44BA04A92C4C",
+                        "sid-234D875F-5C84-4B57-A480-E958D6AD9662",
+                        "sid-449D2B0F-61FC-4FF1-910C-596415C9D815",
+                        "sid-33D20661-C51E-4CF5-9449-1F4C7B11C2FD",
+                        "sid-36D7703B-C74E-4BF8-B30D-CBFBA1F91746",
+                        "sid-0846477B-A173-48A1-BAC1-8705BD574BDD",
+                        "sid-3554278E-1252-4B95-A072-A4AF34B83B60",
+                        "sid-1994352F-6AEE-4474-B572-823917EE0C19",
+                        "sid-8DDFBAEA-8415-466A-B2C4-FC2EB8420F85",
+                        "sid-7E0BB285-E639-4AB8-85C4-4CD7BA24808A",
+                        "sid-E1365052-DE2D-4ECD-9621-41ED8FDDB7AD",
+                        "sid-96FB8D88-3175-447B-B8EE-A39F50BAE652",
+                        "sid-6E084310-6287-4736-8A1C-818E23B67543",
+                        "sid-0636F275-3EC8-422A-8F9F-0896A551D80C",
+                        "sid-11DB6375-2F47-48D4-9846-605F1BF04724",
+                        "sid-4CD9568B-3F92-4F7B-BEB6-DD4B091B8BEF",
+                        "sid-283079D8-263D-40D7-8B4D-042480A40842",
+                        "sid-FF6FC9B3-939E-44A8-89AD-55C1E3AABDF9",
+                        "sid-B172B71B-030F-4C4A-AC3E-412E08935392"
+                    ]
+                }
+            ]
+        },
+        {
+            "id": "sid-6108FB93-E70E-49C6-A9FA-1DA503C3E917",
+            "name": "Kundenunternehmen",
+            "lanes": []
+        }
+    ],
+    "messageFlows": [
+        {
+            "id": "sid-E0603B66-257B-4DC7-A793-2A7AAD16EE35",
+            "targetRef": "sid-E1365052-DE2D-4ECD-9621-41ED8FDDB7AD",
+            "label": "Kundenw\u00fcnsche",
+            "sourceRef": "sid-6108FB93-E70E-49C6-A9FA-1DA503C3E917"
+        },
+        {
+            "id": "sid-48E3F640-F0BD-4C18-BB4A-2B3A27A2560F",
+            "targetRef": "sid-1994352F-6AEE-4474-B572-823917EE0C19",
+            "label": "Teilnahme an Projektabnahme",
+            "sourceRef": "sid-6108FB93-E70E-49C6-A9FA-1DA503C3E917"
+        }
+    ],
+    "sequenceFlows": [
+        {
+            "id": "sid-6C743C1A-B29D-43E7-930B-7AFA0DB9C1A2",
+            "targetRef": "sid-DA03903C-131A-4BB9-BB6E-44BA04A92C4C",
+            "sourceRef": "sid-7E0BB285-E639-4AB8-85C4-4CD7BA24808A"
+        },
+        {
+            "id": "sid-24A4DB85-BAFC-483D-9D0F-6BFF2BDDFFFA",
+            "targetRef": "sid-36D7703B-C74E-4BF8-B30D-CBFBA1F91746",
+            "sourceRef": "sid-DA03903C-131A-4BB9-BB6E-44BA04A92C4C"
+        },
+        {
+            "id": "sid-4D0BDB6E-6744-4F90-9AA6-E6709A03F6AD",
+            "targetRef": "sid-4CD9568B-3F92-4F7B-BEB6-DD4B091B8BEF",
+            "sourceRef": "sid-36D7703B-C74E-4BF8-B30D-CBFBA1F91746"
+        },
+        {
+            "id": "sid-5D47D19A-9781-497C-A31C-40EF128F9117",
+            "targetRef": "sid-96FB8D88-3175-447B-B8EE-A39F50BAE652",
+            "sourceRef": "sid-4CD9568B-3F92-4F7B-BEB6-DD4B091B8BEF"
+        },
+        {
+            "id": "sid-A726192C-8AED-4D5A-BB22-45C7BCEC12EA",
+            "targetRef": "sid-234D875F-5C84-4B57-A480-E958D6AD9662",
+            "sourceRef": "sid-E1365052-DE2D-4ECD-9621-41ED8FDDB7AD"
+        },
+        {
+            "id": "sid-C74E382A-ECA3-432B-8C6D-91CB4143CFFB",
+            "targetRef": "sid-283079D8-263D-40D7-8B4D-042480A40842",
+            "sourceRef": "sid-234D875F-5C84-4B57-A480-E958D6AD9662"
+        },
+        {
+            "id": "sid-0E7A4803-31BC-4846-BBF6-AC5F81BD3DD6",
+            "targetRef": "sid-283079D8-263D-40D7-8B4D-042480A40842",
+            "sourceRef": "sid-96FB8D88-3175-447B-B8EE-A39F50BAE652"
+        },
+        {
+            "id": "sid-233B1BC2-DD39-4A6B-8C7A-FFE4415E4911",
+            "targetRef": "sid-449D2B0F-61FC-4FF1-910C-596415C9D815",
+            "sourceRef": "sid-283079D8-263D-40D7-8B4D-042480A40842"
+        },
+        {
+            "id": "sid-F94F9EE6-18C0-4311-B2DA-147C333C7CA4",
+            "targetRef": "sid-33D20661-C51E-4CF5-9449-1F4C7B11C2FD",
+            "sourceRef": "sid-449D2B0F-61FC-4FF1-910C-596415C9D815"
+        },
+        {
+            "id": "sid-2AC3800E-CA5D-4138-BFD4-248B69DFDCDF",
+            "targetRef": "sid-FF6FC9B3-939E-44A8-89AD-55C1E3AABDF9",
+            "sourceRef": "sid-33D20661-C51E-4CF5-9449-1F4C7B11C2FD"
+        },
+        {
+            "id": "sid-15F8A2D7-4749-47ED-BDEA-C387282CDD77",
+            "targetRef": "sid-3554278E-1252-4B95-A072-A4AF34B83B60",
+            "sourceRef": "sid-0636F275-3EC8-422A-8F9F-0896A551D80C"
+        },
+        {
+            "id": "sid-841047E4-324C-405C-A646-F549F728665D",
+            "targetRef": "sid-0846477B-A173-48A1-BAC1-8705BD574BDD",
+            "sourceRef": "sid-3554278E-1252-4B95-A072-A4AF34B83B60"
+        },
+        {
+            "id": "sid-3F423DC1-62C7-4EDC-8761-E5A222127C0B",
+            "targetRef": "sid-B172B71B-030F-4C4A-AC3E-412E08935392",
+            "sourceRef": "sid-0846477B-A173-48A1-BAC1-8705BD574BDD"
+        },
+        {
+            "id": "sid-8BC6251C-A602-42A8-99F7-F75A875B9048",
+            "targetRef": "sid-FF6FC9B3-939E-44A8-89AD-55C1E3AABDF9",
+            "condition": "Ja",
+            "sourceRef": "sid-B172B71B-030F-4C4A-AC3E-412E08935392"
+        },
+        {
+            "id": "sid-4E980676-DFAD-49B6-A8D5-AA7E4F4702D4",
+            "targetRef": "sid-11DB6375-2F47-48D4-9846-605F1BF04724",
+            "condition": "Nein",
+            "sourceRef": "sid-B172B71B-030F-4C4A-AC3E-412E08935392"
+        },
+        {
+            "id": "sid-4F91CCA7-90E0-443B-AD31-CE27EAF61006",
+            "targetRef": "sid-1994352F-6AEE-4474-B572-823917EE0C19",
+            "sourceRef": "sid-FF6FC9B3-939E-44A8-89AD-55C1E3AABDF9"
+        },
+        {
+            "id": "sid-60A52AC7-2A73-471A-BCB5-3617AC2BC163",
+            "targetRef": "sid-8DDFBAEA-8415-466A-B2C4-FC2EB8420F85",
+            "sourceRef": "sid-1994352F-6AEE-4474-B572-823917EE0C19"
+        },
+        {
+            "id": "sid-60166F3B-EC79-459C-BCB9-CD7C109370BD",
+            "targetRef": "sid-6E084310-6287-4736-8A1C-818E23B67543",
+            "sourceRef": "sid-8DDFBAEA-8415-466A-B2C4-FC2EB8420F85"
+        },
+        {
+            "id": "sid-0F7F5861-4844-4466-AA94-1B6C1F7476FE",
+            "targetRef": "sid-E1365052-DE2D-4ECD-9621-41ED8FDDB7AD",
+            "sourceRef": "sid-4CD9568B-3F92-4F7B-BEB6-DD4B091B8BEF"
+        }
+    ]
+}

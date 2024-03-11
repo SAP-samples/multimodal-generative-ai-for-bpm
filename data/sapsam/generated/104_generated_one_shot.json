@@ -1,0 +1,243 @@
+{
+    "tasks": [
+        {
+            "id": "0",
+            "name": "Excel Anhang/ Formular wird ge\u00f6ffnet",
+            "type": "Service"
+        },
+        {
+            "id": "1",
+            "name": "Auf '\u00dcberpr\u00fcfen' klicken",
+            "type": "Service"
+        },
+        {
+            "id": "2",
+            "name": "Klick auf 'Arbeitsmappe sch\u00fctzen'",
+            "type": "Service"
+        },
+        {
+            "id": "3",
+            "name": "Passwort 'AnderesPw' eingeben",
+            "type": "Service"
+        },
+        {
+            "id": "4",
+            "name": "Enter klicken",
+            "type": "Service"
+        },
+        {
+            "id": "5",
+            "name": "Blattschutz aufheben klicken",
+            "type": "Service"
+        },
+        {
+            "id": "6",
+            "name": "Passwort 'GeheimesPw' eingeben",
+            "type": "Service"
+        },
+        {
+            "id": "7",
+            "name": "Enter klicken",
+            "type": "Service"
+        },
+        {
+            "id": "8",
+            "name": "Auf 'Start' klicken",
+            "type": "Service"
+        },
+        {
+            "id": "9",
+            "name": "Auf 'Format' klicken",
+            "type": "Service"
+        },
+        {
+            "id": "10",
+            "name": "Auf 'Einblenden und Ausblenden' klicken",
+            "type": "Service"
+        },
+        {
+            "id": "11",
+            "name": "Auf 'Blatt einblenden' klicken",
+            "type": "Service"
+        },
+        {
+            "id": "12",
+            "name": "Enter dr\u00fccken",
+            "type": "Service"
+        },
+        {
+            "id": "13",
+            "name": "Pr\u00fcfung Team-Zuordnung 'Daten B25'",
+            "type": "Service"
+        },
+        {
+            "id": "14",
+            "name": "Pr\u00fcfung Anfrage ID 'Daten B15'",
+            "type": "Service"
+        }
+    ],
+    "events": [
+        {
+            "id": "15",
+            "name": "Start Event",
+            "type": "StartNoneEvent"
+        },
+        {
+            "id": "16",
+            "name": "End Event vollst\u00e4ndig",
+            "type": "EndNoneEvent"
+        },
+        {
+            "id": "17",
+            "name": "End Event unvollst\u00e4ndig",
+            "type": "EndNoneEvent"
+        }
+    ],
+    "gateways": [
+        {
+            "id": "18",
+            "name": "Version korrekt?",
+            "type": "Exclusive"
+        },
+        {
+            "id": "19",
+            "name": "Gef\u00fcllt?",
+            "type": "Exclusive"
+        }
+    ],
+    "pools": [
+        {
+            "id": "20",
+            "name": "TAS AG",
+            "lanes": [
+                {
+                    "id": "21",
+                    "name": "Team Fraud",
+                    "elemRefs": [
+                        "0",
+                        "1",
+                        "2",
+                        "3",
+                        "4",
+                        "5",
+                        "6",
+                        "7",
+                        "8",
+                        "9",
+                        "10",
+                        "11",
+                        "12",
+                        "13",
+                        "14",
+                        "15",
+                        "16",
+                        "17",
+                        "18",
+                        "19"
+                    ]
+                }
+            ]
+        }
+    ],
+    "sequenceFlows": [
+        {
+            "id": "22",
+            "sourceRef": "15",
+            "targetRef": "0"
+        },
+        {
+            "id": "23",
+            "sourceRef": "0",
+            "targetRef": "1"
+        },
+        {
+            "id": "24",
+            "sourceRef": "1",
+            "targetRef": "2"
+        },
+        {
+            "id": "25",
+            "sourceRef": "2",
+            "targetRef": "3"
+        },
+        {
+            "id": "26",
+            "sourceRef": "3",
+            "targetRef": "4"
+        },
+        {
+            "id": "27",
+            "sourceRef": "4",
+            "targetRef": "5"
+        },
+        {
+            "id": "28",
+            "sourceRef": "5",
+            "targetRef": "6"
+        },
+        {
+            "id": "29",
+            "sourceRef": "6",
+            "targetRef": "7"
+        },
+        {
+            "id": "30",
+            "sourceRef": "7",
+            "targetRef": "8"
+        },
+        {
+            "id": "31",
+            "sourceRef": "8",
+            "targetRef": "9"
+        },
+        {
+            "id": "32",
+            "sourceRef": "9",
+            "targetRef": "10"
+        },
+        {
+            "id": "33",
+            "sourceRef": "10",
+            "targetRef": "11"
+        },
+        {
+            "id": "34",
+            "sourceRef": "11",
+            "targetRef": "12"
+        },
+        {
+            "id": "35",
+            "sourceRef": "12",
+            "targetRef": "13"
+        },
+        {
+            "id": "36",
+            "sourceRef": "13",
+            "targetRef": "18"
+        },
+        {
+            "id": "37",
+            "sourceRef": "18",
+            "targetRef": "14",
+            "condition": "Ja"
+        },
+        {
+            "id": "38",
+            "sourceRef": "14",
+            "targetRef": "19"
+        },
+        {
+            "id": "39",
+            "sourceRef": "19",
+            "targetRef": "16",
+            "condition": "Ja"
+        },
+        {
+            "id": "40",
+            "sourceRef": "19",
+            "targetRef": "17",
+            "condition": "Nein"
+        }
+    ],
+    "messageFlows": []
+}

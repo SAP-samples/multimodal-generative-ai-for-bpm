@@ -1,0 +1,126 @@
+{
+    "tasks": [
+        {
+            "id": "_7cf038b0-8f8e-4691-b89d-16439bc973d3",
+            "name": "Aufgabe erhalten",
+            "type": "Task"
+        },
+        {
+            "id": "_8c7ed94d-6559-41e2-a62f-371a9f99e5ef",
+            "name": "Aufgabe annehmen",
+            "type": "Task"
+        },
+        {
+            "id": "_a4bf7f1d-f58e-43b0-99ae-933b65ddac67",
+            "name": "Aufgabe beginnen",
+            "type": "Task"
+        },
+        {
+            "id": "_42721b0b-6abb-4465-8bc0-52554b29686a",
+            "name": "Aufgabe nicht beginnen",
+            "type": "Task"
+        },
+        {
+            "id": "_67c6ffe2-1db9-435a-984c-fb8d0f5458ff",
+            "name": "Andere Aufgabe abschlie\u00dfen",
+            "type": "Task"
+        }
+    ],
+    "events": [
+        {
+            "id": "_91ee5d2c-7a5f-4eff-ad2f-ebf76f4ba31d",
+            "name": "Aufgabe ist best\u00e4tigt",
+            "type": "EndNoneEvent"
+        },
+        {
+            "id": "_294bf412-5208-46c3-accb-6c9c6baaff7c",
+            "name": "Aufgabe bearbeiten notwendig",
+            "type": "StartNoneEvent"
+        }
+    ],
+    "gateways": [
+        {
+            "id": "_9f2fe8f7-bf53-4b3a-8d12-ee45d9d732a4",
+            "name": "Aufgabe sofort beginnen?",
+            "type": "Exclusive"
+        },
+        {
+            "id": "_cc08ded2-3b49-4b76-9ec1-79872bb82486",
+            "name": "Exklusives Gateway",
+            "type": "Exclusive"
+        }
+    ],
+    "pools": [
+        {
+            "id": "_18a151fc-93a5-4a62-9230-818a13aaaabe",
+            "name": "Weinbau im Au\u00dfenbetrieb",
+            "lanes": [
+                {
+                    "id": "_3a902e72-a45c-4fc5-84c7-5a2685554515",
+                    "name": "Au\u00dfenbetriebsmitarbeiter",
+                    "elemRefs": [
+                        "_7cf038b0-8f8e-4691-b89d-16439bc973d3",
+                        "_8c7ed94d-6559-41e2-a62f-371a9f99e5ef",
+                        "_a4bf7f1d-f58e-43b0-99ae-933b65ddac67",
+                        "_42721b0b-6abb-4465-8bc0-52554b29686a",
+                        "_67c6ffe2-1db9-435a-984c-fb8d0f5458ff",
+                        "_91ee5d2c-7a5f-4eff-ad2f-ebf76f4ba31d",
+                        "_294bf412-5208-46c3-accb-6c9c6baaff7c",
+                        "_9f2fe8f7-bf53-4b3a-8d12-ee45d9d732a4",
+                        "_cc08ded2-3b49-4b76-9ec1-79872bb82486"
+                    ]
+                }
+            ]
+        }
+    ],
+    "messageFlows": [],
+    "sequenceFlows": [
+        {
+            "id": "_2296c2c8-ad6d-4d7c-86db-89c0b85aaa87",
+            "targetRef": "_8c7ed94d-6559-41e2-a62f-371a9f99e5ef",
+            "sourceRef": "_294bf412-5208-46c3-accb-6c9c6baaff7c"
+        },
+        {
+            "id": "_3d699388-54e1-4216-a622-946e8688ff93",
+            "targetRef": "_a4bf7f1d-f58e-43b0-99ae-933b65ddac67",
+            "condition": "Ja",
+            "sourceRef": "_9f2fe8f7-bf53-4b3a-8d12-ee45d9d732a4"
+        },
+        {
+            "id": "_4d66b033-fd33-47f0-b3e1-073a4bf9d752",
+            "targetRef": "_7cf038b0-8f8e-4691-b89d-16439bc973d3",
+            "sourceRef": "_cc08ded2-3b49-4b76-9ec1-79872bb82486"
+        },
+        {
+            "id": "_8eea3020-8b93-4391-a894-fff0ed802594",
+            "targetRef": "_91ee5d2c-7a5f-4eff-ad2f-ebf76f4ba31d",
+            "sourceRef": "_a4bf7f1d-f58e-43b0-99ae-933b65ddac67"
+        },
+        {
+            "id": "_9e32b96d-f80c-41d1-a7d8-800b930a2bc8",
+            "targetRef": "_cc08ded2-3b49-4b76-9ec1-79872bb82486",
+            "sourceRef": "_8c7ed94d-6559-41e2-a62f-371a9f99e5ef"
+        },
+        {
+            "id": "_ad8e4363-c7d7-4dec-8fb0-5310aa8e05a1",
+            "targetRef": "_67c6ffe2-1db9-435a-984c-fb8d0f5458ff",
+            "sourceRef": "_42721b0b-6abb-4465-8bc0-52554b29686a"
+        },
+        {
+            "id": "_b4701685-f1d3-4842-a8da-b4e32f25a485",
+            "targetRef": "_9f2fe8f7-bf53-4b3a-8d12-ee45d9d732a4",
+            "sourceRef": "_7cf038b0-8f8e-4691-b89d-16439bc973d3"
+        },
+        {
+            "id": "_b83e4f95-f02d-4a44-8406-f0685e9c04fe",
+            "targetRef": "_cc08ded2-3b49-4b76-9ec1-79872bb82486",
+            "sourceRef": "_67c6ffe2-1db9-435a-984c-fb8d0f5458ff"
+        },
+        {
+            "id": "_bd7b10b5-d647-4e72-963e-54afa3e79bdb",
+            "targetRef": "_42721b0b-6abb-4465-8bc0-52554b29686a",
+            "condition": "Nein",
+            "sourceRef": "_9f2fe8f7-bf53-4b3a-8d12-ee45d9d732a4"
+        }
+    ]
+}

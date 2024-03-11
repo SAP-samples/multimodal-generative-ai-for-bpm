@@ -1,0 +1,158 @@
+{
+    "tasks": [
+        {
+            "id": "0",
+            "name": "submits PO",
+            "type": "Task"
+        },
+        {
+            "id": "1",
+            "name": "system assumes",
+            "type": "Task"
+        },
+        {
+            "id": "2",
+            "name": "send PO response",
+            "type": "Task"
+        },
+        {
+            "id": "3",
+            "name": "gets a response",
+            "type": "Task"
+        },
+        {
+            "id": "4",
+            "name": "receive an error message",
+            "type": "Task"
+        },
+        {
+            "id": "5",
+            "name": "must be informed by the stuff",
+            "type": "Task"
+        },
+        {
+            "id": "6",
+            "name": "no receive anything",
+            "type": "Task"
+        }
+    ],
+    "events": [
+        {
+            "id": "7",
+            "name": "The restaurant chain",
+            "type": "StartNoneEvent"
+        },
+        {
+            "id": "8",
+            "name": "order process completed",
+            "type": "EndNoneEvent"
+        },
+        {
+            "id": "9",
+            "name": "order not compiled",
+            "type": "EndNoneEvent"
+        },
+        {
+            "id": "10",
+            "name": "order not comlited",
+            "type": "EndNoneEvent"
+        }
+    ],
+    "gateways": [
+        {
+            "id": "11",
+            "type": "Exclusive"
+        },
+        {
+            "id": "12",
+            "type": "Exclusive"
+        }
+    ],
+    "pools": [
+        {
+            "id": "13",
+            "name": "ACME AG",
+            "lanes": [
+                {
+                    "id": "14",
+                    "name": "Lane",
+                    "elemRefs": [
+                        "0",
+                        "1",
+                        "2",
+                        "3",
+                        "4",
+                        "5",
+                        "6",
+                        "7",
+                        "8",
+                        "9",
+                        "10",
+                        "11",
+                        "12"
+                    ]
+                }
+            ]
+        }
+    ],
+    "sequenceFlows": [
+        {
+            "id": "15",
+            "sourceRef": "7",
+            "targetRef": "0"
+        },
+        {
+            "id": "16",
+            "sourceRef": "0",
+            "targetRef": "1"
+        },
+        {
+            "id": "17",
+            "sourceRef": "1",
+            "targetRef": "11"
+        },
+        {
+            "id": "18",
+            "sourceRef": "11",
+            "targetRef": "2",
+            "condition": "yes"
+        },
+        {
+            "id": "19",
+            "sourceRef": "2",
+            "targetRef": "3"
+        },
+        {
+            "id": "20",
+            "sourceRef": "3",
+            "targetRef": "8"
+        },
+        {
+            "id": "21",
+            "sourceRef": "11",
+            "targetRef": "4",
+            "condition": "no"
+        },
+        {
+            "id": "22",
+            "sourceRef": "4",
+            "targetRef": "5"
+        },
+        {
+            "id": "23",
+            "sourceRef": "5",
+            "targetRef": "9"
+        },
+        {
+            "id": "24",
+            "sourceRef": "12",
+            "targetRef": "6"
+        },
+        {
+            "id": "25",
+            "sourceRef": "6",
+            "targetRef": "10"
+        }
+    ],
+    "messageFlows": []
+}

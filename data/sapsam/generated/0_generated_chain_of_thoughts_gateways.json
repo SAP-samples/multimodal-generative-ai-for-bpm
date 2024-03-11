@@ -1,0 +1,17 @@
+[
+    {
+        "id": "0",
+        "name": "Application status?",
+        "type": "Exclusive_Databased_Gateway"
+    },
+    {
+        "id": "1",
+        "name": "Applicant suitable?",
+        "type": "Exclusive_Databased_Gateway"
+    },
+    {
+        "id": "2",
+        "name": "",
+        "type": "Exclusive_Databased_Gateway"
+    }
+]

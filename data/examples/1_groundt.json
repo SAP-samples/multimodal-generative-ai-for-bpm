@@ -1,0 +1,228 @@
+{
+    "tasks": [
+        {
+            "id": "_mHY_uIDjEeuQ39D0kiviQA",
+            "name": "Sending the order for request handling",
+            "type": "User"
+        },
+        {
+            "id": "_mHY_yIDjEeuQ39D0kiviQA",
+            "name": "Request Fulfilment Support",
+            "type": "User"
+        },
+        {
+            "id": "_7Bp3UJbVEeuov_fbueBc_Q",
+            "name": "verify request",
+            "type": "User"
+        },
+        {
+            "id": "_mHY_3oDjEeuQ39D0kiviQA",
+            "name": "Request Logging and Categorization",
+            "type": "User"
+        },
+        {
+            "id": "_mHY_7oDjEeuQ39D0kiviQA",
+            "name": "Receiving the order",
+            "type": "User"
+        },
+        {
+            "id": "_mHZAA4DjEeuQ39D0kiviQA",
+            "name": "Request Closure and Evaluation",
+            "type": "User"
+        },
+        {
+            "id": "_mHZAGYDjEeuQ39D0kiviQA",
+            "name": "Request Monitoring and Escalation",
+            "type": "User"
+        },
+        {
+            "id": "_mHZAMYDjEeuQ39D0kiviQA",
+            "name": "Request Model Execution",
+            "type": "User"
+        }
+    ],
+    "events": [
+        {
+            "id": "_mHY_s4DjEeuQ39D0kiviQA",
+            "name": "start",
+            "type": "StartNoneEvent"
+        },
+        {
+            "id": "_mHY_2IDjEeuQ39D0kiviQA",
+            "name": "successful end to the process",
+            "type": "EndNoneEvent"
+        },
+        {
+            "id": "_r7888IWREeu-Eub0aOe2Zg",
+            "name": "contact the incident manager about the problem",
+            "type": "EndNoneEvent"
+        }
+    ],
+    "gateways": [
+        {
+            "id": "_yC07IJbVEeuov_fbueBc_Q",
+            "name": "return to the first step",
+            "type": "Exclusive"
+        },
+        {
+            "id": "_mHY__oDjEeuQ39D0kiviQA",
+            "name": "split",
+            "type": "Parallel"
+        },
+        {
+            "id": "_mHZAE4DjEeuQ39D0kiviQA",
+            "name": "Was there a problem with the request processing or the Request Record?",
+            "type": "Exclusive"
+        },
+        {
+            "id": "_jEsH4JbVEeuov_fbueBc_Q",
+            "name": "Is the request authorized?",
+            "type": "Exclusive"
+        },
+        {
+            "id": "_mHZAK4DjEeuQ39D0kiviQA",
+            "name": "merge",
+            "type": "Parallel"
+        }
+    ],
+    "pools": [
+        {
+            "id": "_I79dEKGtEeubWP735mDmOw",
+            "name": "Request Fulfilment",
+            "lanes": [
+                {
+                    "id": "_mHY_soDjEeuQ39D0kiviQA",
+                    "name": "Incident Manager",
+                    "elemRefs": [
+                        "_mHY_uIDjEeuQ39D0kiviQA",
+                        "_mHY_yIDjEeuQ39D0kiviQA",
+                        "_7Bp3UJbVEeuov_fbueBc_Q",
+                        "_mHY_s4DjEeuQ39D0kiviQA",
+                        "_mHY_2IDjEeuQ39D0kiviQA",
+                        "_yC07IJbVEeuov_fbueBc_Q"
+                    ]
+                },
+                {
+                    "id": "_mHY_3YDjEeuQ39D0kiviQA",
+                    "name": "1st Level Support",
+                    "elemRefs": [
+                        "_mHY_3oDjEeuQ39D0kiviQA",
+                        "_mHY_7oDjEeuQ39D0kiviQA",
+                        "_mHZAA4DjEeuQ39D0kiviQA",
+                        "_r7888IWREeu-Eub0aOe2Zg",
+                        "_mHY__oDjEeuQ39D0kiviQA",
+                        "_mHZAE4DjEeuQ39D0kiviQA",
+                        "_jEsH4JbVEeuov_fbueBc_Q"
+                    ]
+                },
+                {
+                    "id": "_mHZAGIDjEeuQ39D0kiviQA",
+                    "name": "Incident Manager+ 1st Level Support",
+                    "elemRefs": [
+                        "_mHZAGYDjEeuQ39D0kiviQA",
+                        "_mHZAK4DjEeuQ39D0kiviQA"
+                    ]
+                },
+                {
+                    "id": "_mHZAMIDjEeuQ39D0kiviQA",
+                    "name": "Service Request Fulfilment Group + 1st Level Support",
+                    "elemRefs": [
+                        "_mHZAMYDjEeuQ39D0kiviQA"
+                    ]
+                }
+            ]
+        }
+    ],
+    "messageFlows": [],
+    "sequenceFlows": [
+        {
+            "id": "_mHZAU4DjEeuQ39D0kiviQA",
+            "targetRef": "_yC07IJbVEeuov_fbueBc_Q",
+            "sourceRef": "_mHY_s4DjEeuQ39D0kiviQA"
+        },
+        {
+            "id": "_mHZAWYDjEeuQ39D0kiviQA",
+            "targetRef": "_mHY_3oDjEeuQ39D0kiviQA",
+            "sourceRef": "_mHY_7oDjEeuQ39D0kiviQA"
+        },
+        {
+            "id": "_mHZAXIDjEeuQ39D0kiviQA",
+            "targetRef": "_jEsH4JbVEeuov_fbueBc_Q",
+            "sourceRef": "_mHY_3oDjEeuQ39D0kiviQA"
+        },
+        {
+            "id": "_mHZAX4DjEeuQ39D0kiviQA",
+            "targetRef": "_mHZAGYDjEeuQ39D0kiviQA",
+            "sourceRef": "_mHY__oDjEeuQ39D0kiviQA"
+        },
+        {
+            "id": "_mHZAYoDjEeuQ39D0kiviQA",
+            "targetRef": "_mHZAMYDjEeuQ39D0kiviQA",
+            "sourceRef": "_mHY__oDjEeuQ39D0kiviQA"
+        },
+        {
+            "id": "_mHZAZYDjEeuQ39D0kiviQA",
+            "targetRef": "_mHZAK4DjEeuQ39D0kiviQA",
+            "sourceRef": "_mHZAGYDjEeuQ39D0kiviQA"
+        },
+        {
+            "id": "_mHZAaIDjEeuQ39D0kiviQA",
+            "targetRef": "_mHZAK4DjEeuQ39D0kiviQA",
+            "sourceRef": "_mHZAMYDjEeuQ39D0kiviQA"
+        },
+        {
+            "id": "_mHZAa4DjEeuQ39D0kiviQA",
+            "targetRef": "_mHZAA4DjEeuQ39D0kiviQA",
+            "sourceRef": "_mHZAK4DjEeuQ39D0kiviQA"
+        },
+        {
+            "id": "_mHZAboDjEeuQ39D0kiviQA",
+            "targetRef": "_mHZAE4DjEeuQ39D0kiviQA",
+            "sourceRef": "_mHZAA4DjEeuQ39D0kiviQA"
+        },
+        {
+            "id": "_mHZAdoDjEeuQ39D0kiviQA",
+            "targetRef": "_mHY_yIDjEeuQ39D0kiviQA",
+            "condition": "no",
+            "sourceRef": "_mHZAE4DjEeuQ39D0kiviQA"
+        },
+        {
+            "id": "_mHZAe4DjEeuQ39D0kiviQA",
+            "targetRef": "_mHY_2IDjEeuQ39D0kiviQA",
+            "sourceRef": "_mHY_yIDjEeuQ39D0kiviQA"
+        },
+        {
+            "id": "_JFhwoIWREeu-Eub0aOe2Zg",
+            "targetRef": "_r7888IWREeu-Eub0aOe2Zg",
+            "condition": "yes",
+            "sourceRef": "_mHZAE4DjEeuQ39D0kiviQA"
+        },
+        {
+            "id": "_JGIoIIdTEeuUA8apiDa4Kg",
+            "targetRef": "_mHY_7oDjEeuQ39D0kiviQA",
+            "sourceRef": "_mHY_uIDjEeuQ39D0kiviQA"
+        },
+        {
+            "id": "_kmGQQJbVEeuov_fbueBc_Q",
+            "targetRef": "_mHY__oDjEeuQ39D0kiviQA",
+            "condition": "yes",
+            "sourceRef": "_jEsH4JbVEeuov_fbueBc_Q"
+        },
+        {
+            "id": "_6KBrwJbVEeuov_fbueBc_Q",
+            "targetRef": "_7Bp3UJbVEeuov_fbueBc_Q",
+            "sourceRef": "_yC07IJbVEeuov_fbueBc_Q"
+        },
+        {
+            "id": "__ciHMJbVEeuov_fbueBc_Q",
+            "targetRef": "_mHY_uIDjEeuQ39D0kiviQA",
+            "sourceRef": "_7Bp3UJbVEeuov_fbueBc_Q"
+        },
+        {
+            "id": "_wGTSIJbXEeu1ocYCg1Ldbg",
+            "targetRef": "_yC07IJbVEeuov_fbueBc_Q",
+            "condition": "no",
+            "sourceRef": "_jEsH4JbVEeuov_fbueBc_Q"
+        }
+    ]
+}

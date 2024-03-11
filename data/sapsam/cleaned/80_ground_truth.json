@@ -1,0 +1,160 @@
+{
+    "tasks": [
+        {
+            "id": "sid-8A8D2C37-3212-42E4-B4E9-7915500D74C3",
+            "name": "Lohnprogramm starten",
+            "type": "Task"
+        },
+        {
+            "id": "sid-4C0C620A-9044-4095-8753-0EC9BEB1F666",
+            "name": "Automatisierte Abbuchungen kontrollieren",
+            "type": "Task"
+        },
+        {
+            "id": "sid-35A2D0DC-D024-4188-921A-F4ED978919EF",
+            "name": "Finanzbuchhaltung kontrollieren",
+            "type": "Task"
+        },
+        {
+            "id": "sid-08D4B64B-2FDB-49F4-8B8B-368FDC350EAA",
+            "name": "Pr\u00e4mien eintragen",
+            "type": "Task"
+        },
+        {
+            "id": "sid-5D9730B7-5794-4EE2-B56A-E19403AE4ABF",
+            "name": "Abrechnung versenden",
+            "type": "Task"
+        },
+        {
+            "id": "sid-A4EB25A5-D708-4F6A-A7DB-150A5AF86F13",
+            "name": "Lohnkosten berechnen",
+            "type": "Task"
+        },
+        {
+            "id": "sid-D1FE2E1D-F8D9-4CAB-9053-F892963ED7C4",
+            "name": "Geh\u00e4lter und Sozialabgaben zahlen",
+            "type": "Task"
+        },
+        {
+            "id": "sid-F5527D24-F7EA-460E-B035-9D375A7C71F6",
+            "name": "Krankenversicherung und Nebenkosten zahlen",
+            "type": "Task"
+        }
+    ],
+    "events": [
+        {
+            "id": "sid-F80597C5-3373-4FAD-8654-10E613D61ED7",
+            "name": "Personalabrechnungen  verwalten",
+            "type": "StartNoneEvent"
+        },
+        {
+            "id": "sid-1BC14D7E-D267-4A9D-A8D6-C45B1B6C4C3D",
+            "name": "Personalabbrechnungen  get\u00e4tigt",
+            "type": "EndNoneEvent"
+        }
+    ],
+    "gateways": [
+        {
+            "id": "sid-50B881D6-5991-4048-AF22-BFC7247A214F",
+            "type": "Parallel"
+        },
+        {
+            "id": "sid-B85F3992-44AB-4348-A908-765B5CF047F5",
+            "type": "Parallel"
+        }
+    ],
+    "pools": [
+        {
+            "id": "sid-A423EDC4-B1DD-4BE9-B506-21350F77C5C9",
+            "name": "SoKnow",
+            "lanes": [
+                {
+                    "id": "sid-28309E3A-CEE2-4FBB-A423-BEA6A16AAA5F",
+                    "name": "Personalverwaltung",
+                    "elemRefs": [
+                        "sid-8A8D2C37-3212-42E4-B4E9-7915500D74C3",
+                        "sid-4C0C620A-9044-4095-8753-0EC9BEB1F666",
+                        "sid-35A2D0DC-D024-4188-921A-F4ED978919EF",
+                        "sid-08D4B64B-2FDB-49F4-8B8B-368FDC350EAA",
+                        "sid-5D9730B7-5794-4EE2-B56A-E19403AE4ABF",
+                        "sid-A4EB25A5-D708-4F6A-A7DB-150A5AF86F13",
+                        "sid-D1FE2E1D-F8D9-4CAB-9053-F892963ED7C4",
+                        "sid-F5527D24-F7EA-460E-B035-9D375A7C71F6",
+                        "sid-F80597C5-3373-4FAD-8654-10E613D61ED7",
+                        "sid-1BC14D7E-D267-4A9D-A8D6-C45B1B6C4C3D",
+                        "sid-50B881D6-5991-4048-AF22-BFC7247A214F",
+                        "sid-B85F3992-44AB-4348-A908-765B5CF047F5"
+                    ]
+                }
+            ]
+        }
+    ],
+    "messageFlows": [],
+    "sequenceFlows": [
+        {
+            "id": "sid-811B4406-56E4-4A6D-AF01-3048E8E07F92",
+            "targetRef": "sid-8A8D2C37-3212-42E4-B4E9-7915500D74C3",
+            "sourceRef": "sid-F80597C5-3373-4FAD-8654-10E613D61ED7"
+        },
+        {
+            "id": "sid-DE2E09BE-7BB1-41D9-BC24-30D723522B52",
+            "targetRef": "sid-4C0C620A-9044-4095-8753-0EC9BEB1F666",
+            "sourceRef": "sid-8A8D2C37-3212-42E4-B4E9-7915500D74C3"
+        },
+        {
+            "id": "sid-66C2D412-609F-47EC-844D-0FBD5048596E",
+            "targetRef": "sid-B85F3992-44AB-4348-A908-765B5CF047F5",
+            "sourceRef": "sid-4C0C620A-9044-4095-8753-0EC9BEB1F666"
+        },
+        {
+            "id": "sid-3375712A-1E40-4FBE-AFA3-99A955E4D23B",
+            "targetRef": "sid-A4EB25A5-D708-4F6A-A7DB-150A5AF86F13",
+            "sourceRef": "sid-B85F3992-44AB-4348-A908-765B5CF047F5"
+        },
+        {
+            "id": "sid-FDBCE939-B97A-4376-A1A2-76B20FCE01B6",
+            "targetRef": "sid-D1FE2E1D-F8D9-4CAB-9053-F892963ED7C4",
+            "sourceRef": "sid-B85F3992-44AB-4348-A908-765B5CF047F5"
+        },
+        {
+            "id": "sid-F9640BA9-D924-4295-BC54-30E707C8675F",
+            "targetRef": "sid-50B881D6-5991-4048-AF22-BFC7247A214F",
+            "sourceRef": "sid-D1FE2E1D-F8D9-4CAB-9053-F892963ED7C4"
+        },
+        {
+            "id": "sid-29CE3E5E-59D3-4BF0-B01F-153DE8B90FB9",
+            "targetRef": "sid-35A2D0DC-D024-4188-921A-F4ED978919EF",
+            "sourceRef": "sid-08D4B64B-2FDB-49F4-8B8B-368FDC350EAA"
+        },
+        {
+            "id": "sid-83191D7B-8AD2-4F64-94DC-F4B160F90F4B",
+            "targetRef": "sid-5D9730B7-5794-4EE2-B56A-E19403AE4ABF",
+            "sourceRef": "sid-35A2D0DC-D024-4188-921A-F4ED978919EF"
+        },
+        {
+            "id": "sid-92D918E6-9207-41C8-A6CB-9B455B21FA0B",
+            "targetRef": "sid-50B881D6-5991-4048-AF22-BFC7247A214F",
+            "sourceRef": "sid-A4EB25A5-D708-4F6A-A7DB-150A5AF86F13"
+        },
+        {
+            "id": "sid-35270BA9-2CE9-4A38-B3E0-38CD854E802C",
+            "targetRef": "sid-1BC14D7E-D267-4A9D-A8D6-C45B1B6C4C3D",
+            "sourceRef": "sid-5D9730B7-5794-4EE2-B56A-E19403AE4ABF"
+        },
+        {
+            "id": "sid-3BFFBA3C-D8B4-48E4-967E-9F3234E6A0FB",
+            "targetRef": "sid-08D4B64B-2FDB-49F4-8B8B-368FDC350EAA",
+            "sourceRef": "sid-50B881D6-5991-4048-AF22-BFC7247A214F"
+        },
+        {
+            "id": "sid-E21D56E4-EBF6-43B1-8EF5-66DDB37193EE",
+            "targetRef": "sid-50B881D6-5991-4048-AF22-BFC7247A214F",
+            "sourceRef": "sid-F5527D24-F7EA-460E-B035-9D375A7C71F6"
+        },
+        {
+            "id": "sid-AEE01DE9-0413-4914-B0EF-FACDAF99D825",
+            "targetRef": "sid-F5527D24-F7EA-460E-B035-9D375A7C71F6",
+            "sourceRef": "sid-B85F3992-44AB-4348-A908-765B5CF047F5"
+        }
+    ]
+}

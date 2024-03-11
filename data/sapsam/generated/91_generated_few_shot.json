@@ -1,0 +1,275 @@
+{
+    "tasks": [
+        {
+            "id": "0",
+            "name": "Order Trip",
+            "type": "Task"
+        },
+        {
+            "id": "1",
+            "name": "Process Trip Order",
+            "type": "Task"
+        },
+        {
+            "id": "2",
+            "name": "Cancel Trip Order",
+            "type": "Task"
+        },
+        {
+            "id": "3",
+            "name": "Send Cancellation Confirmation",
+            "type": "Send"
+        },
+        {
+            "id": "4",
+            "name": "Send Invoice",
+            "type": "Send"
+        },
+        {
+            "id": "5",
+            "name": "Receives Invoice",
+            "type": "Receive"
+        },
+        {
+            "id": "6",
+            "name": "Send Cancellation of Trip Order",
+            "type": "Send"
+        }
+    ],
+    "events": [
+        {
+            "id": "7",
+            "name": "Customer Order Start",
+            "type": "StartNoneEvent"
+        },
+        {
+            "id": "8",
+            "name": "Receive Trip Order",
+            "type": "IntermediateMessageEventCatching"
+        },
+        {
+            "id": "9",
+            "name": "Trip Order Cancelled?",
+            "type": "Exclusive"
+        },
+        {
+            "id": "10",
+            "name": "Receive Invoice",
+            "type": "IntermediateMessageEventCatching"
+        },
+        {
+            "id": "11",
+            "name": "Receive Cancellation Confirmation",
+            "type": "IntermediateMessageEventCatching"
+        },
+        {
+            "id": "12",
+            "name": "Trip Order Processed.",
+            "type": "EndNoneEvent"
+        },
+        {
+            "id": "13",
+            "name": "Receive Trip Order Confirmation",
+            "type": "IntermediateMessageEventCatching"
+        }
+    ],
+    "gateways": [
+        {
+            "id": "14",
+            "type": "Exclusive"
+        },
+        {
+            "id": "15",
+            "type": "Exclusive"
+        },
+        {
+            "id": "16",
+            "type": "Exclusive"
+        }
+    ],
+    "pools": [
+        {
+            "id": "17",
+            "name": "Customer Relations Division",
+            "lanes": [
+                {
+                    "id": "18",
+                    "name": "Customer Relations Division",
+                    "elemRefs": [
+                        "0",
+                        "1",
+                        "2",
+                        "3",
+                        "4",
+                        "5",
+                        "6",
+                        "7",
+                        "8",
+                        "9",
+                        "10",
+                        "11",
+                        "12",
+                        "13",
+                        "14",
+                        "15",
+                        "16"
+                    ]
+                }
+            ]
+        },
+        {
+            "id": "19",
+            "name": "Customer",
+            "lanes": [
+                {
+                    "id": "20",
+                    "name": "Customer",
+                    "elemRefs": [
+                        "0",
+                        "6"
+                    ]
+                }
+            ]
+        }
+    ],
+    "sequenceFlows": [
+        {
+            "id": "21",
+            "sourceRef": "7",
+            "targetRef": "8"
+        },
+        {
+            "id": "22",
+            "sourceRef": "8",
+            "targetRef": "9"
+        },
+        {
+            "id": "23",
+            "sourceRef": "9",
+            "targetRef": "1",
+            "condition": "No"
+        },
+        {
+            "id": "24",
+            "sourceRef": "9",
+            "targetRef": "13",
+            "condition": "Yes"
+        },
+        {
+            "id": "25",
+            "sourceRef": "13",
+            "targetRef": "10"
+        },
+        {
+            "id": "26",
+            "sourceRef": "10",
+            "targetRef": "15"
+        },
+        {
+            "id": "27",
+            "sourceRef": "15",
+            "targetRef": "3",
+            "condition": "Yes"
+        },
+        {
+            "id": "28",
+            "sourceRef": "15",
+            "targetRef": "4",
+            "condition": "No"
+        },
+        {
+            "id": "29",
+            "sourceRef": "4",
+            "targetRef": "5"
+        },
+        {
+            "id": "30",
+            "sourceRef": "3",
+            "targetRef": "11"
+        },
+        {
+            "id": "31",
+            "sourceRef": "11",
+            "targetRef": "12",
+            "condition": "Success"
+        },
+        {
+            "id": "32",
+            "sourceRef": "1",
+            "targetRef": "14"
+        },
+        {
+            "id": "33",
+            "sourceRef": "14",
+            "targetRef": "2",
+            "condition": "Yes"
+        },
+        {
+            "id": "34",
+            "sourceRef": "2",
+            "targetRef": "3"
+        },
+        {
+            "id": "35",
+            "sourceRef": "14",
+            "targetRef": "4",
+            "condition": "No"
+        }
+    ],
+    "messageFlows": [
+        {
+            "id": "36",
+            "sourceRef": "19",
+            "targetRef": "7",
+            "label": "Customer initiates trip order"
+        },
+        {
+            "id": "37",
+            "sourceRef": "18",
+            "targetRef": "8",
+            "label": "Receiving trip order from customer"
+        },
+        {
+            "id": "38",
+            "sourceRef": "13",
+            "targetRef": "19",
+            "label": "Sending confirmation of trip order"
+        },
+        {
+            "id": "39",
+            "sourceRef": "18",
+            "targetRef": "10",
+            "label": "Invoice sent to customer"
+        },
+        {
+            "id": "40",
+            "sourceRef": "5",
+            "targetRef": "19",
+            "label": "Customer receives the invoice"
+        },
+        {
+            "id": "41",
+            "sourceRef": "19",
+            "targetRef": "6",
+            "label": "Customer sends cancellation"
+        },
+        {
+            "id": "42",
+            "sourceRef": "6",
+            "targetRef": "18",
+            "label": "Customer cancellation received"
+        },
+        {
+            "id": "43",
+            "sourceRef": "3",
+            "targetRef": "19",
+            "label": "Sending cancellation confirmation to customer"
+        },
+        {
+            "id": "44",
+            "sourceRef": "11",
+            "targetRef": "19",
+            "label": "Customer receives cancellation confirmation"
+        }
+    ]
+}

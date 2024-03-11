@@ -1,0 +1,240 @@
+{
+    "tasks": [
+        {
+            "id": "0",
+            "name": "Kostenkalkulation durchf\u00fchren",
+            "type": "Task"
+        },
+        {
+            "id": "1",
+            "name": "Planungsdokument erstellen",
+            "type": "Task"
+        },
+        {
+            "id": "2",
+            "name": "Preisanpassung durchf\u00fchren",
+            "type": "Task"
+        },
+        {
+            "id": "3",
+            "name": "Zahlungsdokumentation durchf\u00fchren",
+            "type": "Task"
+        },
+        {
+            "id": "4",
+            "name": "Projekt durchf\u00fchren",
+            "type": "Task"
+        },
+        {
+            "id": "5",
+            "name": "Versp\u00e4tete Zahlungen bearbeiten (Soll-Prozess)",
+            "type": "CollapsedSubprocess"
+        },
+        {
+            "id": "6",
+            "name": "Situation bewerten",
+            "type": "Task"
+        },
+        {
+            "id": "7",
+            "name": "Projektabnahme durchf\u00fchren",
+            "type": "Task"
+        },
+        {
+            "id": "8",
+            "name": "Folgeprojekte identifizieren",
+            "type": "Task"
+        }
+    ],
+    "events": [
+        {
+            "id": "9",
+            "name": "Projektbeginn",
+            "type": "StartNoneEvent"
+        },
+        {
+            "id": "10",
+            "name": "Neue Kundenanforderungen",
+            "type": "IntermediateMessageEventCatching"
+        },
+        {
+            "id": "11",
+            "name": "Gleichbleibende Anforderungen",
+            "type": "IntermediateConditionalEvent"
+        },
+        {
+            "id": "12",
+            "name": "Versp\u00e4tete Zahlung",
+            "type": "IntermediateEscalationEvent"
+        },
+        {
+            "id": "13",
+            "name": "Projekt weiterf\u00fchren?",
+            "type": "IntermediateMessageEventThrowing"
+        },
+        {
+            "id": "14",
+            "name": "Projektabbruch",
+            "type": "EndNoneEvent"
+        },
+        {
+            "id": "15",
+            "name": "Projektabschluss",
+            "type": "EndNoneEvent"
+        }
+    ],
+    "gateways": [
+        {
+            "id": "16",
+            "name": "Event-based Gateway",
+            "type": "Eventbased"
+        },
+        {
+            "id": "17",
+            "name": "Exclusive (XOR) Gateway",
+            "type": "Exclusive"
+        },
+        {
+            "id": "18",
+            "name": "Exclusive (XOR) Gateway",
+            "type": "Exclusive"
+        },
+        {
+            "id": "19",
+            "name": "Exclusive (XOR) Gateway",
+            "type": "Exclusive"
+        }
+    ],
+    "pools": [
+        {
+            "id": "20",
+            "name": "SoKnow",
+            "lanes": [
+                {
+                    "id": "21",
+                    "name": "Projektteam",
+                    "elemRefs": [
+                        "0",
+                        "1",
+                        "2",
+                        "3",
+                        "4",
+                        "5",
+                        "6",
+                        "7",
+                        "8",
+                        "9",
+                        "10",
+                        "11",
+                        "12",
+                        "13",
+                        "14",
+                        "15",
+                        "16",
+                        "17",
+                        "18",
+                        "19"
+                    ]
+                }
+            ]
+        },
+        {
+            "id": "22",
+            "name": "Kundenunternehmen",
+            "lanes": []
+        }
+    ],
+    "sequenceFlows": [
+        {
+            "id": "23",
+            "sourceRef": "9",
+            "targetRef": "0"
+        },
+        {
+            "id": "24",
+            "sourceRef": "0",
+            "targetRef": "1"
+        },
+        {
+            "id": "25",
+            "sourceRef": "1",
+            "targetRef": "16"
+        },
+        {
+            "id": "26",
+            "sourceRef": "16",
+            "targetRef": "10"
+        },
+        {
+            "id": "27",
+            "sourceRef": "10",
+            "targetRef": "2"
+        },
+        {
+            "id": "28",
+            "sourceRef": "2",
+            "targetRef": "3"
+        },
+        {
+            "id": "29",
+            "sourceRef": "3",
+            "targetRef": "4"
+        },
+        {
+            "id": "30",
+            "sourceRef": "4",
+            "targetRef": "12"
+        },
+        {
+            "id": "31",
+            "sourceRef": "12",
+            "targetRef": "5"
+        },
+        {
+            "id": "32",
+            "sourceRef": "5",
+            "targetRef": "17"
+        },
+        {
+            "id": "33",
+            "sourceRef": "17",
+            "targetRef": "6"
+        },
+        {
+            "id": "34",
+            "sourceRef": "6",
+            "targetRef": "18"
+        },
+        {
+            "id": "35",
+            "sourceRef": "18",
+            "targetRef": "13"
+        },
+        {
+            "id": "36",
+            "sourceRef": "13",
+            "targetRef": "14"
+        },
+        {
+            "id": "37",
+            "sourceRef": "18",
+            "targetRef": "19"
+        },
+        {
+            "id": "38",
+            "sourceRef": "19",
+            "targetRef": "7"
+        },
+        {
+            "id": "39",
+            "sourceRef": "7",
+            "targetRef": "8"
+        },
+        {
+            "id": "40",
+            "sourceRef": "8",
+            "targetRef": "15"
+        }
+    ],
+    "messageFlows": []
+}

@@ -1,0 +1,432 @@
+{
+    "tasks": [
+        {
+            "id": "0",
+            "name": "A new ticket is received",
+            "type": "Task"
+        },
+        {
+            "id": "1",
+            "name": "Classify ticket by automatic AI algorithm",
+            "type": "Task"
+        },
+        {
+            "id": "2",
+            "name": "Confirm type of request of the ticket by support staff",
+            "type": "Task"
+        },
+        {
+            "id": "3",
+            "name": "Forward to IT Operations Staff",
+            "type": "Task"
+        },
+        {
+            "id": "4",
+            "name": "Assign developer of IT Operations",
+            "type": "Task"
+        },
+        {
+            "id": "5",
+            "name": "Correct bug",
+            "type": "CollapsedSubprocess"
+        },
+        {
+            "id": "6",
+            "name": "Import version with the solution in Production Environment",
+            "type": "Task"
+        },
+        {
+            "id": "7",
+            "name": "Communicate date of the correction to the ticket owner",
+            "type": "Task"
+        },
+        {
+            "id": "8",
+            "name": "Ask for feedback with the ticket owner",
+            "type": "Task"
+        },
+        {
+            "id": "9",
+            "name": "Close ticket by corrected bug",
+            "type": "Task"
+        },
+        {
+            "id": "10",
+            "name": "Check solution for ticket and look for the KMS for FAQs",
+            "type": "Task"
+        },
+        {
+            "id": "11",
+            "name": "Support remotely",
+            "type": "Task"
+        },
+        {
+            "id": "12",
+            "name": "Train face to face",
+            "type": "Task"
+        },
+        {
+            "id": "13",
+            "name": "Send FAQ to the user with problem",
+            "type": "Task"
+        },
+        {
+            "id": "14",
+            "name": "Close ticket and update the KMS with feedback of this case",
+            "type": "Task"
+        },
+        {
+            "id": "15",
+            "name": "Forward to IS Development",
+            "type": "Task"
+        },
+        {
+            "id": "16",
+            "name": "Check the ticket request for a new functionality",
+            "type": "Task"
+        },
+        {
+            "id": "17",
+            "name": "Ask for more information to the ticket owner",
+            "type": "Task"
+        },
+        {
+            "id": "18",
+            "name": "Design a proposal of development",
+            "type": "CollapsedSubprocess"
+        },
+        {
+            "id": "19",
+            "name": "Present the proposal to the ticket owner and responsible staff",
+            "type": "Task"
+        },
+        {
+            "id": "20",
+            "name": "Assign Developer Team",
+            "type": "Task"
+        },
+        {
+            "id": "21",
+            "name": "Develop and liberate new functionality",
+            "type": "CollapsedSubprocess"
+        },
+        {
+            "id": "22",
+            "name": "Cancel the request and close ticket",
+            "type": "Task"
+        }
+    ],
+    "events": [
+        {
+            "id": "23",
+            "name": "A new ticket is received",
+            "type": "StartNoneEvent"
+        },
+        {
+            "id": "24",
+            "name": "Ticket of user support successfully closed",
+            "type": "EndNoneEvent"
+        },
+        {
+            "id": "25",
+            "name": "Ticket closed by new functionality delivered and KMS updated",
+            "type": "EndNoneEvent"
+        },
+        {
+            "id": "26",
+            "name": "Ticket closed (lack of preconditions)",
+            "type": "EndNoneEvent"
+        }
+    ],
+    "gateways": [
+        {
+            "id": "27",
+            "name": "Type of ticket?",
+            "type": "Exclusive"
+        },
+        {
+            "id": "28",
+            "name": "Bug corrected?",
+            "type": "Exclusive"
+        },
+        {
+            "id": "29",
+            "name": "Inclusive Gateway",
+            "type": "Inclusive"
+        },
+        {
+            "id": "30",
+            "name": "",
+            "type": "Exclusive"
+        },
+        {
+            "id": "31",
+            "name": "",
+            "type": "Parallel"
+        },
+        {
+            "id": "32",
+            "name": "",
+            "type": "Exclusive"
+        },
+        {
+            "id": "33",
+            "name": "",
+            "type": "Exclusive"
+        },
+        {
+            "id": "34",
+            "name": "",
+            "type": "Exclusive"
+        }
+    ],
+    "pools": [
+        {
+            "id": "35",
+            "name": "IT-Department",
+            "lanes": [
+                {
+                    "id": "36",
+                    "name": "IS Development Staff",
+                    "elemRefs": [
+                        "15",
+                        "16",
+                        "17",
+                        "18",
+                        "19",
+                        "20",
+                        "21",
+                        "22",
+                        "25",
+                        "26"
+                    ]
+                },
+                {
+                    "id": "37",
+                    "name": "IT Operations Staff",
+                    "elemRefs": [
+                        "3",
+                        "4",
+                        "5",
+                        "6",
+                        "7",
+                        "8",
+                        "9",
+                        "24"
+                    ]
+                },
+                {
+                    "id": "38",
+                    "name": "IT Support Staff",
+                    "elemRefs": [
+                        "0",
+                        "1",
+                        "2",
+                        "10",
+                        "11",
+                        "12",
+                        "13",
+                        "14"
+                    ]
+                }
+            ]
+        }
+    ],
+    "sequenceFlows": [
+        {
+            "id": "39",
+            "sourceRef": "23",
+            "targetRef": "0"
+        },
+        {
+            "id": "40",
+            "sourceRef": "0",
+            "targetRef": "1"
+        },
+        {
+            "id": "41",
+            "sourceRef": "1",
+            "targetRef": "2"
+        },
+        {
+            "id": "42",
+            "sourceRef": "2",
+            "targetRef": "27"
+        },
+        {
+            "id": "43",
+            "sourceRef": "27",
+            "targetRef": "3",
+            "condition": "Bug/Error"
+        },
+        {
+            "id": "44",
+            "sourceRef": "3",
+            "targetRef": "4"
+        },
+        {
+            "id": "45",
+            "sourceRef": "4",
+            "targetRef": "32"
+        },
+        {
+            "id": "46",
+            "sourceRef": "32",
+            "targetRef": "5",
+            "condition": "Developer Assigned"
+        },
+        {
+            "id": "47",
+            "sourceRef": "5",
+            "targetRef": "31"
+        },
+        {
+            "id": "48",
+            "sourceRef": "31",
+            "targetRef": "6"
+        },
+        {
+            "id": "49",
+            "sourceRef": "6",
+            "targetRef": "7"
+        },
+        {
+            "id": "50",
+            "sourceRef": "7",
+            "targetRef": "31"
+        },
+        {
+            "id": "51",
+            "sourceRef": "31",
+            "targetRef": "8"
+        },
+        {
+            "id": "52",
+            "sourceRef": "8",
+            "targetRef": "28"
+        },
+        {
+            "id": "53",
+            "sourceRef": "28",
+            "targetRef": "9",
+            "condition": "Corrected"
+        },
+        {
+            "id": "54",
+            "sourceRef": "9",
+            "targetRef": "24"
+        },
+        {
+            "id": "55",
+            "sourceRef": "28",
+            "targetRef": "32",
+            "condition": "Not Corrected"
+        },
+        {
+            "id": "56",
+            "sourceRef": "27",
+            "targetRef": "10",
+            "condition": "User Support"
+        },
+        {
+            "id": "57",
+            "sourceRef": "10",
+            "targetRef": "29"
+        },
+        {
+            "id": "58",
+            "sourceRef": "29",
+            "targetRef": "11"
+        },
+        {
+            "id": "59",
+            "sourceRef": "11",
+            "targetRef": "29"
+        },
+        {
+            "id": "60",
+            "sourceRef": "29",
+            "targetRef": "12"
+        },
+        {
+            "id": "61",
+            "sourceRef": "12",
+            "targetRef": "29"
+        },
+        {
+            "id": "62",
+            "sourceRef": "29",
+            "targetRef": "13"
+        },
+        {
+            "id": "63",
+            "sourceRef": "13",
+            "targetRef": "14"
+        },
+        {
+            "id": "64",
+            "sourceRef": "14",
+            "targetRef": "24"
+        },
+        {
+            "id": "65",
+            "sourceRef": "27",
+            "targetRef": "15",
+            "condition": "New Functionality"
+        },
+        {
+            "id": "66",
+            "sourceRef": "15",
+            "targetRef": "16"
+        },
+        {
+            "id": "67",
+            "sourceRef": "16",
+            "targetRef": "33"
+        },
+        {
+            "id": "68",
+            "sourceRef": "33",
+            "targetRef": "17",
+            "condition": "Incomplete"
+        },
+        {
+            "id": "69",
+            "sourceRef": "17",
+            "targetRef": "34"
+        },
+        {
+            "id": "70",
+            "sourceRef": "34",
+            "targetRef": "26",
+            "condition": "No Information Provided"
+        },
+        {
+            "id": "71",
+            "sourceRef": "34",
+            "targetRef": "18",
+            "condition": "Information Provided"
+        },
+        {
+            "id": "72",
+            "sourceRef": "18",
+            "targetRef": "19"
+        },
+        {
+            "id": "73",
+            "sourceRef": "19",
+            "targetRef": "20"
+        },
+        {
+            "id": "74",
+            "sourceRef": "20",
+            "targetRef": "21"
+        },
+        {
+            "id": "75",
+            "sourceRef": "21",
+            "targetRef": "25"
+        }
+    ],
+    "messageFlows": []
+}

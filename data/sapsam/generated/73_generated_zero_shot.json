@@ -1,0 +1,217 @@
+{
+    "tasks": [
+        {
+            "id": "0",
+            "name": "Benutzer anmelden",
+            "type": "CollapsedSubprocess"
+        },
+        {
+            "id": "1",
+            "name": "Medien verl\u00e4ngern",
+            "type": "Task"
+        },
+        {
+            "id": "2",
+            "name": "Medium aussuchen",
+            "type": "Task"
+        },
+        {
+            "id": "3",
+            "name": "Medium in der Datenbank suchen",
+            "type": "Task"
+        },
+        {
+            "id": "4",
+            "name": "Reservierungsvorgang",
+            "type": "Task"
+        },
+        {
+            "id": "5",
+            "name": "Benutzer identifizieren",
+            "type": "Task"
+        }
+    ],
+    "events": [
+        {
+            "id": "6",
+            "name": "Benutzer kommt in die Bibliothek",
+            "type": "StartNoneEvent"
+        },
+        {
+            "id": "7",
+            "name": "Medien wurden verl\u00e4ngert",
+            "type": "EndNoneEvent"
+        },
+        {
+            "id": "8",
+            "name": "Medium wird zur\u00fcckgegeben",
+            "type": "EndNoneEvent"
+        },
+        {
+            "id": "9",
+            "name": "Verleihvorgang abgebrochen",
+            "type": "EndNoneEvent"
+        },
+        {
+            "id": "10",
+            "name": "Medium nicht vorhanden",
+            "type": "IntermediateMessageEventCatching"
+        },
+        {
+            "id": "11",
+            "name": "Medium wird reserviert",
+            "type": "EndNoneEvent"
+        },
+        {
+            "id": "12",
+            "name": "Reservierung ablehnen",
+            "type": "IntermediateMessageEventCatching"
+        },
+        {
+            "id": "13",
+            "name": "Medium wird verliehen",
+            "type": "EndNoneEvent"
+        }
+    ],
+    "gateways": [
+        {
+            "id": "14",
+            "type": "Exclusive"
+        },
+        {
+            "id": "15",
+            "type": "Exclusive"
+        },
+        {
+            "id": "16",
+            "type": "Exclusive"
+        },
+        {
+            "id": "17",
+            "type": "Eventbased"
+        }
+    ],
+    "pools": [
+        {
+            "id": "18",
+            "name": "Nutzer der Bibliothek nicht HTW",
+            "lanes": [
+                {
+                    "id": "19",
+                    "name": "Reservierung best\u00e4tigen",
+                    "elemRefs": [
+                        "0",
+                        "1",
+                        "2",
+                        "3",
+                        "4",
+                        "5",
+                        "6",
+                        "7",
+                        "8",
+                        "9",
+                        "10",
+                        "11",
+                        "12",
+                        "13",
+                        "14",
+                        "15",
+                        "16",
+                        "17"
+                    ]
+                }
+            ]
+        }
+    ],
+    "sequenceFlows": [
+        {
+            "id": "20",
+            "sourceRef": "6",
+            "targetRef": "0"
+        },
+        {
+            "id": "21",
+            "sourceRef": "0",
+            "targetRef": "14"
+        },
+        {
+            "id": "22",
+            "sourceRef": "14",
+            "targetRef": "1",
+            "condition": "nein"
+        },
+        {
+            "id": "23",
+            "sourceRef": "14",
+            "targetRef": "2",
+            "condition": "ja"
+        },
+        {
+            "id": "24",
+            "sourceRef": "2",
+            "targetRef": "15"
+        },
+        {
+            "id": "25",
+            "sourceRef": "15",
+            "targetRef": "3",
+            "condition": "nein"
+        },
+        {
+            "id": "26",
+            "sourceRef": "15",
+            "targetRef": "17",
+            "condition": "ja"
+        },
+        {
+            "id": "27",
+            "sourceRef": "3",
+            "targetRef": "16"
+        },
+        {
+            "id": "28",
+            "sourceRef": "16",
+            "targetRef": "5",
+            "condition": "ja"
+        },
+        {
+            "id": "29",
+            "sourceRef": "16",
+            "targetRef": "12",
+            "condition": "nein"
+        },
+        {
+            "id": "30",
+            "sourceRef": "5",
+            "targetRef": "4"
+        },
+        {
+            "id": "31",
+            "sourceRef": "4",
+            "targetRef": "11"
+        },
+        {
+            "id": "32",
+            "sourceRef": "1",
+            "targetRef": "7"
+        },
+        {
+            "id": "33",
+            "sourceRef": "17",
+            "targetRef": "10"
+        },
+        {
+            "id": "34",
+            "sourceRef": "17",
+            "targetRef": "13"
+        }
+    ],
+    "messageFlows": [
+        {
+            "id": "35",
+            "sourceRef": "17",
+            "targetRef": "9",
+            "label": "Nutzer der Bibliothek nicht HTW"
+        }
+    ]
+}

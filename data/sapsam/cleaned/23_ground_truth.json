@@ -1,0 +1,91 @@
+{
+    "tasks": [
+        {
+            "id": "sid-5983B75C-E7E5-46C8-B4FF-D908FB2996A1",
+            "name": "Evaluate the condition of patient",
+            "type": "Task"
+        },
+        {
+            "id": "sid-43665FD4-2F57-40EF-BB2E-21712673C043",
+            "name": "Treat patient",
+            "type": "Task"
+        },
+        {
+            "id": "sid-2E143D7A-9FFC-4C08-94AE-72AC6AC724BF",
+            "name": "Prescribe medicines",
+            "type": "Task"
+        },
+        {
+            "id": "sid-89AB7AEB-89D3-4FA0-881E-78C5A6460B68",
+            "name": "Test the patient in laboratory",
+            "type": "Task"
+        }
+    ],
+    "events": [
+        {
+            "id": "sid-9638A39D-BEAD-4BA9-9B32-CBAB3DD25AB5",
+            "name": "Enter short-term  treatment",
+            "type": "StartNoneEvent"
+        },
+        {
+            "id": "sid-0E89C525-6D7D-4892-822A-4F401E4526C9",
+            "name": "Prescription delivered",
+            "type": "EndNoneEvent"
+        }
+    ],
+    "gateways": [],
+    "pools": [
+        {
+            "id": "sid-4f8d932b-1701-4e78-9694-7cfdc0c1b416",
+            "name": "Treatment Chambers",
+            "lanes": [
+                {
+                    "id": "sid-B63811F7-A29F-4297-8BC2-3DF26B1F4D6F",
+                    "name": "Doctors",
+                    "elemRefs": [
+                        "sid-5983B75C-E7E5-46C8-B4FF-D908FB2996A1",
+                        "sid-43665FD4-2F57-40EF-BB2E-21712673C043",
+                        "sid-2E143D7A-9FFC-4C08-94AE-72AC6AC724BF",
+                        "sid-9638A39D-BEAD-4BA9-9B32-CBAB3DD25AB5",
+                        "sid-0E89C525-6D7D-4892-822A-4F401E4526C9"
+                    ]
+                },
+                {
+                    "id": "sid-FA96A4DF-CDDC-4ED3-B7CB-B43D541BBA62",
+                    "name": "Technicians",
+                    "elemRefs": [
+                        "sid-89AB7AEB-89D3-4FA0-881E-78C5A6460B68"
+                    ]
+                }
+            ]
+        }
+    ],
+    "messageFlows": [],
+    "sequenceFlows": [
+        {
+            "id": "sid-0CD03191-A127-427A-9699-5873E9D3FADE",
+            "targetRef": "sid-5983B75C-E7E5-46C8-B4FF-D908FB2996A1",
+            "sourceRef": "sid-9638A39D-BEAD-4BA9-9B32-CBAB3DD25AB5"
+        },
+        {
+            "id": "sid-16D80549-72AE-4101-AF3C-D0E4DB3103C8",
+            "targetRef": "sid-89AB7AEB-89D3-4FA0-881E-78C5A6460B68",
+            "sourceRef": "sid-5983B75C-E7E5-46C8-B4FF-D908FB2996A1"
+        },
+        {
+            "id": "sid-AD2321BB-55B6-483A-B59C-7A1C5CAC03A3",
+            "targetRef": "sid-43665FD4-2F57-40EF-BB2E-21712673C043",
+            "sourceRef": "sid-89AB7AEB-89D3-4FA0-881E-78C5A6460B68"
+        },
+        {
+            "id": "sid-C9E8F132-F801-48DE-B442-48C5E5820550",
+            "targetRef": "sid-2E143D7A-9FFC-4C08-94AE-72AC6AC724BF",
+            "sourceRef": "sid-43665FD4-2F57-40EF-BB2E-21712673C043"
+        },
+        {
+            "id": "sid-88253714-201B-428D-B55B-2BF8A7BAB122",
+            "targetRef": "sid-0E89C525-6D7D-4892-822A-4F401E4526C9",
+            "sourceRef": "sid-2E143D7A-9FFC-4C08-94AE-72AC6AC724BF"
+        }
+    ]
+}

@@ -1,0 +1,328 @@
+{
+    "tasks": [
+        {
+            "id": "sid-A516A264-B4A0-4AA1-9CA9-8AC23FAC1D5C",
+            "name": "Programm startet",
+            "type": "User"
+        },
+        {
+            "id": "sid-8DA1B423-0C0A-427D-8B01-B5635967F2AB",
+            "name": "Spiel Fortsetzen",
+            "type": "User"
+        },
+        {
+            "id": "sid-8677DDF9-55AB-43AF-AC55-02C35C16BDA0",
+            "name": "Spielst\u00e4nde abrufen",
+            "type": "CollapsedSubprocess"
+        },
+        {
+            "id": "sid-CCB3C165-B0CD-40BC-9390-313B0AB8C4B4",
+            "name": "Ank\u00fcndigung Auswahlmen\u00fc",
+            "type": "User"
+        },
+        {
+            "id": "sid-040EF7D5-03D6-4DF0-B001-39076DEEAAC0",
+            "name": "Tutorial f\u00fcr die features am Controller",
+            "type": "CollapsedSubprocess"
+        },
+        {
+            "id": "sid-02DCACBF-F565-45A4-BD4B-16797D16F427",
+            "name": "mit Standard Tastenbelegung starten",
+            "type": "Service"
+        },
+        {
+            "id": "sid-691A66F9-EE32-4940-B0F7-57A179C1C8EE",
+            "name": "Neues Spiel starten",
+            "type": "User"
+        },
+        {
+            "id": "sid-F33A2F01-8A51-40A0-9B1B-9DCE2581D10B",
+            "name": "Spieleinstellungen",
+            "type": "CollapsedSubprocess"
+        },
+        {
+            "id": "sid-3E444110-9A4E-4183-BA62-9062C2F58EBF",
+            "name": "Umgebungsger\u00e4usche erzeugen",
+            "type": "Service"
+        },
+        {
+            "id": "sid-D73BF4FC-8C98-4816-8ACB-527111EBA18E",
+            "name": "Das Spiel wurde geladen",
+            "type": "Service"
+        },
+        {
+            "id": "sid-F1CA3EAF-C0D5-457C-B871-39EEEEC803B9",
+            "name": "Eingabeaufforderung",
+            "type": "Service"
+        },
+        {
+            "id": "sid-097B3FC5-1191-4AD0-BF16-44AF879AA580",
+            "name": "Umgebungsmusik einspielen",
+            "type": "Service"
+        },
+        {
+            "id": "sid-81D9A752-C2BC-49EE-924E-125DAD2A49E1",
+            "name": "Spiel starten",
+            "type": "CollapsedSubprocess"
+        },
+        {
+            "id": "sid-F265586A-B7B0-4F2B-A330-EC63BB06C551",
+            "name": "Zum Tutorial",
+            "type": "User"
+        }
+    ],
+    "events": [
+        {
+            "id": "sid-853D9A5C-5E63-4268-9CBD-1093E1CF3EAC",
+            "name": "Programmstart",
+            "type": "StartNoneEvent"
+        },
+        {
+            "id": "sid-9080F14D-C64E-4CF1-9F66-70384910D113",
+            "name": "gestartet",
+            "type": "EndNoneEvent"
+        }
+    ],
+    "gateways": [
+        {
+            "id": "sid-973B52CA-7DAA-4F93-9967-C0A4624F5FB7",
+            "name": "Men\u00fcwahl",
+            "type": "Exclusive"
+        },
+        {
+            "id": "sid-00EE47F2-F9EC-4B3A-A0EA-803138BF1C80",
+            "name": "Tutorial starten",
+            "type": "Exclusive"
+        },
+        {
+            "id": "sid-BB5E3E74-D3D5-4358-9B2A-1D6D845193E4",
+            "name": "Einf\u00fchrung beendet",
+            "type": "Exclusive"
+        },
+        {
+            "id": "sid-35C888A5-F817-41D3-93A8-FE00F0BFC8D4",
+            "type": "Exclusive"
+        },
+        {
+            "id": "sid-5E83E9BF-F483-40C7-88DD-8129D6DF19A4",
+            "type": "Parallel"
+        },
+        {
+            "id": "sid-CFB5FDA5-BCA8-4402-B5A0-9A9F2004731B",
+            "name": "XOR-Eingang",
+            "type": "Exclusive"
+        },
+        {
+            "id": "sid-C3DA983F-5F46-40BA-99AB-9A63C361DEBF",
+            "type": "Parallel"
+        },
+        {
+            "id": "sid-B5FE00A3-8CA3-4C2E-8D88-891819F29BD9",
+            "type": "Exclusive"
+        }
+    ],
+    "pools": [
+        {
+            "id": "sid-1DD9FABC-1474-46EA-8AE9-CE94901A4946",
+            "name": "AO-Software",
+            "lanes": [
+                {
+                    "id": "sid-613B8F7D-AB37-4692-94FD-64FFD13A80F8",
+                    "name": "Spieler",
+                    "elemRefs": [
+                        "sid-A516A264-B4A0-4AA1-9CA9-8AC23FAC1D5C",
+                        "sid-8DA1B423-0C0A-427D-8B01-B5635967F2AB",
+                        "sid-8677DDF9-55AB-43AF-AC55-02C35C16BDA0",
+                        "sid-CCB3C165-B0CD-40BC-9390-313B0AB8C4B4"
+                    ]
+                },
+                {
+                    "id": "sid-A7B3A720-24A4-4CFC-9867-8E98F9EBC9B1",
+                    "name": "UI - Auswahl",
+                    "elemRefs": [
+                        "sid-040EF7D5-03D6-4DF0-B001-39076DEEAAC0",
+                        "sid-02DCACBF-F565-45A4-BD4B-16797D16F427",
+                        "sid-691A66F9-EE32-4940-B0F7-57A179C1C8EE",
+                        "sid-F33A2F01-8A51-40A0-9B1B-9DCE2581D10B",
+                        "sid-3E444110-9A4E-4183-BA62-9062C2F58EBF",
+                        "sid-D73BF4FC-8C98-4816-8ACB-527111EBA18E",
+                        "sid-F1CA3EAF-C0D5-457C-B871-39EEEEC803B9",
+                        "sid-097B3FC5-1191-4AD0-BF16-44AF879AA580",
+                        "sid-81D9A752-C2BC-49EE-924E-125DAD2A49E1",
+                        "sid-F265586A-B7B0-4F2B-A330-EC63BB06C551",
+                        "sid-853D9A5C-5E63-4268-9CBD-1093E1CF3EAC",
+                        "sid-9080F14D-C64E-4CF1-9F66-70384910D113",
+                        "sid-973B52CA-7DAA-4F93-9967-C0A4624F5FB7",
+                        "sid-00EE47F2-F9EC-4B3A-A0EA-803138BF1C80",
+                        "sid-BB5E3E74-D3D5-4358-9B2A-1D6D845193E4",
+                        "sid-35C888A5-F817-41D3-93A8-FE00F0BFC8D4",
+                        "sid-5E83E9BF-F483-40C7-88DD-8129D6DF19A4",
+                        "sid-CFB5FDA5-BCA8-4402-B5A0-9A9F2004731B",
+                        "sid-C3DA983F-5F46-40BA-99AB-9A63C361DEBF",
+                        "sid-B5FE00A3-8CA3-4C2E-8D88-891819F29BD9"
+                    ]
+                },
+                {
+                    "id": "sid-26267E2A-F3B6-448A-A9F8-BC073F2E7311",
+                    "name": "System",
+                    "elemRefs": []
+                }
+            ]
+        }
+    ],
+    "messageFlows": [],
+    "sequenceFlows": [
+        {
+            "id": "sid-98D3620B-BD12-4F44-8CD3-233CDA7F057D",
+            "targetRef": "sid-A516A264-B4A0-4AA1-9CA9-8AC23FAC1D5C",
+            "sourceRef": "sid-853D9A5C-5E63-4268-9CBD-1093E1CF3EAC"
+        },
+        {
+            "id": "sid-EB4D9276-0721-4253-B97F-A440F74EA07A",
+            "targetRef": "sid-BB5E3E74-D3D5-4358-9B2A-1D6D845193E4",
+            "sourceRef": "sid-02DCACBF-F565-45A4-BD4B-16797D16F427"
+        },
+        {
+            "id": "sid-44520E62-A537-416D-9CD6-01A363DB7584",
+            "targetRef": "sid-81D9A752-C2BC-49EE-924E-125DAD2A49E1",
+            "sourceRef": "sid-35C888A5-F817-41D3-93A8-FE00F0BFC8D4"
+        },
+        {
+            "id": "sid-592151DC-BD5F-4535-A39E-C535AB873FAB",
+            "targetRef": "sid-C3DA983F-5F46-40BA-99AB-9A63C361DEBF",
+            "sourceRef": "sid-81D9A752-C2BC-49EE-924E-125DAD2A49E1"
+        },
+        {
+            "id": "sid-40A30CC0-AD95-48EC-A162-D3F4F7745B5C",
+            "targetRef": "sid-BB5E3E74-D3D5-4358-9B2A-1D6D845193E4",
+            "sourceRef": "sid-040EF7D5-03D6-4DF0-B001-39076DEEAAC0"
+        },
+        {
+            "id": "sid-89595F70-11E6-4012-A7E7-A6D71F72219A",
+            "targetRef": "sid-097B3FC5-1191-4AD0-BF16-44AF879AA580",
+            "sourceRef": "sid-C3DA983F-5F46-40BA-99AB-9A63C361DEBF"
+        },
+        {
+            "id": "sid-A655495C-FBB2-4461-A573-CA1291271F6D",
+            "targetRef": "sid-3E444110-9A4E-4183-BA62-9062C2F58EBF",
+            "sourceRef": "sid-C3DA983F-5F46-40BA-99AB-9A63C361DEBF"
+        },
+        {
+            "id": "sid-4057426C-D11C-4400-87C5-BE80187D16A9",
+            "targetRef": "sid-5E83E9BF-F483-40C7-88DD-8129D6DF19A4",
+            "sourceRef": "sid-097B3FC5-1191-4AD0-BF16-44AF879AA580"
+        },
+        {
+            "id": "sid-30ADD655-7F93-440C-A226-AA6B4CBED8E8",
+            "targetRef": "sid-5E83E9BF-F483-40C7-88DD-8129D6DF19A4",
+            "sourceRef": "sid-3E444110-9A4E-4183-BA62-9062C2F58EBF"
+        },
+        {
+            "id": "sid-16C714C3-19CC-4425-B0F0-F8CF791404F0",
+            "targetRef": "sid-D73BF4FC-8C98-4816-8ACB-527111EBA18E",
+            "sourceRef": "sid-5E83E9BF-F483-40C7-88DD-8129D6DF19A4"
+        },
+        {
+            "id": "sid-AA422558-DC21-4C75-9E7F-D8AF8CC3B26E",
+            "targetRef": "sid-F1CA3EAF-C0D5-457C-B871-39EEEEC803B9",
+            "sourceRef": "sid-D73BF4FC-8C98-4816-8ACB-527111EBA18E"
+        },
+        {
+            "id": "sid-3D975E3A-2CE5-4EFA-A1E7-9B41A78C3583",
+            "targetRef": "sid-9080F14D-C64E-4CF1-9F66-70384910D113",
+            "sourceRef": "sid-F1CA3EAF-C0D5-457C-B871-39EEEEC803B9"
+        },
+        {
+            "id": "sid-134EA68E-C45A-4645-BE67-830AD1E6E1B0",
+            "targetRef": "sid-02DCACBF-F565-45A4-BD4B-16797D16F427",
+            "condition": "Nein",
+            "sourceRef": "sid-00EE47F2-F9EC-4B3A-A0EA-803138BF1C80"
+        },
+        {
+            "id": "sid-35C93514-5495-4BFE-9266-41A74DAD021A",
+            "targetRef": "sid-35C888A5-F817-41D3-93A8-FE00F0BFC8D4",
+            "sourceRef": "sid-691A66F9-EE32-4940-B0F7-57A179C1C8EE"
+        },
+        {
+            "id": "sid-3855F80B-2E8E-4CB7-AD41-9DFC67D6C57B",
+            "targetRef": "sid-CCB3C165-B0CD-40BC-9390-313B0AB8C4B4",
+            "sourceRef": "sid-CFB5FDA5-BCA8-4402-B5A0-9A9F2004731B"
+        },
+        {
+            "id": "sid-C9B913ED-2C4C-44B9-84AA-DBB1754E0A0A",
+            "targetRef": "sid-CFB5FDA5-BCA8-4402-B5A0-9A9F2004731B",
+            "sourceRef": "sid-F33A2F01-8A51-40A0-9B1B-9DCE2581D10B"
+        },
+        {
+            "id": "sid-7EFC8FC0-2F0E-4E13-AC0B-D7F50F47F6C2",
+            "targetRef": "sid-B5FE00A3-8CA3-4C2E-8D88-891819F29BD9",
+            "condition": "Ja",
+            "sourceRef": "sid-00EE47F2-F9EC-4B3A-A0EA-803138BF1C80"
+        },
+        {
+            "id": "sid-D58A13A9-2939-4E32-95B0-337CA20D2AF0",
+            "targetRef": "sid-F33A2F01-8A51-40A0-9B1B-9DCE2581D10B",
+            "condition": "Einstellungen",
+            "sourceRef": "sid-973B52CA-7DAA-4F93-9967-C0A4624F5FB7"
+        },
+        {
+            "id": "sid-3C767760-6CCF-4CEE-8A71-1D75755867DA",
+            "targetRef": "sid-8677DDF9-55AB-43AF-AC55-02C35C16BDA0",
+            "condition": "Spiel Laden",
+            "sourceRef": "sid-973B52CA-7DAA-4F93-9967-C0A4624F5FB7"
+        },
+        {
+            "id": "sid-99A2BFBD-7015-4993-98F2-11F129AE0E10",
+            "targetRef": "sid-8DA1B423-0C0A-427D-8B01-B5635967F2AB",
+            "condition": "Spiel fortsetzen",
+            "sourceRef": "sid-973B52CA-7DAA-4F93-9967-C0A4624F5FB7"
+        },
+        {
+            "id": "sid-2E5F1B3D-038F-4D6D-95ED-C9F57E359F46",
+            "targetRef": "sid-35C888A5-F817-41D3-93A8-FE00F0BFC8D4",
+            "sourceRef": "sid-8677DDF9-55AB-43AF-AC55-02C35C16BDA0"
+        },
+        {
+            "id": "sid-73C81467-674B-47FA-B7FA-AECDDB14604D",
+            "targetRef": "sid-00EE47F2-F9EC-4B3A-A0EA-803138BF1C80",
+            "sourceRef": "sid-A516A264-B4A0-4AA1-9CA9-8AC23FAC1D5C"
+        },
+        {
+            "id": "sid-0FB129A3-2A41-41CE-8CFF-6BA3B80136EF",
+            "targetRef": "sid-691A66F9-EE32-4940-B0F7-57A179C1C8EE",
+            "condition": "Neues Spiel starten",
+            "sourceRef": "sid-973B52CA-7DAA-4F93-9967-C0A4624F5FB7"
+        },
+        {
+            "id": "sid-508BC19A-2B05-426E-8F58-F5667D6BC34C",
+            "targetRef": "sid-CFB5FDA5-BCA8-4402-B5A0-9A9F2004731B",
+            "sourceRef": "sid-BB5E3E74-D3D5-4358-9B2A-1D6D845193E4"
+        },
+        {
+            "id": "sid-B954D0B9-0EBB-4F7D-B950-C6F470CF698F",
+            "targetRef": "sid-973B52CA-7DAA-4F93-9967-C0A4624F5FB7",
+            "sourceRef": "sid-CCB3C165-B0CD-40BC-9390-313B0AB8C4B4"
+        },
+        {
+            "id": "sid-F8A1F9D7-609A-4BDC-9078-F2DEBDFC63A9",
+            "targetRef": "sid-35C888A5-F817-41D3-93A8-FE00F0BFC8D4",
+            "sourceRef": "sid-8DA1B423-0C0A-427D-8B01-B5635967F2AB"
+        },
+        {
+            "id": "sid-AF7F4217-D429-4CB4-B7D0-6B64AC324004",
+            "targetRef": "sid-040EF7D5-03D6-4DF0-B001-39076DEEAAC0",
+            "sourceRef": "sid-B5FE00A3-8CA3-4C2E-8D88-891819F29BD9"
+        },
+        {
+            "id": "sid-D91C0F50-FC04-46B8-BF97-ED757BED1D54",
+            "targetRef": "sid-B5FE00A3-8CA3-4C2E-8D88-891819F29BD9",
+            "sourceRef": "sid-F265586A-B7B0-4F2B-A330-EC63BB06C551"
+        },
+        {
+            "id": "sid-FF4BC6D5-7BB1-438A-B54B-9DD3360DBC85",
+            "targetRef": "sid-F265586A-B7B0-4F2B-A330-EC63BB06C551",
+            "condition": "Zum Tutorial",
+            "sourceRef": "sid-973B52CA-7DAA-4F93-9967-C0A4624F5FB7"
+        }
+    ]
+}

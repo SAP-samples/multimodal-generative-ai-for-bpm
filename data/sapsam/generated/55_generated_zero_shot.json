@@ -1,0 +1,120 @@
+{
+    "tasks": [
+        {
+            "id": "0",
+            "name": "Informationen nicht weitergeben",
+            "type": "Task"
+        },
+        {
+            "id": "1",
+            "name": "Informationen weitergeben",
+            "type": "Task"
+        },
+        {
+            "id": "2",
+            "name": "Informationen dokumentieren",
+            "type": "Task"
+        },
+        {
+            "id": "3",
+            "name": "techn. Jane Doe",
+            "type": "Task"
+        }
+    ],
+    "events": [
+        {
+            "id": "4",
+            "name": "Aufgabe ist abgeschlossen",
+            "type": "StartNoneEvent"
+        },
+        {
+            "id": "5",
+            "name": "Fertigmeldung ist abgegeben",
+            "type": "EndNoneEvent"
+        }
+    ],
+    "gateways": [
+        {
+            "id": "6",
+            "type": "Exclusive"
+        },
+        {
+            "id": "7",
+            "type": "Exclusive"
+        }
+    ],
+    "pools": [
+        {
+            "id": "8",
+            "name": "Weinbaum im Au\u00dfenbetrieb",
+            "lanes": [
+                {
+                    "id": "9",
+                    "name": "Au\u00dfenbetriebsmitarbeiter",
+                    "elemRefs": [
+                        "0",
+                        "1",
+                        "2",
+                        "3",
+                        "4",
+                        "5",
+                        "6",
+                        "7"
+                    ]
+                }
+            ]
+        }
+    ],
+    "sequenceFlows": [
+        {
+            "id": "10",
+            "sourceRef": "4",
+            "targetRef": "6"
+        },
+        {
+            "id": "11",
+            "sourceRef": "6",
+            "targetRef": "0",
+            "condition": "M\u00fcssen Informationen weitergegeben werden?"
+        },
+        {
+            "id": "12",
+            "sourceRef": "0",
+            "targetRef": "5"
+        },
+        {
+            "id": "13",
+            "sourceRef": "6",
+            "targetRef": "1",
+            "condition": "M\u00fcssen Informationen weitergegeben werden?"
+        },
+        {
+            "id": "14",
+            "sourceRef": "1",
+            "targetRef": "2"
+        },
+        {
+            "id": "15",
+            "sourceRef": "2",
+            "targetRef": "7"
+        },
+        {
+            "id": "16",
+            "sourceRef": "7",
+            "targetRef": "3",
+            "condition": "Techn. Jane Doe erreichbar?"
+        },
+        {
+            "id": "17",
+            "sourceRef": "3",
+            "targetRef": "5"
+        },
+        {
+            "id": "18",
+            "sourceRef": "7",
+            "targetRef": "5",
+            "condition": "Techn. Jane Doe erreichbar?"
+        }
+    ],
+    "messageFlows": []
+}

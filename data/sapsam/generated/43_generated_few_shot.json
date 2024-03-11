@@ -1,0 +1,267 @@
+{
+    "tasks": [
+        {
+            "id": "0",
+            "name": "Auftrag erteilen",
+            "type": "Task"
+        },
+        {
+            "id": "1",
+            "name": "Machbarkeit pr\u00fcfen",
+            "type": "Task"
+        },
+        {
+            "id": "2",
+            "name": "Preiskalkulation durchf\u00fchren",
+            "type": "CollapsedSubprocess"
+        },
+        {
+            "id": "3",
+            "name": "Angebot erstellen und versenden",
+            "type": "CollapsedSubprocess"
+        },
+        {
+            "id": "4",
+            "name": "Angebot pr\u00fcfen",
+            "type": "Task"
+        },
+        {
+            "id": "5",
+            "name": "Angebot anpassen",
+            "type": "Task"
+        },
+        {
+            "id": "6",
+            "name": "Angebot versenden",
+            "type": "Task"
+        },
+        {
+            "id": "7",
+            "name": "Wartezeit",
+            "type": "Task"
+        },
+        {
+            "id": "8",
+            "name": "Auftrag anlegen",
+            "type": "Task"
+        },
+        {
+            "id": "9",
+            "name": "Auftrag in Planung Fertigung eintragen",
+            "type": "Task"
+        },
+        {
+            "id": "10",
+            "name": "Auftragsbest\u00e4tigung versenden",
+            "type": "Task"
+        }
+    ],
+    "events": [
+        {
+            "id": "11",
+            "name": "Bestellung",
+            "type": "StartNoneEvent"
+        },
+        {
+            "id": "12",
+            "name": "nicht machbar",
+            "type": "IntermediateErrorEvent"
+        },
+        {
+            "id": "13",
+            "name": "Abbruch",
+            "type": "EndCancelEvent"
+        },
+        {
+            "id": "14",
+            "name": "Auftragsbest\u00e4tigung versandt",
+            "type": "EndNoneEvent"
+        },
+        {
+            "id": "15",
+            "name": "Kundeninfo keine Auftrags- best\u00e4tigung",
+            "type": "EndNoneEvent"
+        },
+        {
+            "id": "16",
+            "name": "Wartezeit",
+            "type": "IntermediateTimerEvent"
+        }
+    ],
+    "gateways": [
+        {
+            "id": "17",
+            "type": "Exclusive"
+        },
+        {
+            "id": "18",
+            "type": "Exclusive"
+        },
+        {
+            "id": "19",
+            "type": "Exclusive"
+        },
+        {
+            "id": "20",
+            "type": "Exclusive"
+        }
+    ],
+    "pools": [
+        {
+            "id": "21",
+            "name": "Bohrwerker",
+            "lanes": [
+                {
+                    "id": "22",
+                    "name": "Jane Doe",
+                    "elemRefs": [
+                        "0",
+                        "1",
+                        "2",
+                        "3",
+                        "4",
+                        "5",
+                        "6",
+                        "11",
+                        "12",
+                        "13",
+                        "17",
+                        "18"
+                    ]
+                },
+                {
+                    "id": "23",
+                    "name": "Silke",
+                    "elemRefs": [
+                        "7",
+                        "8",
+                        "9",
+                        "10",
+                        "14",
+                        "15",
+                        "16",
+                        "19",
+                        "20"
+                    ]
+                },
+                {
+                    "id": "24",
+                    "name": "Kunde",
+                    "elemRefs": []
+                }
+            ]
+        }
+    ],
+    "sequenceFlows": [
+        {
+            "id": "25",
+            "sourceRef": "0",
+            "targetRef": "1"
+        },
+        {
+            "id": "26",
+            "sourceRef": "1",
+            "targetRef": "17"
+        },
+        {
+            "id": "27",
+            "sourceRef": "17",
+            "targetRef": "2",
+            "condition": "Ja"
+        },
+        {
+            "id": "28",
+            "sourceRef": "17",
+            "targetRef": "12",
+            "condition": "Nein"
+        },
+        {
+            "id": "29",
+            "sourceRef": "2",
+            "targetRef": "3"
+        },
+        {
+            "id": "30",
+            "sourceRef": "3",
+            "targetRef": "18"
+        },
+        {
+            "id": "31",
+            "sourceRef": "18",
+            "targetRef": "4",
+            "condition": "Anpassung n\u00f6tig"
+        },
+        {
+            "id": "32",
+            "sourceRef": "18",
+            "targetRef": "6",
+            "condition": "Keine Anpassung n\u00f6tig"
+        },
+        {
+            "id": "33",
+            "sourceRef": "4",
+            "targetRef": "5"
+        },
+        {
+            "id": "34",
+            "sourceRef": "5",
+            "targetRef": "6"
+        },
+        {
+            "id": "35",
+            "sourceRef": "6",
+            "targetRef": "19"
+        },
+        {
+            "id": "36",
+            "sourceRef": "19",
+            "targetRef": "7"
+        },
+        {
+            "id": "37",
+            "sourceRef": "7",
+            "targetRef": "8"
+        },
+        {
+            "id": "38",
+            "sourceRef": "8",
+            "targetRef": "9"
+        },
+        {
+            "id": "39",
+            "sourceRef": "9",
+            "targetRef": "10"
+        },
+        {
+            "id": "40",
+            "sourceRef": "10",
+            "targetRef": "20"
+        },
+        {
+            "id": "41",
+            "sourceRef": "20",
+            "targetRef": "14",
+            "condition": "Erfolg"
+        },
+        {
+            "id": "42",
+            "sourceRef": "20",
+            "targetRef": "15",
+            "condition": "Keine Angabe"
+        }
+    ],
+    "messageFlows": [
+        {
+            "id": "43",
+            "sourceRef": "11",
+            "targetRef": "0",
+            "label": "Auftrag"
+        },
+        {
+            "id": "44",
+            "sourceRef": "6",
+            "targetRef": "24",
+            "label": "Angebot"
+        }
+    ]
+}

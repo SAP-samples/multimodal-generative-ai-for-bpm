@@ -1,0 +1,255 @@
+{
+    "tasks": [
+        {
+            "id": "0",
+            "name": "Fahrzeug auf die Hebeb\u00fchne fahren",
+            "type": "Task"
+        },
+        {
+            "id": "1",
+            "name": "Reifen beschriften",
+            "type": "Task"
+        },
+        {
+            "id": "2",
+            "name": "Abbau der R\u00e4der",
+            "type": "Task"
+        },
+        {
+            "id": "3",
+            "name": "umziehen",
+            "type": "Task"
+        },
+        {
+            "id": "4",
+            "name": "R\u00e4dersatz auslagern",
+            "type": "Task"
+        },
+        {
+            "id": "5",
+            "name": "Kontrolle",
+            "type": "Task"
+        },
+        {
+            "id": "6",
+            "name": "neuen Reifen verkaufen",
+            "type": "Task"
+        },
+        {
+            "id": "7",
+            "name": "neuer Reifen montieren",
+            "type": "Task"
+        },
+        {
+            "id": "8",
+            "name": "R\u00e4der wuchten",
+            "type": "Task"
+        },
+        {
+            "id": "9",
+            "name": "Montage",
+            "type": "Task"
+        },
+        {
+            "id": "10",
+            "name": "Fahrzeug von der Hebeb\u00fchne herablassen",
+            "type": "Task"
+        },
+        {
+            "id": "11",
+            "name": "Kontrolle Luftdruck/Bolzenanzugsmoment",
+            "type": "Task"
+        },
+        {
+            "id": "12",
+            "name": "Reifen/R\u00e4der einlagern",
+            "type": "Task"
+        },
+        {
+            "id": "13",
+            "name": "Rechnung schreiben",
+            "type": "CollapsedSubprocess"
+        }
+    ],
+    "events": [
+        {
+            "id": "14",
+            "name": "Reifenwechsel erforderlich",
+            "type": "StartNoneEvent"
+        },
+        {
+            "id": "15",
+            "name": "Service abgeschlossen",
+            "type": "EndNoneEvent"
+        }
+    ],
+    "gateways": [
+        {
+            "id": "16",
+            "type": "Exclusive"
+        },
+        {
+            "id": "17",
+            "type": "Exclusive"
+        },
+        {
+            "id": "18",
+            "type": "Exclusive"
+        },
+        {
+            "id": "19",
+            "type": "Parallel"
+        },
+        {
+            "id": "20",
+            "type": "Exclusive"
+        }
+    ],
+    "pools": [
+        {
+            "id": "21",
+            "name": "AutoSchnell",
+            "lanes": [
+                {
+                    "id": "22",
+                    "name": "KFZ Mechatroniker",
+                    "elemRefs": [
+                        "0",
+                        "1",
+                        "2",
+                        "3",
+                        "4",
+                        "5",
+                        "6",
+                        "7",
+                        "8",
+                        "9",
+                        "10",
+                        "11",
+                        "12",
+                        "16",
+                        "17",
+                        "18",
+                        "19"
+                    ]
+                },
+                {
+                    "id": "23",
+                    "name": "Verwaltung",
+                    "elemRefs": [
+                        "13",
+                        "15"
+                    ]
+                }
+            ]
+        }
+    ],
+    "sequenceFlows": [
+        {
+            "id": "24",
+            "sourceRef": "14",
+            "targetRef": "0"
+        },
+        {
+            "id": "25",
+            "sourceRef": "0",
+            "targetRef": "1"
+        },
+        {
+            "id": "26",
+            "sourceRef": "1",
+            "targetRef": "17"
+        },
+        {
+            "id": "27",
+            "sourceRef": "17",
+            "targetRef": "2"
+        },
+        {
+            "id": "28",
+            "sourceRef": "2",
+            "targetRef": "16"
+        },
+        {
+            "id": "29",
+            "sourceRef": "16",
+            "targetRef": "3"
+        },
+        {
+            "id": "30",
+            "sourceRef": "3",
+            "targetRef": "4"
+        },
+        {
+            "id": "31",
+            "sourceRef": "4",
+            "targetRef": "18"
+        },
+        {
+            "id": "32",
+            "sourceRef": "18",
+            "targetRef": "5"
+        },
+        {
+            "id": "33",
+            "sourceRef": "5",
+            "targetRef": "19"
+        },
+        {
+            "id": "34",
+            "sourceRef": "18",
+            "targetRef": "6"
+        },
+        {
+            "id": "35",
+            "sourceRef": "6",
+            "targetRef": "7"
+        },
+        {
+            "id": "36",
+            "sourceRef": "7",
+            "targetRef": "20"
+        },
+        {
+            "id": "37",
+            "sourceRef": "20",
+            "targetRef": "8"
+        },
+        {
+            "id": "38",
+            "sourceRef": "8",
+            "targetRef": "9"
+        },
+        {
+            "id": "39",
+            "sourceRef": "9",
+            "targetRef": "10"
+        },
+        {
+            "id": "40",
+            "sourceRef": "10",
+            "targetRef": "11"
+        },
+        {
+            "id": "41",
+            "sourceRef": "11",
+            "targetRef": "19"
+        },
+        {
+            "id": "42",
+            "sourceRef": "19",
+            "targetRef": "12"
+        },
+        {
+            "id": "43",
+            "sourceRef": "12",
+            "targetRef": "13"
+        },
+        {
+            "id": "44",
+            "sourceRef": "13",
+            "targetRef": "15"
+        }
+    ],
+    "messageFlows": []
+}

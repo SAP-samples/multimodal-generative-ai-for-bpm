@@ -1,0 +1,340 @@
+{
+    "tasks": [
+        {
+            "id": "0",
+            "name": "Eingangsbest\u00e4tigung senden",
+            "type": "Send"
+        },
+        {
+            "id": "1",
+            "name": "Bewerbung pr\u00fcfen",
+            "type": "Business Rule"
+        },
+        {
+            "id": "2",
+            "name": "Bewerbung beurteilen",
+            "type": "Manual"
+        },
+        {
+            "id": "3",
+            "name": "Bewerber einladen",
+            "type": "CollapsedSubprocess"
+        },
+        {
+            "id": "4",
+            "name": "Bewerber einstellen",
+            "type": "CollapsedSubprocess"
+        },
+        {
+            "id": "5",
+            "name": "Bewerbungsgespr\u00e4ch durchf\u00fchren",
+            "type": "CollapsedSubprocess"
+        },
+        {
+            "id": "6",
+            "name": "Bewerber auf die Liste setzen",
+            "type": "User"
+        },
+        {
+            "id": "7",
+            "name": "Bewerber ausw\u00e4hlen",
+            "type": "CollapsedSubprocess"
+        },
+        {
+            "id": "8",
+            "name": "Genehmigung einholen",
+            "type": "Business Rule"
+        },
+        {
+            "id": "9",
+            "name": "Vertrag vorbereiten",
+            "type": "Business Rule"
+        },
+        {
+            "id": "10",
+            "name": "Vertrags Unterschrift",
+            "type": "CollapsedSubprocess"
+        },
+        {
+            "id": "11",
+            "name": "Bewerber auf Stelle setzen",
+            "type": "CollapsedSubprocess"
+        },
+        {
+            "id": "12",
+            "name": "Stelle im System belegen",
+            "type": "Service"
+        },
+        {
+            "id": "13",
+            "name": "Bewerbungsverfahren abschlie\u00dfen",
+            "type": "User"
+        },
+        {
+            "id": "14",
+            "name": "Bewerber absagen",
+            "type": "Send"
+        },
+        {
+            "id": "15",
+            "name": "Bewerbungs-unterlagen archivieren",
+            "type": "User"
+        }
+    ],
+    "events": [
+        {
+            "id": "16",
+            "name": "Bewerbung trifft ein",
+            "type": "StartMessageEvent"
+        },
+        {
+            "id": "17",
+            "name": "Bewerber lehnt ab",
+            "type": "IntermediateErrorEvent"
+        },
+        {
+            "id": "18",
+            "name": "Einstellung wurde nicht genehmigt",
+            "type": "IntermediateErrorEvent"
+        },
+        {
+            "id": "19",
+            "name": "Bewerber eingestellt",
+            "type": "EndEvent"
+        },
+        {
+            "id": "20",
+            "name": "Bewerber abgelehnt",
+            "type": "EndEvent"
+        },
+        {
+            "id": "21",
+            "name": "Intermediate Cancel Event",
+            "type": "IntermediateCancelEvent"
+        }
+    ],
+    "gateways": [
+        {
+            "id": "22",
+            "type": "Exclusive"
+        },
+        {
+            "id": "23",
+            "type": "Exclusive"
+        },
+        {
+            "id": "24",
+            "type": "Exclusive"
+        },
+        {
+            "id": "25",
+            "type": "Exclusive"
+        },
+        {
+            "id": "26",
+            "type": "Exclusive"
+        },
+        {
+            "id": "27",
+            "type": "Exclusive"
+        }
+    ],
+    "pools": [
+        {
+            "id": "28",
+            "name": "Bewerber",
+            "lanes": []
+        },
+        {
+            "id": "29",
+            "name": "Personalteam",
+            "lanes": [
+                {
+                    "id": "30",
+                    "name": "Personalleiter",
+                    "elemRefs": [
+                        "1",
+                        "2",
+                        "3",
+                        "4",
+                        "5",
+                        "6",
+                        "7",
+                        "8",
+                        "9",
+                        "10",
+                        "11",
+                        "12",
+                        "13",
+                        "14",
+                        "15"
+                    ]
+                }
+            ]
+        },
+        {
+            "id": "31",
+            "name": "IT-Abteilung",
+            "lanes": []
+        },
+        {
+            "id": "32",
+            "name": "Vorstand",
+            "lanes": []
+        }
+    ],
+    "sequenceFlows": [
+        {
+            "id": "33",
+            "sourceRef": "16",
+            "targetRef": "0"
+        },
+        {
+            "id": "34",
+            "sourceRef": "0",
+            "targetRef": "1"
+        },
+        {
+            "id": "35",
+            "sourceRef": "1",
+            "targetRef": "22"
+        },
+        {
+            "id": "36",
+            "sourceRef": "22",
+            "targetRef": "2",
+            "condition": "Is the application in order?"
+        },
+        {
+            "id": "37",
+            "sourceRef": "2",
+            "targetRef": "23"
+        },
+        {
+            "id": "38",
+            "sourceRef": "23",
+            "targetRef": "3",
+            "condition": "Is the applicant suitable?"
+        },
+        {
+            "id": "39",
+            "sourceRef": "3",
+            "targetRef": "24"
+        },
+        {
+            "id": "40",
+            "sourceRef": "24",
+            "targetRef": "4",
+            "condition": "If the applicant accepts"
+        },
+        {
+            "id": "41",
+            "sourceRef": "4",
+            "targetRef": "5"
+        },
+        {
+            "id": "42",
+            "sourceRef": "5",
+            "targetRef": "6"
+        },
+        {
+            "id": "43",
+            "sourceRef": "6",
+            "targetRef": "7"
+        },
+        {
+            "id": "44",
+            "sourceRef": "7",
+            "targetRef": "8"
+        },
+        {
+            "id": "45",
+            "sourceRef": "8",
+            "targetRef": "18"
+        },
+        {
+            "id": "46",
+            "sourceRef": "8",
+            "targetRef": "9",
+            "condition": "Authorization granted"
+        },
+        {
+            "id": "47",
+            "sourceRef": "9",
+            "targetRef": "10"
+        },
+        {
+            "id": "48",
+            "sourceRef": "10",
+            "targetRef": "11"
+        },
+        {
+            "id": "49",
+            "sourceRef": "11",
+            "targetRef": "12"
+        },
+        {
+            "id": "50",
+            "sourceRef": "12",
+            "targetRef": "13"
+        },
+        {
+            "id": "51",
+            "sourceRef": "13",
+            "targetRef": "19"
+        },
+        {
+            "id": "52",
+            "sourceRef": "24",
+            "targetRef": "21"
+        },
+        {
+            "id": "53",
+            "sourceRef": "21",
+            "targetRef": "14"
+        },
+        {
+            "id": "54",
+            "sourceRef": "14",
+            "targetRef": "15"
+        },
+        {
+            "id": "55",
+            "sourceRef": "15",
+            "targetRef": "20"
+        },
+        {
+            "id": "56",
+            "sourceRef": "22",
+            "targetRef": "17",
+            "condition": "If application is not in order"
+        },
+        {
+            "id": "57",
+            "sourceRef": "17",
+            "targetRef": "14"
+        },
+        {
+            "id": "58",
+            "sourceRef": "23",
+            "targetRef": "25",
+            "condition": "If applicant is not suitable"
+        },
+        {
+            "id": "59",
+            "sourceRef": "25",
+            "targetRef": "14"
+        },
+        {
+            "id": "60",
+            "sourceRef": "18",
+            "targetRef": "26"
+        },
+        {
+            "id": "61",
+            "sourceRef": "26",
+            "targetRef": "14"
+        }
+    ],
+    "messageFlows": []
+}

@@ -1,0 +1,342 @@
+{
+    "tasks": [
+        {
+            "id": "0",
+            "name": "Collect travels data",
+            "type": "Task"
+        },
+        {
+            "id": "1",
+            "name": "Check Missing Reported Kilometers",
+            "type": "Task"
+        },
+        {
+            "id": "2",
+            "name": "Ask Transporters for Kilometers",
+            "type": "Task"
+        },
+        {
+            "id": "3",
+            "name": "Information Received",
+            "type": "Task"
+        },
+        {
+            "id": "4",
+            "name": "Check missing kilometers again",
+            "type": "Task"
+        },
+        {
+            "id": "5",
+            "name": "Missing kilometers found",
+            "type": "Task"
+        },
+        {
+            "id": "6",
+            "name": "Find the same trip previously",
+            "type": "Task"
+        },
+        {
+            "id": "7",
+            "name": "All kilometers found",
+            "type": "Task"
+        },
+        {
+            "id": "8",
+            "name": "All kilometers in the document",
+            "type": "Task"
+        },
+        {
+            "id": "9",
+            "name": "Search all trips in Google Maps",
+            "type": "Task"
+        },
+        {
+            "id": "10",
+            "name": "Test all cost hypotheses",
+            "type": "Task"
+        },
+        {
+            "id": "11",
+            "name": "Calculate \u20ac/m3 and \u20ac/km (current and all the new hypotheses)",
+            "type": "Task"
+        },
+        {
+            "id": "12",
+            "name": "Select the best cost method option",
+            "type": "Task"
+        },
+        {
+            "id": "13",
+            "name": "Do a counter-proposal",
+            "type": "Task"
+        },
+        {
+            "id": "14",
+            "name": "Send the counter-proposal to the transporter",
+            "type": "Task"
+        },
+        {
+            "id": "15",
+            "name": "Check travel information",
+            "type": "Task"
+        },
+        {
+            "id": "16",
+            "name": "Send Kilometers traveled",
+            "type": "Task"
+        },
+        {
+            "id": "17",
+            "name": "Counter-Proposal Received",
+            "type": "Task"
+        }
+    ],
+    "events": [
+        {
+            "id": "18",
+            "name": "Proposal Received",
+            "type": "StartMessageEvent"
+        },
+        {
+            "id": "19",
+            "name": "Information received",
+            "type": "IntermediateMessageEventCatching"
+        },
+        {
+            "id": "20",
+            "name": "Order fulfilled",
+            "type": "EndNoneEvent"
+        },
+        {
+            "id": "21",
+            "name": "Order received",
+            "type": "StartMessageEvent"
+        },
+        {
+            "id": "22",
+            "name": "Counter-Proposal received",
+            "type": "IntermediateMessageEventCatching"
+        },
+        {
+            "id": "23",
+            "name": "Proposal fulfilled",
+            "type": "EndNoneEvent"
+        }
+    ],
+    "gateways": [
+        {
+            "id": "24",
+            "name": "There are missing kms?",
+            "type": "Exclusive"
+        },
+        {
+            "id": "25",
+            "name": "",
+            "type": "Exclusive"
+        },
+        {
+            "id": "26",
+            "name": "",
+            "type": "Exclusive"
+        }
+    ],
+    "pools": [
+        {
+            "id": "27",
+            "name": "Logistics",
+            "lanes": [
+                {
+                    "id": "28",
+                    "name": "Logistics",
+                    "elemRefs": [
+                        "0",
+                        "1",
+                        "2",
+                        "3",
+                        "4",
+                        "5",
+                        "6",
+                        "7",
+                        "8",
+                        "9",
+                        "10",
+                        "11",
+                        "12",
+                        "13",
+                        "14",
+                        "24",
+                        "25",
+                        "26",
+                        "18",
+                        "19",
+                        "20"
+                    ]
+                }
+            ]
+        },
+        {
+            "id": "29",
+            "name": "Transporter",
+            "lanes": [
+                {
+                    "id": "30",
+                    "name": "Transporter",
+                    "elemRefs": [
+                        "15",
+                        "16",
+                        "17",
+                        "21",
+                        "22",
+                        "23"
+                    ]
+                }
+            ]
+        }
+    ],
+    "sequenceFlows": [
+        {
+            "id": "31",
+            "sourceRef": "18",
+            "targetRef": "0"
+        },
+        {
+            "id": "32",
+            "sourceRef": "0",
+            "targetRef": "1"
+        },
+        {
+            "id": "33",
+            "sourceRef": "1",
+            "targetRef": "24"
+        },
+        {
+            "id": "34",
+            "sourceRef": "24",
+            "targetRef": "2",
+            "condition": "Yes"
+        },
+        {
+            "id": "35",
+            "sourceRef": "24",
+            "targetRef": "7",
+            "condition": "No"
+        },
+        {
+            "id": "36",
+            "sourceRef": "2",
+            "targetRef": "19"
+        },
+        {
+            "id": "37",
+            "sourceRef": "19",
+            "targetRef": "3"
+        },
+        {
+            "id": "38",
+            "sourceRef": "3",
+            "targetRef": "4"
+        },
+        {
+            "id": "39",
+            "sourceRef": "4",
+            "targetRef": "25"
+        },
+        {
+            "id": "40",
+            "sourceRef": "25",
+            "targetRef": "5",
+            "condition": "Found"
+        },
+        {
+            "id": "41",
+            "sourceRef": "25",
+            "targetRef": "6",
+            "condition": "Not Found"
+        },
+        {
+            "id": "42",
+            "sourceRef": "5",
+            "targetRef": "8"
+        },
+        {
+            "id": "43",
+            "sourceRef": "8",
+            "targetRef": "26"
+        },
+        {
+            "id": "44",
+            "sourceRef": "26",
+            "targetRef": "9",
+            "condition": ""
+        },
+        {
+            "id": "45",
+            "sourceRef": "9",
+            "targetRef": "10"
+        },
+        {
+            "id": "46",
+            "sourceRef": "10",
+            "targetRef": "11"
+        },
+        {
+            "id": "47",
+            "sourceRef": "11",
+            "targetRef": "12"
+        },
+        {
+            "id": "48",
+            "sourceRef": "12",
+            "targetRef": "13"
+        },
+        {
+            "id": "49",
+            "sourceRef": "13",
+            "targetRef": "14"
+        },
+        {
+            "id": "50",
+            "sourceRef": "14",
+            "targetRef": "20"
+        },
+        {
+            "id": "51",
+            "sourceRef": "21",
+            "targetRef": "15"
+        },
+        {
+            "id": "52",
+            "sourceRef": "15",
+            "targetRef": "16"
+        },
+        {
+            "id": "53",
+            "sourceRef": "16",
+            "targetRef": "22"
+        },
+        {
+            "id": "54",
+            "sourceRef": "22",
+            "targetRef": "17"
+        },
+        {
+            "id": "55",
+            "sourceRef": "17",
+            "targetRef": "23"
+        }
+    ],
+    "messageFlows": [
+        {
+            "id": "56",
+            "sourceRef": "16",
+            "targetRef": "19",
+            "label": ""
+        },
+        {
+            "id": "57",
+            "sourceRef": "14",
+            "targetRef": "22",
+            "label": ""
+        }
+    ]
+}

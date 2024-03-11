@@ -1,0 +1,96 @@
+{
+    "tasks": [
+        {
+            "id": "0",
+            "name": "Auf \"Start\" klicken",
+            "type": "Task"
+        },
+        {
+            "id": "1",
+            "name": "Auf \"Format\" klicken",
+            "type": "Task"
+        },
+        {
+            "id": "2",
+            "name": "Auf \"Einblenden und Ausblenden\" klicken",
+            "type": "Task"
+        },
+        {
+            "id": "3",
+            "name": "Auf \"Blatt einblenden\" klicken",
+            "type": "Task"
+        },
+        {
+            "id": "4",
+            "name": "Enter dr\u00fccken",
+            "type": "Task"
+        }
+    ],
+    "events": [
+        {
+            "id": "5",
+            "name": "Start Datenblatt \u00f6ffnen",
+            "type": "StartNoneEvent"
+        },
+        {
+            "id": "6",
+            "name": "Datenblatt ge\u00f6ffnet",
+            "type": "EndNoneEvent"
+        }
+    ],
+    "gateways": [],
+    "pools": [
+        {
+            "id": "7",
+            "name": "TAS AG",
+            "lanes": [
+                {
+                    "id": "8",
+                    "name": "Roboter",
+                    "elemRefs": [
+                        "0",
+                        "1",
+                        "2",
+                        "3",
+                        "4",
+                        "5",
+                        "6"
+                    ]
+                }
+            ]
+        }
+    ],
+    "sequenceFlows": [
+        {
+            "id": "9",
+            "sourceRef": "5",
+            "targetRef": "0"
+        },
+        {
+            "id": "10",
+            "sourceRef": "0",
+            "targetRef": "1"
+        },
+        {
+            "id": "11",
+            "sourceRef": "1",
+            "targetRef": "2"
+        },
+        {
+            "id": "12",
+            "sourceRef": "2",
+            "targetRef": "3"
+        },
+        {
+            "id": "13",
+            "sourceRef": "3",
+            "targetRef": "4"
+        },
+        {
+            "id": "14",
+            "sourceRef": "4",
+            "targetRef": "6"
+        }
+    ],
+    "messageFlows": []
+}

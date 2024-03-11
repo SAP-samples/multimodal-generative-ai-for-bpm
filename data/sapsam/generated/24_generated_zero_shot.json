@@ -1,0 +1,201 @@
+{
+    "tasks": [
+        {
+            "id": "0",
+            "name": "Vorhandene Webseite ist veraltet",
+            "type": "Task"
+        },
+        {
+            "id": "1",
+            "name": "Aktuelle Inhalte analysieren",
+            "type": "Task"
+        },
+        {
+            "id": "2",
+            "name": "Aktuelle Inhalte reviewen",
+            "type": "Task"
+        },
+        {
+            "id": "3",
+            "name": "Neue Inhalte entwerfen",
+            "type": "Task"
+        },
+        {
+            "id": "4",
+            "name": "Vorhandene Inhalte aktualisieren",
+            "type": "Task"
+        },
+        {
+            "id": "5",
+            "name": "Inhalte bewerten",
+            "type": "Task"
+        },
+        {
+            "id": "6",
+            "name": "Inhalte dauerhaft aktualisieren",
+            "type": "Task"
+        },
+        {
+            "id": "7",
+            "name": "Gesch\u00e4ftsleitung informieren",
+            "type": "Task"
+        }
+    ],
+    "events": [
+        {
+            "id": "8",
+            "name": "Start",
+            "type": "StartNoneEvent"
+        },
+        {
+            "id": "9",
+            "name": "Ende",
+            "type": "EndNoneEvent"
+        },
+        {
+            "id": "10",
+            "name": "Website ben\u00f6tigt aktuell keine Verbesserungen",
+            "type": "EndNoneEvent"
+        },
+        {
+            "id": "11",
+            "name": "Website ist aktuell",
+            "type": "EndNoneEvent"
+        }
+    ],
+    "gateways": [
+        {
+            "id": "12",
+            "type": "Exclusive"
+        },
+        {
+            "id": "13",
+            "type": "Parallel"
+        },
+        {
+            "id": "14",
+            "type": "Parallel"
+        },
+        {
+            "id": "15",
+            "type": "Parallel"
+        },
+        {
+            "id": "16",
+            "type": "Exclusive"
+        }
+    ],
+    "pools": [
+        {
+            "id": "17",
+            "name": "SoKnow",
+            "lanes": [
+                {
+                    "id": "18",
+                    "name": "Entwicklungsabteilung",
+                    "elemRefs": [
+                        "3",
+                        "4",
+                        "6",
+                        "13",
+                        "14",
+                        "15"
+                    ]
+                },
+                {
+                    "id": "19",
+                    "name": "Marketingabteilung",
+                    "elemRefs": [
+                        "0",
+                        "1",
+                        "2",
+                        "5",
+                        "7",
+                        "12",
+                        "16"
+                    ]
+                }
+            ]
+        }
+    ],
+    "sequenceFlows": [
+        {
+            "id": "20",
+            "sourceRef": "8",
+            "targetRef": "0"
+        },
+        {
+            "id": "21",
+            "sourceRef": "0",
+            "targetRef": "1"
+        },
+        {
+            "id": "22",
+            "sourceRef": "1",
+            "targetRef": "13"
+        },
+        {
+            "id": "23",
+            "sourceRef": "13",
+            "targetRef": "2"
+        },
+        {
+            "id": "24",
+            "sourceRef": "2",
+            "targetRef": "3"
+        },
+        {
+            "id": "25",
+            "sourceRef": "3",
+            "targetRef": "14"
+        },
+        {
+            "id": "26",
+            "sourceRef": "14",
+            "targetRef": "4"
+        },
+        {
+            "id": "27",
+            "sourceRef": "14",
+            "targetRef": "5"
+        },
+        {
+            "id": "28",
+            "sourceRef": "4",
+            "targetRef": "15"
+        },
+        {
+            "id": "29",
+            "sourceRef": "5",
+            "targetRef": "16"
+        },
+        {
+            "id": "30",
+            "sourceRef": "16",
+            "targetRef": "7"
+        },
+        {
+            "id": "31",
+            "sourceRef": "7",
+            "targetRef": "10"
+        },
+        {
+            "id": "32",
+            "sourceRef": "15",
+            "targetRef": "6"
+        },
+        {
+            "id": "33",
+            "sourceRef": "6",
+            "targetRef": "11"
+        }
+    ],
+    "messageFlows": [
+        {
+            "id": "34",
+            "sourceRef": "2",
+            "targetRef": "3",
+            "label": "Neue Inhalte"
+        }
+    ]
+}

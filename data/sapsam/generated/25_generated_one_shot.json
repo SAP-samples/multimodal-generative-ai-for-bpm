@@ -1,0 +1,181 @@
+{
+    "tasks": [
+        {
+            "id": "0",
+            "name": "Registrierungs- bericht vorbereiten",
+            "type": "Task"
+        },
+        {
+            "id": "1",
+            "name": "auf Blue-Sky Gesetze pr\u00fcfen",
+            "type": "Task"
+        },
+        {
+            "id": "2",
+            "name": "Festlegung des Ausgabepreis vorbereiten",
+            "type": "Task"
+        },
+        {
+            "id": "3",
+            "name": "Informations- veranstaltung organisieren",
+            "type": "Task"
+        },
+        {
+            "id": "4",
+            "name": "Ausgabepreis beschlie\u00dfen",
+            "type": "Task"
+        },
+        {
+            "id": "5",
+            "name": "Vertrag abschlie\u00dfen",
+            "type": "Task"
+        }
+    ],
+    "events": [
+        {
+            "id": "6",
+            "name": "SEC Zulassungs- vorgang gestartet",
+            "type": "StartMessageEvent"
+        },
+        {
+            "id": "7",
+            "name": "Genehmigung der Registrierung eingegangen",
+            "type": "IntermediateMessageEvent"
+        },
+        {
+            "id": "8",
+            "name": "Aktie der \u00d6ffentlichkeit angeboten",
+            "type": "EndNoneEvent"
+        },
+        {
+            "id": "9",
+            "name": "Vorgang abgebrochen",
+            "type": "EndCancelEvent"
+        }
+    ],
+    "gateways": [
+        {
+            "id": "10",
+            "type": "Parallel"
+        },
+        {
+            "id": "11",
+            "type": "Parallel"
+        },
+        {
+            "id": "12",
+            "type": "Parallel"
+        },
+        {
+            "id": "13",
+            "type": "Parallel"
+        },
+        {
+            "id": "14",
+            "type": "Exclusive"
+        }
+    ],
+    "pools": [
+        {
+            "id": "15",
+            "name": "Kreditinstitut",
+            "lanes": [
+                {
+                    "id": "16",
+                    "name": "Lane",
+                    "elemRefs": [
+                        "0",
+                        "1",
+                        "2",
+                        "10",
+                        "3",
+                        "11",
+                        "13",
+                        "4",
+                        "14",
+                        "5",
+                        "6",
+                        "7",
+                        "8",
+                        "9"
+                    ]
+                }
+            ]
+        },
+        {
+            "id": "17",
+            "name": "Unternehmen",
+            "lanes": []
+        }
+    ],
+    "sequenceFlows": [
+        {
+            "id": "18",
+            "sourceRef": "6",
+            "targetRef": "0"
+        },
+        {
+            "id": "19",
+            "sourceRef": "0",
+            "targetRef": "10"
+        },
+        {
+            "id": "20",
+            "sourceRef": "10",
+            "targetRef": "1"
+        },
+        {
+            "id": "21",
+            "sourceRef": "10",
+            "targetRef": "2"
+        },
+        {
+            "id": "22",
+            "sourceRef": "1",
+            "targetRef": "11"
+        },
+        {
+            "id": "23",
+            "sourceRef": "2",
+            "targetRef": "11"
+        },
+        {
+            "id": "24",
+            "targetRef": "3",
+            "sourceRef": "11"
+        },
+        {
+            "id": "25",
+            "sourceRef": "3",
+            "targetRef": "13"
+        },
+        {
+            "id": "26",
+            "targetRef": "4",
+            "sourceRef": "13"
+        },
+        {
+            "id": "27",
+            "sourceRef": "4",
+            "targetRef": "14"
+        },
+        {
+            "id": "28",
+            "targetRef": "5",
+            "sourceRef": "14",
+            "condition": "Verpflichtung wirklich eingetreten?"
+        },
+        {
+            "id": "29",
+            "sourceRef": "5",
+            "targetRef": "8"
+        },
+        {
+            "id": "30",
+            "sourceRef": "14",
+            "targetRef": "9",
+            "condition": "Verpflichtung nicht eingetreten"
+        }
+    ],
+    "messageFlows": []
+}

@@ -1,0 +1,357 @@
+{
+    "tasks": [
+        {
+            "id": "sid-F2D913BD-D0FC-4D2C-A9F8-E8607EA9C9C2",
+            "name": "Check travel information",
+            "type": "Task"
+        },
+        {
+            "id": "sid-D81C59FD-1ED6-4CEE-A380-7CC8AFE7C87C",
+            "name": "Send Kilometers traveled",
+            "type": "Task"
+        },
+        {
+            "id": "sid-96503140-4AFD-4125-85C2-4D321DF0CDD5",
+            "name": "Counter-Proposal Received",
+            "type": "Task"
+        },
+        {
+            "id": "sid-D1707681-BD1C-4146-9131-29E23B9E0323",
+            "name": "Collect travels data",
+            "type": "Task"
+        },
+        {
+            "id": "sid-ADDD25A3-8A0B-44A1-97D5-2731A7C08E36",
+            "name": "Check Missing Reported Kilometers",
+            "type": "Task"
+        },
+        {
+            "id": "sid-892A238E-89E7-4457-A3CB-12B8280FBB7F",
+            "name": "Ask Transporters for Kilometers",
+            "type": "Task"
+        },
+        {
+            "id": "sid-8DE1743C-9264-4767-AFDF-6208DB20E79B",
+            "name": "Information Received",
+            "type": "Task"
+        },
+        {
+            "id": "sid-3382AF37-78D1-448A-80F0-3C90A6426147",
+            "name": "Check missing kilometers again",
+            "type": "Task"
+        },
+        {
+            "id": "sid-42012BFF-2479-4A06-8214-0D59ED19CFE8",
+            "name": "All kilometers found",
+            "type": "Task"
+        },
+        {
+            "id": "sid-3EA8190F-1E84-482B-800F-CC6620BCC299",
+            "name": "Missing kilometers found",
+            "type": "Task"
+        },
+        {
+            "id": "sid-845FE2FB-97B6-4FD9-BBFB-10A98A5437DA",
+            "name": "Find the same trip previously",
+            "type": "Task"
+        },
+        {
+            "id": "sid-311ED8DE-3E75-4A11-A956-99C6DF46F80E",
+            "name": "Search all trips in Google Maps",
+            "type": "Task"
+        },
+        {
+            "id": "sid-ED8D2A14-0F93-4DF9-9F74-EEAD3AE0F4E7",
+            "name": "Test all cost hypotheses",
+            "type": "Task"
+        },
+        {
+            "id": "sid-1E04A555-EF8D-49DD-98E7-873F1F3EC49E",
+            "name": "Calculate \u20ac/m3 and \u20ac/km (current and all the new hypotheses)",
+            "type": "Task"
+        },
+        {
+            "id": "sid-3322B1C6-CEF3-4AF9-B291-5498869B0832",
+            "name": "Select the best cost method option",
+            "type": "Task"
+        },
+        {
+            "id": "sid-CA027DDA-243A-4D78-BD55-61E89AFEA44F",
+            "name": "Do a counter-proposal",
+            "type": "Task"
+        },
+        {
+            "id": "sid-E4335DB7-E85C-4885-A4EE-328D3ED53160",
+            "name": "Send the counter-proposal to the transporter",
+            "type": "Task"
+        },
+        {
+            "id": "sid-BC317959-BF68-49BB-9FBF-92214D77F364",
+            "name": "All kilometers in the document",
+            "type": "Task"
+        }
+    ],
+    "events": [
+        {
+            "id": "sid-05C91C34-D9C8-4EEE-B6B6-1D53F05F31E8",
+            "name": "Proposal fulfilled",
+            "type": "EndNoneEvent"
+        },
+        {
+            "id": "sid-55246226-AAE8-41C5-B703-EDEB454DB0A0",
+            "name": "Order received",
+            "type": "StartMessageEvent"
+        },
+        {
+            "id": "sid-1F715CA5-08E9-4CB1-9190-9B53AC3E4BEE",
+            "name": "Counter-Proposal  received",
+            "type": "IntermediateMessageEventCatching"
+        },
+        {
+            "id": "sid-631C5421-8194-403E-9804-BC5AA7AA686B",
+            "name": "Proposal Received",
+            "type": "StartMessageEvent"
+        },
+        {
+            "id": "sid-A0B88B5C-78A8-4FFB-BB8B-A41BA768FC1D",
+            "name": "Information received",
+            "type": "IntermediateMessageEventCatching"
+        },
+        {
+            "id": "sid-21BFE599-00BF-4555-91E2-F8DFD24F0CA6",
+            "name": "Oorder fullfied",
+            "type": "EndNoneEvent"
+        }
+    ],
+    "gateways": [
+        {
+            "id": "sid-4C401D68-DA63-4451-8D11-9CA0F593980F",
+            "name": "There are  missing kms?",
+            "type": "Exclusive"
+        },
+        {
+            "id": "sid-D4CA6C9D-9C28-40CB-AB48-2294C89297BC",
+            "type": "Exclusive"
+        },
+        {
+            "id": "sid-30026E0D-7A48-40EF-B1F2-3EBCA06FAB72",
+            "type": "Exclusive"
+        }
+    ],
+    "pools": [
+        {
+            "id": "sid-FC299B7F-C18B-461D-A13B-1CA96DBA94EE",
+            "name": "Transporter",
+            "lanes": [
+                {
+                    "id": "sid-51A3D6F2-266F-44D9-A09A-763F6AA9FA83",
+                    "name": "",
+                    "elemRefs": [
+                        "sid-F2D913BD-D0FC-4D2C-A9F8-E8607EA9C9C2",
+                        "sid-D81C59FD-1ED6-4CEE-A380-7CC8AFE7C87C",
+                        "sid-96503140-4AFD-4125-85C2-4D321DF0CDD5",
+                        "sid-05C91C34-D9C8-4EEE-B6B6-1D53F05F31E8",
+                        "sid-55246226-AAE8-41C5-B703-EDEB454DB0A0",
+                        "sid-1F715CA5-08E9-4CB1-9190-9B53AC3E4BEE"
+                    ]
+                }
+            ]
+        },
+        {
+            "id": "sid-5F1F7422-D84E-400C-9B47-2F6CDF01892C",
+            "name": "Logistics",
+            "lanes": [
+                {
+                    "id": "sid-90A1FBCC-FA31-4913-BDEE-A7EB0E4F5DDA",
+                    "name": "",
+                    "elemRefs": [
+                        "sid-D1707681-BD1C-4146-9131-29E23B9E0323",
+                        "sid-ADDD25A3-8A0B-44A1-97D5-2731A7C08E36",
+                        "sid-892A238E-89E7-4457-A3CB-12B8280FBB7F",
+                        "sid-8DE1743C-9264-4767-AFDF-6208DB20E79B",
+                        "sid-3382AF37-78D1-448A-80F0-3C90A6426147",
+                        "sid-42012BFF-2479-4A06-8214-0D59ED19CFE8",
+                        "sid-3EA8190F-1E84-482B-800F-CC6620BCC299",
+                        "sid-845FE2FB-97B6-4FD9-BBFB-10A98A5437DA",
+                        "sid-311ED8DE-3E75-4A11-A956-99C6DF46F80E",
+                        "sid-ED8D2A14-0F93-4DF9-9F74-EEAD3AE0F4E7",
+                        "sid-1E04A555-EF8D-49DD-98E7-873F1F3EC49E",
+                        "sid-3322B1C6-CEF3-4AF9-B291-5498869B0832",
+                        "sid-CA027DDA-243A-4D78-BD55-61E89AFEA44F",
+                        "sid-E4335DB7-E85C-4885-A4EE-328D3ED53160",
+                        "sid-BC317959-BF68-49BB-9FBF-92214D77F364",
+                        "sid-631C5421-8194-403E-9804-BC5AA7AA686B",
+                        "sid-A0B88B5C-78A8-4FFB-BB8B-A41BA768FC1D",
+                        "sid-21BFE599-00BF-4555-91E2-F8DFD24F0CA6",
+                        "sid-4C401D68-DA63-4451-8D11-9CA0F593980F",
+                        "sid-D4CA6C9D-9C28-40CB-AB48-2294C89297BC",
+                        "sid-30026E0D-7A48-40EF-B1F2-3EBCA06FAB72"
+                    ]
+                }
+            ]
+        }
+    ],
+    "messageFlows": [
+        {
+            "id": "sid-25227DF3-2014-4B74-8B29-7D6582EF2E8F",
+            "targetRef": "sid-631C5421-8194-403E-9804-BC5AA7AA686B",
+            "sourceRef": "sid-FC299B7F-C18B-461D-A13B-1CA96DBA94EE"
+        },
+        {
+            "id": "sid-1258D1A2-2B4A-499A-8C7B-C41DE700691F",
+            "targetRef": "sid-A0B88B5C-78A8-4FFB-BB8B-A41BA768FC1D",
+            "sourceRef": "sid-D81C59FD-1ED6-4CEE-A380-7CC8AFE7C87C"
+        },
+        {
+            "id": "sid-B84902A9-4623-432C-9454-8A6F2E7FC4A4",
+            "targetRef": "sid-55246226-AAE8-41C5-B703-EDEB454DB0A0",
+            "sourceRef": "sid-892A238E-89E7-4457-A3CB-12B8280FBB7F"
+        },
+        {
+            "id": "sid-67B203A7-C23E-4796-9CAD-75284D4AF6EA",
+            "targetRef": "sid-1F715CA5-08E9-4CB1-9190-9B53AC3E4BEE",
+            "sourceRef": "sid-E4335DB7-E85C-4885-A4EE-328D3ED53160"
+        }
+    ],
+    "sequenceFlows": [
+        {
+            "id": "sid-7E76C26C-8E9C-43C3-987D-4C022BEFA0DC",
+            "targetRef": "sid-D1707681-BD1C-4146-9131-29E23B9E0323",
+            "sourceRef": "sid-631C5421-8194-403E-9804-BC5AA7AA686B"
+        },
+        {
+            "id": "sid-3E01C5E8-56B5-4B2E-AB50-2986C37256C6",
+            "targetRef": "sid-ADDD25A3-8A0B-44A1-97D5-2731A7C08E36",
+            "sourceRef": "sid-D1707681-BD1C-4146-9131-29E23B9E0323"
+        },
+        {
+            "id": "sid-E3B19988-1EB8-4596-8043-01528D1C0900",
+            "targetRef": "sid-4C401D68-DA63-4451-8D11-9CA0F593980F",
+            "sourceRef": "sid-ADDD25A3-8A0B-44A1-97D5-2731A7C08E36"
+        },
+        {
+            "id": "sid-9CDE0E58-55E2-4287-8A32-0A1265D9C8B8",
+            "targetRef": "sid-D81C59FD-1ED6-4CEE-A380-7CC8AFE7C87C",
+            "sourceRef": "sid-F2D913BD-D0FC-4D2C-A9F8-E8607EA9C9C2"
+        },
+        {
+            "id": "sid-33DB63FE-1042-46D8-B452-39714967A6F4",
+            "targetRef": "sid-D4CA6C9D-9C28-40CB-AB48-2294C89297BC",
+            "sourceRef": "sid-3382AF37-78D1-448A-80F0-3C90A6426147"
+        },
+        {
+            "id": "sid-D4C71C3C-FAF8-40C3-924C-0CD68A7AB60A",
+            "targetRef": "sid-845FE2FB-97B6-4FD9-BBFB-10A98A5437DA",
+            "sourceRef": "sid-3EA8190F-1E84-482B-800F-CC6620BCC299"
+        },
+        {
+            "id": "sid-1F85518C-A69A-4A01-98B0-840041D9DF5D",
+            "targetRef": "sid-ED8D2A14-0F93-4DF9-9F74-EEAD3AE0F4E7",
+            "sourceRef": "sid-311ED8DE-3E75-4A11-A956-99C6DF46F80E"
+        },
+        {
+            "id": "sid-66A55B0E-7BA2-4B38-AFF4-3D42DBD44C08",
+            "targetRef": "sid-1E04A555-EF8D-49DD-98E7-873F1F3EC49E",
+            "sourceRef": "sid-ED8D2A14-0F93-4DF9-9F74-EEAD3AE0F4E7"
+        },
+        {
+            "id": "sid-F450D9C8-CBFD-40E5-A2F8-931F78A7A1A8",
+            "targetRef": "sid-3322B1C6-CEF3-4AF9-B291-5498869B0832",
+            "sourceRef": "sid-1E04A555-EF8D-49DD-98E7-873F1F3EC49E"
+        },
+        {
+            "id": "sid-6CF911E0-AAF7-44C3-A81F-BA16CCE3D914",
+            "targetRef": "sid-CA027DDA-243A-4D78-BD55-61E89AFEA44F",
+            "sourceRef": "sid-3322B1C6-CEF3-4AF9-B291-5498869B0832"
+        },
+        {
+            "id": "sid-A3E505BD-0CEB-4F55-80CE-B71E930A1052",
+            "targetRef": "sid-05C91C34-D9C8-4EEE-B6B6-1D53F05F31E8",
+            "sourceRef": "sid-96503140-4AFD-4125-85C2-4D321DF0CDD5"
+        },
+        {
+            "id": "sid-1FB0BF72-B966-42B6-BBA6-9FDD7EDFB4AF",
+            "targetRef": "sid-3EA8190F-1E84-482B-800F-CC6620BCC299",
+            "condition": "There are  missing kms",
+            "sourceRef": "sid-D4CA6C9D-9C28-40CB-AB48-2294C89297BC"
+        },
+        {
+            "id": "sid-77571B15-9585-44B4-9ADC-52632627D9C3",
+            "targetRef": "sid-42012BFF-2479-4A06-8214-0D59ED19CFE8",
+            "condition": "No missing  kms",
+            "sourceRef": "sid-D4CA6C9D-9C28-40CB-AB48-2294C89297BC"
+        },
+        {
+            "id": "sid-EE8C9820-5D3F-4B99-9049-75CD0C583FF6",
+            "targetRef": "sid-892A238E-89E7-4457-A3CB-12B8280FBB7F",
+            "condition": "Yes",
+            "sourceRef": "sid-4C401D68-DA63-4451-8D11-9CA0F593980F"
+        },
+        {
+            "id": "sid-F806DA70-317C-422B-B589-8C4F5F39BD5C",
+            "targetRef": "sid-BC317959-BF68-49BB-9FBF-92214D77F364",
+            "condition": "No",
+            "sourceRef": "sid-4C401D68-DA63-4451-8D11-9CA0F593980F"
+        },
+        {
+            "id": "sid-811409A0-798E-4DA1-A1AB-C2AE97E048C2",
+            "targetRef": "sid-30026E0D-7A48-40EF-B1F2-3EBCA06FAB72",
+            "sourceRef": "sid-845FE2FB-97B6-4FD9-BBFB-10A98A5437DA"
+        },
+        {
+            "id": "sid-1F65D9B3-E10C-44C6-BFB8-B8B1B7E68E3C",
+            "targetRef": "sid-30026E0D-7A48-40EF-B1F2-3EBCA06FAB72",
+            "sourceRef": "sid-42012BFF-2479-4A06-8214-0D59ED19CFE8"
+        },
+        {
+            "id": "sid-3893D89B-3616-43C7-97D1-ECFD0BA669DF",
+            "targetRef": "sid-30026E0D-7A48-40EF-B1F2-3EBCA06FAB72",
+            "sourceRef": "sid-BC317959-BF68-49BB-9FBF-92214D77F364"
+        },
+        {
+            "id": "sid-52C9F3A7-0AB2-4AD2-AEF7-33345AE23743",
+            "targetRef": "sid-3382AF37-78D1-448A-80F0-3C90A6426147",
+            "sourceRef": "sid-8DE1743C-9264-4767-AFDF-6208DB20E79B"
+        },
+        {
+            "id": "sid-D5600C24-120C-443E-BDDD-99853524F4BD",
+            "targetRef": "sid-311ED8DE-3E75-4A11-A956-99C6DF46F80E",
+            "sourceRef": "sid-30026E0D-7A48-40EF-B1F2-3EBCA06FAB72"
+        },
+        {
+            "id": "sid-ECA6C8B2-DE2A-4F9D-A9AC-71B706C4D13B",
+            "targetRef": "sid-E4335DB7-E85C-4885-A4EE-328D3ED53160",
+            "sourceRef": "sid-CA027DDA-243A-4D78-BD55-61E89AFEA44F"
+        },
+        {
+            "id": "sid-EA6406BE-DB27-40CA-A0EA-69B315639E1B",
+            "targetRef": "sid-8DE1743C-9264-4767-AFDF-6208DB20E79B",
+            "sourceRef": "sid-A0B88B5C-78A8-4FFB-BB8B-A41BA768FC1D"
+        },
+        {
+            "id": "sid-2E8AA1B4-8EFE-49A6-9800-73C2699A4622",
+            "targetRef": "sid-A0B88B5C-78A8-4FFB-BB8B-A41BA768FC1D",
+            "sourceRef": "sid-892A238E-89E7-4457-A3CB-12B8280FBB7F"
+        },
+        {
+            "id": "sid-30522F18-CC7E-44D1-BFE0-098CB352A5F0",
+            "targetRef": "sid-21BFE599-00BF-4555-91E2-F8DFD24F0CA6",
+            "sourceRef": "sid-E4335DB7-E85C-4885-A4EE-328D3ED53160"
+        },
+        {
+            "id": "sid-DB0188ED-FC59-4338-B703-8C7A7FBBC757",
+            "targetRef": "sid-F2D913BD-D0FC-4D2C-A9F8-E8607EA9C9C2",
+            "sourceRef": "sid-55246226-AAE8-41C5-B703-EDEB454DB0A0"
+        },
+        {
+            "id": "sid-B3629E19-10E0-4E91-BE6D-E9C8E0038A89",
+            "targetRef": "sid-1F715CA5-08E9-4CB1-9190-9B53AC3E4BEE",
+            "sourceRef": "sid-D81C59FD-1ED6-4CEE-A380-7CC8AFE7C87C"
+        },
+        {
+            "id": "sid-0DFC6F81-0367-4B16-BC15-AEE863984D88",
+            "targetRef": "sid-96503140-4AFD-4125-85C2-4D321DF0CDD5",
+            "sourceRef": "sid-1F715CA5-08E9-4CB1-9190-9B53AC3E4BEE"
+        }
+    ]
+}

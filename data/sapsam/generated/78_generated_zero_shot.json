@@ -1,0 +1,296 @@
+{
+    "tasks": [
+        {
+            "id": "0",
+            "name": "Bedarf aufnahme",
+            "type": "Task"
+        },
+        {
+            "id": "1",
+            "name": "Angebote einholen",
+            "type": "Task"
+        },
+        {
+            "id": "2",
+            "name": "Angebot pr\u00fcfen",
+            "type": "Task"
+        },
+        {
+            "id": "3",
+            "name": "Angebot genehmigen",
+            "type": "Task"
+        },
+        {
+            "id": "4",
+            "name": "Angebot nicht genehmigen",
+            "type": "Task"
+        },
+        {
+            "id": "5",
+            "name": "Ware bestellen",
+            "type": "Task"
+        },
+        {
+            "id": "6",
+            "name": "Lieferung rechtzeitig geliefert?",
+            "type": "Task"
+        },
+        {
+            "id": "7",
+            "name": "Endabnahme der Ware",
+            "type": "Task"
+        },
+        {
+            "id": "8",
+            "name": "Pr\u00fcfung der Lieferung",
+            "type": "Task"
+        },
+        {
+            "id": "9",
+            "name": "Ist die Lieferung komplett?",
+            "type": "Task"
+        },
+        {
+            "id": "10",
+            "name": "Lieferung stimmt",
+            "type": "Task"
+        },
+        {
+            "id": "11",
+            "name": "Zahlung einleiten",
+            "type": "Task"
+        },
+        {
+            "id": "12",
+            "name": "Lieferung stimmt nicht",
+            "type": "Task"
+        },
+        {
+            "id": "13",
+            "name": "Lieferanten kontaktieren",
+            "type": "Task"
+        },
+        {
+            "id": "14",
+            "name": "Lieferanten um neue Lieferung bitten",
+            "type": "Task"
+        },
+        {
+            "id": "15",
+            "name": "Lieferungsfrist setzen",
+            "type": "Task"
+        }
+    ],
+    "events": [
+        {
+            "id": "16",
+            "name": "B\u00fcromaterial gekauft",
+            "type": "EndNoneEvent"
+        }
+    ],
+    "gateways": [
+        {
+            "id": "17",
+            "type": "Exclusive"
+        },
+        {
+            "id": "18",
+            "type": "Exclusive"
+        },
+        {
+            "id": "19",
+            "type": "Exclusive"
+        },
+        {
+            "id": "20",
+            "type": "Exclusive"
+        }
+    ],
+    "pools": [
+        {
+            "id": "21",
+            "name": "Einkauf von B\u00fcromaterial",
+            "lanes": [
+                {
+                    "id": "22",
+                    "name": "Einkauf von B\u00fcromaterial",
+                    "elemRefs": [
+                        "0",
+                        "1",
+                        "2",
+                        "3",
+                        "4",
+                        "5",
+                        "6",
+                        "7",
+                        "8",
+                        "9",
+                        "10",
+                        "11",
+                        "12",
+                        "13",
+                        "14",
+                        "15"
+                    ]
+                }
+            ]
+        },
+        {
+            "id": "23",
+            "name": "Accounting / Controlling",
+            "lanes": [
+                {
+                    "id": "24",
+                    "name": "Collapsed Pool",
+                    "elemRefs": []
+                }
+            ]
+        },
+        {
+            "id": "25",
+            "name": "Warenannahme",
+            "lanes": [
+                {
+                    "id": "26",
+                    "name": "Collapsed Pool",
+                    "elemRefs": []
+                }
+            ]
+        },
+        {
+            "id": "27",
+            "name": "Gesch\u00e4ftsleitung",
+            "lanes": [
+                {
+                    "id": "28",
+                    "name": "Additional Participant",
+                    "elemRefs": []
+                }
+            ]
+        }
+    ],
+    "sequenceFlows": [
+        {
+            "id": "29",
+            "sourceRef": "0",
+            "targetRef": "1"
+        },
+        {
+            "id": "30",
+            "sourceRef": "1",
+            "targetRef": "2"
+        },
+        {
+            "id": "31",
+            "sourceRef": "2",
+            "targetRef": "17"
+        },
+        {
+            "id": "32",
+            "sourceRef": "17",
+            "targetRef": "3",
+            "condition": "mehr als 2000 Euro"
+        },
+        {
+            "id": "33",
+            "sourceRef": "17",
+            "targetRef": "4",
+            "condition": "gleich 2000 Euro"
+        },
+        {
+            "id": "34",
+            "sourceRef": "3",
+            "targetRef": "5"
+        },
+        {
+            "id": "35",
+            "sourceRef": "4",
+            "targetRef": "5"
+        },
+        {
+            "id": "36",
+            "sourceRef": "5",
+            "targetRef": "6"
+        },
+        {
+            "id": "37",
+            "sourceRef": "6",
+            "targetRef": "18"
+        },
+        {
+            "id": "38",
+            "sourceRef": "18",
+            "targetRef": "7",
+            "condition": "ja"
+        },
+        {
+            "id": "39",
+            "sourceRef": "18",
+            "targetRef": "19",
+            "condition": "nein"
+        },
+        {
+            "id": "40",
+            "sourceRef": "7",
+            "targetRef": "8"
+        },
+        {
+            "id": "41",
+            "sourceRef": "8",
+            "targetRef": "9"
+        },
+        {
+            "id": "42",
+            "sourceRef": "9",
+            "targetRef": "20"
+        },
+        {
+            "id": "43",
+            "sourceRef": "20",
+            "targetRef": "10",
+            "condition": "ja"
+        },
+        {
+            "id": "44",
+            "sourceRef": "20",
+            "targetRef": "12",
+            "condition": "nein"
+        },
+        {
+            "id": "45",
+            "sourceRef": "10",
+            "targetRef": "11"
+        },
+        {
+            "id": "46",
+            "sourceRef": "11",
+            "targetRef": "16"
+        },
+        {
+            "id": "47",
+            "sourceRef": "12",
+            "targetRef": "13"
+        },
+        {
+            "id": "48",
+            "sourceRef": "13",
+            "targetRef": "14"
+        },
+        {
+            "id": "49",
+            "sourceRef": "14",
+            "targetRef": "15"
+        },
+        {
+            "id": "50",
+            "sourceRef": "15",
+            "targetRef": "5"
+        },
+        {
+            "id": "51",
+            "sourceRef": "19",
+            "targetRef": "14"
+        }
+    ],
+    "messageFlows": []
+}

@@ -1,0 +1,107 @@
+{
+    "tasks": [
+        {
+            "id": "sid-4E9665BF-91D7-491E-84EE-74A6187D8CE1",
+            "name": "Test and adjust with the feedback of the ticket owner and users",
+            "type": "Task"
+        },
+        {
+            "id": "sid-9D3ED112-6D2B-4747-A3B1-3D1ABEBEEE22",
+            "name": "Develop prototype and import it to Test Environment",
+            "type": "Task"
+        },
+        {
+            "id": "sid-C63C05AB-D041-414D-A499-F552E6991A19",
+            "name": "Import version with new functionality in Production Environment",
+            "type": "Task"
+        },
+        {
+            "id": "sid-BCC013BB-2E9A-4ACB-8159-BDF4B7C7E0E4",
+            "name": "Communicate new version and and adjust with feedback of the ticket owner",
+            "type": "Task"
+        },
+        {
+            "id": "sid-603C5BAA-727C-46D1-B225-15F11D3BDB02",
+            "name": "Close ticket by  deliberated new functionality and update KMS",
+            "type": "Task"
+        },
+        {
+            "id": "sid-5243EB5D-8BD7-4D0E-ABCF-BF2F171D6E15",
+            "name": "Test and correct version to import it in Staging Environment",
+            "type": "Task"
+        }
+    ],
+    "events": [
+        {
+            "id": "sid-AFF0A26D-F9B7-4E94-8E9C-230A8EDD251F",
+            "name": "A request of  development  is assigned",
+            "type": "StartNoneEvent"
+        },
+        {
+            "id": "sid-37B91279-6CE6-47AC-82F0-90D3565654A3",
+            "name": "Ticket closed by new functionalities delivered and  KMS updated",
+            "type": "EndNoneEvent"
+        }
+    ],
+    "gateways": [],
+    "pools": [
+        {
+            "id": "sid-EF3DBE0F-9976-4FA0-AC31-C460197E92DC",
+            "name": "IT-Department",
+            "lanes": [
+                {
+                    "id": "sid-7142BD4B-3D2F-423F-B1C1-AB0C21ABE20D",
+                    "name": "IS Development Staff",
+                    "elemRefs": [
+                        "sid-4E9665BF-91D7-491E-84EE-74A6187D8CE1",
+                        "sid-9D3ED112-6D2B-4747-A3B1-3D1ABEBEEE22",
+                        "sid-C63C05AB-D041-414D-A499-F552E6991A19",
+                        "sid-BCC013BB-2E9A-4ACB-8159-BDF4B7C7E0E4",
+                        "sid-603C5BAA-727C-46D1-B225-15F11D3BDB02",
+                        "sid-5243EB5D-8BD7-4D0E-ABCF-BF2F171D6E15",
+                        "sid-AFF0A26D-F9B7-4E94-8E9C-230A8EDD251F",
+                        "sid-37B91279-6CE6-47AC-82F0-90D3565654A3"
+                    ]
+                }
+            ]
+        }
+    ],
+    "messageFlows": [],
+    "sequenceFlows": [
+        {
+            "id": "sid-BCE2A72A-4A2A-4126-A4F0-6B3A0ACDD977",
+            "targetRef": "sid-9D3ED112-6D2B-4747-A3B1-3D1ABEBEEE22",
+            "sourceRef": "sid-AFF0A26D-F9B7-4E94-8E9C-230A8EDD251F"
+        },
+        {
+            "id": "sid-04A927EA-56BB-4A83-9331-2FDA2C148C4D",
+            "targetRef": "sid-BCC013BB-2E9A-4ACB-8159-BDF4B7C7E0E4",
+            "sourceRef": "sid-C63C05AB-D041-414D-A499-F552E6991A19"
+        },
+        {
+            "id": "sid-68690866-3BC9-4C39-BA23-95439480A047",
+            "targetRef": "sid-37B91279-6CE6-47AC-82F0-90D3565654A3",
+            "sourceRef": "sid-603C5BAA-727C-46D1-B225-15F11D3BDB02"
+        },
+        {
+            "id": "sid-AAA41205-20D1-47EE-8E27-566F7ABB2092",
+            "targetRef": "sid-4E9665BF-91D7-491E-84EE-74A6187D8CE1",
+            "sourceRef": "sid-5243EB5D-8BD7-4D0E-ABCF-BF2F171D6E15"
+        },
+        {
+            "id": "sid-CC9E3F9D-9F27-4272-A6B5-45642524B45C",
+            "targetRef": "sid-C63C05AB-D041-414D-A499-F552E6991A19",
+            "sourceRef": "sid-4E9665BF-91D7-491E-84EE-74A6187D8CE1"
+        },
+        {
+            "id": "sid-1CC6D0CB-617E-43A3-BE8E-D056B96521CE",
+            "targetRef": "sid-603C5BAA-727C-46D1-B225-15F11D3BDB02",
+            "sourceRef": "sid-BCC013BB-2E9A-4ACB-8159-BDF4B7C7E0E4"
+        },
+        {
+            "id": "sid-93D5DF39-F33A-4267-965E-E8503363162F",
+            "targetRef": "sid-5243EB5D-8BD7-4D0E-ABCF-BF2F171D6E15",
+            "sourceRef": "sid-9D3ED112-6D2B-4747-A3B1-3D1ABEBEEE22"
+        }
+    ]
+}

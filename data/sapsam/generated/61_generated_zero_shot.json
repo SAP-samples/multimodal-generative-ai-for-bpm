@@ -1,0 +1,326 @@
+{
+    "tasks": [
+        {
+            "id": "0",
+            "name": "Go to FH-SWF Website",
+            "type": "Task"
+        },
+        {
+            "id": "1",
+            "name": "Define Your Research Criteria",
+            "type": "Task"
+        },
+        {
+            "id": "2",
+            "name": "Select Master Study Course",
+            "type": "Task"
+        },
+        {
+            "id": "3",
+            "name": "Select Informatics and Digitalization as Subject Area",
+            "type": "Task"
+        },
+        {
+            "id": "4",
+            "name": "Select Campus Soest",
+            "type": "Task"
+        },
+        {
+            "id": "5",
+            "name": "Click Find a Study Course",
+            "type": "Task"
+        },
+        {
+            "id": "6",
+            "name": "Click Learn more on IMIS M.A banner",
+            "type": "Task"
+        },
+        {
+            "id": "7",
+            "name": "Click on See how to apply here",
+            "type": "Task"
+        },
+        {
+            "id": "8",
+            "name": "Check Application Procedure",
+            "type": "Task"
+        },
+        {
+            "id": "9",
+            "name": "Non-EU International Applicant",
+            "type": "Task"
+        },
+        {
+            "id": "10",
+            "name": "Apply via Uni-Assist",
+            "type": "Task"
+        },
+        {
+            "id": "11",
+            "name": "Send Certified Documents to Uni-Assist",
+            "type": "Task"
+        },
+        {
+            "id": "12",
+            "name": "FH-SWF Student/Graduate",
+            "type": "Task"
+        },
+        {
+            "id": "13",
+            "name": "Apply via FH-SWF Online Portal",
+            "type": "Task"
+        },
+        {
+            "id": "14",
+            "name": "Contact IMIS Office",
+            "type": "Task"
+        },
+        {
+            "id": "15",
+            "name": "EU Applicant",
+            "type": "Task"
+        },
+        {
+            "id": "16",
+            "name": "Send your Certified Documents",
+            "type": "Task"
+        }
+    ],
+    "events": [
+        {
+            "id": "17",
+            "name": "Start Event",
+            "type": "StartNoneEvent"
+        },
+        {
+            "id": "18",
+            "name": "Get Decision within 10-12 Weeks",
+            "type": "IntermediateTimerEvent"
+        },
+        {
+            "id": "19",
+            "name": "Get Decision Within 4-6 Weeks",
+            "type": "IntermediateTimerEvent"
+        },
+        {
+            "id": "20",
+            "name": "End Event",
+            "type": "EndNoneEvent"
+        }
+    ],
+    "gateways": [
+        {
+            "id": "21",
+            "type": "Parallel"
+        },
+        {
+            "id": "22",
+            "type": "Exclusive"
+        },
+        {
+            "id": "23",
+            "type": "Exclusive"
+        },
+        {
+            "id": "24",
+            "type": "Exclusive"
+        },
+        {
+            "id": "25",
+            "type": "Parallel"
+        }
+    ],
+    "pools": [
+        {
+            "id": "26",
+            "name": "UNDERGRADUATE STUDENT",
+            "lanes": [
+                {
+                    "id": "27",
+                    "name": "UNDERGRADUATE STUDENT",
+                    "elemRefs": [
+                        "0",
+                        "1",
+                        "2",
+                        "3",
+                        "4",
+                        "5",
+                        "6",
+                        "7",
+                        "8",
+                        "9",
+                        "10",
+                        "11",
+                        "12",
+                        "13",
+                        "14",
+                        "15",
+                        "16",
+                        "17",
+                        "18",
+                        "19",
+                        "20",
+                        "21",
+                        "22",
+                        "23",
+                        "24",
+                        "25"
+                    ]
+                }
+            ]
+        }
+    ],
+    "sequenceFlows": [
+        {
+            "id": "28",
+            "sourceRef": "17",
+            "targetRef": "0"
+        },
+        {
+            "id": "29",
+            "sourceRef": "0",
+            "targetRef": "1"
+        },
+        {
+            "id": "30",
+            "sourceRef": "1",
+            "targetRef": "21"
+        },
+        {
+            "id": "31",
+            "sourceRef": "21",
+            "targetRef": "2"
+        },
+        {
+            "id": "32",
+            "sourceRef": "21",
+            "targetRef": "3"
+        },
+        {
+            "id": "33",
+            "sourceRef": "21",
+            "targetRef": "4"
+        },
+        {
+            "id": "34",
+            "sourceRef": "2",
+            "targetRef": "5"
+        },
+        {
+            "id": "35",
+            "sourceRef": "3",
+            "targetRef": "5"
+        },
+        {
+            "id": "36",
+            "sourceRef": "4",
+            "targetRef": "5"
+        },
+        {
+            "id": "37",
+            "sourceRef": "5",
+            "targetRef": "6"
+        },
+        {
+            "id": "38",
+            "sourceRef": "6",
+            "targetRef": "7"
+        },
+        {
+            "id": "39",
+            "sourceRef": "7",
+            "targetRef": "8"
+        },
+        {
+            "id": "40",
+            "sourceRef": "8",
+            "targetRef": "22"
+        },
+        {
+            "id": "41",
+            "sourceRef": "22",
+            "targetRef": "9"
+        },
+        {
+            "id": "42",
+            "sourceRef": "22",
+            "targetRef": "15"
+        },
+        {
+            "id": "43",
+            "sourceRef": "9",
+            "targetRef": "10"
+        },
+        {
+            "id": "44",
+            "sourceRef": "10",
+            "targetRef": "11"
+        },
+        {
+            "id": "45",
+            "sourceRef": "11",
+            "targetRef": "18"
+        },
+        {
+            "id": "46",
+            "sourceRef": "18",
+            "targetRef": "21"
+        },
+        {
+            "id": "47",
+            "sourceRef": "21",
+            "targetRef": "23"
+        },
+        {
+            "id": "48",
+            "sourceRef": "21",
+            "targetRef": "12"
+        },
+        {
+            "id": "49",
+            "sourceRef": "12",
+            "targetRef": "13"
+        },
+        {
+            "id": "50",
+            "sourceRef": "13",
+            "targetRef": "14"
+        },
+        {
+            "id": "51",
+            "sourceRef": "14",
+            "targetRef": "23"
+        },
+        {
+            "id": "52",
+            "sourceRef": "23",
+            "targetRef": "19"
+        },
+        {
+            "id": "53",
+            "sourceRef": "19",
+            "targetRef": "25"
+        },
+        {
+            "id": "54",
+            "sourceRef": "15",
+            "targetRef": "16"
+        },
+        {
+            "id": "55",
+            "sourceRef": "16",
+            "targetRef": "24"
+        },
+        {
+            "id": "56",
+            "sourceRef": "24",
+            "targetRef": "20"
+        },
+        {
+            "id": "57",
+            "sourceRef": "25",
+            "targetRef": "20"
+        }
+    ],
+    "messageFlows": []
+}

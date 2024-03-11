@@ -1,0 +1,157 @@
+{
+    "tasks": [
+        {
+            "id": "0",
+            "name": "Brainstorming durchf\u00fchren",
+            "type": "Task"
+        },
+        {
+            "id": "1",
+            "name": "Neues Element designen",
+            "type": "Task"
+        },
+        {
+            "id": "2",
+            "name": "Designs reviewen",
+            "type": "Task"
+        },
+        {
+            "id": "3",
+            "name": "Templates erstellen",
+            "type": "Task"
+        },
+        {
+            "id": "4",
+            "name": "Templates reviewen",
+            "type": "Task"
+        },
+        {
+            "id": "5",
+            "name": "Kommunikation mit der Gesch\u00e4ftsleitung durchf\u00fchren",
+            "type": "Task"
+        }
+    ],
+    "events": [
+        {
+            "id": "6",
+            "name": "Vorhandene Corporate Designs sind veraltet",
+            "type": "StartNoneEvent"
+        },
+        {
+            "id": "7",
+            "name": "Neue Corporate Designs verwenden",
+            "type": "EndNoneEvent"
+        }
+    ],
+    "gateways": [
+        {
+            "id": "8",
+            "name": "",
+            "type": "Exclusive"
+        },
+        {
+            "id": "9",
+            "name": "Template zufriedenstellend?",
+            "type": "Exclusive"
+        },
+        {
+            "id": "10",
+            "name": "",
+            "type": "Exclusive"
+        }
+    ],
+    "pools": [
+        {
+            "id": "11",
+            "name": "SoKnow",
+            "lanes": [
+                {
+                    "id": "12",
+                    "name": "Designer",
+                    "elemRefs": [
+                        "1",
+                        "2",
+                        "3",
+                        "4",
+                        "8"
+                    ]
+                },
+                {
+                    "id": "13",
+                    "name": "Marketingabteilung",
+                    "elemRefs": [
+                        "0",
+                        "4",
+                        "5",
+                        "6",
+                        "7",
+                        "9",
+                        "10"
+                    ]
+                }
+            ]
+        }
+    ],
+    "sequenceFlows": [
+        {
+            "id": "14",
+            "sourceRef": "6",
+            "targetRef": "0"
+        },
+        {
+            "id": "15",
+            "sourceRef": "0",
+            "targetRef": "8"
+        },
+        {
+            "id": "16",
+            "sourceRef": "8",
+            "targetRef": "1",
+            "condition": "Ja"
+        },
+        {
+            "id": "17",
+            "sourceRef": "8",
+            "targetRef": "5",
+            "condition": "Nein"
+        },
+        {
+            "id": "18",
+            "sourceRef": "1",
+            "targetRef": "2"
+        },
+        {
+            "id": "19",
+            "sourceRef": "2",
+            "targetRef": "3"
+        },
+        {
+            "id": "20",
+            "sourceRef": "3",
+            "targetRef": "4"
+        },
+        {
+            "id": "21",
+            "sourceRef": "4",
+            "targetRef": "9"
+        },
+        {
+            "id": "22",
+            "sourceRef": "9",
+            "targetRef": "10",
+            "condition": "Ja"
+        },
+        {
+            "id": "23",
+            "sourceRef": "10",
+            "targetRef": "5",
+            "condition": "Nein"
+        },
+        {
+            "id": "24",
+            "sourceRef": "5",
+            "targetRef": "7"
+        }
+    ],
+    "messageFlows": []
+}

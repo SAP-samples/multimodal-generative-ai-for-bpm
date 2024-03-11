@@ -1,0 +1,197 @@
+{
+    "tasks": [
+        {
+            "id": "0",
+            "name": "Excel Anhang/ Formular wird ge\u00f6ffnet",
+            "type": "Service"
+        },
+        {
+            "id": "1",
+            "name": "Auf \u00dcb\u00fcrpr\u00fcfen\" klicken",
+            "type": "Service"
+        },
+        {
+            "id": "2",
+            "name": "Klick auf \"Arbeitsmappe sch\u00fctzen\"",
+            "type": "Service"
+        },
+        {
+            "id": "3",
+            "name": "Passwort \"AnderesPw\" eingeben",
+            "type": "Service"
+        },
+        {
+            "id": "4",
+            "name": "Enter klicken",
+            "type": "Service"
+        },
+        {
+            "id": "5",
+            "name": "Blattschutz aufheben klicken",
+            "type": "Service"
+        },
+        {
+            "id": "6",
+            "name": "Passwort \"GeheimesPw\" eingeben",
+            "type": "Service"
+        },
+        {
+            "id": "7",
+            "name": "Auf \"Start\" klicken",
+            "type": "Service"
+        },
+        {
+            "id": "8",
+            "name": "Auf \"Format\" klicken",
+            "type": "Service"
+        },
+        {
+            "id": "9",
+            "name": "Auf \"Einblenden und Ausblenden\" klicken",
+            "type": "Service"
+        },
+        {
+            "id": "10",
+            "name": "Auf \"Blatt einblenden\" klicken",
+            "type": "Service"
+        },
+        {
+            "id": "11",
+            "name": "Pr\u00fcfung Anfrage ID \"Daten B15\"",
+            "type": "Service"
+        }
+    ],
+    "events": [
+        {
+            "id": "12",
+            "name": "unvollst\u00e4ndig",
+            "type": "EndNoneEvent"
+        },
+        {
+            "id": "13",
+            "name": "vollst\u00e4ndig",
+            "type": "EndNoneEvent"
+        }
+    ],
+    "gateways": [
+        {
+            "id": "14",
+            "type": "Exclusive"
+        },
+        {
+            "id": "15",
+            "type": "Exclusive"
+        }
+    ],
+    "pools": [
+        {
+            "id": "16",
+            "name": "TAS AG",
+            "lanes": [
+                {
+                    "id": "17",
+                    "name": "Team Fraud",
+                    "elemRefs": [
+                        "0",
+                        "1",
+                        "2",
+                        "3",
+                        "4",
+                        "5",
+                        "6",
+                        "7",
+                        "8",
+                        "9",
+                        "10",
+                        "11",
+                        "12",
+                        "13",
+                        "14",
+                        "15"
+                    ]
+                }
+            ]
+        }
+    ],
+    "sequenceFlows": [
+        {
+            "id": "18",
+            "sourceRef": "0",
+            "targetRef": "1"
+        },
+        {
+            "id": "19",
+            "sourceRef": "1",
+            "targetRef": "2"
+        },
+        {
+            "id": "20",
+            "sourceRef": "2",
+            "targetRef": "3"
+        },
+        {
+            "id": "21",
+            "sourceRef": "3",
+            "targetRef": "4"
+        },
+        {
+            "id": "22",
+            "sourceRef": "5",
+            "targetRef": "6"
+        },
+        {
+            "id": "23",
+            "sourceRef": "6",
+            "targetRef": "4"
+        },
+        {
+            "id": "24",
+            "sourceRef": "4",
+            "targetRef": "7"
+        },
+        {
+            "id": "25",
+            "sourceRef": "7",
+            "targetRef": "8"
+        },
+        {
+            "id": "26",
+            "sourceRef": "8",
+            "targetRef": "9"
+        },
+        {
+            "id": "27",
+            "sourceRef": "9",
+            "targetRef": "10"
+        },
+        {
+            "id": "28",
+            "sourceRef": "10",
+            "targetRef": "14"
+        },
+        {
+            "id": "29",
+            "sourceRef": "14",
+            "targetRef": "15",
+            "condition": "Pr\u00fcfung Team-Zuordnung \"Daten B25\""
+        },
+        {
+            "id": "30",
+            "sourceRef": "15",
+            "targetRef": "11",
+            "condition": "ja"
+        },
+        {
+            "id": "31",
+            "sourceRef": "15",
+            "targetRef": "12",
+            "condition": "nein"
+        },
+        {
+            "id": "32",
+            "sourceRef": "11",
+            "targetRef": "13"
+        }
+    ],
+    "messageFlows": []
+}

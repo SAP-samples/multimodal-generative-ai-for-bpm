@@ -1,0 +1,214 @@
+{
+    "tasks": [
+        {
+            "id": "0",
+            "name": "Steuerberatung beauftragen",
+            "type": "Task"
+        },
+        {
+            "id": "1",
+            "name": "Steuererkl\u00e4rung schreiben",
+            "type": "Task"
+        },
+        {
+            "id": "2",
+            "name": "Vollmacht ausf\u00fcllen",
+            "type": "Task"
+        },
+        {
+            "id": "3",
+            "name": "Steuerberater ist ein vollm\u00e4chtiger Vertreter",
+            "type": "Task"
+        },
+        {
+            "id": "4",
+            "name": "Steuererkl\u00e4rung erstellen",
+            "type": "Task"
+        },
+        {
+            "id": "5",
+            "name": "Steuererkl\u00e4rung an das Finanzamt schicken",
+            "type": "Task"
+        },
+        {
+            "id": "6",
+            "name": "Steuerberater erh\u00e4lt Steuerbescheid",
+            "type": "Task"
+        },
+        {
+            "id": "7",
+            "name": "Der Steuerberater als vollm\u00e4chtiger Vertreter",
+            "type": "Task"
+        },
+        {
+            "id": "8",
+            "name": "Steuerberater legt fristgem\u00e4\u00df Einspruch ein",
+            "type": "Task"
+        },
+        {
+            "id": "9",
+            "name": "Steuerbescheid pr\u00fcfen",
+            "type": "Task"
+        },
+        {
+            "id": "10",
+            "name": "Finanzamt setzt Steuer fest",
+            "type": "Task"
+        }
+    ],
+    "events": [
+        {
+            "id": "11",
+            "name": "Steuern abf\u00fchren",
+            "type": "StartNoneEvent"
+        },
+        {
+            "id": "12",
+            "name": "Vollmacht erhalten",
+            "type": "EndNoneEvent"
+        },
+        {
+            "id": "13",
+            "name": "Steuern abgef\u00fchrt",
+            "type": "EndNoneEvent"
+        }
+    ],
+    "gateways": [
+        {
+            "id": "14",
+            "name": "Vollmacht f\u00fcr den Steuerberater vorhanden?",
+            "type": "Exclusive"
+        },
+        {
+            "id": "15",
+            "type": "Parallel"
+        },
+        {
+            "id": "16",
+            "type": "Exclusive"
+        },
+        {
+            "id": "17",
+            "type": "Exclusive"
+        }
+    ],
+    "pools": [
+        {
+            "id": "18",
+            "name": "Steuern kontrollieren",
+            "lanes": [
+                {
+                    "id": "19",
+                    "name": "Lane",
+                    "elemRefs": [
+                        "0",
+                        "1",
+                        "2",
+                        "3",
+                        "4",
+                        "5",
+                        "6",
+                        "7",
+                        "8",
+                        "9",
+                        "10",
+                        "11",
+                        "12",
+                        "13",
+                        "14",
+                        "15",
+                        "16",
+                        "17"
+                    ]
+                }
+            ]
+        }
+    ],
+    "sequenceFlows": [
+        {
+            "id": "20",
+            "sourceRef": "11",
+            "targetRef": "0"
+        },
+        {
+            "id": "21",
+            "sourceRef": "0",
+            "targetRef": "14"
+        },
+        {
+            "id": "22",
+            "sourceRef": "14",
+            "targetRef": "2",
+            "condition": "No"
+        },
+        {
+            "id": "23",
+            "sourceRef": "2",
+            "targetRef": "12"
+        },
+        {
+            "id": "24",
+            "sourceRef": "14",
+            "targetRef": "1",
+            "condition": "Yes"
+        },
+        {
+            "id": "25",
+            "sourceRef": "1",
+            "targetRef": "15"
+        },
+        {
+            "id": "26",
+            "sourceRef": "15",
+            "targetRef": "3"
+        },
+        {
+            "id": "27",
+            "sourceRef": "3",
+            "targetRef": "4"
+        },
+        {
+            "id": "28",
+            "sourceRef": "4",
+            "targetRef": "5"
+        },
+        {
+            "id": "29",
+            "sourceRef": "5",
+            "targetRef": "6"
+        },
+        {
+            "id": "30",
+            "sourceRef": "6",
+            "targetRef": "16"
+        },
+        {
+            "id": "31",
+            "sourceRef": "16",
+            "targetRef": "8",
+            "condition": "Discrepancy"
+        },
+        {
+            "id": "32",
+            "sourceRef": "8",
+            "targetRef": "9"
+        },
+        {
+            "id": "33",
+            "sourceRef": "9",
+            "targetRef": "15"
+        },
+        {
+            "id": "34",
+            "sourceRef": "16",
+            "targetRef": "10",
+            "condition": "No discrepancy"
+        },
+        {
+            "id": "35",
+            "sourceRef": "10",
+            "targetRef": "13"
+        }
+    ],
+    "messageFlows": []
+}

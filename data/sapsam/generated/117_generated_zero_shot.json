@@ -1,0 +1,182 @@
+{
+    "tasks": [
+        {
+            "id": "0",
+            "name": "Experten aussuchen",
+            "type": "Task"
+        },
+        {
+            "id": "1",
+            "name": "Experten zur Review & Bewertung des Falls anfragen",
+            "type": "Task"
+        },
+        {
+            "id": "2",
+            "name": "Dokument weiterleiten",
+            "type": "Task"
+        },
+        {
+            "id": "3",
+            "name": "neuen Fall anlegen",
+            "type": "Task"
+        },
+        {
+            "id": "4",
+            "name": "Patienten interviewen",
+            "type": "Task"
+        },
+        {
+            "id": "5",
+            "name": "Daten und Expertise pr\u00fcfen",
+            "type": "Task"
+        },
+        {
+            "id": "6",
+            "name": "Scheck ausf\u00fcllen & Experten bezahlen",
+            "type": "Task"
+        },
+        {
+            "id": "7",
+            "name": "Fall und Expertise zusammen- f\u00fchren",
+            "type": "Task"
+        }
+    ],
+    "events": [
+        {
+            "id": "8",
+            "name": "Start Event",
+            "type": "StartNoneEvent"
+        },
+        {
+            "id": "9",
+            "name": "Review erhalten",
+            "type": "IntermediateMessageEventCatching"
+        },
+        {
+            "id": "10",
+            "name": "Gutachten abgeschlossen",
+            "type": "EndNoneEvent"
+        },
+        {
+            "id": "11",
+            "name": "",
+            "type": "IntermediateTimerEvent"
+        }
+    ],
+    "gateways": [
+        {
+            "id": "12",
+            "name": "Parallel Gateway",
+            "type": "Parallel"
+        },
+        {
+            "id": "13",
+            "type": "Eventbased"
+        },
+        {
+            "id": "14",
+            "type": "Parallel"
+        }
+    ],
+    "pools": [
+        {
+            "id": "15",
+            "name": "Krankenhaus",
+            "lanes": [
+                {
+                    "id": "16",
+                    "name": "Qualit\u00e4tssicherungsabteilung Gutachter"
+                },
+                {
+                    "id": "17",
+                    "name": "Direktor"
+                }
+            ]
+        }
+    ],
+    "sequenceFlows": [
+        {
+            "id": "18",
+            "sourceRef": "8",
+            "targetRef": "12"
+        },
+        {
+            "id": "19",
+            "sourceRef": "12",
+            "targetRef": "0"
+        },
+        {
+            "id": "20",
+            "sourceRef": "12",
+            "targetRef": "1"
+        },
+        {
+            "id": "21",
+            "sourceRef": "0",
+            "targetRef": "13"
+        },
+        {
+            "id": "22",
+            "sourceRef": "1",
+            "targetRef": "13"
+        },
+        {
+            "id": "23",
+            "sourceRef": "13",
+            "targetRef": "9"
+        },
+        {
+            "id": "24",
+            "sourceRef": "9",
+            "targetRef": "2"
+        },
+        {
+            "id": "25",
+            "sourceRef": "2",
+            "targetRef": "10"
+        },
+        {
+            "id": "26",
+            "sourceRef": "11",
+            "targetRef": "3"
+        },
+        {
+            "id": "27",
+            "sourceRef": "3",
+            "targetRef": "4"
+        },
+        {
+            "id": "28",
+            "sourceRef": "4",
+            "targetRef": "14"
+        },
+        {
+            "id": "29",
+            "sourceRef": "14",
+            "targetRef": "5"
+        },
+        {
+            "id": "30",
+            "sourceRef": "5",
+            "targetRef": "6"
+        },
+        {
+            "id": "31",
+            "sourceRef": "6",
+            "targetRef": "7"
+        },
+        {
+            "id": "32",
+            "sourceRef": "7",
+            "targetRef": "10"
+        }
+    ],
+    "messageFlows": [
+        {
+            "id": "33",
+            "sourceRef": "6",
+            "targetRef": "0",
+            "label": ""
+        }
+    ]
+}

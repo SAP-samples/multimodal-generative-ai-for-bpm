@@ -1,0 +1,137 @@
+{
+    "tasks": [
+        {
+            "id": "0",
+            "name": "Anforderungsprofil abrufen",
+            "type": "User"
+        },
+        {
+            "id": "1",
+            "name": "Stellenausschreibung abrufen",
+            "type": "User"
+        },
+        {
+            "id": "2",
+            "name": "Mitziechnungsvermerk erstellen",
+            "type": "User"
+        },
+        {
+            "id": "3",
+            "name": "Mitziechnungsvermerk weiterleiten",
+            "type": "User"
+        },
+        {
+            "id": "4",
+            "name": "Vermerk pr\u00fcfen",
+            "type": "Business Rule"
+        }
+    ],
+    "events": [
+        {
+            "id": "5",
+            "name": "Start",
+            "type": "StartNoneEvent"
+        },
+        {
+            "id": "6",
+            "name": "Ende",
+            "type": "EndNoneEvent"
+        }
+    ],
+    "gateways": [
+        {
+            "id": "7",
+            "type": "Exclusive"
+        },
+        {
+            "id": "8",
+            "type": "Exclusive"
+        }
+    ],
+    "pools": [
+        {
+            "id": "9",
+            "name": "ZV-Personal",
+            "lanes": [
+                {
+                    "id": "10",
+                    "name": "Referatsleiter",
+                    "elemRefs": []
+                },
+                {
+                    "id": "11",
+                    "name": "Sachbearbeiter",
+                    "elemRefs": [
+                        "0",
+                        "1",
+                        "2",
+                        "3",
+                        "5",
+                        "6",
+                        "7",
+                        "8"
+                    ]
+                },
+                {
+                    "id": "12",
+                    "name": "Sachgebietsleiter",
+                    "elemRefs": [
+                        "4"
+                    ]
+                }
+            ]
+        }
+    ],
+    "sequenceFlows": [
+        {
+            "id": "13",
+            "sourceRef": "5",
+            "targetRef": "0"
+        },
+        {
+            "id": "14",
+            "sourceRef": "0",
+            "targetRef": "1"
+        },
+        {
+            "id": "15",
+            "sourceRef": "1",
+            "targetRef": "7"
+        },
+        {
+            "id": "16",
+            "sourceRef": "7",
+            "targetRef": "2",
+            "condition": "Ja"
+        },
+        {
+            "id": "17",
+            "sourceRef": "2",
+            "targetRef": "3"
+        },
+        {
+            "id": "18",
+            "sourceRef": "3",
+            "targetRef": "8"
+        },
+        {
+            "id": "19",
+            "sourceRef": "8",
+            "targetRef": "4",
+            "condition": "Ja"
+        },
+        {
+            "id": "20",
+            "sourceRef": "7",
+            "targetRef": "6",
+            "condition": "Nein"
+        },
+        {
+            "id": "21",
+            "sourceRef": "8",
+            "targetRef": "6",
+            "condition": "Nein"
+        }
+    ],
+    "messageFlows": []
+}

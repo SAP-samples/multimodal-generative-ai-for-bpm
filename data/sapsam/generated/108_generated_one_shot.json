@@ -1,0 +1,219 @@
+{
+    "tasks": [
+        {
+            "id": "0",
+            "name": "Steuerberatung beauftragen",
+            "type": "Task"
+        },
+        {
+            "id": "1",
+            "name": "Steuererkl\u00e4rung schreiben",
+            "type": "Task"
+        },
+        {
+            "id": "2",
+            "name": "Vollmacht ausf\u00fcllen",
+            "type": "Task"
+        },
+        {
+            "id": "3",
+            "name": "Steuerberater ist ein vollm\u00e4chtiger Vertreter",
+            "type": "Task"
+        },
+        {
+            "id": "4",
+            "name": "Steuererkl\u00e4rung erstellen",
+            "type": "Task"
+        },
+        {
+            "id": "5",
+            "name": "Steuererkl\u00e4rung an das Finanzamt schicken",
+            "type": "Task"
+        },
+        {
+            "id": "6",
+            "name": "Steuerberater erh\u00e4lt Steuerbescheid",
+            "type": "Task"
+        },
+        {
+            "id": "7",
+            "name": "Steuerberater legt fristgem\u00e4\u00df Einspruch ein",
+            "type": "Task"
+        },
+        {
+            "id": "8",
+            "name": "Steuerbescheid pr\u00fcfen",
+            "type": "Task"
+        },
+        {
+            "id": "9",
+            "name": "Finanzamt setzt Steuer fest",
+            "type": "Task"
+        }
+    ],
+    "events": [
+        {
+            "id": "10",
+            "name": "Steuern abf\u00fchren",
+            "type": "StartNoneEvent"
+        },
+        {
+            "id": "11",
+            "name": "Vollmacht erhalten",
+            "type": "EndNoneEvent"
+        },
+        {
+            "id": "12",
+            "name": "Steuern abgef\u00fchrt",
+            "type": "EndNoneEvent"
+        }
+    ],
+    "gateways": [
+        {
+            "id": "13",
+            "name": "Vollmacht f\u00fcr den Steuerberater vorhanden?",
+            "type": "Exclusive"
+        },
+        {
+            "id": "14",
+            "type": "Parallel"
+        },
+        {
+            "id": "15",
+            "type": "Parallel"
+        },
+        {
+            "id": "16",
+            "name": "Steuerbescheid vollst\u00e4ndig?",
+            "type": "Exclusive"
+        }
+    ],
+    "pools": [
+        {
+            "id": "17",
+            "name": "Steuern kontrollieren",
+            "lanes": [
+                {
+                    "id": "18",
+                    "name": "Lane",
+                    "elemRefs": [
+                        "0",
+                        "1",
+                        "2",
+                        "3",
+                        "4",
+                        "5",
+                        "6",
+                        "7",
+                        "8",
+                        "9",
+                        "10",
+                        "11",
+                        "12",
+                        "13",
+                        "14",
+                        "15",
+                        "16"
+                    ]
+                }
+            ]
+        }
+    ],
+    "sequenceFlows": [
+        {
+            "id": "19",
+            "sourceRef": "10",
+            "targetRef": "0"
+        },
+        {
+            "id": "20",
+            "sourceRef": "0",
+            "targetRef": "1"
+        },
+        {
+            "id": "21",
+            "sourceRef": "1",
+            "targetRef": "13"
+        },
+        {
+            "id": "22",
+            "sourceRef": "13",
+            "targetRef": "2",
+            "condition": "No"
+        },
+        {
+            "id": "23",
+            "sourceRef": "13",
+            "targetRef": "3",
+            "condition": "Yes"
+        },
+        {
+            "id": "24",
+            "sourceRef": "2",
+            "targetRef": "11"
+        },
+        {
+            "id": "25",
+            "sourceRef": "3",
+            "targetRef": "14"
+        },
+        {
+            "id": "26",
+            "sourceRef": "14",
+            "targetRef": "4"
+        },
+        {
+            "id": "27",
+            "sourceRef": "14",
+            "targetRef": "5"
+        },
+        {
+            "id": "28",
+            "sourceRef": "4",
+            "targetRef": "15"
+        },
+        {
+            "id": "29",
+            "sourceRef": "5",
+            "targetRef": "15"
+        },
+        {
+            "id": "30",
+            "sourceRef": "15",
+            "targetRef": "6"
+        },
+        {
+            "id": "31",
+            "sourceRef": "6",
+            "targetRef": "16"
+        },
+        {
+            "id": "32",
+            "sourceRef": "16",
+            "targetRef": "7",
+            "condition": "No"
+        },
+        {
+            "id": "33",
+            "sourceRef": "7",
+            "targetRef": "8"
+        },
+        {
+            "id": "34",
+            "sourceRef": "8",
+            "targetRef": "9"
+        },
+        {
+            "id": "35",
+            "sourceRef": "9",
+            "targetRef": "12"
+        },
+        {
+            "id": "36",
+            "sourceRef": "16",
+            "targetRef": "9",
+            "condition": "Yes"
+        }
+    ],
+    "messageFlows": []
+}

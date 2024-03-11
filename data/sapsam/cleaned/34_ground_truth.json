@@ -1,0 +1,139 @@
+{
+    "tasks": [
+        {
+            "id": "sid-EC286BEF-5B2C-43B3-BC69-64A16F7FAA14",
+            "name": "\u00dcberblick \u00fcber Maschine verschaffen",
+            "type": "Manual"
+        },
+        {
+            "id": "sid-CE85C110-28E2-4845-8236-7F73A84ED917",
+            "name": "SPS-Projekt stationsweise vervollst\u00e4ndigen",
+            "type": "User"
+        },
+        {
+            "id": "sid-11474661-1956-4821-879A-B8FED7C245DF",
+            "name": "HMI-Projekt statonsweise vervollst\u00e4ndigen",
+            "type": "User"
+        },
+        {
+            "id": "sid-0A113968-2592-4162-B661-79BACC5B089D",
+            "name": "Safety-Projekt vervollst\u00e4ndigen",
+            "type": "User"
+        },
+        {
+            "id": "sid-BDE711D7-AC1A-4B78-AD7B-BD3967A68A2B",
+            "name": "Software testen",
+            "type": "User"
+        },
+        {
+            "id": "sid-F247023D-E320-4BA5-9B55-A1244BFBA260",
+            "name": "Software Design-Review durchf\u00fchren",
+            "type": "CollapsedSubprocess"
+        }
+    ],
+    "events": [
+        {
+            "id": "sid-26AE2FBC-131A-4261-B18B-326324A4051D",
+            "name": "Software- und  Dokumentenentwurf wurden generiert",
+            "type": "StartNoneEvent"
+        },
+        {
+            "id": "sid-DE791EF3-3D78-4E62-B585-D18F50BF8EB9",
+            "name": "Software bereit f\u00fcr  Inbetriebnahme",
+            "type": "EndNoneEvent"
+        }
+    ],
+    "gateways": [
+        {
+            "id": "sid-A60E2B7D-F901-482B-95D1-98BC51D3A890",
+            "name": "Alle Programme fertig",
+            "type": "Parallel"
+        },
+        {
+            "id": "sid-8DD38E22-FB98-4DF8-9F0A-B21B1ACFD0AC",
+            "type": "Parallel"
+        }
+    ],
+    "pools": [
+        {
+            "id": "sid-c09c87c9-37ab-4d6d-8a83-1002897d517b",
+            "name": "Harro H\u00f6fliger Verpackungsmaschinen GmbH",
+            "lanes": [
+                {
+                    "id": "sid-A8DFB09E-F596-49E4-A7A2-C7199B5E6C36",
+                    "name": "Produktion / Design und Entwicklung",
+                    "elemRefs": [
+                        "sid-EC286BEF-5B2C-43B3-BC69-64A16F7FAA14",
+                        "sid-CE85C110-28E2-4845-8236-7F73A84ED917",
+                        "sid-11474661-1956-4821-879A-B8FED7C245DF",
+                        "sid-0A113968-2592-4162-B661-79BACC5B089D",
+                        "sid-BDE711D7-AC1A-4B78-AD7B-BD3967A68A2B",
+                        "sid-F247023D-E320-4BA5-9B55-A1244BFBA260",
+                        "sid-26AE2FBC-131A-4261-B18B-326324A4051D",
+                        "sid-DE791EF3-3D78-4E62-B585-D18F50BF8EB9",
+                        "sid-A60E2B7D-F901-482B-95D1-98BC51D3A890",
+                        "sid-8DD38E22-FB98-4DF8-9F0A-B21B1ACFD0AC"
+                    ]
+                }
+            ]
+        }
+    ],
+    "messageFlows": [],
+    "sequenceFlows": [
+        {
+            "id": "sid-6E25A7A2-B04A-46BA-8B68-1DDBCA0241C0",
+            "targetRef": "sid-EC286BEF-5B2C-43B3-BC69-64A16F7FAA14",
+            "sourceRef": "sid-26AE2FBC-131A-4261-B18B-326324A4051D"
+        },
+        {
+            "id": "sid-B02ED704-B0CD-4A05-AC11-71EAAAB7FE39",
+            "targetRef": "sid-8DD38E22-FB98-4DF8-9F0A-B21B1ACFD0AC",
+            "sourceRef": "sid-EC286BEF-5B2C-43B3-BC69-64A16F7FAA14"
+        },
+        {
+            "id": "sid-2920D52F-D5C2-4B97-9764-BF7614E108F0",
+            "targetRef": "sid-A60E2B7D-F901-482B-95D1-98BC51D3A890",
+            "sourceRef": "sid-CE85C110-28E2-4845-8236-7F73A84ED917"
+        },
+        {
+            "id": "sid-41F00848-633D-4DFB-B579-E209EE28BF12",
+            "targetRef": "sid-CE85C110-28E2-4845-8236-7F73A84ED917",
+            "sourceRef": "sid-8DD38E22-FB98-4DF8-9F0A-B21B1ACFD0AC"
+        },
+        {
+            "id": "sid-BB2145EE-E3C7-4AB3-8941-0C1BA23A9C03",
+            "targetRef": "sid-11474661-1956-4821-879A-B8FED7C245DF",
+            "sourceRef": "sid-8DD38E22-FB98-4DF8-9F0A-B21B1ACFD0AC"
+        },
+        {
+            "id": "sid-A6CA0108-5570-42DC-9AA8-167A4B0985DF",
+            "targetRef": "sid-0A113968-2592-4162-B661-79BACC5B089D",
+            "sourceRef": "sid-8DD38E22-FB98-4DF8-9F0A-B21B1ACFD0AC"
+        },
+        {
+            "id": "sid-72834417-0B4F-4EB1-9AC4-B7D96CB5CF74",
+            "targetRef": "sid-A60E2B7D-F901-482B-95D1-98BC51D3A890",
+            "sourceRef": "sid-0A113968-2592-4162-B661-79BACC5B089D"
+        },
+        {
+            "id": "sid-008E158E-A03F-4E12-AC46-744982F36E11",
+            "targetRef": "sid-A60E2B7D-F901-482B-95D1-98BC51D3A890",
+            "sourceRef": "sid-11474661-1956-4821-879A-B8FED7C245DF"
+        },
+        {
+            "id": "sid-291C2052-9A3C-4348-92A9-782767EB83DD",
+            "targetRef": "sid-BDE711D7-AC1A-4B78-AD7B-BD3967A68A2B",
+            "sourceRef": "sid-A60E2B7D-F901-482B-95D1-98BC51D3A890"
+        },
+        {
+            "id": "sid-02137672-23DA-485A-AE10-0B1913CC49CA",
+            "targetRef": "sid-F247023D-E320-4BA5-9B55-A1244BFBA260",
+            "sourceRef": "sid-BDE711D7-AC1A-4B78-AD7B-BD3967A68A2B"
+        },
+        {
+            "id": "sid-5FB5809E-9D94-43F2-8316-32CE960818C9",
+            "targetRef": "sid-DE791EF3-3D78-4E62-B585-D18F50BF8EB9",
+            "sourceRef": "sid-F247023D-E320-4BA5-9B55-A1244BFBA260"
+        }
+    ]
+}

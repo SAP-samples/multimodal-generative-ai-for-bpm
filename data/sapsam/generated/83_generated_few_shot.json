@@ -1,0 +1,182 @@
+{
+    "tasks": [
+        {
+            "id": "0",
+            "name": "Artikel aus B\u00fcrolager entnehmen",
+            "type": "Task"
+        },
+        {
+            "id": "1",
+            "name": "Bestellanforderung (BANF)",
+            "type": "Task"
+        },
+        {
+            "id": "2",
+            "name": "Bestellanforderung (BANF) pr\u00fcfen",
+            "type": "Task"
+        },
+        {
+            "id": "3",
+            "name": "Kreditor im ERP erstellen",
+            "type": "Task"
+        },
+        {
+            "id": "4",
+            "name": "Bestellvorgabe aus Bestellanforderung (BANF) erzeugen",
+            "type": "Task"
+        },
+        {
+            "id": "5",
+            "name": "Genehmigung erteilen & Bestellung ausl\u00f6sen",
+            "type": "Task"
+        }
+    ],
+    "events": [
+        {
+            "id": "6",
+            "name": "Bedarf aufgetreten",
+            "type": "StartNoneEvent"
+        },
+        {
+            "id": "7",
+            "name": "Bedarf erf\u00fcllt",
+            "type": "EndNoneEvent"
+        },
+        {
+            "id": "8",
+            "name": "Bestellung-zu-Lieferung",
+            "type": "IntermediateLinkEventCatching"
+        }
+    ],
+    "gateways": [
+        {
+            "id": "9",
+            "type": "Exclusive"
+        },
+        {
+            "id": "10",
+            "type": "Exclusive"
+        },
+        {
+            "id": "11",
+            "type": "Exclusive"
+        },
+        {
+            "id": "12",
+            "type": "Exclusive"
+        }
+    ],
+    "pools": [
+        {
+            "id": "13",
+            "name": "ACME AG",
+            "lanes": [
+                {
+                    "id": "14",
+                    "name": "Fachabteilung",
+                    "elemRefs": [
+                        "6",
+                        "9",
+                        "0",
+                        "1",
+                        "7"
+                    ]
+                },
+                {
+                    "id": "15",
+                    "name": "Zentraleinkauf",
+                    "elemRefs": [
+                        "2",
+                        "3",
+                        "10",
+                        "4",
+                        "11",
+                        "5",
+                        "8"
+                    ]
+                },
+                {
+                    "id": "16",
+                    "name": "Freigebender",
+                    "elemRefs": [
+                        "5",
+                        "8"
+                    ]
+                }
+            ]
+        }
+    ],
+    "sequenceFlows": [
+        {
+            "id": "17",
+            "sourceRef": "6",
+            "targetRef": "9"
+        },
+        {
+            "id": "18",
+            "sourceRef": "9",
+            "targetRef": "0",
+            "condition": "Artikel im B\u00fcrolager verf\u00fcgbar"
+        },
+        {
+            "id": "19",
+            "sourceRef": "9",
+            "targetRef": "1",
+            "condition": "Nein"
+        },
+        {
+            "id": "20",
+            "sourceRef": "0",
+            "targetRef": "7"
+        },
+        {
+            "id": "21",
+            "sourceRef": "1",
+            "targetRef": "2"
+        },
+        {
+            "id": "22",
+            "sourceRef": "2",
+            "targetRef": "10"
+        },
+        {
+            "id": "23",
+            "sourceRef": "10",
+            "targetRef": "3"
+        },
+        {
+            "id": "24",
+            "sourceRef": "10",
+            "targetRef": "4",
+            "condition": "Kreditor bekannt"
+        },
+        {
+            "id": "25",
+            "sourceRef": "3",
+            "targetRef": "11"
+        },
+        {
+            "id": "26",
+            "sourceRef": "4",
+            "targetRef": "11"
+        },
+        {
+            "id": "27",
+            "sourceRef": "11",
+            "targetRef": "5"
+        },
+        {
+            "id": "28",
+            "sourceRef": "5",
+            "targetRef": "8"
+        }
+    ],
+    "messageFlows": [
+        {
+            "id": "29",
+            "sourceRef": "8",
+            "targetRef": "13",
+            "label": "Bestellzusage"
+        }
+    ]
+}

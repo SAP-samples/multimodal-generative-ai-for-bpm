@@ -1,0 +1,172 @@
+{
+    "tasks": [
+        {
+            "id": "sid-2A91C684-559E-4B12-8529-B27E52B784D4",
+            "name": "Eigenfinanzierung gew\u00e4hrleisten",
+            "type": "Task"
+        },
+        {
+            "id": "sid-D5AEFAB0-B53C-45D2-826E-1714030A5AE7",
+            "name": "F\u00f6rdersummen erhalten",
+            "type": "Task"
+        },
+        {
+            "id": "sid-6692D31F-065D-4ADF-BCD6-B09393C8387F",
+            "name": "Hohen Marktanteil bei Open-Source-L\u00f6sungen bekommen",
+            "type": "Task"
+        },
+        {
+            "id": "sid-274F59BD-68A9-4989-9F58-074D560E594B",
+            "name": "Einnahmen durch zus\u00e4tzliche Services erzielen",
+            "type": "Task"
+        },
+        {
+            "id": "sid-BFC4B452-21F5-4947-96AA-93D8C7E636CD",
+            "name": "Trainingseinheiten organisieren",
+            "type": "Task"
+        },
+        {
+            "id": "sid-CE11F87E-936D-467C-A4EF-389B811DC212",
+            "name": "Beratungsleistungen durchf\u00fchren",
+            "type": "Task"
+        },
+        {
+            "id": "sid-B43273D0-84B0-4868-90A2-F4F378034E0E",
+            "name": "Nachfolge Projekte generieren",
+            "type": "Task"
+        }
+    ],
+    "events": [
+        {
+            "id": "sid-8B732F46-352E-4E6C-B598-CD3994C32254",
+            "name": "Einnahmen einfordern",
+            "type": "StartNoneEvent"
+        },
+        {
+            "id": "sid-F0A9DC60-0652-4723-B611-12B8D3013C40",
+            "name": "Einnahmen  eingefordert",
+            "type": "EndNoneEvent"
+        }
+    ],
+    "gateways": [
+        {
+            "id": "sid-ECF42C89-2736-4097-B809-FCA3FB173A3F",
+            "name": "Eigenfinanzierung gew\u00e4hrleisten oder  F\u00f6rdersumme erhalten ?",
+            "type": "Inclusive"
+        },
+        {
+            "id": "sid-5FA65A08-799B-41F9-92EA-08E1C2AC631C",
+            "type": "Inclusive"
+        },
+        {
+            "id": "sid-592973EB-4A86-4EEB-9279-2F96A3CC7565",
+            "type": "Parallel"
+        },
+        {
+            "id": "sid-05FDBC31-A2A6-491A-A76F-A4865AED1E20",
+            "type": "Parallel"
+        }
+    ],
+    "pools": [
+        {
+            "id": "sid-3D39FA92-4283-4813-857D-8C70CD022DCD",
+            "name": "SoKnow",
+            "lanes": [
+                {
+                    "id": "sid-89B5256B-4118-4315-9639-4D1866AF9941",
+                    "name": "Strategieprozess",
+                    "elemRefs": [
+                        "sid-2A91C684-559E-4B12-8529-B27E52B784D4",
+                        "sid-D5AEFAB0-B53C-45D2-826E-1714030A5AE7",
+                        "sid-6692D31F-065D-4ADF-BCD6-B09393C8387F",
+                        "sid-274F59BD-68A9-4989-9F58-074D560E594B",
+                        "sid-BFC4B452-21F5-4947-96AA-93D8C7E636CD",
+                        "sid-CE11F87E-936D-467C-A4EF-389B811DC212",
+                        "sid-B43273D0-84B0-4868-90A2-F4F378034E0E",
+                        "sid-8B732F46-352E-4E6C-B598-CD3994C32254",
+                        "sid-F0A9DC60-0652-4723-B611-12B8D3013C40",
+                        "sid-ECF42C89-2736-4097-B809-FCA3FB173A3F",
+                        "sid-5FA65A08-799B-41F9-92EA-08E1C2AC631C",
+                        "sid-592973EB-4A86-4EEB-9279-2F96A3CC7565",
+                        "sid-05FDBC31-A2A6-491A-A76F-A4865AED1E20"
+                    ]
+                }
+            ]
+        }
+    ],
+    "messageFlows": [],
+    "sequenceFlows": [
+        {
+            "id": "sid-4159CB65-7A47-4C4F-BF8B-C5125633920E",
+            "targetRef": "sid-ECF42C89-2736-4097-B809-FCA3FB173A3F",
+            "sourceRef": "sid-8B732F46-352E-4E6C-B598-CD3994C32254"
+        },
+        {
+            "id": "sid-0A63B49D-6907-4991-9A00-8893B1B0BA40",
+            "targetRef": "sid-5FA65A08-799B-41F9-92EA-08E1C2AC631C",
+            "sourceRef": "sid-2A91C684-559E-4B12-8529-B27E52B784D4"
+        },
+        {
+            "id": "sid-55261BBD-9A25-4C5C-8C45-0962F4A263A3",
+            "targetRef": "sid-5FA65A08-799B-41F9-92EA-08E1C2AC631C",
+            "sourceRef": "sid-D5AEFAB0-B53C-45D2-826E-1714030A5AE7"
+        },
+        {
+            "id": "sid-F81D8389-D514-4898-A1E1-26258AFFFCC2",
+            "targetRef": "sid-592973EB-4A86-4EEB-9279-2F96A3CC7565",
+            "sourceRef": "sid-5FA65A08-799B-41F9-92EA-08E1C2AC631C"
+        },
+        {
+            "id": "sid-AB9A29D5-399B-4C09-BAE8-6AC80BB3EBF5",
+            "targetRef": "sid-6692D31F-065D-4ADF-BCD6-B09393C8387F",
+            "sourceRef": "sid-592973EB-4A86-4EEB-9279-2F96A3CC7565"
+        },
+        {
+            "id": "sid-98B8B4D3-5921-4736-93B6-DF6E3B48BAEE",
+            "targetRef": "sid-274F59BD-68A9-4989-9F58-074D560E594B",
+            "sourceRef": "sid-592973EB-4A86-4EEB-9279-2F96A3CC7565"
+        },
+        {
+            "id": "sid-910A0439-81AE-4E60-9B06-762B87194A6E",
+            "targetRef": "sid-05FDBC31-A2A6-491A-A76F-A4865AED1E20",
+            "sourceRef": "sid-6692D31F-065D-4ADF-BCD6-B09393C8387F"
+        },
+        {
+            "id": "sid-5068877B-21D5-413C-8685-24715F3F58C3",
+            "targetRef": "sid-05FDBC31-A2A6-491A-A76F-A4865AED1E20",
+            "sourceRef": "sid-274F59BD-68A9-4989-9F58-074D560E594B"
+        },
+        {
+            "id": "sid-CC767675-799A-4177-9C40-4FEE024BA90C",
+            "targetRef": "sid-BFC4B452-21F5-4947-96AA-93D8C7E636CD",
+            "sourceRef": "sid-05FDBC31-A2A6-491A-A76F-A4865AED1E20"
+        },
+        {
+            "id": "sid-A0BC1B72-ABB1-47C8-8052-121014ABFEF6",
+            "targetRef": "sid-CE11F87E-936D-467C-A4EF-389B811DC212",
+            "sourceRef": "sid-BFC4B452-21F5-4947-96AA-93D8C7E636CD"
+        },
+        {
+            "id": "sid-0AD1619E-7BC7-409E-BCBA-C3A35336A69B",
+            "targetRef": "sid-B43273D0-84B0-4868-90A2-F4F378034E0E",
+            "sourceRef": "sid-CE11F87E-936D-467C-A4EF-389B811DC212"
+        },
+        {
+            "id": "sid-48E6DD32-4ABA-4749-931D-1C0B12FFCB89",
+            "targetRef": "sid-F0A9DC60-0652-4723-B611-12B8D3013C40",
+            "sourceRef": "sid-B43273D0-84B0-4868-90A2-F4F378034E0E"
+        },
+        {
+            "id": "sid-7057367F-AA2C-493B-A6F3-C2EDAA384A33",
+            "targetRef": "sid-2A91C684-559E-4B12-8529-B27E52B784D4",
+            "condition": "entweder",
+            "sourceRef": "sid-ECF42C89-2736-4097-B809-FCA3FB173A3F"
+        },
+        {
+            "id": "sid-10C17B47-16CF-4068-8B15-DA18E2CBE4BB",
+            "targetRef": "sid-D5AEFAB0-B53C-45D2-826E-1714030A5AE7",
+            "condition": "oder",
+            "sourceRef": "sid-ECF42C89-2736-4097-B809-FCA3FB173A3F"
+        }
+    ]
+}

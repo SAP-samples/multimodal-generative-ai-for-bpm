@@ -1,0 +1,315 @@
+{
+    "tasks": [
+        {
+            "id": "0",
+            "name": "needs assessment and order a new service request",
+            "type": "Manual"
+        },
+        {
+            "id": "1",
+            "name": "fill the online detailed forms",
+            "type": "Manual"
+        },
+        {
+            "id": "2",
+            "name": "review new service orders",
+            "type": "Receive"
+        },
+        {
+            "id": "3",
+            "name": "register requested service order information",
+            "type": "Manual"
+        },
+        {
+            "id": "4",
+            "name": "1st negotiations with the customer",
+            "type": "Manual"
+        },
+        {
+            "id": "5",
+            "name": "register results of 1st negotiations",
+            "type": "Manual"
+        },
+        {
+            "id": "6",
+            "name": "register negotiations failure reasons",
+            "type": "Manual"
+        },
+        {
+            "id": "7",
+            "name": "define a certain sale profile",
+            "type": "Manual"
+        },
+        {
+            "id": "8",
+            "name": "define a special service",
+            "type": "Manual"
+        },
+        {
+            "id": "9",
+            "name": "announce the in-feasibility reasons",
+            "type": "Send"
+        },
+        {
+            "id": "10",
+            "name": "announce requested service order cancellation",
+            "type": "Send"
+        },
+        {
+            "id": "11",
+            "name": "announce service order feasibility results",
+            "type": "Send"
+        },
+        {
+            "id": "12",
+            "name": "register proforma invoice",
+            "type": "User"
+        },
+        {
+            "id": "13",
+            "name": "deliver proforma invoice to the customer",
+            "type": "Send"
+        },
+        {
+            "id": "14",
+            "name": "re-negotiating with the customer",
+            "type": "Manual"
+        },
+        {
+            "id": "15",
+            "name": "cancel the requested service order",
+            "type": "Manual"
+        },
+        {
+            "id": "16",
+            "name": "B2B sale (2nd Phase) process",
+            "type": "CollapsedSubprocess"
+        }
+    ],
+    "events": [
+        {
+            "id": "17",
+            "name": "Start to order a new service",
+            "type": "StartNoneEvent"
+        },
+        {
+            "id": "18",
+            "name": "1st phase of sale finishes",
+            "type": "EndNoneEvent"
+        }
+    ],
+    "gateways": [
+        {
+            "id": "19",
+            "name": "is the negotiation result positive?",
+            "type": "Exclusive"
+        },
+        {
+            "id": "20",
+            "name": "Is the requested service something special?",
+            "type": "Exclusive"
+        },
+        {
+            "id": "21",
+            "name": "Is the modified request feasible?",
+            "type": "Exclusive"
+        },
+        {
+            "id": "22",
+            "name": "Does the customer validate all?",
+            "type": "Exclusive"
+        },
+        {
+            "id": "23",
+            "name": "Does the customer want to keep going with the company?",
+            "type": "Exclusive"
+        }
+    ],
+    "pools": [
+        {
+            "id": "24",
+            "name": "B2B sale and marketing (1st Phase)",
+            "lanes": [
+                {
+                    "id": "25",
+                    "name": "cooperate sale department",
+                    "elemRefs": [
+                        "0",
+                        "1",
+                        "2",
+                        "3",
+                        "4",
+                        "5",
+                        "6",
+                        "7",
+                        "8",
+                        "10",
+                        "13",
+                        "14",
+                        "15",
+                        "16",
+                        "18",
+                        "19",
+                        "20",
+                        "21",
+                        "22",
+                        "23"
+                    ]
+                },
+                {
+                    "id": "26",
+                    "name": "corporate customer marketing department",
+                    "elemRefs": [
+                        "2"
+                    ]
+                },
+                {
+                    "id": "27",
+                    "name": "CFS Department",
+                    "elemRefs": [
+                        "9",
+                        "11",
+                        "12"
+                    ]
+                },
+                {
+                    "id": "28",
+                    "name": "Corporate Customer",
+                    "elemRefs": [
+                        "17",
+                        "22",
+                        "23"
+                    ]
+                }
+            ]
+        }
+    ],
+    "sequenceFlows": [
+        {
+            "id": "29",
+            "sourceRef": "17",
+            "targetRef": "0"
+        },
+        {
+            "id": "30",
+            "sourceRef": "0",
+            "targetRef": "1"
+        },
+        {
+            "id": "31",
+            "sourceRef": "1",
+            "targetRef": "2"
+        },
+        {
+            "id": "32",
+            "sourceRef": "2",
+            "targetRef": "3"
+        },
+        {
+            "id": "33",
+            "sourceRef": "3",
+            "targetRef": "4"
+        },
+        {
+            "id": "34",
+            "sourceRef": "4",
+            "targetRef": "5"
+        },
+        {
+            "id": "35",
+            "sourceRef": "5",
+            "targetRef": "19"
+        },
+        {
+            "id": "36",
+            "sourceRef": "19",
+            "targetRef": "7",
+            "condition": "Yes"
+        },
+        {
+            "id": "37",
+            "sourceRef": "19",
+            "targetRef": "6",
+            "condition": "No"
+        },
+        {
+            "id": "38",
+            "sourceRef": "7",
+            "targetRef": "20"
+        },
+        {
+            "id": "39",
+            "sourceRef": "6",
+            "targetRef": "10"
+        },
+        {
+            "id": "40",
+            "sourceRef": "20",
+            "targetRef": "8",
+            "condition": "Yes"
+        },
+        {
+            "id": "41",
+            "sourceRef": "20",
+            "targetRef": "11",
+            "condition": "No"
+        },
+        {
+            "id": "42",
+            "sourceRef": "8",
+            "targetRef": "21"
+        },
+        {
+            "id": "43",
+            "sourceRef": "21",
+            "targetRef": "9",
+            "condition": "No"
+        },
+        {
+            "id": "44",
+            "sourceRef": "21",
+            "targetRef": "12",
+            "condition": "Yes"
+        },
+        {
+            "id": "45",
+            "sourceRef": "12",
+            "targetRef": "13"
+        },
+        {
+            "id": "46",
+            "sourceRef": "13",
+            "targetRef": "22"
+        },
+        {
+            "id": "47",
+            "sourceRef": "22",
+            "targetRef": "14",
+            "condition": "No"
+        },
+        {
+            "id": "48",
+            "sourceRef": "22",
+            "targetRef": "16",
+            "condition": "Yes"
+        },
+        {
+            "id": "49",
+            "sourceRef": "14",
+            "targetRef": "23"
+        },
+        {
+            "id": "50",
+            "sourceRef": "23",
+            "targetRef": "15",
+            "condition": "No"
+        },
+        {
+            "id": "51",
+            "sourceRef": "23",
+            "targetRef": "16",
+            "condition": "Yes"
+        }
+    ],
+    "messageFlows": []
+}

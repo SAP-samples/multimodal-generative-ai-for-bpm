@@ -1,0 +1,134 @@
+{
+    "tasks": [
+        {
+            "id": "0",
+            "name": "Pizza aus Speisekarte w\u00e4hlen",
+            "type": "Task"
+        },
+        {
+            "id": "1",
+            "name": "Pizza telefonisch bestellen",
+            "type": "Task"
+        },
+        {
+            "id": "2",
+            "name": "Bei Pizzeria anrufen und nachfragen",
+            "type": "Task"
+        },
+        {
+            "id": "3",
+            "name": "Pizza bei Lieferungen bezahlen",
+            "type": "Task"
+        },
+        {
+            "id": "4",
+            "name": "Pizza essen",
+            "type": "Task"
+        }
+    ],
+    "events": [
+        {
+            "id": "5",
+            "name": "Hunger",
+            "type": "StartNoneEvent"
+        },
+        {
+            "id": "6",
+            "name": "60 Min vergangen",
+            "type": "IntermediateTimerEvent"
+        },
+        {
+            "id": "7",
+            "name": "Pizza angekommen",
+            "type": "IntermediateMessageEventCatching"
+        },
+        {
+            "id": "8",
+            "name": "Hunger gestillt",
+            "type": "EndNoneEvent"
+        }
+    ],
+    "gateways": [
+        {
+            "id": "9",
+            "type": "Eventbased"
+        },
+        {
+            "id": "10",
+            "type": "Exclusive"
+        }
+    ],
+    "pools": [
+        {
+            "id": "11",
+            "name": "Kunde",
+            "lanes": [
+                {
+                    "id": "12",
+                    "name": "Kunde",
+                    "elemRefs": [
+                        "0",
+                        "1",
+                        "2",
+                        "3",
+                        "4",
+                        "5",
+                        "6",
+                        "7",
+                        "8",
+                        "9",
+                        "10"
+                    ]
+                }
+            ]
+        }
+    ],
+    "sequenceFlows": [
+        {
+            "id": "13",
+            "sourceRef": "5",
+            "targetRef": "0"
+        },
+        {
+            "id": "14",
+            "sourceRef": "0",
+            "targetRef": "1"
+        },
+        {
+            "id": "15",
+            "sourceRef": "1",
+            "targetRef": "9"
+        },
+        {
+            "id": "16",
+            "sourceRef": "6",
+            "targetRef": "2"
+        },
+        {
+            "id": "17",
+            "sourceRef": "2",
+            "targetRef": "7"
+        },
+        {
+            "id": "18",
+            "sourceRef": "7",
+            "targetRef": "10"
+        },
+        {
+            "id": "19",
+            "sourceRef": "10",
+            "targetRef": "3"
+        },
+        {
+            "id": "20",
+            "sourceRef": "3",
+            "targetRef": "4"
+        },
+        {
+            "id": "21",
+            "sourceRef": "4",
+            "targetRef": "8"
+        }
+    ],
+    "messageFlows": []
+}

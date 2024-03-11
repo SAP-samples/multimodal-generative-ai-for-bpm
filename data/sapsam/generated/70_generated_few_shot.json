@@ -1,0 +1,161 @@
+{
+    "tasks": [
+        {
+            "id": "0",
+            "name": "Kundendaten pr\u00fcfen",
+            "type": "Task"
+        },
+        {
+            "id": "1",
+            "name": "Auftrag erfassen",
+            "type": "Task"
+        },
+        {
+            "id": "2",
+            "name": "Auftrag zur\u00fcckweisen",
+            "type": "Task"
+        },
+        {
+            "id": "3",
+            "name": "Auftrag freigeben",
+            "type": "Task"
+        },
+        {
+            "id": "4",
+            "name": "Kunde informieren",
+            "type": "Task"
+        },
+        {
+            "id": "5",
+            "name": "Auftrag ausdrucken",
+            "type": "Task"
+        },
+        {
+            "id": "6",
+            "name": "Auftrag weiterleiten",
+            "type": "Task"
+        }
+    ],
+    "events": [
+        {
+            "id": "7",
+            "name": "Kundenantrag erfasst",
+            "type": "StartNoneEvent"
+        },
+        {
+            "id": "8",
+            "name": "Kunde informiert",
+            "type": "EndNoneEvent"
+        },
+        {
+            "id": "9",
+            "name": "Kundenauftrag weitergeleitet",
+            "type": "EndNoneEvent"
+        }
+    ],
+    "gateways": [
+        {
+            "id": "10",
+            "type": "Exclusive"
+        }
+    ],
+    "pools": [
+        {
+            "id": "11",
+            "name": "Finanzen",
+            "lanes": [
+                {
+                    "id": "12",
+                    "name": "Lane",
+                    "elemRefs": [
+                        "0",
+                        "2",
+                        "3",
+                        "10"
+                    ]
+                }
+            ]
+        },
+        {
+            "id": "13",
+            "name": "Service",
+            "lanes": [
+                {
+                    "id": "14",
+                    "name": "Lane",
+                    "elemRefs": [
+                        "1",
+                        "4",
+                        "5",
+                        "6",
+                        "7",
+                        "8",
+                        "9"
+                    ]
+                }
+            ]
+        }
+    ],
+    "sequenceFlows": [
+        {
+            "id": "15",
+            "sourceRef": "7",
+            "targetRef": "1"
+        },
+        {
+            "id": "16",
+            "sourceRef": "1",
+            "targetRef": "10"
+        },
+        {
+            "id": "17",
+            "sourceRef": "10",
+            "targetRef": "0",
+            "condition": "Positive Credit Check"
+        },
+        {
+            "id": "18",
+            "sourceRef": "0",
+            "targetRef": "3"
+        },
+        {
+            "id": "19",
+            "sourceRef": "3",
+            "targetRef": "4"
+        },
+        {
+            "id": "20",
+            "sourceRef": "4",
+            "targetRef": "5"
+        },
+        {
+            "id": "21",
+            "sourceRef": "5",
+            "targetRef": "6"
+        },
+        {
+            "id": "22",
+            "sourceRef": "6",
+            "targetRef": "9"
+        },
+        {
+            "id": "23",
+            "sourceRef": "10",
+            "targetRef": "2",
+            "condition": "Negative Credit Check"
+        },
+        {
+            "id": "24",
+            "sourceRef": "2",
+            "targetRef": "8"
+        }
+    ],
+    "messageFlows": [
+        {
+            "id": "25",
+            "sourceRef": "3",
+            "targetRef": "4",
+            "label": "Notify Customer"
+        }
+    ]
+}

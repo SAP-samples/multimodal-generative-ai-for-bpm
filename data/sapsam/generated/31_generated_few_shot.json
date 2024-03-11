@@ -1,0 +1,412 @@
+{
+    "tasks": [
+        {
+            "id": "0",
+            "name": "Start to decide a service deployment",
+            "type": "Task"
+        },
+        {
+            "id": "1",
+            "name": "registering deployment request",
+            "type": "Manual"
+        },
+        {
+            "id": "2",
+            "name": "registering a ticket for service feasibility study",
+            "type": "Manual"
+        },
+        {
+            "id": "3",
+            "name": "send the feasibility study ticket to the CFS department",
+            "type": "Manual"
+        },
+        {
+            "id": "4",
+            "name": "predict feasibility results",
+            "type": "Service"
+        },
+        {
+            "id": "5",
+            "name": "validate the feasibility results",
+            "type": "Manual"
+        },
+        {
+            "id": "6",
+            "name": "update the database of feasibility studies",
+            "type": "Service"
+        },
+        {
+            "id": "7",
+            "name": "perform a new case-based feasibility study",
+            "type": "Task"
+        },
+        {
+            "id": "8",
+            "name": "report the results",
+            "type": "Manual"
+        },
+        {
+            "id": "9",
+            "name": "register/modify the service deployment request",
+            "type": "Manual"
+        },
+        {
+            "id": "10",
+            "name": "deploy service equipment",
+            "type": "Manual"
+        },
+        {
+            "id": "11",
+            "name": "reporting the deployment results",
+            "type": "Manual"
+        },
+        {
+            "id": "12",
+            "name": "co-negotiation about deployment failure",
+            "type": "Manual"
+        },
+        {
+            "id": "13",
+            "name": "response to co-negotiation with Jane Doe",
+            "type": "Manual"
+        },
+        {
+            "id": "14",
+            "name": "co-negotiation about deployment infeasibility",
+            "type": "Manual"
+        },
+        {
+            "id": "15",
+            "name": "cancelling deployment request",
+            "type": "Manual"
+        },
+        {
+            "id": "16",
+            "name": "register a new deployment request",
+            "type": "Manual"
+        },
+        {
+            "id": "17",
+            "name": "update the sale profile",
+            "type": "Manual"
+        },
+        {
+            "id": "18",
+            "name": "relevant payment actions",
+            "type": "Task"
+        }
+    ],
+    "events": [
+        {
+            "id": "19",
+            "name": "Start to decide a service deployment",
+            "type": "StartNoneEvent"
+        },
+        {
+            "id": "20",
+            "name": "service deployment finishes",
+            "type": "EndNoneEvent"
+        }
+    ],
+    "gateways": [
+        {
+            "id": "21",
+            "name": "Who requests?",
+            "type": "Exclusive"
+        },
+        {
+            "id": "22",
+            "name": "Does it require feasibility study?",
+            "type": "Exclusive"
+        },
+        {
+            "id": "23",
+            "name": "validated?",
+            "type": "Exclusive"
+        },
+        {
+            "id": "24",
+            "name": "feasibility study results",
+            "type": "Exclusive"
+        },
+        {
+            "id": "25",
+            "name": "Does it require installation",
+            "type": "Exclusive"
+        },
+        {
+            "id": "26",
+            "name": "are there any priorities?",
+            "type": "Exclusive"
+        },
+        {
+            "id": "27",
+            "name": "deployment result",
+            "type": "Exclusive"
+        },
+        {
+            "id": "28",
+            "name": "desired negotiation method?",
+            "type": "Exclusive"
+        },
+        {
+            "id": "29",
+            "name": "negotiations results",
+            "type": "Exclusive"
+        }
+    ],
+    "pools": [
+        {
+            "id": "30",
+            "name": "The service re-installation process",
+            "lanes": [
+                {
+                    "id": "31",
+                    "name": "CFS Department",
+                    "elemRefs": [
+                        "2",
+                        "4",
+                        "7",
+                        "16"
+                    ]
+                },
+                {
+                    "id": "32",
+                    "name": "corporate customer",
+                    "elemRefs": []
+                },
+                {
+                    "id": "33",
+                    "name": "corporate customer affairs",
+                    "elemRefs": []
+                },
+                {
+                    "id": "34",
+                    "name": "Intelligent voice assistant",
+                    "elemRefs": [
+                        "12",
+                        "14"
+                    ]
+                }
+            ]
+        }
+    ],
+    "sequenceFlows": [
+        {
+            "id": "35",
+            "sourceRef": "0",
+            "targetRef": "1"
+        },
+        {
+            "id": "36",
+            "sourceRef": "1",
+            "targetRef": "22"
+        },
+        {
+            "id": "37",
+            "sourceRef": "22",
+            "targetRef": "2",
+            "condition": "Yes"
+        },
+        {
+            "id": "38",
+            "sourceRef": "22",
+            "targetRef": "24",
+            "condition": "No"
+        },
+        {
+            "id": "39",
+            "sourceRef": "2",
+            "targetRef": "3"
+        },
+        {
+            "id": "40",
+            "sourceRef": "3",
+            "targetRef": "4"
+        },
+        {
+            "id": "41",
+            "sourceRef": "4",
+            "targetRef": "5"
+        },
+        {
+            "id": "42",
+            "sourceRef": "5",
+            "targetRef": "23"
+        },
+        {
+            "id": "43",
+            "sourceRef": "23",
+            "targetRef": "6",
+            "condition": "Yes"
+        },
+        {
+            "id": "44",
+            "sourceRef": "23",
+            "targetRef": "7",
+            "condition": "No"
+        },
+        {
+            "id": "45",
+            "sourceRef": "6",
+            "targetRef": "8"
+        },
+        {
+            "id": "46",
+            "sourceRef": "7",
+            "targetRef": "8"
+        },
+        {
+            "id": "47",
+            "sourceRef": "8",
+            "targetRef": "24"
+        },
+        {
+            "id": "48",
+            "sourceRef": "24",
+            "targetRef": "9",
+            "condition": "Feasible"
+        },
+        {
+            "id": "49",
+            "sourceRef": "24",
+            "targetRef": "29",
+            "condition": "Not feasible"
+        },
+        {
+            "id": "50",
+            "sourceRef": "9",
+            "targetRef": "25"
+        },
+        {
+            "id": "51",
+            "sourceRef": "25",
+            "targetRef": "26",
+            "condition": "Requires installation"
+        },
+        {
+            "id": "52",
+            "sourceRef": "25",
+            "targetRef": "20",
+            "condition": "Does not require installation"
+        },
+        {
+            "id": "53",
+            "sourceRef": "26",
+            "targetRef": "10",
+            "condition": "Priority"
+        },
+        {
+            "id": "54",
+            "sourceRef": "26",
+            "targetRef": "9",
+            "condition": "No priority"
+        },
+        {
+            "id": "55",
+            "sourceRef": "10",
+            "targetRef": "11"
+        },
+        {
+            "id": "56",
+            "sourceRef": "11",
+            "targetRef": "27"
+        },
+        {
+            "id": "57",
+            "sourceRef": "27",
+            "targetRef": "12",
+            "condition": "Success"
+        },
+        {
+            "id": "58",
+            "sourceRef": "27",
+            "targetRef": "28",
+            "condition": "Failure"
+        },
+        {
+            "id": "59",
+            "sourceRef": "12",
+            "targetRef": "13"
+        },
+        {
+            "id": "60",
+            "sourceRef": "14",
+            "targetRef": "28"
+        },
+        {
+            "id": "61",
+            "sourceRef": "28",
+            "targetRef": "13"
+        },
+        {
+            "id": "62",
+            "sourceRef": "13",
+            "targetRef": "29"
+        },
+        {
+            "id": "63",
+            "sourceRef": "29",
+            "targetRef": "15",
+            "condition": "Satisfied"
+        },
+        {
+            "id": "64",
+            "sourceRef": "29",
+            "targetRef": "16",
+            "condition": "Not satisfied"
+        },
+        {
+            "id": "65",
+            "sourceRef": "15",
+            "targetRef": "17"
+        },
+        {
+            "id": "66",
+            "sourceRef": "16",
+            "targetRef": "17"
+        },
+        {
+            "id": "67",
+            "sourceRef": "17",
+            "targetRef": "18"
+        },
+        {
+            "id": "68",
+            "sourceRef": "18",
+            "targetRef": "20"
+        }
+    ],
+    "messageFlows": [
+        {
+            "id": "69",
+            "sourceRef": "8",
+            "targetRef": "2"
+        },
+        {
+            "id": "70",
+            "sourceRef": "8",
+            "targetRef": "9"
+        },
+        {
+            "id": "71",
+            "sourceRef": "11",
+            "targetRef": "10"
+        },
+        {
+            "id": "72",
+            "sourceRef": "15",
+            "targetRef": "12"
+        },
+        {
+            "id": "73",
+            "sourceRef": "16",
+            "targetRef": "14"
+        },
+        {
+            "id": "74",
+            "sourceRef": "17",
+            "targetRef": "16"
+        }
+    ]
+}

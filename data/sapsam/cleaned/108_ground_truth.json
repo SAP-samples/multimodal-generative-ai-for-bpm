@@ -1,0 +1,229 @@
+{
+    "tasks": [
+        {
+            "id": "sid-E99DD545-009A-4203-B0FF-F51422C373CE",
+            "name": "Steuerberatung beauftragen",
+            "type": "Task"
+        },
+        {
+            "id": "sid-7D88D3AB-3F13-406C-891D-B35DD38873FC",
+            "name": "Steuererkl\u00e4rung schreiben",
+            "type": "Task"
+        },
+        {
+            "id": "sid-84AA725E-8A85-40E7-B90D-870EA9E4E2FE",
+            "name": "Vollmacht ausf\u00fcllen",
+            "type": "Task"
+        },
+        {
+            "id": "sid-F9063DDA-5F1B-470D-AD7D-7E13C21DF0BE",
+            "name": "Steuerberater ist ein vollm\u00e4chtiger Vertreter",
+            "type": "Task"
+        },
+        {
+            "id": "sid-6A9573EE-3835-4F34-B6CA-CA9E658341CD",
+            "name": "Steuererkl\u00e4rung erstellen",
+            "type": "Task"
+        },
+        {
+            "id": "sid-39E8A41B-2114-48AD-A502-A22C0C9C2647",
+            "name": "Steuererkl\u00e4rung an das Finanzamt schicken",
+            "type": "Task"
+        },
+        {
+            "id": "sid-54AE3610-F75E-41F5-A502-E18B42F28EE7",
+            "name": "Steuerberater erh\u00e4lt Steuerbscheid",
+            "type": "Task"
+        },
+        {
+            "id": "sid-C0B17337-6054-4E3E-AB6D-EE5144456BF5",
+            "name": "Steuerberater legt fristgem\u00e4\u00df Einspruch ein",
+            "type": "Task"
+        },
+        {
+            "id": "sid-0D8856E4-0B30-482B-B07F-79DB9648E653",
+            "name": "Steuerbescheid pr\u00fcfen",
+            "type": "Task"
+        },
+        {
+            "id": "sid-74BB47C6-1992-40EB-9B54-A5A6F0C6CBE3",
+            "name": "Finanzamt setzt Steuer fest",
+            "type": "Task"
+        }
+    ],
+    "events": [
+        {
+            "id": "sid-F381D4B0-6FA8-43CF-9EB2-CD4D4554A875",
+            "name": "Steuern abf\u00fchren",
+            "type": "StartNoneEvent"
+        },
+        {
+            "id": "sid-6BBE7B63-9042-4A8E-89E0-B8447A367316",
+            "name": "Vollmacht erhalten",
+            "type": "EndNoneEvent"
+        },
+        {
+            "id": "sid-FCFD7756-8B0C-4E16-B300-0D4D416B2351",
+            "name": "Steuern abgef\u00fchrt",
+            "type": "EndNoneEvent"
+        }
+    ],
+    "gateways": [
+        {
+            "id": "sid-99577646-060E-42E8-8BE2-790E26CE8181",
+            "name": "Vollmacht f\u00fcr den Steuerbearter  vorhanden?",
+            "type": "Exclusive"
+        },
+        {
+            "id": "sid-AFA446FA-2570-4840-9BC0-A14924C03C64",
+            "name": "Steuerbescheid vollst\u00e4ndig?",
+            "type": "Exclusive"
+        },
+        {
+            "id": "sid-E42228D6-296B-4993-9900-2991C14685BF",
+            "type": "Exclusive"
+        },
+        {
+            "id": "sid-52B2C3CF-7AF7-4126-8259-2C06C4867A13",
+            "type": "Parallel"
+        },
+        {
+            "id": "sid-2A9F892E-105A-49D8-9D5C-7188D804B34D",
+            "type": "Parallel"
+        }
+    ],
+    "pools": [
+        {
+            "id": "sid-30D7AD43-0B4C-4AF0-9DCB-9D7692C5BF7B",
+            "name": "Steuern kontrollieren",
+            "lanes": [
+                {
+                    "id": "sid-1631056E-CF84-4110-AB63-41043B2D676D",
+                    "name": "",
+                    "elemRefs": [
+                        "sid-E99DD545-009A-4203-B0FF-F51422C373CE",
+                        "sid-7D88D3AB-3F13-406C-891D-B35DD38873FC",
+                        "sid-84AA725E-8A85-40E7-B90D-870EA9E4E2FE",
+                        "sid-F9063DDA-5F1B-470D-AD7D-7E13C21DF0BE",
+                        "sid-6A9573EE-3835-4F34-B6CA-CA9E658341CD",
+                        "sid-39E8A41B-2114-48AD-A502-A22C0C9C2647",
+                        "sid-54AE3610-F75E-41F5-A502-E18B42F28EE7",
+                        "sid-C0B17337-6054-4E3E-AB6D-EE5144456BF5",
+                        "sid-0D8856E4-0B30-482B-B07F-79DB9648E653",
+                        "sid-74BB47C6-1992-40EB-9B54-A5A6F0C6CBE3",
+                        "sid-F381D4B0-6FA8-43CF-9EB2-CD4D4554A875",
+                        "sid-6BBE7B63-9042-4A8E-89E0-B8447A367316",
+                        "sid-FCFD7756-8B0C-4E16-B300-0D4D416B2351",
+                        "sid-99577646-060E-42E8-8BE2-790E26CE8181",
+                        "sid-AFA446FA-2570-4840-9BC0-A14924C03C64",
+                        "sid-E42228D6-296B-4993-9900-2991C14685BF",
+                        "sid-52B2C3CF-7AF7-4126-8259-2C06C4867A13",
+                        "sid-2A9F892E-105A-49D8-9D5C-7188D804B34D"
+                    ]
+                }
+            ]
+        }
+    ],
+    "messageFlows": [],
+    "sequenceFlows": [
+        {
+            "id": "sid-86DDA3B3-D4D1-49FF-AB76-059AD3732C62",
+            "targetRef": "sid-E99DD545-009A-4203-B0FF-F51422C373CE",
+            "sourceRef": "sid-F381D4B0-6FA8-43CF-9EB2-CD4D4554A875"
+        },
+        {
+            "id": "sid-E55511F2-34D6-4DD6-AF92-DB46804293FB",
+            "targetRef": "sid-7D88D3AB-3F13-406C-891D-B35DD38873FC",
+            "sourceRef": "sid-E99DD545-009A-4203-B0FF-F51422C373CE"
+        },
+        {
+            "id": "sid-98388C32-48E1-4A4A-9CB8-81C38EBECB32",
+            "targetRef": "sid-99577646-060E-42E8-8BE2-790E26CE8181",
+            "sourceRef": "sid-7D88D3AB-3F13-406C-891D-B35DD38873FC"
+        },
+        {
+            "id": "sid-D6AFF5E2-FFC7-4523-8EF1-8FEF1A5ABDDF",
+            "targetRef": "sid-84AA725E-8A85-40E7-B90D-870EA9E4E2FE",
+            "condition": "Nein",
+            "sourceRef": "sid-99577646-060E-42E8-8BE2-790E26CE8181"
+        },
+        {
+            "id": "sid-70166043-6321-4FE0-95F6-CF9B333C792C",
+            "targetRef": "sid-F9063DDA-5F1B-470D-AD7D-7E13C21DF0BE",
+            "condition": "Ja",
+            "sourceRef": "sid-99577646-060E-42E8-8BE2-790E26CE8181"
+        },
+        {
+            "id": "sid-0F76DD12-4C82-4B97-95AE-1FFEAA8D5931",
+            "targetRef": "sid-6BBE7B63-9042-4A8E-89E0-B8447A367316",
+            "sourceRef": "sid-84AA725E-8A85-40E7-B90D-870EA9E4E2FE"
+        },
+        {
+            "id": "sid-9913D961-5A37-4F55-B97F-10F2BB07A401",
+            "targetRef": "sid-6A9573EE-3835-4F34-B6CA-CA9E658341CD",
+            "sourceRef": "sid-F9063DDA-5F1B-470D-AD7D-7E13C21DF0BE"
+        },
+        {
+            "id": "sid-4FF77749-2EE0-43DE-B0D2-DD2CF6E0F991",
+            "targetRef": "sid-39E8A41B-2114-48AD-A502-A22C0C9C2647",
+            "sourceRef": "sid-6A9573EE-3835-4F34-B6CA-CA9E658341CD"
+        },
+        {
+            "id": "sid-06EB30A2-85AE-4704-8A85-FC10BD52191F",
+            "targetRef": "sid-54AE3610-F75E-41F5-A502-E18B42F28EE7",
+            "sourceRef": "sid-39E8A41B-2114-48AD-A502-A22C0C9C2647"
+        },
+        {
+            "id": "sid-14786104-562A-4155-8A8E-9EFF8CE2E881",
+            "targetRef": "sid-52B2C3CF-7AF7-4126-8259-2C06C4867A13",
+            "sourceRef": "sid-54AE3610-F75E-41F5-A502-E18B42F28EE7"
+        },
+        {
+            "id": "sid-75A0E03B-F087-496C-A7F7-E0D4B3E46FAC",
+            "targetRef": "sid-FCFD7756-8B0C-4E16-B300-0D4D416B2351",
+            "sourceRef": "sid-74BB47C6-1992-40EB-9B54-A5A6F0C6CBE3"
+        },
+        {
+            "id": "sid-63805DCE-CF4D-425C-8C80-9D18B2E2D543",
+            "targetRef": "sid-74BB47C6-1992-40EB-9B54-A5A6F0C6CBE3",
+            "condition": "Ja",
+            "sourceRef": "sid-AFA446FA-2570-4840-9BC0-A14924C03C64"
+        },
+        {
+            "id": "sid-B3B4AA98-9DFA-411A-9736-A5DEFAB17A54",
+            "targetRef": "sid-AFA446FA-2570-4840-9BC0-A14924C03C64",
+            "sourceRef": "sid-E42228D6-296B-4993-9900-2991C14685BF"
+        },
+        {
+            "id": "sid-D9ABB86F-5275-4F3C-92BE-1A0C0B1531DB",
+            "targetRef": "sid-E42228D6-296B-4993-9900-2991C14685BF",
+            "condition": "Nein",
+            "sourceRef": "sid-AFA446FA-2570-4840-9BC0-A14924C03C64"
+        },
+        {
+            "id": "sid-FC5D55FF-E1CB-425A-AD95-DAC5FA8FD2D8",
+            "targetRef": "sid-C0B17337-6054-4E3E-AB6D-EE5144456BF5",
+            "sourceRef": "sid-52B2C3CF-7AF7-4126-8259-2C06C4867A13"
+        },
+        {
+            "id": "sid-642988FD-9B7C-468C-9A43-F05137F3A7A9",
+            "targetRef": "sid-0D8856E4-0B30-482B-B07F-79DB9648E653",
+            "sourceRef": "sid-52B2C3CF-7AF7-4126-8259-2C06C4867A13"
+        },
+        {
+            "id": "sid-75FB4F47-EBC0-4BA1-9C34-361579D89CA8",
+            "targetRef": "sid-2A9F892E-105A-49D8-9D5C-7188D804B34D",
+            "sourceRef": "sid-C0B17337-6054-4E3E-AB6D-EE5144456BF5"
+        },
+        {
+            "id": "sid-3DB97248-9366-456D-8E89-BFA432AD0A31",
+            "targetRef": "sid-2A9F892E-105A-49D8-9D5C-7188D804B34D",
+            "sourceRef": "sid-0D8856E4-0B30-482B-B07F-79DB9648E653"
+        },
+        {
+            "id": "sid-C8239E69-CCD5-4236-B7AF-84BFC6C39805",
+            "targetRef": "sid-E42228D6-296B-4993-9900-2991C14685BF",
+            "sourceRef": "sid-2A9F892E-105A-49D8-9D5C-7188D804B34D"
+        }
+    ]
+}

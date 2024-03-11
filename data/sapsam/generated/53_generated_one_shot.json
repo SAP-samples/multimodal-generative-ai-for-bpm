@@ -1,0 +1,268 @@
+{
+    "tasks": [
+        {
+            "id": "0",
+            "name": "Prepare check-list for preparations",
+            "type": "User"
+        },
+        {
+            "id": "1",
+            "name": "Check and complete necessary papers",
+            "type": "Manual"
+        },
+        {
+            "id": "2",
+            "name": "Apply for visa",
+            "type": "Send"
+        },
+        {
+            "id": "3",
+            "name": "Clear unfinished business",
+            "type": "Task"
+        },
+        {
+            "id": "4",
+            "name": "Arrange care for pets",
+            "type": "Manual"
+        },
+        {
+            "id": "5",
+            "name": "Unsubscribe post or demand at neighbour to fetch it",
+            "type": "Manual"
+        },
+        {
+            "id": "6",
+            "name": "Get necessary vaccination",
+            "type": "Manual"
+        },
+        {
+            "id": "7",
+            "name": "Check insurance coverage and apply for further coverage if necessary",
+            "type": "Manual"
+        },
+        {
+            "id": "8",
+            "name": "Gather travel documents and addresses",
+            "type": "Manual"
+        },
+        {
+            "id": "9",
+            "name": "Prepare first-aid kit",
+            "type": "Manual"
+        },
+        {
+            "id": "10",
+            "name": "Buy or lend guidebooks and city maps",
+            "type": "Manual"
+        },
+        {
+            "id": "11",
+            "name": "Make copies of ID cards and travel documents",
+            "type": "Manual"
+        }
+    ],
+    "events": [
+        {
+            "id": "12",
+            "name": "Travel details are fixed",
+            "type": "StartNoneEvent"
+        },
+        {
+            "id": "13",
+            "name": "Travel preparations completed",
+            "type": "EndNoneEvent"
+        }
+    ],
+    "gateways": [
+        {
+            "id": "14",
+            "name": "Visa required?",
+            "type": "Exclusive"
+        },
+        {
+            "id": "15",
+            "name": "Pets to take care of?",
+            "type": "Exclusive"
+        },
+        {
+            "id": "16",
+            "type": "Parallel"
+        },
+        {
+            "id": "17",
+            "type": "Parallel"
+        }
+    ],
+    "pools": [
+        {
+            "id": "18",
+            "name": "Roadtrip participant",
+            "lanes": [
+                {
+                    "id": "19",
+                    "name": "Roadtrip participant",
+                    "elemRefs": [
+                        "0",
+                        "1",
+                        "2",
+                        "3",
+                        "4",
+                        "5",
+                        "6",
+                        "7",
+                        "8",
+                        "9",
+                        "10",
+                        "11",
+                        "12",
+                        "13",
+                        "14",
+                        "15",
+                        "16",
+                        "17"
+                    ]
+                }
+            ]
+        },
+        {
+            "id": "20",
+            "name": "Embassy",
+            "lanes": []
+        },
+        {
+            "id": "21",
+            "name": "Insurance company",
+            "lanes": []
+        }
+    ],
+    "sequenceFlows": [
+        {
+            "id": "22",
+            "sourceRef": "0",
+            "targetRef": "1"
+        },
+        {
+            "id": "23",
+            "sourceRef": "1",
+            "targetRef": "14"
+        },
+        {
+            "id": "24",
+            "sourceRef": "14",
+            "targetRef": "2",
+            "condition": "Yes"
+        },
+        {
+            "id": "25",
+            "sourceRef": "2",
+            "targetRef": "3"
+        },
+        {
+            "id": "26",
+            "sourceRef": "14",
+            "targetRef": "3",
+            "condition": "No"
+        },
+        {
+            "id": "27",
+            "sourceRef": "3",
+            "targetRef": "15"
+        },
+        {
+            "id": "28",
+            "sourceRef": "15",
+            "targetRef": "4",
+            "condition": "Yes"
+        },
+        {
+            "id": "29",
+            "sourceRef": "4",
+            "targetRef": "5"
+        },
+        {
+            "id": "30",
+            "sourceRef": "15",
+            "targetRef": "5",
+            "condition": "No"
+        },
+        {
+            "id": "31",
+            "sourceRef": "5",
+            "targetRef": "16"
+        },
+        {
+            "id": "32",
+            "sourceRef": "16",
+            "targetRef": "6"
+        },
+        {
+            "id": "33",
+            "sourceRef": "16",
+            "targetRef": "7"
+        },
+        {
+            "id": "34",
+            "sourceRef": "16",
+            "targetRef": "8"
+        },
+        {
+            "id": "35",
+            "sourceRef": "16",
+            "targetRef": "9"
+        },
+        {
+            "id": "36",
+            "sourceRef": "16",
+            "targetRef": "10"
+        },
+        {
+            "id": "37",
+            "sourceRef": "6",
+            "targetRef": "17"
+        },
+        {
+            "id": "38",
+            "sourceRef": "7",
+            "targetRef": "17"
+        },
+        {
+            "id": "39",
+            "sourceRef": "8",
+            "targetRef": "17"
+        },
+        {
+            "id": "40",
+            "sourceRef": "9",
+            "targetRef": "17"
+        },
+        {
+            "id": "41",
+            "sourceRef": "10",
+            "targetRef": "17"
+        },
+        {
+            "id": "42",
+            "sourceRef": "17",
+            "targetRef": "11"
+        },
+        {
+            "id": "43",
+            "sourceRef": "11",
+            "targetRef": "13"
+        }
+    ],
+    "messageFlows": [
+        {
+            "id": "44",
+            "sourceRef": "20",
+            "targetRef": "2",
+            "label": "Visa application"
+        },
+        {
+            "id": "45",
+            "sourceRef": "21",
+            "targetRef": "7",
+            "label": "Insurance application"
+        }
+    ]
+}

@@ -1,0 +1,103 @@
+{
+    "tasks": [
+        {
+            "id": "0",
+            "name": "Check if contract has been withdrawn",
+            "type": "Service"
+        },
+        {
+            "id": "1",
+            "name": "Withdraw contract",
+            "type": "Service"
+        },
+        {
+            "id": "2",
+            "name": "Student place given back to the pool",
+            "type": "Service"
+        },
+        {
+            "id": "3",
+            "name": "Decrement course counter",
+            "type": "Service"
+        }
+    ],
+    "events": [
+        {
+            "id": "4",
+            "name": "Check for duplicates complete",
+            "type": "StartNoneEvent"
+        },
+        {
+            "id": "5",
+            "name": "Closing of \"Student Registration\" Moodle course",
+            "type": "EndNoneEvent"
+        }
+    ],
+    "gateways": [
+        {
+            "id": "6",
+            "type": "Exclusive"
+        }
+    ],
+    "pools": [
+        {
+            "id": "7",
+            "name": "DHBW",
+            "lanes": [
+                {
+                    "id": "8",
+                    "name": "Moodle",
+                    "elemRefs": [
+                        "0",
+                        "1",
+                        "2",
+                        "3",
+                        "4",
+                        "5",
+                        "6"
+                    ]
+                }
+            ]
+        }
+    ],
+    "sequenceFlows": [
+        {
+            "id": "9",
+            "sourceRef": "4",
+            "targetRef": "0"
+        },
+        {
+            "id": "10",
+            "sourceRef": "0",
+            "targetRef": "6"
+        },
+        {
+            "id": "11",
+            "sourceRef": "6",
+            "targetRef": "1",
+            "condition": "Yes"
+        },
+        {
+            "id": "12",
+            "sourceRef": "6",
+            "targetRef": "2",
+            "condition": "No"
+        },
+        {
+            "id": "13",
+            "sourceRef": "1",
+            "targetRef": "3"
+        },
+        {
+            "id": "14",
+            "sourceRef": "3",
+            "targetRef": "5"
+        },
+        {
+            "id": "15",
+            "sourceRef": "2",
+            "targetRef": "5"
+        }
+    ],
+    "messageFlows": []
+}

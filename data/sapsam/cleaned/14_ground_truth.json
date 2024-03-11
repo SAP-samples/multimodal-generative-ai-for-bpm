@@ -1,0 +1,244 @@
+{
+    "tasks": [
+        {
+            "id": "sid-81EB5F6E-6C51-4D0C-9328-B42B4D0D251C",
+            "name": "Seller dislpays items on the webpage",
+            "type": "Task"
+        },
+        {
+            "id": "sid-D6734488-0C44-4445-A65F-2DEF4B5CFCFE",
+            "name": "Seller receives buyer's order",
+            "type": "Task"
+        },
+        {
+            "id": "sid-3714A29B-128D-4D7D-9061-5AE029FA8BE1",
+            "name": "Seller sends to the buyer the order purchase confirmation",
+            "type": "Task"
+        },
+        {
+            "id": "sid-6AF2196D-05B2-437D-8AA8-A1533CCB17FC",
+            "name": "Seller sends the order to the shipping company",
+            "type": "Task"
+        },
+        {
+            "id": "sid-422C0E0E-8780-4B0E-93B3-8A5B2B91736E",
+            "name": "eBay tracks the order",
+            "type": "Task"
+        },
+        {
+            "id": "sid-B9F4C7CF-FF52-4358-802D-FBCB28ACADE7",
+            "name": "Shipping company delivers item to the customer in proper datess",
+            "type": "Task"
+        },
+        {
+            "id": "sid-BDADD206-9162-4F51-AF11-E6BE30578BA5",
+            "name": "Shipping company gets item",
+            "type": "Task"
+        },
+        {
+            "id": "sid-EA3CEB71-570E-479D-9396-2C7CFB444304",
+            "name": "company does not deliver the purchase",
+            "type": "Task"
+        },
+        {
+            "id": "sid-4E594D14-74E4-4DE0-94DC-6F3CFAC0991F",
+            "name": "Buyer purchases the item",
+            "type": "Task"
+        },
+        {
+            "id": "sid-3232A168-2CD1-4B4B-841F-9C89DED6C772",
+            "name": "Buyer  asks for money reimbursement",
+            "type": "Task"
+        },
+        {
+            "id": "sid-86BBDE34-86F1-46F1-885A-981F8D07553C",
+            "name": "Buyer asks for reshipment of the item",
+            "type": "Task"
+        },
+        {
+            "id": "sid-4ED99336-5753-45FF-BB26-B4AA7F93ED65",
+            "name": "Seller receivers buyer's decision and reimburses money",
+            "type": "Task"
+        }
+    ],
+    "events": [
+        {
+            "id": "sid-e4930bb0d4d5429f8768fab657a41106",
+            "name": "Online selling process started",
+            "type": "StartNoneEvent"
+        },
+        {
+            "id": "sid-f3903226044146c09bde6c646842ba4d",
+            "name": "Buyer closed the order",
+            "type": "EndNoneEvent"
+        },
+        {
+            "id": "sid-9F1923BC-EFD4-4FFB-B77D-8E349FE1B20C",
+            "name": "Purchase wasn't continued",
+            "type": "EndEscalationEvent"
+        }
+    ],
+    "gateways": [
+        {
+            "id": "sid-38D7399C-D78D-4A1B-AF4E-6A2D7E2D23D4",
+            "name": "And-Join",
+            "type": "Exclusive"
+        },
+        {
+            "id": "sid-F0EE9CB5-651A-4DA3-B034-8A5F3DE401D0",
+            "name": "What will the shipping company do?",
+            "type": "Exclusive"
+        },
+        {
+            "id": "sid-2AE09B88-0756-4499-94D7-99D6DC01E23D",
+            "name": "What will the buyer do?",
+            "type": "Exclusive"
+        }
+    ],
+    "pools": [
+        {
+            "id": "sid-1f97176f6d6941b9a7bff50ef6f2a3c3",
+            "name": "eBay data stores",
+            "lanes": [
+                {
+                    "id": "sid-6921c67f76f3461caed9c452c8863305",
+                    "name": "Seller",
+                    "elemRefs": [
+                        "sid-81EB5F6E-6C51-4D0C-9328-B42B4D0D251C",
+                        "sid-D6734488-0C44-4445-A65F-2DEF4B5CFCFE",
+                        "sid-3714A29B-128D-4D7D-9061-5AE029FA8BE1",
+                        "sid-6AF2196D-05B2-437D-8AA8-A1533CCB17FC",
+                        "sid-e4930bb0d4d5429f8768fab657a41106",
+                        "sid-38D7399C-D78D-4A1B-AF4E-6A2D7E2D23D4"
+                    ]
+                },
+                {
+                    "id": "sid-01bbbd30301d4cd890e3b95af9d2c2a3",
+                    "name": "eBay",
+                    "elemRefs": [
+                        "sid-422C0E0E-8780-4B0E-93B3-8A5B2B91736E",
+                        "sid-B9F4C7CF-FF52-4358-802D-FBCB28ACADE7",
+                        "sid-f3903226044146c09bde6c646842ba4d"
+                    ]
+                },
+                {
+                    "id": "sid-4A083F77-AD2F-432B-BD03-FB00D4195632",
+                    "name": "Shipping company",
+                    "elemRefs": [
+                        "sid-BDADD206-9162-4F51-AF11-E6BE30578BA5",
+                        "sid-EA3CEB71-570E-479D-9396-2C7CFB444304",
+                        "sid-F0EE9CB5-651A-4DA3-B034-8A5F3DE401D0",
+                        "sid-2AE09B88-0756-4499-94D7-99D6DC01E23D"
+                    ]
+                },
+                {
+                    "id": "sid-ffcc6c97226e4b14bf608e7e210cdd82",
+                    "name": "Buyer",
+                    "elemRefs": [
+                        "sid-4E594D14-74E4-4DE0-94DC-6F3CFAC0991F",
+                        "sid-3232A168-2CD1-4B4B-841F-9C89DED6C772",
+                        "sid-86BBDE34-86F1-46F1-885A-981F8D07553C",
+                        "sid-4ED99336-5753-45FF-BB26-B4AA7F93ED65",
+                        "sid-9F1923BC-EFD4-4FFB-B77D-8E349FE1B20C"
+                    ]
+                }
+            ]
+        }
+    ],
+    "messageFlows": [],
+    "sequenceFlows": [
+        {
+            "id": "spr-fef28bfccec84b8585fd3f17cdba0721",
+            "targetRef": "sid-81EB5F6E-6C51-4D0C-9328-B42B4D0D251C",
+            "sourceRef": "sid-e4930bb0d4d5429f8768fab657a41106"
+        },
+        {
+            "id": "sid-961009C3-D1C1-4914-8ECE-16B422E70FD4",
+            "targetRef": "sid-9F1923BC-EFD4-4FFB-B77D-8E349FE1B20C",
+            "sourceRef": "sid-4ED99336-5753-45FF-BB26-B4AA7F93ED65"
+        },
+        {
+            "id": "sid-77EE5511-0AEB-406A-A17C-3E3EE997C5CB",
+            "targetRef": "sid-D6734488-0C44-4445-A65F-2DEF4B5CFCFE",
+            "sourceRef": "sid-38D7399C-D78D-4A1B-AF4E-6A2D7E2D23D4"
+        },
+        {
+            "id": "sid-A91583C6-49E2-4E5F-B407-D57E891B4028",
+            "targetRef": "sid-F0EE9CB5-651A-4DA3-B034-8A5F3DE401D0",
+            "sourceRef": "sid-BDADD206-9162-4F51-AF11-E6BE30578BA5"
+        },
+        {
+            "id": "sid-924771B8-D69B-4EFA-B2BD-DCDA457EA7AE",
+            "targetRef": "sid-3714A29B-128D-4D7D-9061-5AE029FA8BE1",
+            "sourceRef": "sid-D6734488-0C44-4445-A65F-2DEF4B5CFCFE"
+        },
+        {
+            "id": "sid-41346376-BFC0-414C-B329-2C3A980C1D86",
+            "targetRef": "sid-6AF2196D-05B2-437D-8AA8-A1533CCB17FC",
+            "sourceRef": "sid-3714A29B-128D-4D7D-9061-5AE029FA8BE1"
+        },
+        {
+            "id": "spr-44d9d37e54624eb6bceb7993867f3b11",
+            "targetRef": "sid-4E594D14-74E4-4DE0-94DC-6F3CFAC0991F",
+            "sourceRef": "sid-81EB5F6E-6C51-4D0C-9328-B42B4D0D251C"
+        },
+        {
+            "id": "spr-90017a5157b540cf8dee905b31206b2e",
+            "targetRef": "sid-f3903226044146c09bde6c646842ba4d",
+            "sourceRef": "sid-422C0E0E-8780-4B0E-93B3-8A5B2B91736E"
+        },
+        {
+            "id": "sid-E5E38BCB-BF6B-43B6-A316-E55DE79B75EE",
+            "targetRef": "sid-4ED99336-5753-45FF-BB26-B4AA7F93ED65",
+            "sourceRef": "sid-3232A168-2CD1-4B4B-841F-9C89DED6C772"
+        },
+        {
+            "id": "sid-54275FB0-0460-40FA-BE34-B7B32F827C8B",
+            "targetRef": "sid-38D7399C-D78D-4A1B-AF4E-6A2D7E2D23D4",
+            "sourceRef": "sid-4E594D14-74E4-4DE0-94DC-6F3CFAC0991F"
+        },
+        {
+            "id": "sid-4D6D5742-1BEC-4290-8F46-05F2F2FBF7B8",
+            "targetRef": "sid-38D7399C-D78D-4A1B-AF4E-6A2D7E2D23D4",
+            "sourceRef": "sid-86BBDE34-86F1-46F1-885A-981F8D07553C"
+        },
+        {
+            "id": "sid-108C432C-F76C-4A24-BBC4-ECEEFDD13F59",
+            "targetRef": "sid-BDADD206-9162-4F51-AF11-E6BE30578BA5",
+            "sourceRef": "sid-6AF2196D-05B2-437D-8AA8-A1533CCB17FC"
+        },
+        {
+            "id": "sid-06FFAD68-5928-40A5-8B03-BAEE3517D736",
+            "targetRef": "sid-2AE09B88-0756-4499-94D7-99D6DC01E23D",
+            "sourceRef": "sid-EA3CEB71-570E-479D-9396-2C7CFB444304"
+        },
+        {
+            "id": "sid-2992D927-A0F8-441A-991F-406747076568",
+            "targetRef": "sid-422C0E0E-8780-4B0E-93B3-8A5B2B91736E",
+            "sourceRef": "sid-B9F4C7CF-FF52-4358-802D-FBCB28ACADE7"
+        },
+        {
+            "id": "sid-E9C5166A-2D41-4FB1-BBC4-4B7A473D8E5F",
+            "targetRef": "sid-B9F4C7CF-FF52-4358-802D-FBCB28ACADE7",
+            "condition": "On Time",
+            "sourceRef": "sid-F0EE9CB5-651A-4DA3-B034-8A5F3DE401D0"
+        },
+        {
+            "id": "sid-0C66298A-0DF7-45C1-8BAB-29DCE85147D9",
+            "targetRef": "sid-EA3CEB71-570E-479D-9396-2C7CFB444304",
+            "sourceRef": "sid-F0EE9CB5-651A-4DA3-B034-8A5F3DE401D0"
+        },
+        {
+            "id": "sid-2EFC1847-7BFE-461B-8BC1-23EF1E268EF2",
+            "targetRef": "sid-3232A168-2CD1-4B4B-841F-9C89DED6C772",
+            "condition": "Money",
+            "sourceRef": "sid-2AE09B88-0756-4499-94D7-99D6DC01E23D"
+        },
+        {
+            "id": "sid-DB46C0C0-825E-4D37-9CFA-15076C17C296",
+            "targetRef": "sid-86BBDE34-86F1-46F1-885A-981F8D07553C",
+            "condition": "Item",
+            "sourceRef": "sid-2AE09B88-0756-4499-94D7-99D6DC01E23D"
+        }
+    ]
+}

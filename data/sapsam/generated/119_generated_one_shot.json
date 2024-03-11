@@ -1,0 +1,181 @@
+{
+    "tasks": [
+        {
+            "id": "0",
+            "name": "Post scannen",
+            "type": "Task"
+        },
+        {
+            "id": "1",
+            "name": "Post weiterleiten",
+            "type": "Task"
+        },
+        {
+            "id": "2",
+            "name": "Ansprechpartner pr\u00fcfen",
+            "type": "Task"
+        },
+        {
+            "id": "3",
+            "name": "Post pr\u00fcfen",
+            "type": "Task"
+        },
+        {
+            "id": "4",
+            "name": "Sekretariat benachrichtigen",
+            "type": "Task"
+        },
+        {
+            "id": "5",
+            "name": "Post entsorgen",
+            "type": "Task"
+        },
+        {
+            "id": "6",
+            "name": "Post senden",
+            "type": "Task"
+        }
+    ],
+    "events": [
+        {
+            "id": "7",
+            "name": "Post vorhanden",
+            "type": "StartNoneEvent"
+        },
+        {
+            "id": "8",
+            "name": "Post kommt zur\u00fcck",
+            "type": "IntermediateEscalationEvent"
+        },
+        {
+            "id": "9",
+            "name": "Post bearbeitet",
+            "type": "EndNoneEvent"
+        }
+    ],
+    "gateways": [
+        {
+            "id": "10",
+            "name": "Post wichtig?",
+            "type": "Exclusive"
+        },
+        {
+            "id": "11",
+            "type": "Exclusive"
+        },
+        {
+            "id": "12",
+            "type": "Exclusive"
+        }
+    ],
+    "pools": [
+        {
+            "id": "13",
+            "name": "SoKnow",
+            "lanes": [
+                {
+                    "id": "14",
+                    "name": "Mitarbeiter",
+                    "elemRefs": [
+                        "3",
+                        "4"
+                    ]
+                },
+                {
+                    "id": "15",
+                    "name": "Sekretariat",
+                    "elemRefs": [
+                        "0",
+                        "1",
+                        "2",
+                        "5",
+                        "6",
+                        "7",
+                        "8",
+                        "9",
+                        "10",
+                        "11",
+                        "12"
+                    ]
+                }
+            ]
+        }
+    ],
+    "sequenceFlows": [
+        {
+            "id": "16",
+            "sourceRef": "7",
+            "targetRef": "0"
+        },
+        {
+            "id": "17",
+            "sourceRef": "0",
+            "targetRef": "1"
+        },
+        {
+            "id": "18",
+            "sourceRef": "1",
+            "targetRef": "10"
+        },
+        {
+            "id": "19",
+            "sourceRef": "10",
+            "targetRef": "2",
+            "condition": "Ja"
+        },
+        {
+            "id": "20",
+            "sourceRef": "10",
+            "targetRef": "5",
+            "condition": "Nein"
+        },
+        {
+            "id": "21",
+            "sourceRef": "2",
+            "targetRef": "3"
+        },
+        {
+            "id": "22",
+            "sourceRef": "3",
+            "targetRef": "4"
+        },
+        {
+            "id": "23",
+            "sourceRef": "4",
+            "targetRef": "11"
+        },
+        {
+            "id": "24",
+            "sourceRef": "11",
+            "targetRef": "6",
+            "condition": "Zu versenden"
+        },
+        {
+            "id": "25",
+            "sourceRef": "11",
+            "targetRef": "12",
+            "condition": "Nicht zu versenden"
+        },
+        {
+            "id": "26",
+            "sourceRef": "6",
+            "targetRef": "9"
+        },
+        {
+            "id": "27",
+            "sourceRef": "12",
+            "targetRef": "9"
+        },
+        {
+            "id": "28",
+            "sourceRef": "5",
+            "targetRef": "9"
+        },
+        {
+            "id": "29",
+            "sourceRef": "8",
+            "targetRef": "2"
+        }
+    ],
+    "messageFlows": []
+}

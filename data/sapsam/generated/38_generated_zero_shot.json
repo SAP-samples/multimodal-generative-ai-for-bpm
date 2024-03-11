@@ -1,0 +1,218 @@
+{
+    "tasks": [
+        {
+            "id": "0",
+            "name": "Ware ausw\u00e4hlen und Kaufen",
+            "type": "Task"
+        },
+        {
+            "id": "1",
+            "name": "Erfordert Preis Pr\u00fcfung der Kreditw\u00fcrdigkeit",
+            "type": "Task"
+        },
+        {
+            "id": "2",
+            "name": "Informationen anfordern",
+            "type": "Task"
+        },
+        {
+            "id": "3",
+            "name": "Kreditw\u00fcrdigkeit pr\u00fcfen",
+            "type": "Task"
+        },
+        {
+            "id": "4",
+            "name": "Kunden \u00fcber Ablehnung informieren",
+            "type": "Task"
+        },
+        {
+            "id": "5",
+            "name": "Lager \u00fcber Versand informieren",
+            "type": "Task"
+        },
+        {
+            "id": "6",
+            "name": "Pr\u00fcfe ob Artikel vorhanden",
+            "type": "Task"
+        },
+        {
+            "id": "7",
+            "name": "Nachbestellen",
+            "type": "Task"
+        },
+        {
+            "id": "8",
+            "name": "Kauf-und Versandbest\u00e4tigung",
+            "type": "Task"
+        },
+        {
+            "id": "9",
+            "name": "verpacken und versenden",
+            "type": "Task"
+        }
+    ],
+    "events": [
+        {
+            "id": "10",
+            "name": "Start Event",
+            "type": "StartNoneEvent"
+        },
+        {
+            "id": "11",
+            "name": "End Event",
+            "type": "EndNoneEvent"
+        }
+    ],
+    "gateways": [
+        {
+            "id": "12",
+            "type": "Exclusive"
+        },
+        {
+            "id": "13",
+            "type": "Exclusive"
+        },
+        {
+            "id": "14",
+            "type": "Exclusive"
+        },
+        {
+            "id": "15",
+            "type": "Parallel"
+        }
+    ],
+    "pools": [
+        {
+            "id": "16",
+            "name": "Einkauf",
+            "lanes": [
+                {
+                    "id": "17",
+                    "name": "Online",
+                    "elemRefs": [
+                        "0",
+                        "1",
+                        "8"
+                    ]
+                },
+                {
+                    "id": "18",
+                    "name": "Finanzabteilung",
+                    "elemRefs": [
+                        "2",
+                        "3",
+                        "4",
+                        "5"
+                    ]
+                },
+                {
+                    "id": "19",
+                    "name": "Lager",
+                    "elemRefs": [
+                        "6",
+                        "7",
+                        "9"
+                    ]
+                },
+                {
+                    "id": "20",
+                    "name": "im Gesch\u00e4ft",
+                    "elemRefs": []
+                }
+            ]
+        }
+    ],
+    "sequenceFlows": [
+        {
+            "id": "21",
+            "sourceRef": "10",
+            "targetRef": "0"
+        },
+        {
+            "id": "22",
+            "sourceRef": "0",
+            "targetRef": "12"
+        },
+        {
+            "id": "23",
+            "sourceRef": "12",
+            "targetRef": "1",
+            "condition": "Preis Limit von 250 Euro \u00fcberschreitet"
+        },
+        {
+            "id": "24",
+            "sourceRef": "12",
+            "targetRef": "8",
+            "condition": "Preis Limit von 250 Euro nicht \u00fcberschreitet"
+        },
+        {
+            "id": "25",
+            "sourceRef": "1",
+            "targetRef": "2"
+        },
+        {
+            "id": "26",
+            "sourceRef": "2",
+            "targetRef": "3"
+        },
+        {
+            "id": "27",
+            "sourceRef": "3",
+            "targetRef": "13"
+        },
+        {
+            "id": "28",
+            "sourceRef": "13",
+            "targetRef": "4",
+            "condition": "Kreditw\u00fcrdigkeit negativ"
+        },
+        {
+            "id": "29",
+            "sourceRef": "13",
+            "targetRef": "5",
+            "condition": "Kreditw\u00fcrdigkeit positiv"
+        },
+        {
+            "id": "30",
+            "sourceRef": "5",
+            "targetRef": "6"
+        },
+        {
+            "id": "31",
+            "sourceRef": "6",
+            "targetRef": "14"
+        },
+        {
+            "id": "32",
+            "sourceRef": "14",
+            "targetRef": "7",
+            "condition": "Artikel nicht vorr\u00e4tig"
+        },
+        {
+            "id": "33",
+            "sourceRef": "14",
+            "targetRef": "15"
+        },
+        {
+            "id": "34",
+            "sourceRef": "7",
+            "targetRef": "15"
+        },
+        {
+            "id": "35",
+            "sourceRef": "15",
+            "targetRef": "9"
+        },
+        {
+            "id": "36",
+            "sourceRef": "9",
+            "targetRef": "11"
+        },
+        {
+            "id": "37",
+            "sourceRef": "8",
+            "targetRef": "11"
+        }
+    ],
+    "messageFlows": []
+}

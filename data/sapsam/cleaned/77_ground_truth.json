@@ -1,0 +1,96 @@
+{
+    "tasks": [
+        {
+            "id": "sid-8911EE0E-0E13-4A43-A6C4-18EB26D63DAD",
+            "name": "Auf \"Start\" klicken",
+            "type": "Task"
+        },
+        {
+            "id": "sid-2431C711-ABA3-4C47-8196-2321E0C00579",
+            "name": "Auf \"Format\" klicken",
+            "type": "Task"
+        },
+        {
+            "id": "sid-64A1B627-DD81-4BE8-8955-AFC9F1961217",
+            "name": "Auf \"Einblenden und Ausblenden\" klicken",
+            "type": "Task"
+        },
+        {
+            "id": "sid-3F3C6955-6CB0-4C7A-816F-5E4AB10C4F07",
+            "name": "Auf \"Blatt einblenden\" klicken",
+            "type": "Task"
+        },
+        {
+            "id": "sid-945AE247-4810-48C3-BDB8-2C979D5B5ED5",
+            "name": "Enter dr\u00fccken",
+            "type": "Task"
+        }
+    ],
+    "events": [
+        {
+            "id": "sid-EB3B9B06-02D5-46CF-B8FD-35FAA0D83637",
+            "name": "Start  Datenblatt  \u00f6ffnen",
+            "type": "StartNoneEvent"
+        },
+        {
+            "id": "sid-4276102E-187A-4359-9504-735DBDE5205E",
+            "name": "Datenblatt ge\u00f6ffnet",
+            "type": "EndNoneEvent"
+        }
+    ],
+    "gateways": [],
+    "pools": [
+        {
+            "id": "sid-a1a77d7b-dd5f-4700-8e01-4da66b46d2eb",
+            "name": "TAS AG",
+            "lanes": [
+                {
+                    "id": "sid-E283D0A3-440D-4301-9481-4C19637AC9CC",
+                    "name": "Roboter",
+                    "elemRefs": [
+                        "sid-8911EE0E-0E13-4A43-A6C4-18EB26D63DAD",
+                        "sid-2431C711-ABA3-4C47-8196-2321E0C00579",
+                        "sid-64A1B627-DD81-4BE8-8955-AFC9F1961217",
+                        "sid-3F3C6955-6CB0-4C7A-816F-5E4AB10C4F07",
+                        "sid-945AE247-4810-48C3-BDB8-2C979D5B5ED5",
+                        "sid-EB3B9B06-02D5-46CF-B8FD-35FAA0D83637",
+                        "sid-4276102E-187A-4359-9504-735DBDE5205E"
+                    ]
+                }
+            ]
+        }
+    ],
+    "messageFlows": [],
+    "sequenceFlows": [
+        {
+            "id": "sid-CEA22BBD-F82C-4026-B3E1-C59C86B67EDC",
+            "targetRef": "sid-8911EE0E-0E13-4A43-A6C4-18EB26D63DAD",
+            "sourceRef": "sid-EB3B9B06-02D5-46CF-B8FD-35FAA0D83637"
+        },
+        {
+            "id": "sid-9D8A4521-5FBC-482A-87AE-DED0A006740A",
+            "targetRef": "sid-2431C711-ABA3-4C47-8196-2321E0C00579",
+            "sourceRef": "sid-8911EE0E-0E13-4A43-A6C4-18EB26D63DAD"
+        },
+        {
+            "id": "sid-4A952C42-3F0A-4D71-9CC4-C2E1D9ADA9AB",
+            "targetRef": "sid-64A1B627-DD81-4BE8-8955-AFC9F1961217",
+            "sourceRef": "sid-2431C711-ABA3-4C47-8196-2321E0C00579"
+        },
+        {
+            "id": "sid-597B18DB-BBB4-4858-8937-71D15974EF73",
+            "targetRef": "sid-3F3C6955-6CB0-4C7A-816F-5E4AB10C4F07",
+            "sourceRef": "sid-64A1B627-DD81-4BE8-8955-AFC9F1961217"
+        },
+        {
+            "id": "sid-22BEE68B-5F71-4ACF-ADB6-AC2C94D703FD",
+            "targetRef": "sid-945AE247-4810-48C3-BDB8-2C979D5B5ED5",
+            "sourceRef": "sid-3F3C6955-6CB0-4C7A-816F-5E4AB10C4F07"
+        },
+        {
+            "id": "sid-1B836BDB-606E-48FC-BE22-807C00E48E8A",
+            "targetRef": "sid-4276102E-187A-4359-9504-735DBDE5205E",
+            "sourceRef": "sid-945AE247-4810-48C3-BDB8-2C979D5B5ED5"
+        }
+    ]
+}

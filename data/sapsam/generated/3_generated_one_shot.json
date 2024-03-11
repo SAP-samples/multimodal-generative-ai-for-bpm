@@ -1,0 +1,191 @@
+{
+    "tasks": [
+        {
+            "id": "0",
+            "name": "Bestand pr\u00fcfen",
+            "type": "Task"
+        },
+        {
+            "id": "1",
+            "name": "Bedarf spezifizieren und quantifizieren",
+            "type": "Task"
+        },
+        {
+            "id": "2",
+            "name": "Bestellung aufgeben",
+            "type": "Task"
+        },
+        {
+            "id": "3",
+            "name": "Bestellung per Mail nachfragen",
+            "type": "Task"
+        },
+        {
+            "id": "4",
+            "name": "Arbeitsmittel aus B\u00fcrolager entnehmen",
+            "type": "Task"
+        },
+        {
+            "id": "5",
+            "name": "Arbeitsmittel aus Lager entnommen",
+            "type": "Task"
+        }
+    ],
+    "events": [
+        {
+            "id": "6",
+            "name": "Bedarf aufgetreten",
+            "type": "StartNoneEvent"
+        },
+        {
+            "id": "7",
+            "name": "5 Tage",
+            "type": "IntermediateTimerEvent"
+        },
+        {
+            "id": "8",
+            "name": "Arbeitsmittel eingegangen",
+            "type": "IntermediateMessageEventCatching"
+        },
+        {
+            "id": "9",
+            "name": "Arbeitsmittel beschafft",
+            "type": "EndNoneEvent"
+        }
+    ],
+    "gateways": [
+        {
+            "id": "10",
+            "type": "Exclusive"
+        },
+        {
+            "id": "11",
+            "type": "Eventbased"
+        },
+        {
+            "id": "12",
+            "type": "Exclusive"
+        }
+    ],
+    "pools": [
+        {
+            "id": "13",
+            "name": "ACME AG",
+            "lanes": [
+                {
+                    "id": "14",
+                    "name": "Beschaffung",
+                    "elemRefs": [
+                        "0",
+                        "1",
+                        "2",
+                        "4",
+                        "5",
+                        "6",
+                        "7",
+                        "8",
+                        "9",
+                        "10",
+                        "11",
+                        "12"
+                    ]
+                }
+            ]
+        },
+        {
+            "id": "15",
+            "name": "Lieferant",
+            "lanes": []
+        }
+    ],
+    "sequenceFlows": [
+        {
+            "id": "16",
+            "sourceRef": "6",
+            "targetRef": "0"
+        },
+        {
+            "id": "17",
+            "sourceRef": "0",
+            "targetRef": "10"
+        },
+        {
+            "id": "18",
+            "sourceRef": "10",
+            "targetRef": "1",
+            "condition": "Lagerbestand ausreichend: nein"
+        },
+        {
+            "id": "19",
+            "sourceRef": "1",
+            "targetRef": "2"
+        },
+        {
+            "id": "20",
+            "sourceRef": "2",
+            "targetRef": "7"
+        },
+        {
+            "id": "21",
+            "sourceRef": "7",
+            "targetRef": "3"
+        },
+        {
+            "id": "22",
+            "sourceRef": "3",
+            "targetRef": "11"
+        },
+        {
+            "id": "23",
+            "sourceRef": "11",
+            "targetRef": "8"
+        },
+        {
+            "id": "24",
+            "sourceRef": "8",
+            "targetRef": "12"
+        },
+        {
+            "id": "25",
+            "sourceRef": "12",
+            "targetRef": "4",
+            "condition": "Artikel im B\u00fcrolager: ja"
+        },
+        {
+            "id": "26",
+            "sourceRef": "4",
+            "targetRef": "9"
+        },
+        {
+            "id": "27",
+            "sourceRef": "12",
+            "targetRef": "5",
+            "condition": "Artikel im B\u00fcrolager: nein"
+        },
+        {
+            "id": "28",
+            "sourceRef": "5",
+            "targetRef": "9"
+        }
+    ],
+    "messageFlows": [
+        {
+            "id": "29",
+            "sourceRef": "15",
+            "targetRef": "3",
+            "label": "Bestellung - Nachfrage"
+        },
+        {
+            "id": "30",
+            "sourceRef": "3",
+            "targetRef": "15",
+            "label": "Bestellung - Nachfrageergebnis"
+        },
+        {
+            "id": "31",
+            "sourceRef": "15",
+            "targetRef": "8",
+            "label": "Arbeitsmittel - Lieferung"
+        }
+    ]
+}

@@ -1,0 +1,120 @@
+{
+    "tasks": [
+        {
+            "id": "0",
+            "name": "Arbeitsplatz vorbereiten mit Antistatik-Matte, Werkzeug und Handschuhen",
+            "type": "Manual"
+        },
+        {
+            "id": "1",
+            "name": "Motherboard auf Antistatik-Matte legen",
+            "type": "Manual"
+        },
+        {
+            "id": "2",
+            "name": "CPU in Prozessor",
+            "type": "Manual"
+        },
+        {
+            "id": "3",
+            "name": "W\u00e4rmeleitpaste",
+            "type": "Manual"
+        },
+        {
+            "id": "4",
+            "name": "Pr\u00fcfen, ob die angegebene Adresse korrekt und die gew\u00fcnschten Artikel gelistet sind.",
+            "type": "Manual"
+        }
+    ],
+    "events": [
+        {
+            "id": "5",
+            "name": "Start",
+            "type": "StartNoneEvent"
+        },
+        {
+            "id": "6",
+            "name": "Ende",
+            "type": "EndNoneEvent"
+        }
+    ],
+    "gateways": [
+        {
+            "id": "7",
+            "name": "Installation m\u00f6glich?",
+            "type": "Exclusive"
+        },
+        {
+            "id": "8",
+            "type": "Inclusive"
+        }
+    ],
+    "pools": [
+        {
+            "id": "9",
+            "name": "PC Zusammenbau",
+            "lanes": [
+                {
+                    "id": "10",
+                    "name": "Lane",
+                    "elemRefs": [
+                        "0",
+                        "1",
+                        "2",
+                        "3",
+                        "4",
+                        "5",
+                        "6",
+                        "7",
+                        "8"
+                    ]
+                }
+            ]
+        }
+    ],
+    "sequenceFlows": [
+        {
+            "id": "11",
+            "sourceRef": "5",
+            "targetRef": "0"
+        },
+        {
+            "id": "12",
+            "sourceRef": "0",
+            "targetRef": "1"
+        },
+        {
+            "id": "13",
+            "sourceRef": "1",
+            "targetRef": "2"
+        },
+        {
+            "id": "14",
+            "sourceRef": "2",
+            "targetRef": "3"
+        },
+        {
+            "id": "15",
+            "sourceRef": "3",
+            "targetRef": "7"
+        },
+        {
+            "id": "16",
+            "sourceRef": "7",
+            "targetRef": "4",
+            "condition": "Yes"
+        },
+        {
+            "id": "17",
+            "sourceRef": "7",
+            "targetRef": "8",
+            "condition": "No"
+        },
+        {
+            "id": "18",
+            "sourceRef": "4",
+            "targetRef": "6"
+        }
+    ],
+    "messageFlows": []
+}

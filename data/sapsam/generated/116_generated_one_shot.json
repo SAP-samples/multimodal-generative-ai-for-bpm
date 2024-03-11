@@ -1,0 +1,265 @@
+{
+    "tasks": [
+        {
+            "id": "0",
+            "name": "Mock-Up-Prototyp entwickeln",
+            "type": "CollapsedSubprocess"
+        },
+        {
+            "id": "1",
+            "name": "Clickable-Prototyp entwickeln",
+            "type": "CollapsedSubprocess"
+        },
+        {
+            "id": "2",
+            "name": "Alphaversion entwickeln",
+            "type": "CollapsedSubprocess"
+        },
+        {
+            "id": "3",
+            "name": "Betaversion entwickeln",
+            "type": "CollapsedSubprocess"
+        },
+        {
+            "id": "4",
+            "name": "Testphase durchlaufen",
+            "type": "Task"
+        },
+        {
+            "id": "5",
+            "name": "Anpassungen durchf\u00fchren",
+            "type": "Task"
+        },
+        {
+            "id": "6",
+            "name": "Release-Version fertigstellen",
+            "type": "Task"
+        },
+        {
+            "id": "7",
+            "name": "Fehler beseitigen",
+            "type": "Task"
+        }
+    ],
+    "events": [
+        {
+            "id": "8",
+            "name": "Entwicklungsbeginn",
+            "type": "StartNoneEvent"
+        },
+        {
+            "id": "9",
+            "name": "Testerergebnisse",
+            "type": "IntermediateMessageEventCatching"
+        },
+        {
+            "id": "10",
+            "name": "Positiv",
+            "type": "IntermediateConditionalEvent"
+        },
+        {
+            "id": "11",
+            "name": "Anpassungsw\u00fcnsche erhalten",
+            "type": "IntermediateMessageEventCatching"
+        },
+        {
+            "id": "12",
+            "name": "Produkt fertig",
+            "type": "IntermediateMessageEventCatching"
+        },
+        {
+            "id": "13",
+            "name": "Feedback erhalten",
+            "type": "IntermediateMessageEventCatching"
+        },
+        {
+            "id": "14",
+            "name": "Produkt zufriedenstellend?",
+            "type": "Exclusive"
+        },
+        {
+            "id": "15",
+            "name": "Entwicklung abgeschlossen",
+            "type": "EndNoneEvent"
+        },
+        {
+            "id": "16",
+            "name": "Negativ",
+            "type": "IntermediateConditionalEvent"
+        }
+    ],
+    "gateways": [
+        {
+            "id": "17",
+            "type": "Exclusive"
+        },
+        {
+            "id": "18",
+            "type": "Exclusive"
+        },
+        {
+            "id": "19",
+            "type": "Exclusive"
+        },
+        {
+            "id": "20",
+            "type": "Eventbased"
+        },
+        {
+            "id": "21",
+            "type": "Exclusive"
+        }
+    ],
+    "pools": [
+        {
+            "id": "22",
+            "name": "SoKnow",
+            "lanes": [
+                {
+                    "id": "23",
+                    "name": "Entwicklungsabteilung",
+                    "elemRefs": [
+                        "0",
+                        "1",
+                        "2",
+                        "3",
+                        "4",
+                        "5",
+                        "6",
+                        "7",
+                        "8",
+                        "9",
+                        "10",
+                        "11",
+                        "12",
+                        "13",
+                        "14",
+                        "15",
+                        "16",
+                        "17",
+                        "18",
+                        "19",
+                        "20",
+                        "21"
+                    ]
+                }
+            ]
+        },
+        {
+            "id": "24",
+            "name": "Kundenunternehmen",
+            "lanes": []
+        }
+    ],
+    "sequenceFlows": [
+        {
+            "id": "25",
+            "sourceRef": "8",
+            "targetRef": "0"
+        },
+        {
+            "id": "26",
+            "sourceRef": "0",
+            "targetRef": "1"
+        },
+        {
+            "id": "27",
+            "sourceRef": "1",
+            "targetRef": "2"
+        },
+        {
+            "id": "28",
+            "sourceRef": "2",
+            "targetRef": "3"
+        },
+        {
+            "id": "29",
+            "sourceRef": "3",
+            "targetRef": "4"
+        },
+        {
+            "id": "30",
+            "sourceRef": "4",
+            "targetRef": "9"
+        },
+        {
+            "id": "31",
+            "sourceRef": "9",
+            "targetRef": "17"
+        },
+        {
+            "id": "32",
+            "sourceRef": "17",
+            "targetRef": "10",
+            "condition": "Positiv"
+        },
+        {
+            "id": "33",
+            "sourceRef": "17",
+            "targetRef": "11",
+            "condition": "Anpassungsw\u00fcnsche"
+        },
+        {
+            "id": "34",
+            "sourceRef": "11",
+            "targetRef": "18"
+        },
+        {
+            "id": "35",
+            "sourceRef": "18",
+            "targetRef": "5"
+        },
+        {
+            "id": "36",
+            "sourceRef": "5",
+            "targetRef": "19"
+        },
+        {
+            "id": "37",
+            "sourceRef": "19",
+            "targetRef": "12"
+        },
+        {
+            "id": "38",
+            "sourceRef": "12",
+            "targetRef": "20"
+        },
+        {
+            "id": "39",
+            "sourceRef": "20",
+            "targetRef": "13",
+            "condition": "Feedback"
+        },
+        {
+            "id": "40",
+            "sourceRef": "13",
+            "targetRef": "21"
+        },
+        {
+            "id": "41",
+            "sourceRef": "21",
+            "targetRef": "6"
+        },
+        {
+            "id": "42",
+            "sourceRef": "6",
+            "targetRef": "15"
+        },
+        {
+            "id": "43",
+            "sourceRef": "10",
+            "targetRef": "7"
+        },
+        {
+            "id": "44",
+            "sourceRef": "7",
+            "targetRef": "16"
+        },
+        {
+            "id": "45",
+            "sourceRef": "16",
+            "targetRef": "5"
+        }
+    ],
+    "messageFlows": []
+}

@@ -1,0 +1,268 @@
+{
+    "tasks": [
+        {
+            "id": "0",
+            "name": "Seller displays items on the webpage",
+            "type": "Task"
+        },
+        {
+            "id": "1",
+            "name": "Buyer purchases the item",
+            "type": "Task"
+        },
+        {
+            "id": "2",
+            "name": "Seller receives buyer's order",
+            "type": "Task"
+        },
+        {
+            "id": "3",
+            "name": "Seller sends to the buyer the order purchase confirmation",
+            "type": "Task"
+        },
+        {
+            "id": "4",
+            "name": "Seller sends the order to the shipping company",
+            "type": "Task"
+        },
+        {
+            "id": "5",
+            "name": "Shipping company gets item",
+            "type": "Task"
+        },
+        {
+            "id": "6",
+            "name": "company does not deliver the purchase",
+            "type": "Task"
+        },
+        {
+            "id": "7",
+            "name": "Buyer asks for money reimbursement",
+            "type": "Task"
+        },
+        {
+            "id": "8",
+            "name": "Seller receives buyer's decision and reimburses money",
+            "type": "Task"
+        },
+        {
+            "id": "9",
+            "name": "Buyer asks for reshipment of the item",
+            "type": "Task"
+        },
+        {
+            "id": "10",
+            "name": "Shipping company delivers item to the customer in proper datess",
+            "type": "Task"
+        },
+        {
+            "id": "11",
+            "name": "eBay tracks the order",
+            "type": "Task"
+        }
+    ],
+    "events": [
+        {
+            "id": "12",
+            "name": "Online selling process started",
+            "type": "StartNoneEvent"
+        },
+        {
+            "id": "13",
+            "name": "Purchase wasn't continued",
+            "type": "EndEscalationEvent"
+        },
+        {
+            "id": "14",
+            "name": "Buyer closed the order",
+            "type": "EndNoneEvent"
+        }
+    ],
+    "gateways": [
+        {
+            "id": "15",
+            "name": "And-join",
+            "type": "Exclusive"
+        },
+        {
+            "id": "16",
+            "name": "What will the shipping company do?",
+            "type": "Exclusive"
+        },
+        {
+            "id": "17",
+            "name": "What will the buyer do?",
+            "type": "Exclusive"
+        }
+    ],
+    "pools": [
+        {
+            "id": "18",
+            "name": "eBay",
+            "lanes": [
+                {
+                    "id": "19",
+                    "name": "eBay data stores",
+                    "elemRefs": [
+                        "0",
+                        "1",
+                        "2",
+                        "3",
+                        "4",
+                        "5",
+                        "12"
+                    ]
+                }
+            ]
+        },
+        {
+            "id": "20",
+            "name": "Seller",
+            "lanes": [
+                {
+                    "id": "21",
+                    "name": "Seller Lane",
+                    "elemRefs": [
+                        "6",
+                        "7",
+                        "8",
+                        "13",
+                        "14"
+                    ]
+                }
+            ]
+        },
+        {
+            "id": "22",
+            "name": "Shipping company",
+            "lanes": [
+                {
+                    "id": "23",
+                    "name": "Shipping company Lane",
+                    "elemRefs": [
+                        "9",
+                        "10",
+                        "11",
+                        "15",
+                        "16",
+                        "17"
+                    ]
+                }
+            ]
+        }
+    ],
+    "sequenceFlows": [
+        {
+            "id": "24",
+            "sourceRef": "12",
+            "targetRef": "0"
+        },
+        {
+            "id": "25",
+            "sourceRef": "0",
+            "targetRef": "1"
+        },
+        {
+            "id": "26",
+            "sourceRef": "1",
+            "targetRef": "15"
+        },
+        {
+            "id": "27",
+            "sourceRef": "15",
+            "targetRef": "2"
+        },
+        {
+            "id": "28",
+            "sourceRef": "2",
+            "targetRef": "3"
+        },
+        {
+            "id": "29",
+            "sourceRef": "3",
+            "targetRef": "4"
+        },
+        {
+            "id": "30",
+            "sourceRef": "4",
+            "targetRef": "16"
+        },
+        {
+            "id": "31",
+            "sourceRef": "16",
+            "targetRef": "5"
+        },
+        {
+            "id": "32",
+            "sourceRef": "16",
+            "targetRef": "6"
+        },
+        {
+            "id": "33",
+            "sourceRef": "6",
+            "targetRef": "17"
+        },
+        {
+            "id": "34",
+            "sourceRef": "17",
+            "targetRef": "7"
+        },
+        {
+            "id": "35",
+            "sourceRef": "17",
+            "targetRef": "9"
+        },
+        {
+            "id": "36",
+            "sourceRef": "9",
+            "targetRef": "10"
+        },
+        {
+            "id": "37",
+            "sourceRef": "7",
+            "targetRef": "8"
+        },
+        {
+            "id": "38",
+            "sourceRef": "10",
+            "targetRef": "11"
+        },
+        {
+            "id": "39",
+            "sourceRef": "11",
+            "targetRef": "14"
+        }
+    ],
+    "messageFlows": [
+        {
+            "id": "40",
+            "sourceRef": "5",
+            "targetRef": "6",
+            "label": "Item received from seller"
+        },
+        {
+            "id": "41",
+            "sourceRef": "6",
+            "targetRef": "7",
+            "label": "Delivery failure notification"
+        },
+        {
+            "id": "42",
+            "sourceRef": "7",
+            "targetRef": "8",
+            "label": "Request for reimbursement"
+        },
+        {
+            "id": "43",
+            "sourceRef": "9",
+            "targetRef": "10",
+            "label": "Reshipment request"
+        },
+        {
+            "id": "44",
+            "sourceRef": "11",
+            "targetRef": "14",
+            "label": "Order tracking update"
+        }
+    ]
+}

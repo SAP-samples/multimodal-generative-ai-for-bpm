@@ -1,0 +1,161 @@
+{
+    "tasks": [
+        {
+            "id": "sid-676C63A4-2F36-4A12-A38B-E10B8351AB26",
+            "name": "Mitarbeitergespr\u00e4ch durchf\u00fchren",
+            "type": "Task"
+        },
+        {
+            "id": "sid-97D8CE55-7BDF-4346-A27D-342360B2EB1E",
+            "name": "Regelm\u00e4\u00dfige Nachfragen durchf\u00fchren",
+            "type": "Task"
+        },
+        {
+            "id": "sid-A57B671C-6AB5-4BF2-8201-4D811E4AC633",
+            "name": "Training zuordnen",
+            "type": "Task"
+        },
+        {
+            "id": "sid-D48829D3-E5FF-4217-860A-095538733B16",
+            "name": "Terminvorschl\u00e4ge senden",
+            "type": "Task"
+        },
+        {
+            "id": "sid-3E89C0EE-70BA-4198-AF18-CDB925C101D6",
+            "name": "Termin best\u00e4tigen",
+            "type": "Task"
+        },
+        {
+            "id": "sid-BB16FA32-214F-4911-B4CA-693D528473CA",
+            "name": "Am Mitarbeitergespr\u00e4ch teilnehmen",
+            "type": "Task"
+        },
+        {
+            "id": "sid-4CF1C6F7-68A2-4348-8FDE-D262341821ED",
+            "name": "Training absolvieren",
+            "type": "Task"
+        }
+    ],
+    "events": [
+        {
+            "id": "sid-DF84FFF5-CF6B-4486-89B6-D97FB2984C48",
+            "name": "Mitarbeitergespr\u00e4che organisieren",
+            "type": "StartNoneEvent"
+        },
+        {
+            "id": "sid-BB4BA5D9-133B-44F5-87C2-F79A1A857E96",
+            "name": "Mitarbeitergespr\u00e4ch durchgef\u00fchrt",
+            "type": "EndNoneEvent"
+        },
+        {
+            "id": "sid-11B96981-BFA5-4EC3-9460-CA5CE69E918F",
+            "name": "Training abgeschlossen",
+            "type": "EndNoneEvent"
+        }
+    ],
+    "gateways": [
+        {
+            "id": "sid-9AA87342-60E1-4444-B797-36CF1FA25820",
+            "type": "Parallel"
+        },
+        {
+            "id": "sid-25886BCC-A5EB-456E-972F-AFD29409E14B",
+            "type": "Parallel"
+        }
+    ],
+    "pools": [
+        {
+            "id": "sid-0C96FA57-2B34-4132-A0D6-1C60902812E3",
+            "name": "SoKnow",
+            "lanes": [
+                {
+                    "id": "sid-DEA2B6BF-F3D5-44D7-A043-BBC1F635E622",
+                    "name": "Personalabteilung",
+                    "elemRefs": [
+                        "sid-676C63A4-2F36-4A12-A38B-E10B8351AB26",
+                        "sid-97D8CE55-7BDF-4346-A27D-342360B2EB1E",
+                        "sid-A57B671C-6AB5-4BF2-8201-4D811E4AC633",
+                        "sid-D48829D3-E5FF-4217-860A-095538733B16",
+                        "sid-DF84FFF5-CF6B-4486-89B6-D97FB2984C48",
+                        "sid-BB4BA5D9-133B-44F5-87C2-F79A1A857E96",
+                        "sid-9AA87342-60E1-4444-B797-36CF1FA25820",
+                        "sid-25886BCC-A5EB-456E-972F-AFD29409E14B"
+                    ]
+                },
+                {
+                    "id": "sid-361A17F2-A2C9-42B4-B8AE-5C5A00AF796D",
+                    "name": "Mitarbeiter",
+                    "elemRefs": [
+                        "sid-3E89C0EE-70BA-4198-AF18-CDB925C101D6",
+                        "sid-BB16FA32-214F-4911-B4CA-693D528473CA",
+                        "sid-4CF1C6F7-68A2-4348-8FDE-D262341821ED",
+                        "sid-11B96981-BFA5-4EC3-9460-CA5CE69E918F"
+                    ]
+                }
+            ]
+        }
+    ],
+    "messageFlows": [],
+    "sequenceFlows": [
+        {
+            "id": "sid-C01774B4-279F-4F8C-B85B-C3E40A6F247D",
+            "targetRef": "sid-676C63A4-2F36-4A12-A38B-E10B8351AB26",
+            "sourceRef": "sid-9AA87342-60E1-4444-B797-36CF1FA25820"
+        },
+        {
+            "id": "sid-87601436-63E7-449E-8C8E-0988C6E4185F",
+            "targetRef": "sid-A57B671C-6AB5-4BF2-8201-4D811E4AC633",
+            "sourceRef": "sid-676C63A4-2F36-4A12-A38B-E10B8351AB26"
+        },
+        {
+            "id": "sid-0B09E711-C3A8-40AB-9325-F70731D6540B",
+            "targetRef": "sid-25886BCC-A5EB-456E-972F-AFD29409E14B",
+            "sourceRef": "sid-A57B671C-6AB5-4BF2-8201-4D811E4AC633"
+        },
+        {
+            "id": "sid-9553982A-0D15-4CFB-B930-200EE23779F4",
+            "targetRef": "sid-25886BCC-A5EB-456E-972F-AFD29409E14B",
+            "sourceRef": "sid-97D8CE55-7BDF-4346-A27D-342360B2EB1E"
+        },
+        {
+            "id": "sid-677D073A-97C2-479C-AF6D-4024CE89736C",
+            "targetRef": "sid-BB16FA32-214F-4911-B4CA-693D528473CA",
+            "sourceRef": "sid-3E89C0EE-70BA-4198-AF18-CDB925C101D6"
+        },
+        {
+            "id": "sid-515736CB-B5BB-491D-94A0-DD2FE6BD10FD",
+            "targetRef": "sid-4CF1C6F7-68A2-4348-8FDE-D262341821ED",
+            "sourceRef": "sid-BB16FA32-214F-4911-B4CA-693D528473CA"
+        },
+        {
+            "id": "sid-2528A581-081A-4884-A702-3B2E6971EC08",
+            "targetRef": "sid-BB4BA5D9-133B-44F5-87C2-F79A1A857E96",
+            "sourceRef": "sid-25886BCC-A5EB-456E-972F-AFD29409E14B"
+        },
+        {
+            "id": "sid-8C293C68-2229-4850-B8AD-547003CD5EE0",
+            "targetRef": "sid-11B96981-BFA5-4EC3-9460-CA5CE69E918F",
+            "sourceRef": "sid-4CF1C6F7-68A2-4348-8FDE-D262341821ED"
+        },
+        {
+            "id": "sid-7EF3080B-31F2-4234-9421-814935306B2D",
+            "targetRef": "sid-D48829D3-E5FF-4217-860A-095538733B16",
+            "sourceRef": "sid-DF84FFF5-CF6B-4486-89B6-D97FB2984C48"
+        },
+        {
+            "id": "sid-EB4CEBBE-78EC-40E3-8F52-DAECD21498A4",
+            "targetRef": "sid-9AA87342-60E1-4444-B797-36CF1FA25820",
+            "sourceRef": "sid-D48829D3-E5FF-4217-860A-095538733B16"
+        },
+        {
+            "id": "sid-22F11D21-6013-4DE7-B41B-9B3494C35B89",
+            "targetRef": "sid-97D8CE55-7BDF-4346-A27D-342360B2EB1E",
+            "sourceRef": "sid-9AA87342-60E1-4444-B797-36CF1FA25820"
+        },
+        {
+            "id": "sid-74F6C236-DBE7-4212-81C7-EABABC7FF8E5",
+            "targetRef": "sid-3E89C0EE-70BA-4198-AF18-CDB925C101D6",
+            "sourceRef": "sid-9AA87342-60E1-4444-B797-36CF1FA25820"
+        }
+    ]
+}

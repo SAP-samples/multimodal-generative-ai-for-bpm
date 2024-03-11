@@ -1,0 +1,168 @@
+{
+    "tasks": [
+        {
+            "id": "0",
+            "name": "Ticket receive",
+            "type": "Receive"
+        },
+        {
+            "id": "1",
+            "name": "Solve the problem without involving the customer",
+            "type": "Task"
+        },
+        {
+            "id": "2",
+            "name": "Contacting the customer",
+            "type": "Task"
+        },
+        {
+            "id": "3",
+            "name": "Detailed interview on the problem",
+            "type": "Task"
+        },
+        {
+            "id": "4",
+            "name": "Connecting to the client of the customer",
+            "type": "Task"
+        },
+        {
+            "id": "5",
+            "name": "Solve problem",
+            "type": "Task"
+        },
+        {
+            "id": "6",
+            "name": "Ask for further information",
+            "type": "Task"
+        },
+        {
+            "id": "7",
+            "name": "Create notes for documentation",
+            "type": "Task"
+        },
+        {
+            "id": "8",
+            "name": "Confirmation Ticket completed",
+            "type": "Send"
+        }
+    ],
+    "events": [
+        {
+            "id": "9",
+            "name": "Solve problems",
+            "type": "StartNoneEvent"
+        },
+        {
+            "id": "10",
+            "name": "Problems solved",
+            "type": "EndNoneEvent"
+        }
+    ],
+    "gateways": [
+        {
+            "id": "11",
+            "type": "Exclusive"
+        },
+        {
+            "id": "12",
+            "type": "Exclusive"
+        }
+    ],
+    "pools": [
+        {
+            "id": "13",
+            "name": "Hochschule Mainz",
+            "lanes": [
+                {
+                    "id": "14",
+                    "name": "Support",
+                    "elemRefs": [
+                        "0",
+                        "1",
+                        "11",
+                        "2",
+                        "3",
+                        "4",
+                        "5",
+                        "6",
+                        "12",
+                        "7",
+                        "8",
+                        "9",
+                        "10"
+                    ]
+                }
+            ]
+        }
+    ],
+    "sequenceFlows": [
+        {
+            "id": "15",
+            "sourceRef": "9",
+            "targetRef": "0"
+        },
+        {
+            "id": "16",
+            "sourceRef": "0",
+            "targetRef": "11"
+        },
+        {
+            "id": "17",
+            "sourceRef": "11",
+            "targetRef": "1",
+            "condition": "no"
+        },
+        {
+            "id": "18",
+            "sourceRef": "11",
+            "targetRef": "2",
+            "condition": "yes"
+        },
+        {
+            "id": "19",
+            "sourceRef": "2",
+            "targetRef": "3"
+        },
+        {
+            "id": "20",
+            "sourceRef": "3",
+            "targetRef": "4"
+        },
+        {
+            "id": "21",
+            "sourceRef": "4",
+            "targetRef": "5"
+        },
+        {
+            "id": "22",
+            "sourceRef": "1",
+            "targetRef": "12"
+        },
+        {
+            "id": "23",
+            "sourceRef": "5",
+            "targetRef": "12"
+        },
+        {
+            "id": "24",
+            "sourceRef": "6",
+            "targetRef": "12"
+        },
+        {
+            "id": "25",
+            "sourceRef": "12",
+            "targetRef": "7"
+        },
+        {
+            "id": "26",
+            "sourceRef": "7",
+            "targetRef": "8"
+        },
+        {
+            "id": "27",
+            "sourceRef": "8",
+            "targetRef": "10"
+        }
+    ],
+    "messageFlows": []
+}

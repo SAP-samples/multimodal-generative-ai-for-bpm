@@ -1,0 +1,170 @@
+{
+    "tasks": [
+        {
+            "id": "0",
+            "name": "Prepare dough",
+            "type": "Task"
+        },
+        {
+            "id": "1",
+            "name": "Prepare cooking paper",
+            "type": "Task"
+        },
+        {
+            "id": "2",
+            "name": "Set up delivery",
+            "type": "Task"
+        },
+        {
+            "id": "3",
+            "name": "Prepare muffins",
+            "type": "Task"
+        },
+        {
+            "id": "4",
+            "name": "Cook muffins",
+            "type": "Task"
+        },
+        {
+            "id": "5",
+            "name": "Payment",
+            "type": "Manual"
+        },
+        {
+            "id": "6",
+            "name": "Dispatch muffins",
+            "type": "Manual"
+        }
+    ],
+    "events": [
+        {
+            "id": "7",
+            "name": "New Order",
+            "type": "StartNoneEvent"
+        },
+        {
+            "id": "8",
+            "name": "End Event",
+            "type": "EndNoneEvent"
+        }
+    ],
+    "gateways": [
+        {
+            "id": "9",
+            "name": "Parallel Gateway",
+            "type": "Parallel"
+        },
+        {
+            "id": "10",
+            "type": "Parallel"
+        },
+        {
+            "id": "11",
+            "type": "Parallel"
+        },
+        {
+            "id": "12",
+            "type": "Parallel"
+        }
+    ],
+    "pools": [
+        {
+            "id": "13",
+            "name": "MyMuffin",
+            "lanes": [
+                {
+                    "id": "14",
+                    "name": "Lane",
+                    "elemRefs": [
+                        "0",
+                        "1",
+                        "2",
+                        "3",
+                        "4",
+                        "5",
+                        "6",
+                        "7",
+                        "8",
+                        "9",
+                        "10",
+                        "11",
+                        "12"
+                    ]
+                }
+            ]
+        }
+    ],
+    "sequenceFlows": [
+        {
+            "id": "15",
+            "sourceRef": "7",
+            "targetRef": "9"
+        },
+        {
+            "id": "16",
+            "sourceRef": "9",
+            "targetRef": "0"
+        },
+        {
+            "id": "17",
+            "sourceRef": "9",
+            "targetRef": "1"
+        },
+        {
+            "id": "18",
+            "sourceRef": "9",
+            "targetRef": "2"
+        },
+        {
+            "id": "19",
+            "sourceRef": "0",
+            "targetRef": "10"
+        },
+        {
+            "id": "20",
+            "sourceRef": "1",
+            "targetRef": "10"
+        },
+        {
+            "id": "21",
+            "sourceRef": "2",
+            "targetRef": "10"
+        },
+        {
+            "id": "22",
+            "sourceRef": "10",
+            "targetRef": "3"
+        },
+        {
+            "id": "23",
+            "sourceRef": "3",
+            "targetRef": "4"
+        },
+        {
+            "id": "24",
+            "sourceRef": "4",
+            "targetRef": "11"
+        },
+        {
+            "id": "25",
+            "sourceRef": "11",
+            "targetRef": "5"
+        },
+        {
+            "id": "26",
+            "sourceRef": "5",
+            "targetRef": "12"
+        },
+        {
+            "id": "27",
+            "sourceRef": "12",
+            "targetRef": "6"
+        },
+        {
+            "id": "28",
+            "sourceRef": "6",
+            "targetRef": "8"
+        }
+    ],
+    "messageFlows": []
+}

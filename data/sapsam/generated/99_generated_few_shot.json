@@ -1,0 +1,137 @@
+{
+    "tasks": [
+        {
+            "id": "0",
+            "name": "Rechnungen erhalten",
+            "type": "Task"
+        },
+        {
+            "id": "1",
+            "name": "Online Bank anmelden",
+            "type": "Task"
+        },
+        {
+            "id": "2",
+            "name": "\u00dcberweisung ausf\u00fcllen",
+            "type": "Task"
+        },
+        {
+            "id": "3",
+            "name": "Unterlagen ausdrucken",
+            "type": "Task"
+        },
+        {
+            "id": "4",
+            "name": "Nachfragen beantworten",
+            "type": "Task"
+        },
+        {
+            "id": "5",
+            "name": "Versp\u00e4tete Zahlungen bearbeiten (Soll-Prozess)",
+            "type": "CollapsedSubprocess"
+        }
+    ],
+    "events": [
+        {
+            "id": "6",
+            "name": "Rechnungsbearbeitung",
+            "type": "StartNoneEvent"
+        },
+        {
+            "id": "7",
+            "name": "Rechnung bearbeitet",
+            "type": "EndNoneEvent"
+        }
+    ],
+    "gateways": [
+        {
+            "id": "8",
+            "name": "Versp\u00e4tete Zahlungen?",
+            "type": "Exclusive"
+        }
+    ],
+    "pools": [
+        {
+            "id": "9",
+            "name": "SoKnow",
+            "lanes": [
+                {
+                    "id": "10",
+                    "name": "Finanzabteilung",
+                    "elemRefs": [
+                        "0",
+                        "1",
+                        "2",
+                        "3",
+                        "4",
+                        "5",
+                        "6",
+                        "7",
+                        "8"
+                    ]
+                }
+            ]
+        }
+    ],
+    "sequenceFlows": [
+        {
+            "id": "11",
+            "sourceRef": "6",
+            "targetRef": "0"
+        },
+        {
+            "id": "12",
+            "sourceRef": "0",
+            "targetRef": "1"
+        },
+        {
+            "id": "13",
+            "sourceRef": "1",
+            "targetRef": "2"
+        },
+        {
+            "id": "14",
+            "sourceRef": "2",
+            "targetRef": "3"
+        },
+        {
+            "id": "15",
+            "sourceRef": "3",
+            "targetRef": "8"
+        },
+        {
+            "id": "16",
+            "sourceRef": "8",
+            "targetRef": "7",
+            "condition": "Nein"
+        },
+        {
+            "id": "17",
+            "sourceRef": "8",
+            "targetRef": "5",
+            "condition": "Ja"
+        },
+        {
+            "id": "18",
+            "sourceRef": "5",
+            "targetRef": "4"
+        },
+        {
+            "id": "19",
+            "sourceRef": "4",
+            "targetRef": "7"
+        }
+    ],
+    "messageFlows": [
+        {
+            "id": "20",
+            "sourceRef": "3",
+            "targetRef": "Externer Gespr\u00e4chspartner"
+        },
+        {
+            "id": "21",
+            "sourceRef": "Externer Gespr\u00e4chspartner",
+            "targetRef": "4"
+        }
+    ]
+}

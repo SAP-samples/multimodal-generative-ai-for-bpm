@@ -1,0 +1,299 @@
+{
+    "tasks": [
+        {
+            "id": "0",
+            "name": "Mittagspause beginnt",
+            "type": "StartNoneEvent"
+        },
+        {
+            "id": "1",
+            "name": "Bevorzugtes Mittagessen w\u00e4hlen",
+            "type": "Task"
+        },
+        {
+            "id": "2",
+            "name": "Nudeln zubereiten",
+            "type": "Task"
+        },
+        {
+            "id": "3",
+            "name": "Wasser kochen",
+            "type": "Task"
+        },
+        {
+            "id": "4",
+            "name": "Nudeln hinzuf\u00fcgen",
+            "type": "Task"
+        },
+        {
+            "id": "5",
+            "name": "So\u00dfe vorbereiten",
+            "type": "Task"
+        },
+        {
+            "id": "6",
+            "name": "Nudeln & So\u00dfe vermischen",
+            "type": "Task"
+        },
+        {
+            "id": "7",
+            "name": "Bestellform w\u00e4hlen",
+            "type": "Task"
+        },
+        {
+            "id": "8",
+            "name": "Website aufrufen",
+            "type": "Task"
+        },
+        {
+            "id": "9",
+            "name": "Pizzalieferant anrufen",
+            "type": "Task"
+        },
+        {
+            "id": "10",
+            "name": "Pizza zubereiten",
+            "type": "Task"
+        },
+        {
+            "id": "11",
+            "name": "Pizza ausliefern",
+            "type": "Task"
+        },
+        {
+            "id": "12",
+            "name": "Pizza \u00fcbergeben",
+            "type": "Task"
+        },
+        {
+            "id": "13",
+            "name": "Bezahlung entgegennehmen",
+            "type": "Task"
+        },
+        {
+            "id": "14",
+            "name": "Gericht essen",
+            "type": "Task"
+        },
+        {
+            "id": "15",
+            "name": "Pizza bezahlen",
+            "type": "Task"
+        },
+        {
+            "id": "16",
+            "name": "Mittagspause endet",
+            "type": "EndNoneEvent"
+        },
+        {
+            "id": "17",
+            "name": "Bestellung abgeschlossen",
+            "type": "EndNoneEvent"
+        }
+    ],
+    "events": [
+        {
+            "id": "18",
+            "name": "8 Minuten kochen",
+            "type": "IntermediateTimerEvent"
+        },
+        {
+            "id": "19",
+            "name": "10 Minuten kochen",
+            "type": "IntermediateTimerEvent"
+        },
+        {
+            "id": "20",
+            "name": "Bestellung aufgeben",
+            "type": "IntermediateMessageEventThrowing"
+        },
+        {
+            "id": "21",
+            "name": "Auf Pizza warten",
+            "type": "IntermediateTimerEvent"
+        },
+        {
+            "id": "22",
+            "name": "Eingehende Bestellung",
+            "type": "StartMessageEvent"
+        }
+    ],
+    "gateways": [
+        {
+            "id": "23",
+            "type": "Exclusive"
+        },
+        {
+            "id": "24",
+            "type": "Parallel"
+        },
+        {
+            "id": "25",
+            "type": "Exclusive"
+        },
+        {
+            "id": "26",
+            "type": "Exclusive"
+        }
+    ],
+    "pools": [
+        {
+            "id": "27",
+            "name": "Global Car Manufacturing Inc.",
+            "lanes": [
+                {
+                    "id": "28",
+                    "name": "Franks Mittagspause",
+                    "elemRefs": [
+                        "0",
+                        "1",
+                        "2",
+                        "3",
+                        "4",
+                        "5",
+                        "6",
+                        "7",
+                        "8",
+                        "9",
+                        "14",
+                        "15",
+                        "16",
+                        "23",
+                        "24",
+                        "25",
+                        "26"
+                    ]
+                }
+            ]
+        },
+        {
+            "id": "29",
+            "name": "Pizzaria",
+            "lanes": [
+                {
+                    "id": "30",
+                    "name": "Pizzalieferant",
+                    "elemRefs": [
+                        "10",
+                        "11",
+                        "12",
+                        "13",
+                        "17",
+                        "22"
+                    ]
+                }
+            ]
+        }
+    ],
+    "sequenceFlows": [
+        {
+            "id": "31",
+            "sourceRef": "0",
+            "targetRef": "1"
+        },
+        {
+            "id": "32",
+            "sourceRef": "1",
+            "targetRef": "23"
+        },
+        {
+            "id": "33",
+            "sourceRef": "2",
+            "targetRef": "24"
+        },
+        {
+            "id": "34",
+            "sourceRef": "3",
+            "targetRef": "4"
+        },
+        {
+            "id": "35",
+            "sourceRef": "5",
+            "targetRef": "24"
+        },
+        {
+            "id": "36",
+            "sourceRef": "24",
+            "targetRef": "6"
+        },
+        {
+            "id": "37",
+            "sourceRef": "6",
+            "targetRef": "25"
+        },
+        {
+            "id": "38",
+            "sourceRef": "7",
+            "targetRef": "26"
+        },
+        {
+            "id": "39",
+            "sourceRef": "8",
+            "targetRef": "20"
+        },
+        {
+            "id": "40",
+            "sourceRef": "9",
+            "targetRef": "20"
+        },
+        {
+            "id": "41",
+            "sourceRef": "22",
+            "targetRef": "10"
+        },
+        {
+            "id": "42",
+            "sourceRef": "10",
+            "targetRef": "11"
+        },
+        {
+            "id": "43",
+            "sourceRef": "11",
+            "targetRef": "12"
+        },
+        {
+            "id": "44",
+            "sourceRef": "12",
+            "targetRef": "13"
+        },
+        {
+            "id": "45",
+            "sourceRef": "13",
+            "targetRef": "17"
+        },
+        {
+            "id": "46",
+            "sourceRef": "26",
+            "targetRef": "15"
+        },
+        {
+            "id": "47",
+            "sourceRef": "15",
+            "targetRef": "16"
+        },
+        {
+            "id": "48",
+            "sourceRef": "25",
+            "targetRef": "14"
+        },
+        {
+            "id": "49",
+            "sourceRef": "14",
+            "targetRef": "16"
+        }
+    ],
+    "messageFlows": [
+        {
+            "id": "50",
+            "sourceRef": "20",
+            "targetRef": "22",
+            "label": "Bestellung aufgeben"
+        },
+        {
+            "id": "51",
+            "sourceRef": "12",
+            "targetRef": "15",
+            "label": "Pizza bezahlen"
+        }
+    ]
+}

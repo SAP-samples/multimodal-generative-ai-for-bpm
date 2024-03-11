@@ -1,0 +1,151 @@
+{
+    "tasks": [
+        {
+            "id": "0",
+            "name": "Require appointment",
+            "type": "User"
+        },
+        {
+            "id": "1",
+            "name": "Verify dates",
+            "type": "Service"
+        },
+        {
+            "id": "2",
+            "name": "Make appointment",
+            "type": "Service"
+        },
+        {
+            "id": "3",
+            "name": "Check the appointment data",
+            "type": "User"
+        },
+        {
+            "id": "4",
+            "name": "Send personal data",
+            "type": "Service"
+        },
+        {
+            "id": "5",
+            "name": "Register Appointment",
+            "type": "Service"
+        }
+    ],
+    "events": [
+        {
+            "id": "6",
+            "name": "Start Booking Appointment",
+            "type": "StartNoneEvent"
+        },
+        {
+            "id": "7",
+            "name": "Reject Appointment Message",
+            "type": "EndMessageEvent"
+        },
+        {
+            "id": "8",
+            "name": "Appointment Done",
+            "type": "EndNoneEvent"
+        }
+    ],
+    "gateways": [
+        {
+            "id": "9",
+            "name": "Are there any available dates in 90 days?",
+            "type": "Exclusive"
+        }
+    ],
+    "pools": [
+        {
+            "id": "10",
+            "name": "Oculist Check Appointment",
+            "lanes": [
+                {
+                    "id": "11",
+                    "name": "Patient",
+                    "elemRefs": [
+                        "0",
+                        "3",
+                        "4",
+                        "6",
+                        "7"
+                    ]
+                },
+                {
+                    "id": "12",
+                    "name": "Receptionist",
+                    "elemRefs": [
+                        "1",
+                        "2",
+                        "5",
+                        "8"
+                    ]
+                }
+            ]
+        }
+    ],
+    "sequenceFlows": [
+        {
+            "id": "13",
+            "sourceRef": "0",
+            "targetRef": "9"
+        },
+        {
+            "id": "14",
+            "sourceRef": "9",
+            "targetRef": "1",
+            "condition": "Yes"
+        },
+        {
+            "id": "15",
+            "sourceRef": "1",
+            "targetRef": "2"
+        },
+        {
+            "id": "16",
+            "sourceRef": "2",
+            "targetRef": "5"
+        },
+        {
+            "id": "17",
+            "sourceRef": "5",
+            "targetRef": "8"
+        },
+        {
+            "id": "18",
+            "sourceRef": "9",
+            "targetRef": "7",
+            "condition": "No"
+        },
+        {
+            "id": "19",
+            "sourceRef": "6",
+            "targetRef": "0"
+        },
+        {
+            "id": "20",
+            "sourceRef": "4",
+            "targetRef": "3"
+        }
+    ],
+    "messageFlows": [
+        {
+            "id": "21",
+            "sourceRef": "3",
+            "targetRef": "1",
+            "label": "Request appointment describing the problem"
+        },
+        {
+            "id": "22",
+            "sourceRef": "2",
+            "targetRef": "4",
+            "label": "Send the appointment time and date"
+        },
+        {
+            "id": "23",
+            "sourceRef": "0",
+            "targetRef": "3",
+            "label": "Email with data for patient"
+        }
+    ]
+}

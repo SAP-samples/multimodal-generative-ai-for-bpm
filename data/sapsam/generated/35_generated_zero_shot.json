@@ -1,0 +1,166 @@
+{
+    "tasks": [
+        {
+            "id": "0",
+            "name": "perform credit check",
+            "type": "Task"
+        },
+        {
+            "id": "1",
+            "name": "confirm credibility check",
+            "type": "Task"
+        },
+        {
+            "id": "2",
+            "name": "send rejection letter",
+            "type": "Task"
+        },
+        {
+            "id": "3",
+            "name": "call client to complement information",
+            "type": "Task"
+        },
+        {
+            "id": "4",
+            "name": "create loan offer",
+            "type": "Task"
+        },
+        {
+            "id": "5",
+            "name": "check loan offer",
+            "type": "Task"
+        },
+        {
+            "id": "6",
+            "name": "send loan offer",
+            "type": "Task"
+        },
+        {
+            "id": "7",
+            "name": "send welcome letter",
+            "type": "Task"
+        },
+        {
+            "id": "8",
+            "name": "activate loan application",
+            "type": "Task"
+        },
+        {
+            "id": "9",
+            "name": "validate loan activation",
+            "type": "Task"
+        },
+        {
+            "id": "10",
+            "name": "execute initial payment",
+            "type": "Task"
+        },
+        {
+            "id": "11",
+            "name": "return documents to client",
+            "type": "Task"
+        },
+        {
+            "id": "12",
+            "name": "remind client",
+            "type": "Task"
+        }
+    ],
+    "events": [
+        {
+            "id": "13",
+            "name": "start",
+            "type": "StartNoneEvent"
+        },
+        {
+            "id": "14",
+            "name": "end",
+            "type": "EndNoneEvent"
+        },
+        {
+            "id": "15",
+            "name": "receive accepted offer",
+            "type": "IntermediateMessageEventCatching"
+        },
+        {
+            "id": "16",
+            "name": "after one hour 1",
+            "type": "IntermediateTimerEvent"
+        },
+        {
+            "id": "17",
+            "name": "after one hour 2",
+            "type": "IntermediateTimerEvent"
+        }
+    ],
+    "gateways": [
+        {
+            "id": "18",
+            "type": "Exclusive"
+        },
+        {
+            "id": "19",
+            "type": "Parallel"
+        },
+        {
+            "id": "20",
+            "type": "Eventbased"
+        }
+    ],
+    "pools": [
+        {
+            "id": "21",
+            "name": "DLL",
+            "lanes": [
+                {
+                    "id": "22",
+                    "name": "Administrator",
+                    "elemRefs": [
+                        "2",
+                        "7",
+                        "11",
+                        "14"
+                    ]
+                },
+                {
+                    "id": "23",
+                    "name": "Customer Contact",
+                    "elemRefs": [
+                        "3",
+                        "4",
+                        "5",
+                        "6",
+                        "12",
+                        "15",
+                        "16",
+                        "17"
+                    ]
+                },
+                {
+                    "id": "24",
+                    "name": "Finance",
+                    "elemRefs": [
+                        "8",
+                        "9",
+                        "10"
+                    ]
+                },
+                {
+                    "id": "25",
+                    "name": "Risk Management",
+                    "elemRefs": [
+                        "0",
+                        "1"
+                    ]
+                },
+                {
+                    "id": "26",
+                    "name": "Senior Risk Management",
+                    "elemRefs": []
+                }
+            ]
+        }
+    ],
+    "sequenceFlows": [],
+    "messageFlows": []
+}

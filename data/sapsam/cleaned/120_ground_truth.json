@@ -1,0 +1,153 @@
+{
+    "tasks": [
+        {
+            "id": "sid-B764F5EC-7AAA-4E3E-90B1-C50B56C34B69",
+            "name": "Problemfall  aufrufen",
+            "type": "Manual"
+        },
+        {
+            "id": "sid-C1270F6B-7A26-4479-9E04-1725F9D660CB",
+            "name": "Leistungsinformationen zusammentragen",
+            "type": "User"
+        },
+        {
+            "id": "sid-E125045D-9DD2-4B56-97A0-296D9669B8A9",
+            "name": "Rechnungspositionen eingeben",
+            "type": "Manual"
+        },
+        {
+            "id": "sid-9CF7966A-4337-4B86-B099-CB3530A5255D",
+            "name": "Leistungsinformationen pr\u00fcfen",
+            "type": "Manual"
+        },
+        {
+            "id": "sid-26559B8A-71CE-4E4E-BF71-90ABC0876A57",
+            "name": "Zahlungsbedingungen pr\u00fcfen und festlegen",
+            "type": "Manual"
+        },
+        {
+            "id": "sid-4909CECA-5BB7-4653-B48A-8D2BEC3503EB",
+            "name": "Rechnungsbeleg fertig stellen",
+            "type": "Manual"
+        },
+        {
+            "id": "sid-C958E754-45DC-4716-BF1A-EE1187FD74F2",
+            "name": "Informationen manuell  anfordern",
+            "type": "User"
+        }
+    ],
+    "events": [
+        {
+            "id": "sid-025C5A62-3A2C-4A71-8EF1-FA718B4EF5B6",
+            "name": ">>> R.Druck",
+            "type": "EndNoneEvent"
+        },
+        {
+            "id": "sid-C85F2793-BC86-4D8C-96CD-34BF8BFE0D6F",
+            "name": "Rechnungslegung gefordert",
+            "type": "StartMessageEvent"
+        }
+    ],
+    "gateways": [
+        {
+            "id": "sid-9900AA55-9749-4026-96ED-B6066CC61F02",
+            "name": "Leistungsinformationen  komplett?",
+            "type": "Exclusive"
+        },
+        {
+            "id": "sid-A07FD8C1-E1B2-40F0-A1FE-FB6EE4EF5140",
+            "type": "Exclusive"
+        }
+    ],
+    "pools": [
+        {
+            "id": "sid-B20D7746-E495-402A-9696-0B70B67D004A",
+            "name": "IT-Service",
+            "lanes": [
+                {
+                    "id": "sid-195397F4-9C6B-4E95-9EAC-43C61FFD82F8",
+                    "name": "Support-Abteilung",
+                    "elemRefs": [
+                        "sid-B764F5EC-7AAA-4E3E-90B1-C50B56C34B69",
+                        "sid-C1270F6B-7A26-4479-9E04-1725F9D660CB"
+                    ]
+                },
+                {
+                    "id": "sid-DC86FD86-CADF-4B34-9545-C1C451BCBDC6",
+                    "name": "Buchhaltung",
+                    "elemRefs": [
+                        "sid-E125045D-9DD2-4B56-97A0-296D9669B8A9",
+                        "sid-9CF7966A-4337-4B86-B099-CB3530A5255D",
+                        "sid-26559B8A-71CE-4E4E-BF71-90ABC0876A57",
+                        "sid-4909CECA-5BB7-4653-B48A-8D2BEC3503EB",
+                        "sid-C958E754-45DC-4716-BF1A-EE1187FD74F2",
+                        "sid-025C5A62-3A2C-4A71-8EF1-FA718B4EF5B6",
+                        "sid-C85F2793-BC86-4D8C-96CD-34BF8BFE0D6F",
+                        "sid-9900AA55-9749-4026-96ED-B6066CC61F02",
+                        "sid-A07FD8C1-E1B2-40F0-A1FE-FB6EE4EF5140"
+                    ]
+                }
+            ]
+        }
+    ],
+    "messageFlows": [],
+    "sequenceFlows": [
+        {
+            "id": "sid-ED16E519-CFE3-45D8-9534-CDFCE32BEED1",
+            "targetRef": "sid-C1270F6B-7A26-4479-9E04-1725F9D660CB",
+            "sourceRef": "sid-B764F5EC-7AAA-4E3E-90B1-C50B56C34B69"
+        },
+        {
+            "id": "sid-CA18D02E-412B-4727-B0DD-2B2D7F6E3D52",
+            "targetRef": "sid-9900AA55-9749-4026-96ED-B6066CC61F02",
+            "sourceRef": "sid-9CF7966A-4337-4B86-B099-CB3530A5255D"
+        },
+        {
+            "id": "sid-AA5F7133-2D07-440D-999C-0B4DF811FD50",
+            "targetRef": "sid-26559B8A-71CE-4E4E-BF71-90ABC0876A57",
+            "sourceRef": "sid-E125045D-9DD2-4B56-97A0-296D9669B8A9"
+        },
+        {
+            "id": "sid-9E11330D-5395-4607-BCB9-972AFC9AE611",
+            "targetRef": "sid-A07FD8C1-E1B2-40F0-A1FE-FB6EE4EF5140",
+            "sourceRef": "sid-C1270F6B-7A26-4479-9E04-1725F9D660CB"
+        },
+        {
+            "id": "sid-0C96F41F-32B2-43CF-B0AB-C55BDDD8D572",
+            "targetRef": "sid-E125045D-9DD2-4B56-97A0-296D9669B8A9",
+            "sourceRef": "sid-A07FD8C1-E1B2-40F0-A1FE-FB6EE4EF5140"
+        },
+        {
+            "id": "sid-BF52E7F8-DBB7-427F-9B76-A14A57734A4A",
+            "targetRef": "sid-9CF7966A-4337-4B86-B099-CB3530A5255D",
+            "sourceRef": "sid-C85F2793-BC86-4D8C-96CD-34BF8BFE0D6F"
+        },
+        {
+            "id": "sid-A90DCA36-5EE3-4F84-AD83-B7674D6CF49D",
+            "targetRef": "sid-4909CECA-5BB7-4653-B48A-8D2BEC3503EB",
+            "sourceRef": "sid-26559B8A-71CE-4E4E-BF71-90ABC0876A57"
+        },
+        {
+            "id": "sid-7B16D609-E523-4909-8293-F7050FA9F6A7",
+            "targetRef": "sid-025C5A62-3A2C-4A71-8EF1-FA718B4EF5B6",
+            "sourceRef": "sid-4909CECA-5BB7-4653-B48A-8D2BEC3503EB"
+        },
+        {
+            "id": "sid-5392B134-08CB-40EE-8FF5-D836D7CF35EF",
+            "targetRef": "sid-A07FD8C1-E1B2-40F0-A1FE-FB6EE4EF5140",
+            "condition": "ja",
+            "sourceRef": "sid-9900AA55-9749-4026-96ED-B6066CC61F02"
+        },
+        {
+            "id": "sid-BB7BC55B-1E86-4E63-9BB5-99BADB39FA1B",
+            "targetRef": "sid-C958E754-45DC-4716-BF1A-EE1187FD74F2",
+            "condition": "nein",
+            "sourceRef": "sid-9900AA55-9749-4026-96ED-B6066CC61F02"
+        },
+        {
+            "id": "sid-C73D5217-B914-4F87-B28F-7BC29D28AA12",
+            "targetRef": "sid-B764F5EC-7AAA-4E3E-90B1-C50B56C34B69",
+            "sourceRef": "sid-C958E754-45DC-4716-BF1A-EE1187FD74F2"
+        }
+    ]
+}
