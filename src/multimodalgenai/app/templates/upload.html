@@ -1,0 +1,86 @@
+<!doctype html>
+<html lang="en">
+<head>
+    <title>Document to BPMN</title>
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            background-color: #f4f4f4;
+            margin: 0;
+            padding: 0;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            min-height: 100vh;
+            padding: 20px;
+        }
+
+        .container {
+            background-color: white;
+            padding: 20px;
+            border-radius: 8px;
+            box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+            width: 80%;
+            max-width: 800px;
+        }
+
+        h2, h3 {
+            color: #333;
+        }
+
+        form {
+            margin-bottom: 20px;
+        }
+
+        input[type="file"] {
+            border: 1px solid #ddd;
+            padding: 8px;
+            border-radius: 4px;
+            margin-bottom: 10px;
+            width: calc(100% - 16px); /* Full width minus padding */
+        }
+
+        input[type="submit"] {
+            background-color: #007bff;
+            color: white;
+            border: none;
+            padding: 10px 15px;
+            border-radius: 4px;
+            cursor: pointer;
+            width: 100%;
+        }
+
+        input[type="submit"]:hover {
+            background-color: #0056b3;
+        }
+
+        .json-result {
+            background-color: #eee;
+            border-radius: 4px;
+            border: 1px solid #ddd;
+            padding: 10px;
+            margin-top: 20px;
+            overflow-y: auto; /* Add vertical scrollbar if needed */
+            max-height: 400px; /* Set maximum height */
+            text-align: left;
+        }
+    </style>
+</head>
+<body>
+    <div class="container">
+        <h2>Multimodal document to BPMN</h2>
+        <p>Generates process models from multimodal documents using a multimodal LLM. Upload a document in a pdf format. Click on generate, wait around 30 seconds.
+          Then the generated BPMN model is shown in json below.</p>
+        <form method="post" enctype="multipart/form-data">
+            <input type="file" name="file">
+            <input type="submit" value="Generate JSON (takes approx. 30 seconds)">
+        </form>
+        {% if json_result %}
+            <h3>JSON Result:</h3>
+            <div class="json-result">
+                <pre>{{ json_result }}</pre>
+            </div>
+        {% endif %}
+    </div>
+</body>
+</html>

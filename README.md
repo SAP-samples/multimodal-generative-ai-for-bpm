@@ -1,41 +1,101 @@
-# SAP-samples/repository-template
-This default template for SAP Samples repositories includes files for README, LICENSE, and .reuse/dep5. All repositories on github.com/SAP-samples will be created based on this template.
+# Multimodal Gen AI
 
-# Containing Files
+## About this project
 
-1. The LICENSE file:
-In most cases, the license for SAP sample projects is `Apache 2.0`.
+This repository contains the source code for the thesis `Generative AI for
+Business Process Management - Suitability of Modalities`. The goal is evaluate feasibility of creating process models from multimodal documents with generative AI. The repository uses some code and data from the [SAP SAM repository](https://github.com/signavio/sap-sam).
 
-2. The .reuse/dep5 file: 
-The [Reuse Tool](https://reuse.software/) must be used for your samples project. You can find the .reuse/dep5 in the project initial. Please replace the parts inside the single angle quotation marks < > by the specific information for your repository.
 
-3. The README.md file (this file):
-Please edit this file as it is the primary description file for your project. You can find some placeholder titles for sections below.
-
-# [Title]
-<!-- Please include descriptive title -->
-
-<!--- Register repository https://api.reuse.software/register, then add REUSE badge:
-[![REUSE status](https://api.reuse.software/badge/github.com/SAP-samples/REPO-NAME)](https://api.reuse.software/info/github.com/SAP-samples/REPO-NAME)
--->
-
-## Description
-<!-- Please include SEO-friendly description -->
-
-## Requirements
-
-## Download and Installation
-
-## Known Issues
-<!-- You may simply state "No known issues. -->
-
-## How to obtain support
-[Create an issue](https://github.com/SAP-samples/<repository-name>/issues) in this repository if you find a bug or have questions about the content.
- 
-For additional support, [ask a question in SAP Community](https://answers.sap.com/questions/ask.html).
-
-## Contributing
-If you wish to contribute code, offer fixes or improvements, please send a pull request. Due to legal reasons, contributors will be asked to accept a DCO when they create the first pull request to this project. This happens in an automated fashion during the submission process. SAP uses [the standard DCO text of the Linux Foundation](https://developercertificate.org/).
 
 ## License
-Copyright (c) 2024 SAP SE or an SAP affiliate company. All rights reserved. This project is licensed under the Apache Software License, version 2.0 except as noted otherwise in the [LICENSE](LICENSE) file.
+
+The example code in this repository is licensed as follows. **Note that a different license applies to the dataset itself!**
+
+```
+Copyright (c) 2024 by SAP.
+
+Licensed under the Apache License, Version 2.0 (the "License");
+you may not use this file except in compliance with the License.
+You may obtain a copy of the License at
+
+   http://www.apache.org/licenses/LICENSE-2.0
+
+Unless required by applicable law or agreed to in writing, software
+distributed under the License is distributed on an "AS IS" BASIS,
+WITHOUT WARRANTIES OR CONDITIONS OF ANY KIND, either express or implied.
+See the License for the specific language governing permissions and
+limitations under the License.
+```
+
+The following license applies to the dataset in the data folder.
+
+```
+Copyright (c) 2024 by SAP.
+
+SAP grants to Recipient a non-exclusive copyright license to the Model Collection to use the Model Collection for Non-Commercial Research purposes of evaluating Recipient’s algorithms or other academic research artefacts against the Model Collection. Any rights not explicitly granted herein are reserved to SAP. For the avoidance of doubt, no rights to make derivative works of the Model Collection is granted and the license granted hereunder is for Non-Commercial Research purposes only.
+
+"Model Collection" shall mean all files in the archive (which are JSON, XML, or other representation of business process models or other models).
+
+"Recipient" means any natural person receiving the Model Collection.
+
+"Non-Commercial Research" means research solely for the advancement of knowledge whether by a university or other learning institution and does not include any commercial or other sales objectives.
+```
+
+Detailed information including third-party components and their licensing/copyright information is available [via the REUSE tool](https://api.reuse.software/info/github.com/signavio/multimodal-gen-ai).
+
+## Requirements and Setup
+
+We provide two [conda](https://docs.conda.io/projects/conda/en/latest/user-guide/index.html) environment.yml files that can be used to create a new environment and install the required dependencies:
+- `environment.yml`: contains the abstract dependencies (pandas, numpy, ...).
+- `environment-lock.yml`: contains versions for all dependencies and the transitive dependencies to ensure reproducible results.(TODO generate it, it does not exist yet)
+
+You can use the following conda command to create the environment:
+```shell
+conda env create -f environment.yml  
+```
+or
+```shell
+conda env create -f environment-lock.yml
+``` 
+
+
+## Getting started
+
+We provide multiple Jupyter Notebooks.
+
+The [data_set_preparation Jupyter Notebook](https://github.com/signavio/multimodal-gen-ai/blob/main/notebooks/00_data_set_preparation.ipynb) provides a walkthrough how the dataset was created.
+
+The [exploring_the_dataset Jupyter Notebook](https://github.com/signavio/multimodal-gen-ai/blob/main/notebooks/01_exploring_the_dataset.ipynb) gives insights about the characteristics of the created dataset.
+
+The [bpmn_generation Jupyter Notebook](https://github.com/signavio/multimodal-gen-ai/blob/main/notebooks/02_bpmn_generation.ipynb) creates process models from multimodal documentations using GPT-4V and zero-shot, one-shot and few-shot prompting.
+
+The [evaluation Jupyter Notebook](https://github.com/signavio/multimodal-gen-ai/blob/main/notebooks/03_evaluation.ipynb) introduces an evaluation framework to calulate similarity scores of the generated process models and the the ground truth models. Furthermore it applies the framework and presents the results.
+
+## Project Organization
+
+    ├── data
+    │   ├── examples          <- Some example models for illustrating main ideas.
+    |   └── sapsam
+    │       ├── cleaned       <- The created dataset.
+    |       ├── enriched      <- Original SAP-SAM data set enriched by some meta data
+    |       ├── evaluations   <- Evaluation results
+    |       ├── generated     <- Generated process models
+    |       ├── raw           <- Original SAP-SAM data set
+    |       └── tmp           <- Temporary data
+    ├── notebooks             <- Jupyter notebooks.
+    ├── src               
+    |   ├── multimodalgenai   <- Source code for use in this project.
+    │   └── sapsam            <- Adapted clone of the [SAP SAM repo](https://github.com/signavio/sap-sam)
+    ├── LICENSE               <- License that applies to the example code in this repository.
+    ├── README.md             <- The top-level README for developers using this project.
+    ├── environment-lock.yml  <- Contains versions for all dependencies and the transitive dependencies to ensure reproducible results.
+    ├── environment.yml       <- Contains the abstract dependencies (pandas, numpy, ...).
+    └── setup.py              <- Makes project pip installable (pip install -e .) such that src can be imported.
+
+## Support, Feedback, Contributing
+
+This project is open to feature requests/suggestions, bug reports etc. via [GitHub issues](https://github.com/signavio/multimodal-gen-ai/issues). Contribution and feedback are encouraged and always welcome. For more information about how to contribute, the project structure, as well as additional contribution information, see our [Contribution Guidelines](CONTRIBUTING.md).
+
+## Code of Conduct
+
+We as members, contributors, and leaders pledge to make participation in our community a harassment-free experience for everyone. By participating in this project, you agree to abide by its [Code of Conduct](CODE_OF_CONDUCT.md) at all times.

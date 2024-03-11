@@ -1,0 +1,4 @@
+data/sapsam/enriched/0.csv.pkl filter=lfs diff=lfs merge=lfs -text
+data/sapsam/enriched/. filter=lfs diff=lfs merge=lfs -text
+data/sapsam/enriched/* filter=lfs diff=lfs merge=lfs -text
+data/sapsam/raw/sap_sam_2022/models/* filter=lfs diff=lfs merge=lfs -text

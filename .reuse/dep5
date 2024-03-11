@@ -1,7 +1,7 @@
 Format: https://www.debian.org/doc/packaging-manuals/copyright-format/1.0/
-Upstream-Name: multimodal-generative-ai-for-bpm
-Upstream-Contact: ospo@sap.com
-Source: <https://github.com/sap-samples/YOUR-REPO-NAME>
+Upstream-Name: Multimodal-Gen-AI
+Upstream-Contact:
+Source: <https://github.com/signavio/multimodal-gen-ai>
 Disclaimer: The code in this project may include calls to APIs ("API Calls") of
  SAP or third-party products or services developed outside of this project
  ("External Products").
@@ -25,5 +25,13 @@ Disclaimer: The code in this project may include calls to APIs ("API Calls") of
  parties the right to use of access any SAP External Product, through API Calls.
 
 Files: *
-Copyright:  2024 SAP SE or an SAP affiliate company and multimodal-generative-ai-for-bpm contributors
+Copyright: 2024 SAP SE or an SAP affiliate company and multimodal-gen-ai contributors
 License: Apache-2.0
+
+Files: src/sapsam/*
+Copyright: 2024 SAP SE or an SAP affiliate company and sap-sam contributors
+License: Apache-2.0
+
+Files: data/*
+Copyright:  2024 SAP SE or an SAP affiliate company and multimodal-gen-ai and sap-sam contributors
+License: LicenseRef-Dataset
