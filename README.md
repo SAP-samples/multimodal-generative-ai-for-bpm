@@ -41,13 +41,13 @@ SAP grants to Recipient a non-exclusive copyright license to the Model Collectio
 "Non-Commercial Research" means research solely for the advancement of knowledge whether by a university or other learning institution and does not include any commercial or other sales objectives.
 ```
 
-Detailed information including third-party components and their licensing/copyright information is available [via the REUSE tool](https://api.reuse.software/info/github.com/signavio/multimodal-gen-ai).
+Detailed information including third-party components and their licensing/copyright information is available [via the REUSE tool](https://api.reuse.software/info/github.com/SAP-samples/multimodal-generative-ai-for-bpm).
 
 ## Requirements and Setup
 
 We provide two [conda](https://docs.conda.io/projects/conda/en/latest/user-guide/index.html) environment.yml files that can be used to create a new environment and install the required dependencies:
 - `environment.yml`: contains the abstract dependencies (pandas, numpy, ...).
-- `environment-lock.yml`: contains versions for all dependencies and the transitive dependencies to ensure reproducible results.(TODO generate it, it does not exist yet)
+- `environment-lock.yml`: contains versions for all dependencies and the transitive dependencies to ensure reproducible results.
 
 You can use the following conda command to create the environment:
 ```shell
@@ -63,13 +63,13 @@ conda env create -f environment-lock.yml
 
 We provide multiple Jupyter Notebooks.
 
-The [data_set_preparation Jupyter Notebook](https://github.com/signavio/multimodal-gen-ai/blob/main/notebooks/00_data_set_preparation.ipynb) provides a walkthrough how the dataset was created.
+The [data_set_preparation Jupyter Notebook](https://github.com/SAP-samples/multimodal-generative-ai-for-bpm/blob/main/notebooks/00_data_set_preparation.ipynb) provides a walkthrough how the dataset was created.
 
-The [exploring_the_dataset Jupyter Notebook](https://github.com/signavio/multimodal-gen-ai/blob/main/notebooks/01_exploring_the_dataset.ipynb) gives insights about the characteristics of the created dataset.
+The [exploring_the_dataset Jupyter Notebook](https://github.com/SAP-samples/multimodal-generative-ai-for-bpm/blob/main/notebooks/01_exploring_the_dataset.ipynb) gives insights about the characteristics of the created dataset.
 
-The [bpmn_generation Jupyter Notebook](https://github.com/signavio/multimodal-gen-ai/blob/main/notebooks/02_bpmn_generation.ipynb) creates process models from multimodal documentations using GPT-4V and zero-shot, one-shot and few-shot prompting.
+The [bpmn_generation Jupyter Notebook](https://github.com/SAP-samples/multimodal-generative-ai-for-bpm/blob/main/notebooks/02_bpmn_generation.ipynb) creates process models from multimodal documentations using GPT-4V and zero-shot, one-shot and few-shot prompting.
 
-The [evaluation Jupyter Notebook](https://github.com/signavio/multimodal-gen-ai/blob/main/notebooks/03_evaluation.ipynb) introduces an evaluation framework to calulate similarity scores of the generated process models and the the ground truth models. Furthermore it applies the framework and presents the results.
+The [evaluation Jupyter Notebook](https://github.com/SAP-samples/multimodal-generative-ai-for-bpm/blob/main/notebooks/03_evaluation.ipynb) introduces an evaluation framework to calulate similarity scores of the generated process models and the the ground truth models. Furthermore it applies the framework and presents the results.
 
 ## Project Organization
 
@@ -94,7 +94,7 @@ The [evaluation Jupyter Notebook](https://github.com/signavio/multimodal-gen-ai/
 
 ## Support, Feedback, Contributing
 
-This project is open to feature requests/suggestions, bug reports etc. via [GitHub issues](https://github.com/signavio/multimodal-gen-ai/issues). Contribution and feedback are encouraged and always welcome. For more information about how to contribute, the project structure, as well as additional contribution information, see our [Contribution Guidelines](CONTRIBUTING.md).
+This project is open to feature requests/suggestions, bug reports etc. via [GitHub issues](https://github.com/SAP-samples/multimodal-generative-ai-for-bpm/issues). Contribution and feedback are encouraged and always welcome. For more information about how to contribute, the project structure, as well as additional contribution information, see our [Contribution Guidelines](CONTRIBUTING.md).
 
 ## Code of Conduct
 
