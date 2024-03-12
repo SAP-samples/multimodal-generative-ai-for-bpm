@@ -1,5 +1,5 @@
-# Multimodal Gen AI
 [![REUSE status](https://api.reuse.software/badge/github.com/SAP-samples/multimodal-generative-ai-for-bpm)](https://api.reuse.software/info/github.com/SAP-samples/multimodal-generative-ai-for-bpm)
+# Multimodal Gen AI
 
 ## About this project
 
