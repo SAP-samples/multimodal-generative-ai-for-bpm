@@ -89,6 +89,7 @@ The [evaluation Jupyter Notebook](https://github.com/SAP-samples/multimodal-gene
     │   └── sapsam            <- Adapted clone of the [SAP SAM repo](https://github.com/signavio/sap-sam)
     ├── LICENSE               <- License that applies to the example code in this repository.
     ├── README.md             <- The top-level README for developers using this project.
+    ├── Thesis_Gen-AI-for-BPM-Modalities_Marvin-Voelter_v04_2024-03-21_final_blurred.pdf <- Thesis with more detailed explanations and thoughts
     ├── environment-lock.yml  <- Contains versions for all dependencies and the transitive dependencies to ensure reproducible results.
     ├── environment.yml       <- Contains the abstract dependencies (pandas, numpy, ...).
     └── setup.py              <- Makes project pip installable (pip install -e .) such that src can be imported.
