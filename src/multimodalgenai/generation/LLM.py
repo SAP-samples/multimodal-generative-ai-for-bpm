@@ -1,5 +1,7 @@
 
 from abc import ABC, abstractmethod
+import os
+
 class LLM(ABC):
     """Abstract class of an LLM"""
 
@@ -13,6 +15,9 @@ class LLM(ABC):
         pass
 
 from openai import OpenAI as OriginalOpenAI
+
+os.environ["OPENAI_API_KEY"] = "your-api-key"
+
 class ChatGPT_private_subscription(LLM):
     """gpt-4-vision-preview model instance that is based on an usual private open ai subscription"""
  
@@ -31,6 +36,7 @@ class ChatGPT_private_subscription(LLM):
         return response.choices[0].message.content
 
 import requests, json
+
 class ChatGPT_hosted_subscription(LLM):
     """gpt-4-vision-preview model instance that is based on an hosted open ai subscription, for example on azure"""
  
